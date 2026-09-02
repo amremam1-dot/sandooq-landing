@@ -1,177 +1,69 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سياسة الخصوصية - تطبيق صندوق العمارة</title>
-    <style>
-        :root {
-            --primary-color: #0F172A;
-            --secondary-color: #2563EB;
-            --bg-color: #F8FAFC;
-            --card-bg: #FFFFFF;
-            --text-color: #1E293B;
-            --text-muted: #64748B;
-            --border-color: #E2E8F0;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary-color: #38BDF8;
-                --secondary-color: #60A5FA;
-                --bg-color: #0F172A;
-                --card-bg: #1E293B;
-                --text-color: #F8FAFC;
-                --text-muted: #94A3B8;
-                --border-color: #334155;
-            }
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.8;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border-color);
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 35px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 20px;
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 8px;
-        }
-
-        .header p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        section {
-            margin-bottom: 28px;
-        }
-
-        h2 {
-            font-size: 1.35rem;
-            color: var(--secondary-color);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        p, li {
-            font-size: 1.05rem;
-            color: var(--text-color);
-            margin-bottom: 10px;
-        }
-
-        ul {
-            padding-right: 24px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .highlight-box {
-            background-color: rgba(37, 99, 235, 0.08);
-            border-right: 4px solid var(--secondary-color);
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سياسة الخصوصية | تطبيق صندوق العمارة</title>
+  <link rel="icon" type="image/png" href="assets/sandooq-logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .legal-content { max-width: 900px; margin: 60px auto; padding: 40px; background: var(--card-bg); border-radius: var(--radius-lg); border: 1px solid var(--border-color); box-shadow: var(--shadow-md); }
+    .legal-content h1 { font-size: 2.2rem; margin-bottom: 24px; color: var(--text-main); }
+    .legal-content h2 { font-size: 1.4rem; margin: 28px 0 12px; color: var(--primary-light); }
+    .legal-content p, .legal-content li { font-size: 1.05rem; color: var(--text-light); line-height: 1.8; margin-bottom: 12px; }
+    .legal-content ul { padding-right: 24px; margin-bottom: 20px; }
+    .contact-box { background: var(--card-bg-subtle); padding: 20px; border-radius: var(--radius-md); border-right: 4px solid var(--primary-light); margin-top: 30px; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🏢 سياسة الخصوصية - تطبيق صندوق العمارة</h1>
-            <p>تاريخ آخر تحديث: 7 أغسطس 2026</p>
-        </div>
-
-        <section>
-            <p>مرحباً بكم في تطبيق <strong>صندوق العمارة (Sandooq ElAmara)</strong>. نحن نحترم خصوصيتكم ونلتزم بنسبة 100% بحماية بياناتكم الشخصية والمالية. تم تصميم هذه الصفحة لتوضيح كيفية تعامل التطبيق مع البيانات والخصوصية.</p>
-        </section>
-
-        <div class="highlight-box">
-            <strong>📌 ملخص مهم:</strong> تطبيق "صندوق العمارة" يعمل بشكل محلي تماماً على جهازك. نحن لا نجمع، لا ننتقل، ولا نخزن أي من بياناتك المالية أو أسماء السكان على أجهزة سيرفر خارجية.
-        </div>
-
-        <section>
-            <h2>1. البيانات التي يتم جمعها ومعالجتها</h2>
-            <p>يقوم التطبيق بتخزين البيانات التي تدخلها يدوياً فقط داخل قاعدة بيانات محليّة على جهازك الشخصي، وتشمل:</p>
-            <ul>
-                <li>أسماء السكان ورقم الشقة ورقم الهاتف (اختياري).</li>
-                <li>سجلات تحصيل الاشتراكات والمصروفات المالية وتواريخها.</li>
-                <li>إعدادات صندوق العمارة (اسم العمارة، الرصيد الافتتاحي، اسم مسؤول الصندوق).</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>2. الأذونات (Permissions) المطلوب استخدامها</h2>
-            <p>قد يطلب التطبيق بعض الأذونات الأساسية على هاتفك لتقديم وظائفه بالكامل:</p>
-            <ul>
-                <li><strong>إذن التخزين وقراءة/كتابة الملفات:</strong> يُستخدم حصرياً لحفظ واستعادة النسخ الاحتياطية لقاعدة البيانات (Backup) وتصدير تقارير PDF وصور التقارير المالية على جهازك.</li>
-                <li><strong>إذن المشاركة:</strong> لمشاركتك تقارير PDF أو الصور أو النسخ الاحتياطية عبر تطبيقات التواصل الاجتماعي مثل WhatsApp بناءً على طلبك المباشر.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>3. مشاركة البيانات مع أطراف ثالثة</h2>
-            <p>نحن لا نبيع، ولا نؤجر، ولا نعد، ولا نشارك بياناتك أو بيانات السكّان مع أي طرف ثالث تحت أي ظرف من الظروف. جميع البيانات ملك كامل ومطلق لمستخدم التطبيق.</p>
-        </section>
-
-        <section>
-            <h2>4. حماية وأمان البيانات</h2>
-            <p>يتم حماية بياناتك المحفوظة داخل التطبيق عبر تشفير وتأمين قاعدة البيانات المحلية وتأمين النسخ الاحتياطية بأعلى معايير الأمان المتاحة على نظام التشغيل Android.</p>
-        </section>
-
-        <section>
-            <h2>5. التحديثات على سياسة الخصوصية</h2>
-            <p>قد نقوم بتحديث سياسة الخصوصية من وقت لآخر للتوافق مع أي متطلبات جديدة. سيتم نشر أي تغييرات في هذه الصفحة بنفس الرابط.</p>
-        </section>
-
-        <section>
-            <h2>6. الاتصال بنا</h2>
-            <p>إذا كان لديك أي استفسار حول سياسة الخصوصية أو التطبيق، يمكنك التواصل معنا عبر البريد الإلكتروني الخاص بمطور التطبيق.</p>
-        </section>
-
-        <div class="footer">
-            جميع الحقوق محفوظة © 2026 - تطبيق صندوق العمارة (Sandooq ElAmara)
-        </div>
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="index.html">
+        <img src="assets/sandooq-logo.png" alt="شعار صندوق العمارة" />
+        <span>صندوق العمارة</span>
+      </a>
+      <a href="index.html" class="button secondary" style="padding: 8px 18px; font-size: 0.9rem;">الرئيسية</a>
     </div>
+  </header>
+
+  <main class="container">
+    <div class="legal-content">
+      <h1>سياسة الخصوصية (Privacy Policy)</h1>
+      <p><strong>تاريخ آخر تحديث:</strong> سبتمبر 2026</p>
+      <p>يلتزم تطبيق <strong>صندوق العمارة (Sandooq El-Amara)</strong> بحماية خصوصية المستخدمين وسرية البيانات المالية الخاصة بالعقارات. توضح هذه السياسة البيانات التي نجمعها وكيفية التعامل معها وحمايتها.</p>
+
+      <h2>1. البيانات التي يتم جمعها</h2>
+      <ul>
+        <li><strong>بيانات الحساب:</strong> البريد الإلكتروني (عند تسجيل الدخول السحابي الاختياري عبر Google أو Firebase).</li>
+        <li><strong>بيانات إدارة العقار:</strong> أرقام الشقق، أسماء الشاغلين، أرقام الهواتف (اختياري)، سجلات التحصيلات الشهرية، والمصروفات.</li>
+      </ul>
+
+      <h2>2. كيفية استخدام البيانات</h2>
+      <ul>
+        <li>إدارة ومتابعة تحصيل اشتراكات الصيانة وحساب المتأخرات تلقائياً.</li>
+        <li>إنشاء ومشاركة إيصالات السداد والتقارير الشهرية والسنوية مع الملاك والسكان عبر واتساب.</li>
+        <li>المزامنة السحابية الآمنة لتمكين استعادة البيانات عند تغيير الهاتف أو فقدانه.</li>
+      </ul>
+
+      <h2>3. حماية البيانات وعدم المشاركة مع أطراف ثالثة</h2>
+      <p>نحن لا نقوم ببيع أو تأجير أو مشاركة أي بيانات شخصية أو مالية مع أي جهات خارجية أو معلنين. يتم تخزين البيانات محلياً على جهازك، وفي حال تفعيل المزامنة السحابية، تُحفظ مشفرة عبر خوادم Google Firebase الآمنة وفق أعلى معايير الحماية.</p>
+
+      <h2>4. حذف البيانات (Data Deletion)</h2>
+      <p>يحق للمستخدم حذف كافة بياناته وسجلاته في أي وقت من خلال خيار "حذف الحساب والبيانات" داخل التطبيق، أو عبر صفحة <a href="delete-account.html" style="color: var(--primary-light); text-decoration: underline;">طلب حذف البيانات</a>، أو عبر مراسلتنا بالبريد الإلكتروني.</p>
+
+      <div class="contact-box">
+        <h3>التواصل بخصوص الخصوصية</h3>
+        <p>إذا كان لديك أي سؤال حول سياسة الخصوصية أو إدارة بياناتك، يمكنك التواصل معنا مباشرة عبر:</p>
+        <p>📧 البريد الإلكتروني: <strong>maro.emam1@gmail.com</strong></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة — جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
 </body>
 </html>
