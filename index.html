@@ -13,12 +13,20 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="صندوق العمارة — التطبيق الأذكى والمتكامل لإدارة حسابات واشتراكات ومصروفات العقار، تتبع المتأخرات، ومشاركة إيصالات السداد عبر واتساب." />
-  <title>صندوق العمارة | الإدارة المالية الشاملة للعقارات والملاك</title>
+  <meta name="description" content="صندوق العمارة — تطبيق متكامل لإدارة حسابات واشتراكات ومصروفات العقار، تتبع المتأخرات، ومشاركة إيصالات السداد عبر واتساب. يعمل بدون إنترنت (Offline). حمّله مجاناً." />
+  <meta name="application-name" content="صندوق العمارة" />
+  <meta name="apple-mobile-web-app-title" content="صندوق العمارة" />
+  <meta name="theme-color" content="#1e3a8a" />
+  <title>صندوق العمارة | برنامج إدارة حسابات واشتراكات وصيانة العمارات</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/sandooq-logo.png" />
-  <link rel="apple-touch-icon" href="assets/sandooq-logo.png" />
+  <!-- Favicon & Touch Icons for Google Search & Browsers -->
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
   <link rel="stylesheet" href="styles.css" />
   <link rel="canonical" href="https://sandoqalemara.com/" />
   <link rel="help" type="text/markdown" href="https://sandoqalemara.com/llms.txt" title="LLM Knowledge Base" />
@@ -53,9 +61,17 @@
       {
         "@type": "SoftwareApplication",
         "name": "صندوق العمارة",
-        "alternateName": "Sandooq El-Amara",
+        "alternateName": ["Sandooq El-Amara", "تطبيق صندوق العمارة"],
         "operatingSystem": "Android",
         "applicationCategory": "FinanceApplication",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "128",
+          "reviewCount": "128",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -73,7 +89,9 @@
       },
       {
         "@type": "WebSite",
+        "@id": "https://sandoqalemara.com/#website",
         "name": "صندوق العمارة",
+        "alternateName": ["تطبيق صندوق العمارة", "Sandooq El-Amara", "صندوق العماره"],
         "url": "https://sandoqalemara.com/",
         "inLanguage": "ar"
       },
