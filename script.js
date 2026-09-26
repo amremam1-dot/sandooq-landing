@@ -1,4 +1,13 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+document.documentElement.classList.add("js-ready");
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Helper for GA4 Event Tracking
+  function trackEvent(name, params) {
+    if (typeof gtag === "function") {
+      gtag("event", name, params || {});
+    }
+  }
+
   // 1. Theme Toggle
   const themeToggleBtn = document.getElementById("theme-toggle");
   const currentTheme = localStorage.getItem("sandooq_theme") || "dark";
@@ -12,6 +21,7 @@
       document.body.classList.toggle("light-theme");
       const isLight = document.body.classList.contains("light-theme");
       localStorage.setItem("sandooq_theme", isLight ? "light" : "dark");
+      trackEvent("theme_toggle", { selected_theme: isLight ? "light" : "dark" });
     });
   }
 
@@ -70,6 +80,8 @@
           c.classList.add("active");
         }
       });
+
+      trackEvent("showcase_tab_click", { tab_name: target });
     });
   });
 
@@ -89,24 +101,72 @@
 
       // Toggle current
       item.classList.toggle("active", !isActive);
+      if (!isActive) {
+        const questionText = trigger.querySelector("span")?.textContent.trim();
+        trackEvent("faq_expand", { question: questionText });
+      }
     });
   });
 
-  // 5. Scroll Reveal Observer
+  // 5. Scroll Reveal Observer (Progressive Enhancement)
   const reveals = document.querySelectorAll(".reveal");
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -40px 0px"
-  };
+  if ("IntersectionObserver" in window) {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -40px 0px"
+    };
 
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        observer.unobserve(entry.target);
-      }
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    reveals.forEach(el => revealObserver.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add("active"));
+  }
+
+  // 6. Conversion Analytics Tracking
+  // Google Play CTA clicks
+  document.querySelectorAll("a[href*='play.google.com']").forEach(link => {
+    link.addEventListener("click", () => {
+      trackEvent("google_play_click", {
+        link_url: link.href,
+        section: link.closest("section")?.id || "header_or_hero"
+      });
     });
-  }, observerOptions);
+  });
 
-  reveals.forEach(el => revealObserver.observe(el));
+  // Calculator visits
+  document.querySelectorAll("a[href*='building-fee-calculator']").forEach(link => {
+    link.addEventListener("click", () => {
+      trackEvent("calculator_open", { from_page: window.location.pathname });
+    });
+  });
+
+  // Receipt Generator visits
+  document.querySelectorAll("a[href*='receipt-generator']").forEach(link => {
+    link.addEventListener("click", () => {
+      trackEvent("receipt_generator_open", { from_page: window.location.pathname });
+    });
+  });
+
+  // Guides navigation
+  document.querySelectorAll("a[href*='guides/']").forEach(link => {
+    link.addEventListener("click", () => {
+      trackEvent("guide_open", { guide_path: link.getAttribute("href") });
+    });
+  });
+
+  // Pricing buttons
+  document.querySelectorAll(".pricing-card a").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const planName = btn.closest(".pricing-card")?.querySelector(".pricing-title")?.textContent.trim() || "plan";
+      trackEvent("pricing_click", { plan: planName });
+    });
+  });
 });

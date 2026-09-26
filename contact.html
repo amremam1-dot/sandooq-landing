@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>اتصل بنا | الدعم الفني وتواصل تطبيق صندوق العمارة</title>
+  <meta name="description" content="تواصل مع فريق تطوير تطبيق صندوق العمارة للحصول على الدعم الفني، الاستفسارات، أو اقتراح مميزات جديدة لتطبيق إدارة العمارات." />
+  <link rel="canonical" href="https://sandoqalemara.com/contact.html" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" href="assets/sandooq-logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/contact.html" />
+  <meta property="og:title" content="اتصل بنا | الدعم الفني وتواصل تطبيق صندوق العمارة" />
+  <meta property="og:description" content="قنوات التواصل الرسمية والدعم الفني لتطبيق صندوق العمارة عبر البريد الإلكتروني وواتساب." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="اتصل بنا | صندوق العمارة" />
+  <meta name="twitter:description" content="قنوات التواصل والدعم الفني لتطبيق صندوق العمارة." />
+  <meta name="twitter:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .contact-page-container {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .contact-card h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+    .contact-channels-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 32px 0;
+    }
+    @media (max-width: 700px) {
+      .contact-channels-grid { grid-template-columns: 1fr; }
+    }
+    .channel-box {
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .channel-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .channel-icon {
+      font-size: 1.8rem;
+    }
+    .channel-header h3 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin: 0;
+    }
+    .channel-box p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .channel-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .channel-link.email {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .channel-link.email:hover {
+      background: var(--primary-light);
+    }
+    .channel-link.whatsapp {
+      background: #25d366;
+      color: #fff;
+    }
+    .channel-link.whatsapp:hover {
+      background: #1eb956;
+    }
+    .channel-link.play {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #fff;
+    }
+    .channel-link.play:hover {
+      background: #1e293b;
+    }
+    .quick-links-box {
+      margin-top: 36px;
+      padding: 24px;
+      background: var(--card-bg-subtle);
+      border-radius: var(--radius-md);
+      border-right: 4px solid var(--primary-light);
+    }
+    .quick-links-box h3 {
+      font-size: 1.1rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+    .quick-links-box ul {
+      padding-right: 20px;
+      margin: 0;
+    }
+    .quick-links-box li {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+    .quick-links-box a {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+    .breadcrumb-nav {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a {
+      color: var(--primary-light);
+    }
+  </style>
+
+  <!-- Structured Data: ContactPage & Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "name": "اتصل بنا - تطبيق صندوق العمارة",
+        "url": "https://sandoqalemara.com/contact.html",
+        "description": "قنوات التواصل الرسمية لطلب الدعم الفني أو الاستفسارات لتطبيق صندوق العمارة."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://sandoqalemara.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "اتصل بنا",
+            "item": "https://sandoqalemara.com/contact.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="index.html">
+        <img src="assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        <span>صندوق العمارة</span>
+      </a>
+
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <a href="index.html" class="button secondary" style="padding: 8px 16px; font-size: 0.9rem;">الرئيسية</a>
+        <a href="download.html" class="button primary" style="padding: 8px 16px; font-size: 0.9rem;">تحميل التطبيق</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="contact-page-container">
+    <nav class="breadcrumb-nav" aria-label="مسار التنقل">
+      <a href="index.html">الرئيسية</a> &gt; <strong>اتصل بنا</strong>
+    </nav>
+
+    <article class="contact-card">
+      <h1>تواصل مع فريق صندوق العمارة</h1>
+      <p class="lead-text" style="font-size: 1.1rem; color: var(--text-light); line-height: 1.8;">
+        نحن هنا لمساعدتك في أي استفسار يتعلق بإعداد حسابات عمارتك، حل أي مشكلة تقنية، أو الاستماع لاقتراحاتك لتطوير التطبيق.
+      </p>
+
+      <div class="contact-channels-grid">
+        <!-- Email Support -->
+        <div class="channel-box">
+          <div>
+            <div class="channel-header">
+              <span class="channel-icon">📧</span>
+              <h3>البريد الإلكتروني المباشر</h3>
+            </div>
+            <p style="margin-top: 10px;">للاستفسارات العامة، الدعم الفني، أو طلبات الشراكة وملاحظات التطوير:</p>
+            <strong style="display: block; margin-top: 8px; color: var(--text-main); direction: ltr; text-align: right;">maro.emam1@gmail.com</strong>
+          </div>
+          <a href="mailto:maro.emam1@gmail.com?subject=استفسار%20عن%20تطبيق%20صندوق%20العمارة" class="channel-link email">
+            إرسال بريد إلكتروني ✉️
+          </a>
+        </div>
+
+        <!-- Google Play -->
+        <div class="channel-box">
+          <div>
+            <div class="channel-header">
+              <span class="channel-icon">📱</span>
+              <h3>صفحة التطبيق على Google Play</h3>
+            </div>
+            <p style="margin-top: 10px;">حمّل التطبيق، تابع أحدث التحديثات، واقرأ تفاصيل الإصدارات وتقييمات المستخدمين:</p>
+            <span style="display: block; margin-top: 8px; color: var(--text-muted); font-size: 0.88rem;">متاح لأجهزة أندرويد في مصر</span>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" class="channel-link play">
+            عرض على Google Play ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Support Links -->
+      <div class="quick-links-box">
+        <h3>روابط سريعة ذات صلة:</h3>
+        <ul>
+          <li>إذا كنت تريد حذف حسابك أو بياناتك السحابية: يمكنك مراجعة <a href="delete-account.html">صفحة تعليمات حذف الحساب</a>.</li>
+          <li>للاطلاع على كيفية تعاملنا مع بياناتك وخصوصيتك: تصفح <a href="privacy.html">سياسة الخصوصية</a>.</li>
+          <li>لحساب اشتراك الصيانة لعمارتك فوراً: جرب <a href="tools/building-fee-calculator.html">حاسبة اشتراك العمارة</a>.</li>
+          <li>لإصدار إيصال نقدية فوري للساكن: استخدم <a href="tools/receipt-generator.html">مولد إيصال الاستلام المجاني</a>.</li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="brand">
+        <img src="assets/sandooq-logo.png" alt="شعار صندوق العمارة" width="36" height="36" loading="lazy" />
+        <span>صندوق العمارة</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">عن التطبيق</a>
+        <a href="contact.html">اتصل بنا</a>
+        <a href="download.html">تحميل التطبيق</a>
+        <a href="tools/index.html">الأدوات المجانية</a>
+        <a href="guides/index.html">أدلة الإدارة</a>
+        <a href="privacy.html">سياسة الخصوصية</a>
+        <a href="delete-account.html">حذف الحساب</a>
+      </div>
+
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+</body>
+</html>

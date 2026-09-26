@@ -1247,15 +1247,24 @@ body.light-theme .moon-icon { display: none; }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Content visible by default for SEO, screen readers, and disabled JS */
 .reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  opacity: 1;
+  transform: none;
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+/* Progressive enhancement: Animate only when JS is enabled and user doesn't prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html.js-ready .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.js-ready .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive */
