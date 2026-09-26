@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>حاسبة اشتراك ومصاريف العمارة مجاناً | احسب نصيب كل شقة بالجنيه</title>
+  <meta name="description" content="أداة تفاعلية مجانية لحساب اشتراك صيانة العمارة الشهري بدقة، وتحديد نصيب كل شقة من راتب البواب وصيانة المصعد والكهرباء والاحتياطي المالي بدون أخطاء." />
+  <link rel="canonical" href="https://amremam1-dot.github.io/sandooq-landing/tools/building-fee-calculator.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://amremam1-dot.github.io/sandooq-landing/tools/building-fee-calculator.html" />
+  <meta property="og:title" content="حاسبة اشتراك ومصاريف العمارة مجاناً | احسب نصيب كل شقة بدقة" />
+  <meta property="og:description" content="أداة مجانية لأمناء الصناديق والملاك لحساب اشتراك الصيانة الشهري للعقار وتوزيعه على الشقق وحساب احتياطي الطوارئ." />
+  <meta property="og:image" content="https://amremam1-dot.github.io/sandooq-landing/assets/sandooq-logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="حاسبة اشتراك ومصاريف العمارة مجاناً | احسب نصيب كل شقة" />
+  <meta name="twitter:description" content="أداة مجانية لحساب اشتراكات صيانة العمارة وتوزيع المصاريف على الوحدات بدقة تامة." />
+  <meta name="twitter:image" content="https://amremam1-dot.github.io/sandooq-landing/assets/sandooq-logo.png" />
+
+  <!-- Favicon & Styles -->
+  <link rel="icon" type="image/png" href="../assets/sandooq-logo.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .calc-container {
+      max-width: 1000px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .calc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-md);
+      margin-top: 24px;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 28px;
+    }
+    @media (max-width: 800px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    .results-box {
+      background: linear-gradient(145deg, rgba(30, 58, 138, 0.2), rgba(16, 185, 129, 0.15));
+      border: 1px solid var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    .result-item.highlight {
+      border-bottom: none;
+      background: var(--card-bg);
+      padding: 18px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--secondary-color);
+    }
+    .result-label {
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .result-item.highlight .result-label {
+      color: var(--text-main);
+      font-size: 1.1rem;
+    }
+    .result-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .result-item.highlight .result-value {
+      font-size: 1.8rem;
+      color: var(--secondary-color);
+    }
+    .calc-guide-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-top: 50px;
+      box-shadow: var(--shadow-sm);
+    }
+    .calc-guide-content h2 {
+      color: var(--text-main);
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+    .calc-guide-content h3 {
+      color: var(--primary-light);
+      font-size: 1.25rem;
+      margin: 24px 0 10px;
+    }
+    .calc-guide-content p, .calc-guide-content li {
+      color: var(--text-light);
+      line-height: 1.85;
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+    }
+    .calc-guide-content ul {
+      padding-right: 24px;
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a {
+      color: var(--primary-light);
+    }
+  </style>
+
+  <!-- Structured Data: WebApplication & FAQPage & Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "حاسبة اشتراك ومصاريف العمارة",
+        "url": "https://amremam1-dot.github.io/sandooq-landing/tools/building-fee-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EGP"
+        },
+        "description": "أداة مجانية لحساب اشتراك صيانة العمارة الشهري ونصيب كل شقة بالجنيه المصري بناءً على بنود المصروفات ونسبة الاحتياطي."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://amremam1-dot.github.io/sandooq-landing/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "الأدوات المجانية",
+            "item": "https://amremam1-dot.github.io/sandooq-landing/tools/building-fee-calculator.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "حاسبة اشتراك العمارة",
+            "item": "https://amremam1-dot.github.io/sandooq-landing/tools/building-fee-calculator.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "كيف يتم حساب اشتراك العمارة الشهري لكل شقة؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "يتم جمع كافة المصروفات الشهرية الثابتة (مثل راتب البواب، صيانة المصعد، فواتير الكهرباء والمياه، والنظافة) وإضافة نسبة احتياطي للطوارئ (عادة 10% إلى 15%)، ثم تقسيم الناتج الإجمالي على عدد الشقق المشتركة في العقار بالتساوي."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "هل يجب أن يدفع ساكن الدور الأرضي اشتراك صيانة الأسانسير؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "وفقاً للعرف وقرارات الجمعية العمومية لاتحاد الشاغلين، يتم في كثير من العمارات إعفاء سكان الدور الأرضي من مصاريف صيانة وتشغيل المصعد، أو احتساب نسبة مخفضة، ما لم ينص النظام الأساسي للعقار على خلاف ذلك."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../index.html">
+        <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" />
+        <span>صندوق العمارة</span>
+      </a>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <a href="../index.html" class="button secondary" style="padding: 8px 16px; font-size: 0.9rem;">الرئيسية</a>
+        <a href="../index.html#download" class="button primary" style="padding: 8px 16px; font-size: 0.9rem;">تحميل التطبيق</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="calc-container">
+    <nav class="breadcrumb-nav" aria-label="مسار التنقل">
+      <a href="../index.html">الرئيسية</a> &gt; <span>أدوات مجانية</span> &gt; <strong>حاسبة اشتراك العمارة</strong>
+    </nav>
+
+    <div class="section-header" style="text-align: right; margin-bottom: 24px;">
+      <p class="eyebrow">🧮 أداة مجانية لأمناء الصناديق والملاك</p>
+      <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main);">حاسبة اشتراك ومصاريف العمارة الشهرية</h1>
+      <p class="lead-text" style="margin: 0; font-size: 1.1rem; color: var(--text-muted);">
+        أدخل بنود مصاريف عمارتك وعدد الوحدات لمعرفة القيمة العادلة لاشتراك كل شقة شهرياً مع حساب صندوق الطوارئ تلقائياً.
+      </p>
+    </div>
+
+    <!-- Interactive Calculator Card -->
+    <div class="calc-card">
+      <div class="calc-grid">
+        <!-- Input Form -->
+        <div class="calc-inputs">
+          <h3 style="font-size: 1.2rem; margin-bottom: 18px; color: var(--primary-light);">1. بيانات العمارة والمصروفات</h3>
+          
+          <div class="form-group">
+            <label for="unitsCount">عدد الشقق المشاركة في الدفع:</label>
+            <input type="number" id="unitsCount" value="10" min="1" max="500" />
+          </div>
+
+          <div class="form-group">
+            <label for="doormanSalary">راتب البواب / الحارس (ج.م/شهر):</label>
+            <input type="number" id="doormanSalary" value="2500" min="0" step="50" />
+          </div>
+
+          <div class="form-group">
+            <label for="elevatorFee">عقد صيانة المصعد الشهري (ج.م/شهر):</label>
+            <input type="number" id="elevatorFee" value="800" min="0" step="50" />
+          </div>
+
+          <div class="form-group">
+            <label for="electricityBill">متوسط فاتورة كهرباء السلم والمصعد (ج.م/شهر):</label>
+            <input type="number" id="electricityBill" value="700" min="0" step="50" />
+          </div>
+
+          <div class="form-group">
+            <label for="waterBill">متوسط فاتورة المياه العمومية (ج.م/شهر):</label>
+            <input type="number" id="waterBill" value="300" min="0" step="50" />
+          </div>
+
+          <div class="form-group">
+            <label for="cleaningSupplies">أدوات نظافة ومهمات دورية (ج.م/شهر):</label>
+            <input type="number" id="cleaningSupplies" value="200" min="0" step="50" />
+          </div>
+
+          <div class="form-group">
+            <label for="otherExpenses">مصروفات أخرى متنوعة (ج.م/شهر):</label>
+            <input type="number" id="otherExpenses" value="0" min="0" step="50" />
+          </div>
+
+          <div class="form-group">
+            <label for="emergencyRate">نسبة احتياطي الطوارئ للصندوق:</label>
+            <select id="emergencyRate">
+              <option value="0">بدون احتياطي (0%)</option>
+              <option value="0.05">احتياطي بسيط (5%)</option>
+              <option value="0.10" selected>احتياطي موصى به (10%)</option>
+              <option value="0.15">احتياطي آمن للعمارات القديمة (15%)</option>
+              <option value="0.20">احتياطي صيانة مكثفة (20%)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Live Output Box -->
+        <div class="calc-outputs">
+          <h3 style="font-size: 1.2rem; margin-bottom: 18px; color: var(--secondary-color);">2. نتيجة الحساب وتوزيع الاشتراك</h3>
+          
+          <div class="results-box">
+            <div class="result-item">
+              <span class="result-label">إجمالي المصروفات الأساسية:</span>
+              <span class="result-value" id="baseTotalVal">4,500 ج.م</span>
+            </div>
+
+            <div class="result-item">
+              <span class="result-label">مبلغ احتياطي الطوارئ للصندوق:</span>
+              <span class="result-value" id="emergencyTotalVal">450 ج.م</span>
+            </div>
+
+            <div class="result-item">
+              <span class="result-label">إجمالي الميزانية المستهدفة شهرياً:</span>
+              <span class="result-value" id="grandTotalVal">4,950 ج.م</span>
+            </div>
+
+            <div class="result-item highlight">
+              <span class="result-label">اشتراك الشقة الشهري المقترح:</span>
+              <span class="result-value" id="perUnitFeeVal">495 ج.م</span>
+            </div>
+
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-top: 10px;">
+              💡 نصيحة: ينصح بجبر المبلغ لأقرب 10 أو 50 جنيهاً (مثال: 500 ج.م) لتسهيل التحصيل الفعلي من السكان وتغذية فائض الخزينة.
+            </p>
+          </div>
+
+          <!-- App Conversion CTA -->
+          <div style="margin-top: 24px; padding: 20px; background: var(--card-bg-subtle); border-radius: var(--radius-md); border-right: 4px solid var(--primary-light);">
+            <h4 style="font-size: 1.05rem; margin-bottom: 8px; color: var(--text-main);">تعبت من الحسابات اليدوية؟</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px;">
+              تطبيق <strong>صندوق العمارة</strong> يسجل دفعات الشقق، يحسب المتأخرات تلقائياً، ويرسل إيصال السداد على واتساب لكل ساكن بضغطة زر واحدة.
+            </p>
+            <a href="../index.html#download" class="button primary" style="width: 100%; text-align: center; font-size: 0.92rem; padding: 10px 16px;">
+              تحميل تطبيق صندوق العمارة مجاناً
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educational & Topical Authority Content -->
+    <article class="calc-guide-content">
+      <h2>دليل كيفية حساب وتحديد اشتراك العمارة الشهري العادل</h2>
+      <p>
+        يعتبر تحديد قيمة اشتراك صيانة العمارة من أكثر المهام حساسية التي تواجه أمين الصندوق ومجلس إدارة اتحاد الشاغلين في مصر. تحديد اشتراك منخفض للغاية يؤدي سريعاً إلى عجز الصندوق وتوقف المصعد أو انقطاع الخدمات، بينما فرضه بمبلغ مبالغ فيه يثير استياء الملاك وامتناع البعض عن السداد.
+      </p>
+
+      <h3>1. البنود الأساسية لمصاريف أي عمارة سكنية</h3>
+      <ul>
+        <li><strong>أجر حارس العقار (البواب):</strong> الراتب الشهري الثابت المتفق عليه بالإضافة إلى أي بدلات أو مصاريف دورية.</li>
+        <li><strong>عقد صيانة المصعد الدوري:</strong> الشركة المتخصصة المسؤولة عن الزيارة الشهرية والتشحيم وفحص الأمان (غير شامل قطع الغيار الكبرى).</li>
+        <li><strong>فواتير استهلاك الكهرباء العامة:</strong> إنارة مدخل العمارة والسلالم وماتور المياه وتشغيل المصعد.</li>
+        <li><strong>فاتورة المياه المشتركة:</strong> في العقارات التي تحتوي على عداد مياه عمومي للعمارة ونظافة السلالم.</li>
+        <li><strong>أدوات النظافة ومواد التطهير:</strong> المنظفات ومستلزمات الصيانة السريعة للسباكة أو اللمبات المحترقة.</li>
+      </ul>
+
+      <h3>2. أهمية إضافة بند "احتياطي الصندوق" (الطوارئ)</h3>
+      <p>
+        الخطأ الأكبر الذي يقع فيه أغلب مسؤولي العمارات هو جمع المصروفات الفعلية وتقسيمها بالضبط على الشقق بدون إضافة أي احتياطي مالي. في هذه الحالة، بمجرد احتراق ماتور مياه أو عطل مفاجئ في كارتة المصعد، يجد أمين الصندوق نفسه مضطراً لطلب سلفة أو الدخول في حلقة مفرغة من جمع التبرعات الطارئة من السكان. إضافة نسبة بين <strong>10% إلى 15%</strong> تضمن بناء رصيد أمان نقدي بالخزينة لتغطية الطوارئ فوراً.
+      </p>
+
+      <h3>3. كيف تتعامل مع متأخرات السكان قانونياً وعملياً؟</h3>
+      <p>
+        نظم <strong>قانون البناء المصري رقم 119 لسنة 2008</strong> التزامات الشاغلين في صيانة العقار. ولتجنب الخلافات:
+      </p>
+      <ul>
+        <li>احرص على تسليم إيصال سداد فوري موثق لكل ساكن يوضح الشهر المسدد والمبلغ المتبقي (وهذا ما يوفره تطبيق صندوق العمارة عبر واتساب تلقائياً).</li>
+        <li>أعلن بشفافية عن جدول كشف الحساب الشهري والإيرادات والمصروفات حتى يرى الجميع أين تصرف أموالهم.</li>
+        <li>وفر وسائل دفع مريحة ومتنوعة مثل الدفع النقدي أو التحويل اللحظي عبر InstaPay.</li>
+      </ul>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="brand">
+        <img src="../assets/sandooq-logo.png" alt="شعار صندوق العمارة" />
+        <span>صندوق العمارة</span>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../index.html#features">المميزات</a>
+        <a href="../tools/building-fee-calculator.html">حاسبة الاشتراك</a>
+        <a href="../privacy.html">سياسة الخصوصية</a>
+      </div>
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة — أداة حاسبة اشتراك العمارة المجانية.</p>
+    </div>
+  </footer>
+
+  <!-- Calculator Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const inputs = [
+        "unitsCount", "doormanSalary", "elevatorFee",
+        "electricityBill", "waterBill", "cleaningSupplies",
+        "otherExpenses", "emergencyRate"
+      ];
+
+      function calculate() {
+        const units = Math.max(1, parseInt(document.getElementById("unitsCount").value) || 1);
+        const doorman = parseFloat(document.getElementById("doormanSalary").value) || 0;
+        const elevator = parseFloat(document.getElementById("elevatorFee").value) || 0;
+        const electricity = parseFloat(document.getElementById("electricityBill").value) || 0;
+        const water = parseFloat(document.getElementById("waterBill").value) || 0;
+        const cleaning = parseFloat(document.getElementById("cleaningSupplies").value) || 0;
+        const other = parseFloat(document.getElementById("otherExpenses").value) || 0;
+        const rate = parseFloat(document.getElementById("emergencyRate").value) || 0;
+
+        const baseTotal = doorman + elevator + electricity + water + cleaning + other;
+        const emergencyTotal = baseTotal * rate;
+        const grandTotal = baseTotal + emergencyTotal;
+        const perUnit = grandTotal / units;
+
+        document.getElementById("baseTotalVal").textContent = Math.round(baseTotal).toLocaleString("ar-EG") + " ج.م";
+        document.getElementById("emergencyTotalVal").textContent = Math.round(emergencyTotal).toLocaleString("ar-EG") + " ج.م";
+        document.getElementById("grandTotalVal").textContent = Math.round(grandTotal).toLocaleString("ar-EG") + " ج.م";
+        document.getElementById("perUnitFeeVal").textContent = Math.round(perUnit).toLocaleString("ar-EG") + " ج.م";
+      }
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener("input", calculate);
+          el.addEventListener("change", calculate);
+        }
+      });
+
+      calculate();
+    });
+  </script>
+</body>
+</html>
