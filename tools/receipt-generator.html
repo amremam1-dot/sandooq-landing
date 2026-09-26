@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مولد إيصال استلام اشتراك عمارة مجاناً | طباعة وتحميل إيصال فوري</title>
+  <meta name="description" content="أداة مجانية لإنشاء وتوليد إيصال استلام اشتراك وصيانة العمارة. صمم إيصال نقدية احترافي باسم الساكن ورقم الشقة واطبعه أو شاركه على واتساب بضغطة واحدة." />
+  <link rel="canonical" href="https://sandoqalemara.com/tools/receipt-generator.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/tools/receipt-generator.html" />
+  <meta property="og:title" content="مولد إيصال استلام اشتراك عمارة مجاناً | طباعة وتحميل إيصال فوري" />
+  <meta property="og:description" content="أنشئ إيصال استلام نقدية لاشتراك وصيانة العمارة مجاناً واطبعه بصيغة PDF أو أرسله عبر واتساب مباشرة." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="مولد إيصال استلام اشتراك عمارة مجاناً" />
+  <meta name="twitter:description" content="أداة مجانية لأمناء الصناديق والملاك لإصدار إيصالات نقدية لاشتراكات الشقق والصيانة الفورية." />
+  <meta name="twitter:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <!-- Favicon & Styles -->
+  <link rel="icon" type="image/png" href="../assets/sandooq-logo.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .tool-container {
+      max-width: 1050px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 28px;
+    }
+    @media (max-width: 860px) {
+      .tool-grid { grid-template-columns: 1fr; }
+    }
+    .panel-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    /* Receipt Preview Styling */
+    .receipt-preview-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .receipt-paper {
+      background: #ffffff;
+      color: #1e293b;
+      border: 2px dashed #94a3b8;
+      border-radius: 12px;
+      padding: 28px 24px;
+      position: relative;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      font-family: 'Cairo', sans-serif;
+    }
+    .receipt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #0284c7;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+    .receipt-header h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #0f172a;
+      font-weight: 800;
+    }
+    .receipt-header .receipt-no {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-weight: 600;
+    }
+    .receipt-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+    }
+    .receipt-table td {
+      padding: 8px 6px;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.95rem;
+    }
+    .receipt-table .r-label {
+      color: #64748b;
+      width: 38%;
+      font-weight: 600;
+    }
+    .receipt-table .r-val {
+      color: #0f172a;
+      font-weight: 700;
+    }
+    .receipt-total-box {
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 16px 0;
+    }
+    .receipt-total-box .ttl-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #166534;
+    }
+    .receipt-total-box .ttl-val {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #15803d;
+    }
+    .receipt-signatures {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px dashed #cbd5e1;
+      font-size: 0.88rem;
+      color: #475569;
+    }
+    .receipt-watermark {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+    .actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .btn-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      text-align: center;
+    }
+    .btn-print {
+      background: var(--primary-color);
+      color: #ffffff;
+    }
+    .btn-print:hover {
+      background: var(--primary-light);
+    }
+    .btn-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+    }
+    .btn-whatsapp:hover {
+      background: #1eb956;
+    }
+    /* Print Only Styles */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .receipt-paper, .receipt-paper * {
+        visibility: visible;
+      }
+      .receipt-paper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        border: 1px solid #000;
+        box-shadow: none;
+      }
+    }
+    .guide-article-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-top: 50px;
+      box-shadow: var(--shadow-sm);
+    }
+    .guide-article-box h2 {
+      color: var(--text-main);
+      font-size: 1.55rem;
+      margin-bottom: 16px;
+    }
+    .guide-article-box h3 {
+      color: var(--primary-light);
+      font-size: 1.2rem;
+      margin: 24px 0 10px;
+    }
+    .guide-article-box p, .guide-article-box li {
+      color: var(--text-light);
+      line-height: 1.85;
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+    }
+    .guide-article-box ul {
+      padding-right: 24px;
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <!-- Structured Data: WebApplication & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "أداة توليد إيصال استلام اشتراك عمارة مجاناً",
+        "url": "https://sandoqalemara.com/tools/receipt-generator.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EGP"
+        },
+        "description": "أداة مجانية لإنشاء وتوليد إيصال استلام نقدية لاشتراكات الشقق وصيانة العمارات وطباعته أو مشاركته عبر واتساب."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://sandoqalemara.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "الأدوات المجانية",
+            "item": "https://sandoqalemara.com/tools/receipt-generator.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "مولد إيصال استلام اشتراك عمارة",
+            "item": "https://sandoqalemara.com/tools/receipt-generator.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "هل إيصال استلام نقدية اشتراك العمارة معتمد قانونياً؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "نعم، يعتبر إيصال الاستلام الموقع من أمين الصندوق أو حارس العقار أو المفوض بالتحصيل سند إثبات رسمي لشاغل الوحدة بوفائه بالتزاماته المالية وتبرئة ذمته تجاه إدارة اتحاد الشاغلين."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "ما هي البيانات الإلزامية التي يجب أن يتضمنها إيصال اشتراك العمارة؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "يجب أن يشمل اسم الساكن، رقم الشقة والعقار، تاريخ السداد، الشهر المحصل عنه، المبلغ رقماً وكتابة، وجهة الصرف (اشتراك شهري، صيانة أسانسير، نظافة)، وتوقيع المستلم."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../index.html">
+        <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        <span>صندوق العمارة</span>
+      </a>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <a href="building-fee-calculator.html" class="button secondary" style="padding: 8px 16px; font-size: 0.9rem;">حاسبة الاشتراك</a>
+        <a href="../index.html#download" class="button primary" style="padding: 8px 16px; font-size: 0.9rem;">تحميل التطبيق</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="tool-container">
+    <nav class="breadcrumb-nav" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html" style="color: var(--primary-light);">الرئيسية</a> &gt; <span>أدوات مجانية</span> &gt; <strong>مولد إيصال استلام اشتراك عمارة</strong>
+    </nav>
+
+    <div class="section-header" style="text-align: right; margin-bottom: 24px;">
+      <p class="eyebrow">🧾 أداة فورية مجانية</p>
+      <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main);">مولد إيصال استلام اشتراك وصيانة العمارة</h1>
+      <p class="lead-text" style="margin: 0; font-size: 1.1rem; color: var(--text-muted);">
+        صمم إيصال نقدية احترافي وموثق في ثوانٍ، اطبعه بصيغة PDF فوراً أو أرسل نسخة نصية للساكن على واتساب.
+      </p>
+    </div>
+
+    <div class="tool-grid">
+      <!-- Input Panel -->
+      <div class="panel-card">
+        <h3 style="font-size: 1.2rem; margin-bottom: 18px; color: var(--primary-light);">1. بيانات الإيصال والسداد</h3>
+
+        <div class="form-group">
+          <label for="buildingName">اسم / رقم العقار أو العمارة:</label>
+          <input type="text" id="buildingName" value="عمارة 15 - شارع النصر" placeholder="مثال: عمارة الفيروز، رقم 12" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="residentName">اسم الساكن / المالك:</label>
+            <input type="text" id="residentName" value="أ. محمد أحمد" placeholder="اسم الساكن" />
+          </div>
+          <div class="form-group">
+            <label for="unitNumber">رقم الشقة والدور:</label>
+            <input type="text" id="unitNumber" value="شقة 4 (الدور الثاني)" placeholder="مثال: شقة 10" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="receiptDate">تاريخ السداد:</label>
+            <input type="date" id="receiptDate" />
+          </div>
+          <div class="form-group">
+            <label for="forMonth">عن شهر / فترة:</label>
+            <input type="text" id="forMonth" value="أكتوبر 2026" placeholder="مثال: أكتوبر 2026" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="feePurpose">بند السداد:</label>
+            <select id="feePurpose">
+              <option value="اشتراك صيانة ونظافة شهري" selected>اشتراك صيانة ونظافة شهري</option>
+              <option value="مساهمة صيانة مصعد طارئة">مساهمة صيانة مصعد طارئة</option>
+              <option value="صيانة موتور مياه وسباكة">صيانة موتور مياه وسباكة</option>
+              <option value="اشتراك حراسة وبوابة">اشتراك حراسة وبوابة</option>
+              <option value="صيانة كهرباء ومرافق عامة">صيانة كهرباء ومرافق عامة</option>
+              <option value="اشتراك سنوي مجمع">اشتراك سنوي مجمع</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="amountValue">المبلغ بالجنيه (ج.م):</label>
+            <input type="number" id="amountValue" value="500" min="1" step="10" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="paymentMethod">طريقة الدفع:</label>
+            <select id="paymentMethod">
+              <option value="نقداً (كاش)">نقداً (كاش)</option>
+              <option value="تحويل إنستاباي InstaPay">تحويل إنستاباي InstaPay</option>
+              <option value="محفظة إلكترونية (فودافون كاش)">محفظة إلكترونية (فودافون كاش)</option>
+              <option value="تحويل بنكي">تحويل بنكي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="collectorName">اسم أمين الصندوق / المستلم:</label>
+            <input type="text" id="collectorName" value="م. عمرو إمام" placeholder="المسؤول عن الاستلام" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="notesText">ملاحظات إضافية (اختياري):</label>
+          <input type="text" id="notesText" value="سداد كامل القيمة دون متأخرات سابقة" placeholder="أي ملاحظة أو رقم معاملة" />
+        </div>
+      </div>
+
+      <!-- Preview & Actions Panel -->
+      <div class="receipt-preview-wrap">
+        <h3 style="font-size: 1.2rem; color: var(--secondary-color); margin-bottom: 2px;">2. معاينة الإيصال الفوري</h3>
+        
+        <!-- Printable Receipt Paper -->
+        <div class="receipt-paper" id="receiptPaper">
+          <div class="receipt-header">
+            <div>
+              <h3 id="prevBuilding">عمارة 15 - شارع النصر</h3>
+              <span style="font-size: 0.85rem; color: #0284c7; font-weight: 700;">إيصال استلام اشتراك وصيانة</span>
+            </div>
+            <div style="text-align: left;">
+              <span class="receipt-no" id="prevReceiptNo">رقم: REC-2026-104</span><br/>
+              <span style="font-size: 0.8rem; color: #64748b;" id="prevDate">26 سبتمبر 2026</span>
+            </div>
+          </div>
+
+          <table class="receipt-table">
+            <tr>
+              <td class="r-label">استلمنا من السيد/ة:</td>
+              <td class="r-val" id="prevResident">أ. محمد أحمد</td>
+            </tr>
+            <tr>
+              <td class="r-label">الوحدة السكنية:</td>
+              <td class="r-val" id="prevUnit">شقة 4 (الدور الثاني)</td>
+            </tr>
+            <tr>
+              <td class="r-label">عن شهر / فترة:</td>
+              <td class="r-val" id="prevMonth">أكتوبر 2026</td>
+            </tr>
+            <tr>
+              <td class="r-label">بند الصرف:</td>
+              <td class="r-val" id="prevPurpose">اشتراك صيانة ونظافة شهري</td>
+            </tr>
+            <tr>
+              <td class="r-label">طريقة السداد:</td>
+              <td class="r-val" id="prevMethod">نقداً (كاش)</td>
+            </tr>
+            <tr>
+              <td class="r-label">ملاحظات:</td>
+              <td class="r-val" id="prevNotes">سداد كامل القيمة دون متأخرات سابقة</td>
+            </tr>
+          </table>
+
+          <div class="receipt-total-box">
+            <span class="ttl-title">المبلغ المستلم:</span>
+            <span class="ttl-val" id="prevAmount">500 ج.م</span>
+          </div>
+
+          <div class="receipt-signatures">
+            <div>
+              <span>توقيع الساكن / المودع</span><br/><br/>
+              <span style="color: #94a3b8;">........................</span>
+            </div>
+            <div style="text-align: left;">
+              <span>توقيع المستلم (أمين الصندوق):</span><br/>
+              <strong id="prevCollector" style="color: #0f172a;">م. عمرو إمام</strong>
+            </div>
+          </div>
+
+          <div class="receipt-watermark">
+            تم الإصدار عبر منصة صندوق العمارة — sandoqalemara.com
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="actions-grid">
+          <button type="button" class="btn-action btn-print" onclick="window.print()">
+            🖨️ طباعة الإيصال / PDF
+          </button>
+          <button type="button" class="btn-action btn-whatsapp" id="btnShareWhatsApp">
+            📲 إرسال إشعار واتساب
+          </button>
+        </div>
+
+        <!-- App Conversion Banner -->
+        <div style="padding: 16px 20px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); border-right: 4px solid var(--primary-light);">
+          <h4 style="font-size: 1rem; margin-bottom: 6px; color: var(--text-main);">وفر وقت الإيصالات اليدوية!</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.6;">
+            في تطبيق <strong>صندوق العمارة</strong>، بمجرد تسجيل الدفعة على هاتفك، يتم إرسال إيصال سداد رقمي تلقائياً للساكن وتحديث الخزينة دون أي كتابة ورقية.
+          </p>
+          <a href="../index.html#download" class="button primary" style="width: 100%; text-align: center; font-size: 0.88rem; padding: 8px 14px;">
+            اكتشف تطبيق صندوق العمارة مجاناً
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO Educational Guide Section -->
+    <article class="guide-article-box">
+      <h2>أهمية التوثيق المحاسبي لاشتراكات وصيانة العمارة السكنية</h2>
+      <p>
+        يعتبر إيصال استلام النقدية حجر الزاوية في بناء الثقة والشفافية بين سكان العقار ومجلس إدارة اتحاد الشاغلين أو أمين الصندوق. في كثير من العقارات، تنشأ خلافات حادة بسبب عدم تدوين المبالغ أو نسيان تواريخ السداد، مما يؤدي إلى اتهامات متبادلة وتأخر صيانة المرافق الحيوية كالمصاعد ومضخات المياه.
+      </p>
+
+      <h3>1. ما هي البيانات الضرورية في إيصال اشتراك العمارة؟</h3>
+      <ul>
+        <li><strong>تحديد هوية العقار والوحدة:</strong> ذكر رقم العمارة، رقم الشقة، والدور بدقة لتجنب التباس الشقق في العمارات متعددة الملاك.</li>
+        <li><strong>الفترة الزمنية المحددة:</strong> كتابة الشهر والسنة المسدد عنهما لتفادي تكرار المطالبة بنفس الشهر.</li>
+        <li><strong>المبلغ بالأرقام والتفقيط:</strong> منعاً لأي لبس في الأرقام.</li>
+        <li><strong>وسيلة التحصيل:</strong> إثبات ما إذا كان السداد كاش أو عبر التحويل اللحظي InstaPay مع ذكر المرجع إن وجد.</li>
+        <li><strong>توقيع أمين الصندوق:</strong> السند القانوني الذي يبرئ ذمة الساكن من أي متأخرات.</li>
+      </ul>
+
+      <h3>2. كيف يحميك تطبيق صندوق العمارة من فوضى الدفاتر الورقية؟</h3>
+      <p>
+        رغم فائدة النماذج الورقية، إلا أنها معرضة للتلف، الضياع، وصعوبة المراجعة السنوية. يوفر لك تطبيق <strong>صندوق العمارة</strong> أرشيفاً سحابياً مشفراً لكل حركة إيداع أو صرف، مع كشف حساب فوري لكل شقة يمكن مشاركته بصيغة PDF أو رسالة واتساب بنقرة زر واحدة.
+      </p>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="brand">
+        <img src="../assets/sandooq-logo.png" alt="شعار صندوق العمارة" width="36" height="36" loading="lazy" />
+        <span>صندوق العمارة</span>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">الرئيسية</a>
+        <a href="building-fee-calculator.html">حاسبة الاشتراك</a>
+        <a href="receipt-generator.html">مولد الإيصالات</a>
+        <a href="../guides/building-fund-management-guide.html">دليل الإدارة</a>
+        <a href="../guides/building-expenses-excel-sheet.html">شيت إكسيل العمارة</a>
+        <a href="../privacy.html">سياسة الخصوصية</a>
+      </div>
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة — أداة مولد إيصالات العمارة المجانية.</p>
+    </div>
+  </footer>
+
+  <!-- Receipt Logic Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Set today's date default
+      const today = new Date().toISOString().split("T")[0];
+      const dateInput = document.getElementById("receiptDate");
+      if (dateInput) dateInput.value = today;
+
+      // Generate a dynamic receipt number
+      const randomNo = Math.floor(100 + Math.random() * 900);
+      const receiptNoStr = `REC-${new Date().getFullYear()}-${randomNo}`;
+      const prevReceiptNo = document.getElementById("prevReceiptNo");
+      if (prevReceiptNo) prevReceiptNo.textContent = `رقم: ${receiptNoStr}`;
+
+      function updatePreview() {
+        const building = document.getElementById("buildingName").value || "اسم العقار";
+        const resident = document.getElementById("residentName").value || "اسم الساكن";
+        const unit = document.getElementById("unitNumber").value || "رقم الشقة";
+        const dateVal = document.getElementById("receiptDate").value || today;
+        const monthVal = document.getElementById("forMonth").value || "الشهر الحالي";
+        const purposeVal = document.getElementById("feePurpose").value;
+        const amountVal = parseFloat(document.getElementById("amountValue").value) || 0;
+        const methodVal = document.getElementById("paymentMethod").value;
+        const collectorVal = document.getElementById("collectorName").value || "أمين الصندوق";
+        const notesVal = document.getElementById("notesText").value || "لا توجد ملاحظات";
+
+        document.getElementById("prevBuilding").textContent = building;
+        document.getElementById("prevResident").textContent = resident;
+        document.getElementById("prevUnit").textContent = unit;
+        document.getElementById("prevDate").textContent = dateVal;
+        document.getElementById("prevMonth").textContent = monthVal;
+        document.getElementById("prevPurpose").textContent = purposeVal;
+        document.getElementById("prevAmount").textContent = amountVal.toLocaleString("ar-EG") + " ج.م";
+        document.getElementById("prevMethod").textContent = methodVal;
+        document.getElementById("prevCollector").textContent = collectorVal;
+        document.getElementById("prevNotes").textContent = notesVal;
+      }
+
+      const inputs = [
+        "buildingName", "residentName", "unitNumber", "receiptDate",
+        "forMonth", "feePurpose", "amountValue", "paymentMethod",
+        "collectorName", "notesText"
+      ];
+
+      inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener("input", updatePreview);
+          el.addEventListener("change", updatePreview);
+        }
+      });
+
+      updatePreview();
+
+      // WhatsApp Share button
+      const btnWhatsApp = document.getElementById("btnShareWhatsApp");
+      if (btnWhatsApp) {
+        btnWhatsApp.addEventListener("click", () => {
+          const building = document.getElementById("buildingName").value;
+          const resident = document.getElementById("residentName").value;
+          const unit = document.getElementById("unitNumber").value;
+          const monthVal = document.getElementById("forMonth").value;
+          const amountVal = parseFloat(document.getElementById("amountValue").value) || 0;
+          const purposeVal = document.getElementById("feePurpose").value;
+          const methodVal = document.getElementById("paymentMethod").value;
+          const collectorVal = document.getElementById("collectorName").value;
+
+          const text = `🧾 *إيصال سداد نقدية - صندوق العمارة*
+🏢 العقار: ${building}
+👤 الساكن المحترم: ${resident}
+🚪 الوحدة: ${unit}
+📅 عن شهر: ${monthVal}
+💵 المبلغ المسدد: ${amountVal.toLocaleString("ar-EG")} ج.م
+📌 البيان: ${purposeVal}
+💳 طريقة الدفع: ${methodVal}
+✍️ المستلم: ${collectorVal}
+
+✅ نشكركم على حرصكم الدائم على صيانة وجمال عماراتنا!
+📱 صُمم عبر منصة صندوق العمارة: https://sandoqalemara.com`;
+
+          const encoded = encodeURIComponent(text);
+          window.open(`https://api.whatsapp.com/send?text=${encoded}`, "_blank");
+        });
+      }
+    });
+  </script>
+</body>
+</html>

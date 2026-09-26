@@ -298,6 +298,25 @@
         </table>
       </div>
 
+      <!-- Instant Download Excel Template Card -->
+      <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.15)); border: 1px solid #10b981; border-radius: var(--radius-md); padding: 26px 20px; text-align: center; margin: 28px 0;">
+        <h3 style="font-size: 1.25rem; color: var(--text-main); margin-bottom: 8px;">📥 تحميل نموذج شيت إكسيل مصاريف العمارة جاهز</h3>
+        <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 18px; line-height: 1.6;">
+          حمّل نموذج جدول الاشتراكات والمصروفات المهيأ باللغة العربية مع المعادلات الحسابية مجاناً، جاهز للفتح والتعديل المباشر على Excel أو Google Sheets.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <button type="button" id="btnDownloadTemplate" class="button primary" style="background: #10b981; border-color: #10b981; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+            📊 تحميل نموذج الإكسيل الجاهز (Excel .CSV)
+          </button>
+          <a href="../tools/building-fee-calculator.html" class="button secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+            🧮 حاسبة الاشتراك الشهري
+          </a>
+          <a href="../tools/receipt-generator.html" class="button secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+            🧾 مولد الإيصالات
+          </a>
+        </div>
+      </div>
+
       <h2>3. أهم المعادلات الرياضية المفيدة في الإكسيل</h2>
       <p>لحساب الرصيد والمتأخرات تلقائياً، يمكنك تطبيق الدوال التالية في جدولك:</p>
       <ul>
@@ -368,6 +387,7 @@
       <div class="footer-links">
         <a href="../index.html">الرئيسية</a>
         <a href="../tools/building-fee-calculator.html">حاسبة الاشتراك</a>
+        <a href="../tools/receipt-generator.html">مولد الإيصالات</a>
         <a href="../guides/building-fund-management-guide.html">دليل الإدارة</a>
         <a href="../guides/building-expenses-excel-sheet.html">شيت إكسيل العمارة</a>
         <a href="../privacy.html">سياسة الخصوصية</a>
@@ -375,5 +395,35 @@
       <p class="footer-copy">© 2026 تطبيق صندوق العمارة — نموذج ودليل حسابات العمارة عبر Excel.</p>
     </div>
   </footer>
+
+  <!-- Excel Template Download Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("btnDownloadTemplate");
+      if (btn) {
+        btn.addEventListener("click", () => {
+          const csvRows = [
+            ["رقم الشقة", "اسم الساكن", "الاشتراك الشهري", "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر", "إجمالي المسدد", "المتأخرات"],
+            ["101", "محمد علي", "500", "500", "500", "500", "500", "500", "500", "500", "500", "500", "500", "500", "500", "=SUM(D2:O2)", "=C2*12-P2"],
+            ["102", "أحمد محمود", "500", "500", "500", "500", "0", "0", "0", "0", "0", "0", "0", "0", "0", "=SUM(D3:O3)", "=C3*12-P3"],
+            ["201", "خالد إبراهيم", "500", "500", "500", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "=SUM(D4:O4)", "=C4*12-P4"],
+            ["202", "طارق حسن", "500", "500", "500", "500", "500", "500", "500", "0", "0", "0", "0", "0", "0", "=SUM(D5:O5)", "=C5*12-P5"],
+            ["301", "حسام كمال", "500", "500", "500", "500", "500", "500", "500", "500", "500", "500", "500", "500", "500", "=SUM(D6:O6)", "=C6*12-P6"],
+            ["302", "ياسر فوزي", "500", "500", "500", "500", "500", "0", "0", "0", "0", "0", "0", "0", "0", "=SUM(D7:O7)", "=C7*12-P7"]
+          ];
+
+          const csvContent = "\uFEFF" + csvRows.map(e => e.map(item => `"${item}"`).join(",")).join("\r\n");
+          const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.setAttribute("href", url);
+          link.setAttribute("download", "نموذج_مصاريف_واشتراكات_العمارة_صندوق_العمارة.csv");
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+      }
+    });
+  </script>
 </body>
 </html>

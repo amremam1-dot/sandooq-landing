@@ -134,8 +134,7 @@
       <nav class="nav">
         <a href="#features">المميزات</a>
         <a href="#comparison">لماذا نحن؟</a>
-        <a href="tools/building-fee-calculator.html">حاسبة الاشتراك</a>
-        <a href="guides/building-fund-management-guide.html">دليل الإدارة</a>
+        <a href="#free-tools">الأدوات والنماذج</a>
         <a href="#pricing">الباقات</a>
         <a href="#faq">الأسئلة الشائعة</a>
         <a href="#download" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
@@ -188,7 +187,7 @@
       <div class="hero-art">
         <div class="phone-mockup">
           <div class="phone-screen">
-            <img src="assets/hero-main.png" alt="شاشة تطبيق صندوق العمارة الرئيسية" width="320" height="711" loading="eager" />
+            <img src="assets/hero-main.png" alt="شاشة تطبيق صندوق العمارة الرئيسية" width="320" height="711" loading="eager" fetchpriority="high" decoding="async" />
           </div>
         </div>
       </div>
@@ -614,6 +613,65 @@
       </div>
     </section>
 
+    <!-- Free Tools & Resources Hub (SEO Topic Cluster) -->
+    <section class="tools-hub-section reveal" id="free-tools" style="margin: 80px 0;">
+      <div class="section-header">
+        <p class="eyebrow">🧰 أدوات ونماذج مجانية</p>
+        <h2>مركز أدوات أمناء الصناديق واتحادات الملاك</h2>
+        <p class="lead-text">أدوات محاسبية تفاعلية ونماذج عملية جاهزة للاستخدام مجاناً لتنظيم حسابات عمارتك دون أي تكلفة.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 36px;">
+        <!-- Card 1: Calculator -->
+        <div class="feature-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="feature-icon" style="background: rgba(59, 130, 246, 0.15); color: var(--primary-light);">🧮</div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 10px; color: var(--text-main);">حاسبة اشتراك ومصاريف العمارة</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              احسب القيمة العادلة لاشتراك كل شقة بدقة بناءً على راتب البواب، صيانة المصعد، والكهرباء مع نسبة طوارئ ومشاركة الحسبة في واتساب.
+            </p>
+          </div>
+          <a href="tools/building-fee-calculator.html" class="button secondary" style="margin-top: 20px; width: 100%; text-align: center;">استخدم الحاسبة الآن</a>
+        </div>
+
+        <!-- Card 2: Receipt Generator -->
+        <div class="feature-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="feature-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--secondary-color);">🧾</div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 10px; color: var(--text-main);">مولد إيصال استلام اشتراك فوري</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              صمم إيصال نقدية موثقاً باسم الساكن ورقم الشقة واطبعه بصيغة PDF فوراً أو أرسل كارت إشعار سداد رسمي على واتساب بضغطة زر.
+            </p>
+          </div>
+          <a href="tools/receipt-generator.html" class="button secondary" style="margin-top: 20px; width: 100%; text-align: center;">إنشاء إيصال فوري</a>
+        </div>
+
+        <!-- Card 3: Excel Sheet Guide & Download -->
+        <div class="feature-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="feature-icon" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">📊</div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 10px; color: var(--text-main);">شيت إكسيل مصاريف العمارة</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              تحميل نموذج جدول Excel جاهز لمتابعة سداد واشتراكات الشقق وحساب المتأخرات تلقائياً مع أهم المعادلات المحاسبية للعقارات.
+            </p>
+          </div>
+          <a href="guides/building-expenses-excel-sheet.html" class="button secondary" style="margin-top: 20px; width: 100%; text-align: center;">تحميل نموذج Excel</a>
+        </div>
+
+        <!-- Card 4: Management Guide -->
+        <div class="feature-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="feature-icon" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa;">📖</div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 10px; color: var(--text-main);">دليل إدارة صندوق العقار قانونياً</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              دليل شامل حول تنظيم حسابات العمارة وقانون اتحاد الشاغلين في مصر، وحل مشكلة الممتنعين عن السداد وبناء احتياطي مالي آمن.
+            </p>
+          </div>
+          <a href="guides/building-fund-management-guide.html" class="button secondary" style="margin-top: 20px; width: 100%; text-align: center;">قراءة الدليل الشامل</a>
+        </div>
+      </div>
+    </section>
+
     <!-- Download Section -->
     <section class="download-section reveal" id="download">
       <div class="download-box">
@@ -726,7 +784,9 @@
       <div class="footer-links">
         <a href="#features">المميزات</a>
         <a href="#comparison">لماذا نحن؟</a>
+        <a href="#free-tools">الأدوات والنماذج</a>
         <a href="tools/building-fee-calculator.html">حاسبة الاشتراك</a>
+        <a href="tools/receipt-generator.html">مولد الإيصالات</a>
         <a href="guides/building-fund-management-guide.html">دليل إدارة الصندوق</a>
         <a href="guides/building-expenses-excel-sheet.html">شيت إكسيل العمارة</a>
         <a href="#pricing">الباقات</a>

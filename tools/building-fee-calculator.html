@@ -333,10 +333,31 @@
             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-top: 10px;">
               💡 نصيحة: ينصح بجبر المبلغ لأقرب 10 أو 50 جنيهاً (مثال: 500 ج.م) لتسهيل التحصيل الفعلي من السكان وتغذية فائض الخزينة.
             </p>
+
+            <!-- Quick Action Buttons -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px;">
+              <button type="button" id="btnShareCalcWhatsApp" style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; background: #25d366; color: #fff; border: none; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.88rem; cursor: pointer; font-family: inherit;">
+                📲 مشاركة على واتساب
+              </button>
+              <button type="button" onclick="window.print()" style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; background: var(--card-bg-subtle); color: var(--text-main); border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-weight: 700; font-size: 0.88rem; cursor: pointer; font-family: inherit;">
+                🖨️ طباعة التقرير
+              </button>
+            </div>
+          </div>
+
+          <!-- Cross-Tool Promo: Receipt Generator -->
+          <div style="margin-top: 16px; padding: 16px; background: rgba(59, 130, 246, 0.1); border: 1px solid var(--primary-light); border-radius: var(--radius-md);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong style="color: var(--text-main); font-size: 0.95rem; display: block;">تحتاج إيصال استلام للمبالغ المحصلة؟</strong>
+                <span style="color: var(--text-muted); font-size: 0.82rem;">استخدم مولد الإيصالات المجاني لطباعة إيصال فوري لكل شقة.</span>
+              </div>
+              <a href="receipt-generator.html" class="button secondary" style="padding: 6px 12px; font-size: 0.85rem; white-space: nowrap;">مولد الإيصالات</a>
+            </div>
           </div>
 
           <!-- App Conversion CTA -->
-          <div style="margin-top: 24px; padding: 20px; background: var(--card-bg-subtle); border-radius: var(--radius-md); border-right: 4px solid var(--primary-light);">
+          <div style="margin-top: 16px; padding: 20px; background: var(--card-bg-subtle); border-radius: var(--radius-md); border-right: 4px solid var(--primary-light);">
             <h4 style="font-size: 1.05rem; margin-bottom: 8px; color: var(--text-main);">تعبت من الحسابات اليدوية؟</h4>
             <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px;">
               تطبيق <strong>صندوق العمارة</strong> يسجل دفعات الشقق، يحسب المتأخرات تلقائياً، ويرسل إيصال السداد على واتساب لكل ساكن بضغطة زر واحدة.
@@ -391,7 +412,8 @@
       </div>
       <div class="footer-links">
         <a href="../index.html">الرئيسية</a>
-        <a href="../tools/building-fee-calculator.html">حاسبة الاشتراك</a>
+        <a href="building-fee-calculator.html">حاسبة الاشتراك</a>
+        <a href="receipt-generator.html">مولد الإيصالات</a>
         <a href="../guides/building-fund-management-guide.html">دليل الإدارة</a>
         <a href="../guides/building-expenses-excel-sheet.html">شيت إكسيل العمارة</a>
         <a href="../privacy.html">سياسة الخصوصية</a>
@@ -439,6 +461,35 @@
       });
 
       calculate();
+
+      // WhatsApp Share breakdown handler
+      const btnShare = document.getElementById("btnShareCalcWhatsApp");
+      if (btnShare) {
+        btnShare.addEventListener("click", () => {
+          const units = document.getElementById("unitsCount").value || "10";
+          const base = document.getElementById("baseTotalVal").textContent;
+          const emergency = document.getElementById("emergencyTotalVal").textContent;
+          const total = document.getElementById("grandTotalVal").textContent;
+          const perUnit = document.getElementById("perUnitFeeVal").textContent;
+
+          const text = `🏢 *مقترح ميزانية واشتراك العمارة الشهري*
+👥 عدد الشقق المشاركة: ${units} شقة
+💰 إجمالي المصروفات الأساسية: ${base}
+🛡️ احتياطي الصندوق للطوارئ: ${emergency}
+💵 إجمالي الميزانية الشهرية: ${total}
+━━━━━━━━━━━━━━━
+✅ *اشتراك الشقة الشهري المقترح:* ${perUnit}
+━━━━━━━━━━━━━━━
+📊 تم الحساب بواسطة حاسبة صندوق العمارة:
+https://sandoqalemara.com/tools/building-fee-calculator.html
+
+📱 لإدارة الخزينة وتتبع سداد الشقق باحترافية:
+حمّل تطبيق صندوق العمارة: https://sandoqalemara.com`;
+
+          const encoded = encodeURIComponent(text);
+          window.open(`https://api.whatsapp.com/send?text=${encoded}`, "_blank");
+        });
+      }
     });
   </script>
 </body>
