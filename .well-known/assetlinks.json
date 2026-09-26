@@ -1,0 +1,17 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.amrem.sandooqelamara",
+      "sha256_cert_fingerprints": [
+        "99:92:7C:C0:A4:DC:72:4C:41:41:08:D2:66:96:4D:3C:C4:A4:90:44:65:3F:E7:CA:B5:A4:AA:55:AC:B4:1E:A1",
+        "A1:A5:8D:6D:7C:1F:B6:9D:81:D8:98:52:C7:F1:7D:4B:1F:A0:E9:9C:9C:7A:83:FD:A6:99:47:41:E7:01:56:2F",
+        "8E:3C:C5:18:44:CF:4B:4C:4D:E0:4C:B2:2A:90:B2:8B:22:D5:50:C6:85:DC:0B:2B:E7:D7:4F:30:5F:BE:C8:B3"
+      ]
+    }
+  }
+]
