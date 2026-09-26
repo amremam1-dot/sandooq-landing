@@ -43,6 +43,11 @@
 - [نموذج شيت إكسيل مصاريف العمارة](https://sandoqalemara.com/guides/building-expenses-excel-sheet.html): تحميل واستخدام جدول Excel لمصاريف واشتراكات الشقق.
 - [قانون اتحاد الشاغلين المصري رقم 119 لسنة 2008](https://sandoqalemara.com/guides/building-occupants-union-law-egypt.html): الإطار القانوني لإلزامية سداد الصيانة وإجراءات أوامر الأداء.
 - [خطة التعامل مع تأخر وامتناع السكان عن السداد](https://sandoqalemara.com/guides/how-to-deal-with-unpaid-building-fees.html): بروتوكول من 5 مراحل لجمع المتأخرات ودياً وقانونياً.
+- [دليل تأسيس اتحاد الشاغلين ومهام أمين الصندوق](https://sandoqalemara.com/guides/owners-union-and-treasurer-guide.html): تشكيل مجلس الإدارة، إدارة الجمعيات العمومية، وفض النزاعات بين المالك والمستأجر.
+- [حساب تكاليف صيانة الأسانسير وتوزيع الخدمات](https://sandoqalemara.com/guides/elevator-and-services-cost-allocation.html): معادلات توزيع صيانة المصاعد، معامل الأدوار، إعفاء الأرضي، ورواتب البواب والنظافة.
+- [إعداد الميزانية التقديرية السنوية وحساب صندوق الطوارئ](https://sandoqalemara.com/guides/building-annual-budget-and-reserve.html): تخطيط ميزانية 12 شهراً، احتياطي الأزمات (3 شهور)، وزيادة الاشتراكات مع التضخم.
+- [التحصيل الرقمي وانستاباي ووقف تراكم المتأخرات](https://sandoqalemara.com/guides/digital-collection-and-instapay.html): التحصيل عبر InstaPay، حساب نسبة التحصيل الشهري، وخطط التقسيط للمتأخرين.
+- [عقود الصيانة الدورية وحماية الخزينة من الهدر المالي](https://sandoqalemara.com/guides/maintenance-contracts-and-cash-control.html): شروط عقود المصاعد والمضخات، قاعدة العروض الثلاثة، والوقاية من أخطاء الدفاتر.
 
 ## صفحات الفئات المستهدفة (Personas)
 - [دليل أمين صندوق العمارة](https://sandoqalemara.com/for-building-treasurer.html): إرشادات خاصة بالمسؤول المالي عن العقار.
