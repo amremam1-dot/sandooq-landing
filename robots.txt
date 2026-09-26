@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amremam1-dot.github.io/sandooq-landing/sitemap.xml
+Sitemap: https://sandoqalemara.com/sitemap.xml
