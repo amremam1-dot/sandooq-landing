@@ -19,6 +19,9 @@
   - دليل عقود الصيانة وحماية الخزينة: `https://sandoqalemara.com/guides/maintenance-contracts-and-cash-control.html`
   - دليل أمين الصندوق: `https://sandoqalemara.com/for-building-treasurer.html`
   - دليل ملاك العقار: `https://sandoqalemara.com/for-property-owner.html`
+  - صفحة فيسبوك الرسمية: `https://www.facebook.com/share/1F2HyGTkTb/`
+  - حساب إنستجرام الرسمي: `https://www.instagram.com/sandooqelamara?stkn=c2h1MGJldjRwY3R4`
+  - قناة يوتيوب الرسمية: `https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP`
   - صفحة التواصل والدعم: `https://sandoqalemara.com/contact.html`
   - صفحة الأمان وحماية البيانات: `https://sandoqalemara.com/security.html`
   - صفحة سياسة الخصوصية: `https://sandoqalemara.com/privacy.html`
