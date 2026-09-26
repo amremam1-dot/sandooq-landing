@@ -71,24 +71,30 @@
   <script defer src="https://www.thunderbolt.com/gateway/api/v1/thunderbolt-ui/embed.js"></script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="main-header">
-    <div class="container header-container">
-      <a href="../" class="logo">
-        <img src="../assets/sandooq-logo.png" alt="صندوق العمارة" class="logo-img" />
-        <span class="logo-text">صندوق العمارة</span>
+    <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../index.html">
+        <picture>
+          <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+          <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        </picture>
+        <span>صندوق العمارة</span>
       </a>
-      <nav class="main-nav">
-        <a href="../">الرئيسية</a>
-        <a href="../solutions/">الحلول</a>
-        <a href="../tools/">أدوات مجانية</a>
-        <a href="index.html" class="active">دليل الإدارة</a>
+
+      <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <nav class="nav">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../solutions/index.html">الحلول</a>
+        <a href="../tools/index.html">الأدوات المجانية</a>
+        <a href="../guides/index.html" style="color: var(--primary-light);">أدلة الإدارة</a>
         <a href="../about.html">عن التطبيق</a>
         <a href="../contact.html">تواصل معنا</a>
+        <a href="../download.html" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
       </nav>
-      <div class="header-cta">
-        <a href="../download.html" class="btn btn-primary">تحميل التطبيق</a>
-      </div>
     </div>
   </header>
 
@@ -175,59 +181,79 @@
     </article>
   </main>
 
-  <!-- Footer -->
-  <footer class="main-footer">
-    <div class="container footer-container">
+    <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
       <div class="footer-grid">
-        <div class="footer-col">
-          <div class="footer-brand">
-            <img src="../assets/sandooq-logo.png" alt="صندوق العمارة" class="footer-logo" />
-            <span class="footer-title">صندوق العمارة</span>
+        <!-- Col 1: Brand & Info -->
+        <div class="footer-col brand-col">
+          <div class="brand" style="justify-content: flex-start; margin-bottom: 8px;">
+            <picture>
+              <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+              <img src="../assets/sandooq-logo.png" alt="شعار صندوق العمارة" width="36" height="36" loading="lazy" />
+            </picture>
+            <span>صندوق العمارة</span>
           </div>
-          <p class="footer-desc">تطبيق الهاتف العربي الأول المتخصص في إدارة أموال، اشتراكات، متأخرات، ومصروفات العمارات السكنية والمجموعات العقارية بكل سهولة وشفافية.</p>
+          <p class="footer-brand-p">
+            المنصة والتطبيق المتخصص لإدارة حسابات العقارات السكنية واتحادات الملاك في مصر، لمتابعة التحصيلات والمصروفات بكل شفافية وبدون أخطاء.
+          </p>
+          <div style="margin-top: 14px;">
+            <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
+              <img src="../assets/google-play-badge.svg" alt="احصل عليه من Google Play" width="135" height="40" loading="lazy" />
+            </a>
+          </div>
         </div>
+
+        <!-- Col 2: Solutions -->
         <div class="footer-col">
-          <h4 class="footer-heading">الحلول والخصائص</h4>
-          <ul class="footer-links">
-            <li><a href="../solutions/building-expenses.html">إدارة المصروفات</a></li>
-            <li><a href="../solutions/building-subscriptions.html">تحصيل الاشتراكات</a></li>
-            <li><a href="../solutions/building-arrears.html">متابعة المتأخرات</a></li>
-            <li><a href="../solutions/building-receipts.html">إيصالات واتساب</a></li>
+          <h3>الحلول والخصائص</h3>
+          <ul>
+            <li><a href="../solutions/index.html">دليل كافة الحلول</a></li>
+            <li><a href="../solutions/building-expenses.html">إدارة المصروفات والفواتير</a></li>
+            <li><a href="../solutions/building-subscriptions.html">تحصيل اشتراكات الشقق</a></li>
+            <li><a href="../solutions/building-arrears.html">متابعة المتأخرات والديون</a></li>
+            <li><a href="../solutions/building-receipts.html">إيصالات واتساب الرقمية</a></li>
             <li><a href="../solutions/building-maintenance.html">إدارة الصيانة والمشاريع</a></li>
-            <li><a href="../solutions/building-treasury.html">تعدد الخزائن والعهد</a></li>
+            <li><a href="../solutions/building-treasury.html">تعدد الخزائن وعهدة البواب</a></li>
             <li><a href="../solutions/building-reports.html">التقارير وسجل العمارة</a></li>
           </ul>
         </div>
+
+        <!-- Col 3: Free Tools & Guides -->
         <div class="footer-col">
-          <h4 class="footer-heading">أدوات ودلائل مجانية</h4>
-          <ul class="footer-links">
+          <h3>أدوات ودلائل مجانية</h3>
+          <ul>
+            <li><a href="../tools/index.html">مركز الأدوات التفاعلية</a></li>
             <li><a href="../tools/building-fee-calculator.html">حاسبة اشتراك الشقة</a></li>
-            <li><a href="../tools/receipt-generator.html">مولد إيصال استلام إيجار/صيانة</a></li>
+            <li><a href="../tools/receipt-generator.html">مولد إيصالات السداد</a></li>
             <li><a href="../tools/building-arrears-calculator.html">حاسبة متأخرات العمارة</a></li>
-            <li><a href="../tools/maintenance-budget-planner.html">حاسبة ميزانية الصيانة الكبرى</a></li>
-            <li><a href="building-fund-management-guide.html">دليل إدارة الصندوق للمبتدئين</a></li>
-            <li><a href="building-expenses-excel-sheet.html">شيت إكسيل مصاريف العمارة</a></li>
-            <li><a href="building-occupants-union-law-egypt.html">قانون اتحاد الشاغلين في مصر</a></li>
+            <li><a href="../tools/maintenance-budget-planner.html">حاسبة ميزانية الصيانة</a></li>
+            <li><a href="../guides/index.html">مكتبة أدلة الإدارة</a></li>
+            <li><a href="../guides/building-fund-management-guide.html">دليل إدارة الصندوق للمبتدئين</a></li>
+            <li><a href="../guides/building-expenses-excel-sheet.html">شيت إكسيل مصاريف العمارة</a></li>
           </ul>
         </div>
+
+        <!-- Col 4: About, Personas & Legal -->
         <div class="footer-col">
-          <h4 class="footer-heading">عن التطبيق والخدمة</h4>
-          <ul class="footer-links">
-            <li><a href="../about.html">عن التطبيق</a></li>
+          <h3>عن التطبيق والخدمة</h3>
+          <ul>
+            <li><a href="../about.html">عن التطبيق والمطور</a></li>
             <li><a href="../contact.html">تواصل معنا والدعم الفني</a></li>
-            <li><a href="../download.html">تحميل التطبيق</a></li>
+            <li><a href="../download.html">تحميل التطبيق ومواصفاته</a></li>
             <li><a href="../security.html">الأمان وحماية البيانات</a></li>
             <li><a href="../privacy.html">سياسة الخصوصية</a></li>
-            <li><a href="../terms.html">شروط الاستخدام</a></li>
-            <li><a href="../delete-account.html">حذف الحساب والبيانات</a></li>
+            <li><a href="../terms.html">شروط الاستخدام والاشتراك</a></li>
+            <li><a href="../delete-account.html">طلب حذف الحساب والبيانات</a></li>
+            <li><a href="../llms.txt">فهرس وكلاء الذكاء الاصطناعي (llms.txt)</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 صندوق العمارة (Sandooq El-Amara). جميع الحقوق محفوظة.</p>
-        <p class="footer-note">تطبيق أندرويد موثق على متجر Google Play ومصمم لخدمة أصحاب العقارات واتحادات الشاغلين.</p>
-      </div>
+
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة.</p>
     </div>
   </footer>
+
+  <script src="../script.js"></script>
 </body>
 </html>

@@ -1413,3 +1413,133 @@ body.light-theme .moon-icon { display: none; }
 }
 
 
+
+
+/* Compatibility & fallback for legacy header/footer classes */
+.main-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: var(--header-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--header-border);
+  transition: var(--transition);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  object-fit: contain;
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text-main);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.main-nav a {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--primary-light);
+}
+
+.btn,
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: var(--accent);
+  color: #fff !important;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.main-footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--footer-border);
+  padding: 60px 0 30px;
+  margin-top: 80px;
+}
+
+.main-footer .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.main-footer .footer-col h4,
+.main-footer .footer-col .footer-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-main);
+}
+
+.main-footer .footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-footer .footer-links li {
+  margin-bottom: 12px;
+}
+
+.main-footer .footer-links a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.main-footer .footer-links a:hover {
+  color: var(--primary-light);
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
