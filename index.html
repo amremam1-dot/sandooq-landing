@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="canonical" href="https://sandoqalemara.com/" />
   <link rel="help" type="text/markdown" href="https://sandoqalemara.com/llms.txt" title="LLM Knowledge Base" />
+  <!-- Preload LCP hero image -->
+  <link rel="preload" as="image" href="assets/hero-main.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website" />
@@ -36,10 +38,12 @@
   <meta name="twitter:description" content="تطبيق متكامل لإدارة اشتراكات السكان، تسجيل المصروفات، ومتابعة العهد والمشاريع مع إيصالات واتساب فورية." />
   <meta name="twitter:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts — non-render-blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
 
   <!-- JSON-LD Structured Data: SoftwareApplication & FAQPage & Organization -->
   <script type="application/ld+json">
@@ -134,7 +138,10 @@
   <header class="site-header">
     <div class="header-container">
       <a class="brand" href="#top">
-        <img src="assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        <picture>
+          <source srcset="assets/sandooq-logo.webp" type="image/webp" />
+          <img src="assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        </picture>
         <span>صندوق العمارة</span>
       </a>
 
@@ -199,7 +206,10 @@
       <div class="hero-art">
         <div class="phone-mockup">
           <div class="phone-screen">
-            <img src="assets/hero-main.png" alt="شاشة تطبيق صندوق العمارة الرئيسية" width="320" height="711" loading="eager" fetchpriority="high" decoding="async" />
+            <picture>
+              <source srcset="assets/hero-main.webp" type="image/webp" />
+              <img src="assets/hero-main.png" alt="شاشة تطبيق صندوق العمارة الرئيسية" width="320" height="711" loading="eager" fetchpriority="high" decoding="async" />
+            </picture>
           </div>
         </div>
       </div>
@@ -462,7 +472,7 @@
 
         <div class="showcase-media">
           <div class="showcase-screen">
-            <img id="showcase-img" src="assets/showcase-dashboard.png" alt="استعراض شاشة التطبيق الرئيسية" width="320" height="711" loading="lazy" />
+            <img id="showcase-img" src="assets/showcase-dashboard.webp" alt="استعراض شاشة التطبيق الرئيسية" width="320" height="711" loading="lazy" />
           </div>
         </div>
       </div>
@@ -479,19 +489,19 @@
       <div class="gallery-wrapper">
         <div class="gallery-scroll">
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/1.png" alt="الرئيسية وحركة الخزينة" width="260" height="578" loading="lazy" /></div>
+            <div class="gallery-card"><img src="assets/1.webp" alt="الرئيسية وحركة الخزينة" width="260" height="578" loading="lazy" /></div>
             <span>الرئيسية وحركة الخزينة</span>
           </div>
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/2.png" alt="إدارة الشقق" width="260" height="578" loading="lazy" /></div>
+            <div class="gallery-card"><img src="assets/2.webp" alt="إدارة الشقق" width="260" height="578" loading="lazy" /></div>
             <span>قائمة الشقق والاشتراكات</span>
           </div>
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/3.png" alt="تحصيل الدفعات" width="260" height="578" loading="lazy" /></div>
+            <div class="gallery-card"><img src="assets/3.webp" alt="تحصيل الدفعات" width="260" height="578" loading="lazy" /></div>
             <span>نافذة تحصيل الدفعات</span>
           </div>
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/4.png" alt="إضافة شقة" width="260" height="578" loading="lazy" /></div>
+            <div class="gallery-card"><img src="assets/4.webp" alt="إضافة شقة" width="260" height="578" loading="lazy" /></div>
             <span>إضافة وتعديل بيانات الشقة</span>
           </div>
         </div>
@@ -593,7 +603,7 @@
           <div class="testimonial-author">
             <div class="author-avatar">🏢</div>
             <div class="author-info">
-              <h4>العمارات واتحادات الشاغلين المستقلة</h4>
+              <p class="author-name">العمارات واتحادات الشاغلين المستقلة</p>
               <p>إدارة التحصيل اليومي والشهري</p>
             </div>
           </div>
@@ -605,7 +615,7 @@
           <div class="testimonial-author">
             <div class="author-avatar">⚙️</div>
             <div class="author-info">
-              <h4>الأبراج والعقارات ذات المصاعد</h4>
+              <p class="author-name">الأبراج والعقارات ذات المصاعد</p>
               <p>ميزانيات المشروعات الكبرى</p>
             </div>
           </div>
@@ -617,7 +627,7 @@
           <div class="testimonial-author">
             <div class="author-avatar">💼</div>
             <div class="author-info">
-              <h4>العقارات ذات المرافق المشتركة</h4>
+              <p class="author-name">العقارات ذات المرافق المشتركة</p>
               <p>فصل الصناديق والعهد النقدية</p>
             </div>
           </div>
@@ -857,7 +867,10 @@
         <!-- Col 1: Brand & Info -->
         <div class="footer-col brand-col">
           <div class="brand" style="justify-content: flex-start; margin-bottom: 8px;">
-            <img src="assets/sandooq-logo.png" alt="شعار صندوق العمارة" width="36" height="36" loading="lazy" />
+            <picture>
+              <source srcset="assets/sandooq-logo.webp" type="image/webp" />
+              <img src="assets/sandooq-logo.png" alt="شعار صندوق العمارة" width="36" height="36" loading="lazy" />
+            </picture>
             <span>صندوق العمارة</span>
           </div>
           <p class="footer-brand-p">
@@ -865,14 +878,14 @@
           </p>
           <div style="margin-top: 14px;">
             <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style="height: 38px;" />
+              <img src="assets/google-play-badge.svg" alt="احصل عليه من Google Play" width="135" height="40" loading="lazy" />
             </a>
           </div>
         </div>
 
         <!-- Col 2: Solutions -->
         <div class="footer-col">
-          <h4>الحلول والخصائص</h4>
+          <h3>الحلول والخصائص</h3>
           <ul>
             <li><a href="solutions/index.html">دليل كافة الحلول</a></li>
             <li><a href="solutions/building-expenses.html">إدارة المصروفات والفواتير</a></li>
@@ -887,7 +900,7 @@
 
         <!-- Col 3: Free Tools & Guides -->
         <div class="footer-col">
-          <h4>أدوات ودلائل مجانية</h4>
+          <h3>أدوات ودلائل مجانية</h3>
           <ul>
             <li><a href="tools/index.html">مركز الأدوات التفاعلية</a></li>
             <li><a href="tools/building-fee-calculator.html">حاسبة اشتراك الشقة</a></li>
@@ -904,7 +917,7 @@
 
         <!-- Col 4: About, Personas & Legal -->
         <div class="footer-col">
-          <h4>عن التطبيق والخدمة</h4>
+          <h3>عن التطبيق والخدمة</h3>
           <ul>
             <li><a href="about.html">عن التطبيق والمطور</a></li>
             <li><a href="contact.html">تواصل معنا والدعم الفني</a></li>

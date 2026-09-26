@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabCaptions = document.querySelectorAll(".tab-caption");
 
   const showcaseImages = {
-    dashboard: "assets/showcase-dashboard.png",
-    units: "assets/showcase-units.png",
-    payments: "assets/showcase-payments.png"
+    dashboard: "assets/showcase-dashboard.webp",
+    units: "assets/showcase-units.webp",
+    payments: "assets/showcase-payments.webp"
   };
 
   showcaseTabs.forEach(tab => {

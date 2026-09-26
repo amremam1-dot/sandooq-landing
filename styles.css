@@ -851,6 +851,7 @@ body.light-theme .moon-icon { display: none; }
   margin-bottom: 32px;
 }
 
+.footer-col h3,
 .footer-col h4 {
   font-size: 1.05rem;
   font-weight: 700;
@@ -1285,7 +1286,9 @@ body.light-theme .moon-icon { display: none; }
   font-size: 1.1rem;
 }
 
-.author-info h4 {
+.author-info h3,
+.author-info h4,
+.author-info .author-name {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-main);
