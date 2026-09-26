@@ -183,4 +183,18 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+
+  <!-- LLMs & AI Agents Endpoints -->
+  <url>
+    <loc>https://sandoqalemara.com/llms.txt</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sandoqalemara.com/llms-full.txt</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
