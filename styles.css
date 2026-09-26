@@ -1318,3 +1318,31 @@ body.light-theme .moon-icon { display: none; }
   }
 }
 
+/* Mobile & Accessibility Enhancements */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 20px 0;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.85rem;
+    line-height: 1.35;
+  }
+  .stat-card {
+    padding: 18px 14px;
+  }
+  .stat-card .stat-number {
+    font-size: 1.55rem;
+  }
+  .pricing-card {
+    padding: 28px 18px;
+  }
+  .guide-article {
+    padding: 24px 16px;
+  }
+}
+
+

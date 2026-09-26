@@ -23,6 +23,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://amremam1-dot.github.io/sandooq-landing/guides/building-expenses-excel-sheet.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- Compliance & Legal Pages -->
   <url>

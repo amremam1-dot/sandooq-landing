@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>نموذج شيت إكسيل (Excel) لحسابات ومصاريف العمارة واشتراكات الشقق | دليل مجاني</title>
+  <meta name="description" content="تعرف على كيفية إعداد جدول إكسيل (Excel) احترافي لإدارة مصاريف العمارة واشتراكات السكان والمتأخرات، ومقارنة بين العمل اليدوي بالإكسيل والتصدير الآلي من التطبيق." />
+  <link rel="canonical" href="https://amremam1-dot.github.io/sandooq-landing/guides/building-expenses-excel-sheet.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://amremam1-dot.github.io/sandooq-landing/guides/building-expenses-excel-sheet.html" />
+  <meta property="og:title" content="نموذج شيت إكسيل (Excel) لحسابات ومصاريف العمارة واشتراكات الشقق" />
+  <meta property="og:description" content="دليل تطبيقي لتصميم جدول إكسيل لمتابعة اشتراكات ومصروفات العقار وكيفية التصدير الآلي بصيغة Excel من صندوق العمارة." />
+  <meta property="og:image" content="https://amremam1-dot.github.io/sandooq-landing/assets/sandooq-logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="نموذج شيت إكسيل (Excel) لحسابات ومصاريف العمارة" />
+  <meta name="twitter:description" content="كيفية تنظيم شيت إكسيل لحسابات العمارة واشتراكات السكان وكشف المتأخرات بالتفصيل." />
+  <meta name="twitter:image" content="https://amremam1-dot.github.io/sandooq-landing/assets/sandooq-logo.png" />
+
+  <!-- Favicon & Styles -->
+  <link rel="icon" type="image/png" href="../assets/sandooq-logo.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .guide-container {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .guide-article {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .guide-article h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+    .guide-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .guide-article h2 {
+      font-size: 1.45rem;
+      color: var(--primary-light);
+      margin: 32px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.2);
+    }
+    .guide-article h3 {
+      font-size: 1.2rem;
+      color: var(--text-main);
+      margin: 22px 0 10px;
+    }
+    .guide-article p, .guide-article li {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .guide-article ul, .guide-article ol {
+      padding-right: 24px;
+      margin-bottom: 24px;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .content-table th, .content-table td {
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      text-align: right;
+    }
+    .content-table th {
+      background: var(--card-bg-subtle);
+      color: var(--text-main);
+    }
+    .code-snippet {
+      direction: ltr;
+      text-align: left;
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      font-family: monospace;
+      font-size: 0.95rem;
+      overflow-x: auto;
+      margin: 14px 0 20px;
+    }
+    .cta-card-inline {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.3), rgba(16, 185, 129, 0.2));
+      border: 1px solid var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      margin: 36px 0;
+      text-align: center;
+    }
+    .cta-card-inline h3 {
+      font-size: 1.35rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+    .cta-card-inline p {
+      max-width: 600px;
+      margin: 0 auto 20px;
+      color: var(--text-light);
+    }
+  </style>
+
+  <!-- Structured Data: Article & FAQPage & Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "نموذج شيت إكسيل (Excel) لحسابات ومصاريف العمارة واشتراكات الشقق",
+        "description": "دليل عملي لإعداد شيت إكسيل لحسابات صيانة العمارة واشتراكات السكان مع مقارنة بميزات التصدير الآلي بصيغة Excel من صندوق العمارة.",
+        "image": "https://amremam1-dot.github.io/sandooq-landing/assets/sandooq-logo.png",
+        "datePublished": "2026-09-01T00:00:00+03:00",
+        "dateModified": "2026-09-26T00:00:00+03:00",
+        "author": {
+          "@type": "Organization",
+          "name": "صندوق العمارة"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "صندوق العمارة",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://amremam1-dot.github.io/sandooq-landing/assets/sandooq-logo.png"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://amremam1-dot.github.io/sandooq-landing/guides/building-expenses-excel-sheet.html"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://amremam1-dot.github.io/sandooq-landing/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "الأدلة الإرشادية",
+            "item": "https://amremam1-dot.github.io/sandooq-landing/guides/building-fund-management-guide.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "نموذج شيت إكسيل لحسابات العمارة",
+            "item": "https://amremam1-dot.github.io/sandooq-landing/guides/building-expenses-excel-sheet.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "هل يمكن تصدير حسابات العمارة من التطبيق إلى ملف Excel؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "نعم، يوفر تطبيق صندوق العمارة ميزة التصدير الفوري لكافة السجلات المالية والاشتراكات والمصروفات بصيغة شيت إكسيل معتمد (.xlsx) قابل للفتح والتعديل على الكمبيوتر بنقرة زر واحدة."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "ما هي الأعمدة الأساسية المطلوبة في شيت إكسيل اشتراكات العمارة؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "يشمل الجدول الأساسي: رقم الشقة، اسم الساكن/المالك، قيمة الاشتراك الشهري، شهور السداد (يناير إلى ديسمبر)، إجمالي المسدد، رصيد المتأخرات، وملاحظات السداد."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../index.html">
+        <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        <span>صندوق العمارة</span>
+      </a>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <a href="../tools/building-fee-calculator.html" class="button secondary" style="padding: 8px 16px; font-size: 0.9rem;">حاسبة الاشتراك</a>
+        <a href="../index.html#download" class="button primary" style="padding: 8px 16px; font-size: 0.9rem;">تحميل التطبيق</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="guide-container">
+    <nav class="breadcrumb-nav" style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html" style="color: var(--primary-light);">الرئيسية</a> &gt; <span>أدلة المحاسبة</span> &gt; <strong>شيت إكسيل مصاريف العمارة</strong>
+    </nav>
+
+    <article class="guide-article">
+      <h1>نموذج شيت إكسيل (Excel) لحسابات ومصاريف العمارة واشتراكات الشقق</h1>
+      
+      <div class="guide-meta">
+        <span>🕒 وقت القراءة: 4 دقائق</span>
+        <span>📅 تاريخ التحديث: سبتمبر 2026</span>
+        <span>📊 محاسبة وإدارة عقارات</span>
+      </div>
+
+      <p class="lead-text" style="font-size: 1.15rem; color: var(--text-main); font-weight: 600; line-height: 1.8;">
+        يظل برنامج مايكروسوفت إكسيل (Microsoft Excel) أو جداول بيانات جوجل (Google Sheets) الخيار الأول للكثير من أمناء الصناديق لتسجيل إيرادات ومصروفات العقار. في هذا الدليل، نوضح لك الهيكل المحاسبي السليم لتصميم جدول إكسيل عملي، متى يكون كافياً، وكيف تتغلب على عيوبه الميدانية.
+      </p>
+
+      <h2>1. الهيكل الأساسي لشيت إكسيل إدارة العمارة</h2>
+      <p>
+        لكي يكون ملف الإكسيل دقيقاً ومريحاً في التعامل، ينصح بتقسيمه إلى 3 أوراق عمل (Sheets) منفصلة:
+      </p>
+      <ul>
+        <li><strong>ورقة الاشتراكات والمحصل (Collections Sheet):</strong> جدول يحتوي على أرقام الشقق، أسماء السكان، قيمة الاشتراك الشهري، وأعمدة لشهور السنة من يناير إلى ديسمبر لمتابعة حالة السداد.</li>
+        <li><strong>ورقة المصروفات وفواتير الصيانة (Expenses Sheet):</strong> سجل يومي يشمل تاريخ الصرف، بيان المصروف (راتب البواب، فحص المصعد، كهرباء السلم)، القيمة بالجنيه، واسم مستلم النقدية.</li>
+        <li><strong>ورقة ميزانية الصندوق والخزينة (Treasury Balance Sheet):</strong> ملخص يجمع تلقائياً إجمالي المحصل من الاشتراكات ويطرح منه إجمالي المصروفات لمعرفة رصيد الخزينة المتاح.</li>
+      </ul>
+
+      <h2>2. نموذج جدول اشتراكات السكان (مثال توضيحي)</h2>
+      <div class="table-wrapper">
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th>رقم الشقة</th>
+              <th>الساكن / المالك</th>
+              <th>الاشتراك</th>
+              <th>يناير</th>
+              <th>فبراير</th>
+              <th>مارس</th>
+              <th>إجمالي المسدد</th>
+              <th>المتأخرات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>101</td>
+              <td>محمد علي</td>
+              <td>500 ج.م</td>
+              <td>✅ 500</td>
+              <td>✅ 500</td>
+              <td>✅ 500</td>
+              <td>1,500 ج.م</td>
+              <td>0 ج.م</td>
+            </tr>
+            <tr>
+              <td>102</td>
+              <td>أحمد محمود</td>
+              <td>500 ج.م</td>
+              <td>✅ 500</td>
+              <td>❌ 0</td>
+              <td>❌ 0</td>
+              <td>500 ج.م</td>
+              <td>1,000 ج.م</td>
+            </tr>
+            <tr>
+              <td>201</td>
+              <td>خالد إبراهيم</td>
+              <td>500 ج.م</td>
+              <td>✅ 500</td>
+              <td>✅ 500</td>
+              <td>❌ 0</td>
+              <td>1,000 ج.م</td>
+              <td>500 ج.م</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>3. أهم المعادلات الرياضية المفيدة في الإكسيل</h2>
+      <p>لحساب الرصيد والمتأخرات تلقائياً، يمكنك تطبيق الدوال التالية في جدولك:</p>
+      <ul>
+        <li><strong>حساب إجمالي المصروفات الشهرية:</strong>
+          <div class="code-snippet">=SUM(D2:D50)</div>
+        </li>
+        <li><strong>حساب صافي حركة الخزينة (الفائض أو العجز):</strong>
+          <div class="code-snippet">=Total_Collections - Total_Expenses</div>
+        </li>
+        <li><strong>التنسيق الشرطي (Conditional Formatting):</strong> اضبط الخلايا التي قيمتها 0 لتتلوّن بالأحمر تلقائياً لتنبيهك بالشقق المتأخرة.</li>
+      </ul>
+
+      <h2>4. مقارنة واقعية: متى يكفي شيت الإكسيل ومتى تحتاج لتطبيق جوال؟</h2>
+      <div class="table-wrapper">
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th>المعيار</th>
+              <th>شيت إكسيل اليدوي</th>
+              <th>تطبيق صندوق العمارة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>التحصيل الميداني</strong></td>
+              <td>صعب اصطحاب اللابتوب أثناء مقابلة السكان بالمدخل</td>
+              <td>تسجيل فوري من الموبايل حتى بدون إنترنت</td>
+            </tr>
+            <tr>
+              <td><strong>إيصالات السداد</strong></td>
+              <td>تحتاج لكتابة إيصال ورقي يدوي لكل ساكن</td>
+              <td>توليد كارت إيصال واتساب ومشاركته بضغطة زر</td>
+            </tr>
+            <tr>
+              <td><strong>تصفية عهدة البواب</strong></td>
+              <td>تتطلب حسابات منفصلة وتدوين يدوي للفواتير</td>
+              <td>نظام عهدة متكامل مع كشف متبقي فوري</td>
+            </tr>
+            <tr>
+              <td><strong>صيانة المصعد والمشاريع</strong></td>
+              <td>تخلط ميزانيات الصيانة الكبرى بالصندوق العام</td>
+              <td>صناديق مشاريع مستقلة مع إعفاء الدور الأرضي</td>
+            </tr>
+            <tr>
+              <td><strong>الأرشفة والمراجعة</strong></td>
+              <td>ممتازة للتدقيق على الكمبيوتر المكتبي</td>
+              <td>يدعم تصدير ملف Excel (.xlsx) كامل بضغطة زر</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cta-card-inline">
+        <h3>الحل الهجين الأذكى: سجل بالهاتف وصدّر لـ Excel وقتما تشاء!</h3>
+        <p>تطبيق <strong>صندوق العمارة</strong> يتيح لك تحصيل الاشتراكات وإرسال إيصالات واتساب لحظياً، مع إمكانية تصدير شيت Excel كامل لجميع حساباتك لمراجعتها على الكمبيوتر.</p>
+        <a href="../index.html#download" class="button primary" style="padding: 10px 24px;">تحميل تطبيق صندوق العمارة مجاناً</a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="brand">
+        <img src="../assets/sandooq-logo.png" alt="شعار صندوق العمارة" width="36" height="36" loading="lazy" />
+        <span>صندوق العمارة</span>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../tools/building-fee-calculator.html">حاسبة الاشتراك</a>
+        <a href="../guides/building-fund-management-guide.html">دليل الإدارة</a>
+        <a href="../guides/building-expenses-excel-sheet.html">شيت إكسيل العمارة</a>
+        <a href="../privacy.html">سياسة الخصوصية</a>
+      </div>
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة — نموذج ودليل حسابات العمارة عبر Excel.</p>
+    </div>
+  </footer>
+</body>
+</html>
