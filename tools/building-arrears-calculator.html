@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>حاسبة متأخرات اشتراكات العمارة مجاناً | كشف حساب ومطالبة سداد</title>
+  <meta name="description" content="أداة تفاعلية مجانية لحساب متأخرات شقق العمارة بالشهور والجنيه، وتوليد رسالة مطالبة واتساب رسمية وكشف حساب مفصل بنقرة واحدة." />
+  <link rel="canonical" href="https://sandoqalemara.com/tools/building-arrears-calculator.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/tools/building-arrears-calculator.html" />
+  <meta property="og:title" content="حاسبة متأخرات اشتراكات العمارة مجاناً | كشف حساب الشقة" />
+  <meta property="og:description" content="احسب متأخرات اشتراكات الصيانة لأي شقة مع الشهور غير المسددة وولّد رسالة مطالبة واتساب مهذبة وموثقة فوراً." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/showcase-arrears.png" />
+
+  <!-- Favicon & Styles -->
+  <link rel="icon" type="image/png" href="../assets/sandooq-logo.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .calc-container { max-width: 1000px; margin: 40px auto 80px; padding: 0 24px; }
+    .calc-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 36px 32px; box-shadow: var(--shadow-md); margin-top: 24px; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 28px; }
+    @media (max-width: 800px) { .calc-grid { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.95rem; color: var(--text-main); }
+    .form-group input, .form-group select { width: 100%; padding: 12px 14px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; font-family: inherit; background: var(--bg-surface); color: var(--text-main); }
+    .months-selector { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 8px; }
+    @media (max-width: 480px) { .months-selector { grid-template-columns: repeat(3, 1fr); } }
+    .month-chip { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 6px; font-size: 0.85rem; border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer; user-select: none; background: var(--bg-surface); }
+    .month-chip input { margin: 0; width: auto; }
+    .result-box { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; }
+    .result-total { font-size: 2.2rem; font-weight: 900; color: #ef4444; margin: 10px 0; }
+    .breakdown-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed var(--border-color); font-size: 0.95rem; }
+    .whatsapp-preview-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin-top: 20px; font-family: monospace, sans-serif; font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap; color: #166534; }
+    .faq-section { margin-top: 50px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 36px; }
+    .faq-item { margin-bottom: 24px; }
+    .faq-item h3 { font-size: 1.15rem; color: var(--primary-light); margin-bottom: 8px; }
+    .faq-item p { color: var(--text-light); line-height: 1.8; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "حاسبة متأخرات اشتراكات العمارة",
+        "url": "https://sandoqalemara.com/tools/building-arrears-calculator.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EGP" },
+        "description": "أداة مجانية لحساب متأخرات صيانة العمارة وحصر الشهور غير المسددة وإنشاء كشوف حساب ومطالبات واتساب فورية."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://sandoqalemara.com/" },
+          { "@type": "ListItem", "position": 2, "name": "الأدوات المجانية", "item": "https://sandoqalemara.com/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "حاسبة المتأخرات", "item": "https://sandoqalemara.com/tools/building-arrears-calculator.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="../" class="logo">
+        <img src="../assets/sandooq-logo.png" alt="صندوق العمارة" class="logo-img" />
+        <span class="logo-text">صندوق العمارة</span>
+      </a>
+      <nav class="main-nav">
+        <a href="../">الرئيسية</a>
+        <a href="../solutions/">الحلول</a>
+        <a href="index.html" class="active">أدوات مجانية</a>
+        <a href="../guides/">دليل الإدارة</a>
+        <a href="../about.html">عن التطبيق</a>
+        <a href="../contact.html">تواصل معنا</a>
+      </nav>
+      <div class="header-cta">
+        <a href="../download.html" class="btn btn-primary">تحميل التطبيق</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="calc-container">
+    <div class="breadcrumb" style="margin-bottom: 20px; font-size: 0.95rem; color: var(--text-light);">
+      <a href="../" style="color: var(--primary-light); text-decoration: none;">الرئيسية</a> &gt; 
+      <a href="index.html" style="color: var(--primary-light); text-decoration: none;">الأدوات المجانية</a> &gt; 
+      <span>حاسبة متأخرات اشتراكات العمارة</span>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+      <span style="display:inline-block; padding: 6px 14px; background: rgba(239, 68, 68, 0.1); color: #dc2626; border-radius: 20px; font-weight: 700; margin-bottom: 12px;">أداة محاسبية مجانية 100%</span>
+      <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">حاسبة متأخرات اشتراكات العمارة ومطالبات الواتساب</h1>
+      <p style="font-size: 1.1rem; color: var(--text-light); max-width: 720px; margin: 0 auto; line-height: 1.7;">
+        احسب إجمالي المبالغ والشهور المتأخرة على أي شقة، وأنشئ كشف حساب رسمي أو رسالة مطالبة ودية لمشاركتها مباشرة مع الجار دون إحراج أو أخطاء حسابية.
+      </p>
+    </div>
+
+    <div class="calc-card">
+      <div class="calc-grid">
+        <!-- Input Form -->
+        <div>
+          <h2 style="font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">بيانات الوحدة والاشتراك</h2>
+          
+          <div class="form-group">
+            <label for="unitNumber">رقم الشقة / اسم الساكن:</label>
+            <input type="text" id="unitNumber" value="شقة 5 - أ/ محمد أحمد" placeholder="مثال: شقة 4 - الدور الثاني" oninput="calculateArrears()" />
+          </div>
+
+          <div class="form-group">
+            <label for="monthlyFee">قيمة الاشتراك الشهري (جنيه):</label>
+            <input type="number" id="monthlyFee" value="250" min="1" step="10" oninput="calculateArrears()" />
+          </div>
+
+          <div class="form-group">
+            <label>اختر الشهور غير المسددة لعام 2026:</label>
+            <div style="display:flex; justify-content:space-between; margin-bottom:6px; font-size:0.85rem;">
+              <button type="button" onclick="toggleAllMonths(true)" style="background:none; border:none; color:var(--primary-light); cursor:pointer; text-decoration:underline;">تحديد الكل</button>
+              <button type="button" onclick="toggleAllMonths(false)" style="background:none; border:none; color:var(--text-light); cursor:pointer; text-decoration:underline;">إلغاء التحديد</button>
+            </div>
+            <div class="months-selector" id="monthsContainer">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="previousYears">متأخرات مرحلة من سنوات سابقة (جنيه):</label>
+            <input type="number" id="previousYears" value="0" min="0" step="50" oninput="calculateArrears()" />
+          </div>
+
+          <div class="form-group">
+            <label for="projectFee">مستحقات مشاريع أو صيانة كبرى (اختياري):</label>
+            <input type="number" id="projectFee" value="0" min="0" step="50" placeholder="مثلاً: صيانة المصعد أو دهان المدخل" oninput="calculateArrears()" />
+          </div>
+
+          <div class="form-group">
+            <label for="partialPaid">مبالغ مسددة مقدماً / دفعات جزئية (جنيه):</label>
+            <input type="number" id="partialPaid" value="0" min="0" step="50" oninput="calculateArrears()" />
+          </div>
+        </div>
+
+        <!-- Result Summary -->
+        <div>
+          <h2 style="font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">كشف المتأخرات الإجمالي</h2>
+          
+          <div class="result-box">
+            <span style="font-size: 0.95rem; color: var(--text-light);">إجمالي المديونية المستحقة للسداد:</span>
+            <div class="result-total" id="totalDebtDisplay">750 ج.م</div>
+
+            <div class="breakdown-row">
+              <span>عدد الشهور المتأخرة:</span>
+              <strong id="unpaidMonthsCount">3 شهور</strong>
+            </div>
+            <div class="breakdown-row">
+              <span>قيمة اشتراكات الشهور:</span>
+              <strong id="feeSubtotal">750 ج.م</strong>
+            </div>
+            <div class="breakdown-row">
+              <span>متأخرات السنوات السابقة:</span>
+              <strong id="prevYearsDisplay">0 ج.م</strong>
+            </div>
+            <div class="breakdown-row">
+              <span>مستحقات الصيانة والمشاريع:</span>
+              <strong id="projectFeeDisplay">0 ج.م</strong>
+            </div>
+            <div class="breakdown-row" style="color: #059669;">
+              <span>المدفوعات والخصومات:</span>
+              <strong id="paidDisplay">- 0 ج.م</strong>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+              <label style="font-weight: 700; font-size: 0.95rem;">نص رسالة الواتساب الجاهزة للإرسال:</label>
+              <button type="button" onclick="copyWhatsAppMessage()" class="btn" style="padding: 4px 10px; font-size: 0.85rem; background: var(--secondary-color); color: #fff;">نسخ الرسالة 📋</button>
+            </div>
+            <div class="whatsapp-preview-box" id="whatsappMessage">
+              <!-- Rendered via JS -->
+            </div>
+            <div id="copyAlert" style="display:none; color:#059669; font-size:0.85rem; margin-top:6px; font-weight:700;">تم نسخ الرسالة بنجاح! يمكنك لصقها الآن في محادثة الواتساب.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Callout to Android App -->
+    <div style="background: linear-gradient(135deg, rgba(30,58,138,0.06), rgba(16,185,129,0.06)); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 32px; margin-top: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+      <div style="max-width: 600px;">
+        <h3 style="font-size: 1.35rem; color: var(--primary-light); margin-bottom: 8px;">هل تريد إدارة متأخرات العمارة بالكامل آلياً؟</h3>
+        <p style="color: var(--text-light); line-height: 1.7; margin-bottom: 0;">
+          يوفر لك تطبيق <strong>صندوق العمارة</strong> شاشة كشف متأخرات لجميع الشقق دفعة واحدة، مع تحديد الشهور غير المسددة لكل شقة، وإمكانية تعديل الاشتراك مع حفظ التاريخ، وتصدير التقارير بصيغة PDF وطباعتها بدون مجهود يدوي.
+        </p>
+      </div>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" class="btn btn-primary" target="_blank" rel="noopener">حمّل تطبيق صندوق العمارة مجاناً</a>
+      </div>
+    </div>
+
+    <!-- SEO FAQ -->
+    <section class="faq-section">
+      <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 24px;">الأسئلة الشائعة حول متأخرات العمارات والقانون المصري</h2>
+      
+      <div class="faq-item">
+        <h3>ما هو الموقف القانوني للساكن الممتنع عن سداد اشتراك العمارة في مصر؟</h3>
+        <p>وفقاً لأحكام قانون البناء الموحد رقم 119 لسنة 2008، يُلزم جميع ملاك وشاغلي الوحدات بسداد حصصهم في تكاليف صيانة وتشغيل الأجزاء المشتركة (المصاعد، الإنارة، النظافة، الحراسة). وفي حال الامتناع المتكرر، يمنح القانون لاتحاد الشاغلين المنتخب الحق في اتخاذ الإجراءات القانونية والمطالبة القضائية بإلزام الممتنع بالسداد مع فوائد التأخير والتعويض.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>كيف يمكن لأمين الصندوق مطالبة الجار المتأخر بلباقة دون إحداث حرج؟</h3>
+        <p>أفضل طريقة للمطالبة هي إرسال كشف حساب مكتوب وموثق يوضح شهور التأخير وقيمة الاشتراك، مع إرفاق فواتير المصاريف التي تكبدها العقار (مثل فاتورة المصعد أو الصيانة). استخدام رسالة موثقة تحمل الأرقام يرفع الحرج ويجعل الحديث موضوعياً ومالياً بعيداً عن الخلافات الشخصية.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>هل يجوز فرض غرامة تأخير على الشقق المتأخرة في السداد؟</h3>
+        <p>نعم، يجوز في حال تم إقرار بند غرامات التأخير في اللائحة الداخلية المعتمدة للجمعية العمومية لاتحاد الشاغلين وموافقة الأغلبية القانونية للملاك، على أن توجه حصيلة الغرامة لصندوق العمارة وليس لمصلحة شخصية.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const monthsArabic = [
+      'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+      'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
+    ];
+
+    const initialUnpaid = [0, 1, 2]; // Jan, Feb, Mar default checked
+
+    function initMonths() {
+      const container = document.getElementById('monthsContainer');
+      container.innerHTML = '';
+      monthsArabic.forEach((month, index) => {
+        const isChecked = initialUnpaid.includes(index) ? 'checked' : '';
+        const chip = document.createElement('label');
+        chip.className = 'month-chip';
+        chip.innerHTML = `
+          <input type="checkbox" value="${index}" ${isChecked} onchange="calculateArrears()" />
+          <span>${month}</span>
+        `;
+        container.appendChild(chip);
+      });
+    }
+
+    function toggleAllMonths(check) {
+      const checkboxes = document.querySelectorAll('#monthsContainer input[type="checkbox"]');
+      checkboxes.forEach(cb => cb.checked = check);
+      calculateArrears();
+    }
+
+    function calculateArrears() {
+      const unit = document.getElementById('unitNumber').value.trim() || 'الجار العزيز';
+      const monthlyFee = parseFloat(document.getElementById('monthlyFee').value) || 0;
+      const prevYears = parseFloat(document.getElementById('previousYears').value) || 0;
+      const projectFee = parseFloat(document.getElementById('projectFee').value) || 0;
+      const partialPaid = parseFloat(document.getElementById('partialPaid').value) || 0;
+
+      const checkedCheckboxes = Array.from(document.querySelectorAll('#monthsContainer input[type="checkbox"]:checked'));
+      const selectedMonthNames = checkedCheckboxes.map(cb => monthsArabic[parseInt(cb.value)]);
+      const unpaidCount = selectedMonthNames.length;
+
+      const feeSubtotal = unpaidCount * monthlyFee;
+      const totalDebt = Math.max(0, feeSubtotal + prevYears + projectFee - partialPaid);
+
+      // Update UI displays
+      document.getElementById('totalDebtDisplay').innerText = totalDebt.toLocaleString('ar-EG') + ' ج.م';
+      document.getElementById('unpaidMonthsCount').innerText = unpaidCount + ' شهر';
+      document.getElementById('feeSubtotal').innerText = feeSubtotal.toLocaleString('ar-EG') + ' ج.م';
+      document.getElementById('prevYearsDisplay').innerText = prevYears.toLocaleString('ar-EG') + ' ج.م';
+      document.getElementById('projectFeeDisplay').innerText = projectFee.toLocaleString('ar-EG') + ' ج.م';
+      document.getElementById('paidDisplay').innerText = '- ' + partialPaid.toLocaleString('ar-EG') + ' ج.م';
+
+      // Build WhatsApp message
+      let monthsListText = selectedMonthNames.length > 0 ? selectedMonthNames.join('، ') : 'لا يوجد شهور محددة';
+      let msg = `السلام عليكم ورحمة الله وبركاته،\n`;
+      msg += `تحية طيبة لحضرتك (${unit})،\n\n`;
+      msg += `نحيط سيادتكم علماً ببيان كشف حساب اشتراك الصيانة الدوري للعقار حتى تاريخه:\n`;
+      msg += `• قيمة الاشتراك الشهري: ${monthlyFee} جنيه\n`;
+      if (unpaidCount > 0) {
+        msg += `• الشهور غير المسددة (${unpaidCount} شهر): ${monthsListText}\n`;
+        msg += `• إجمالي اشتراكات الشهور: ${feeSubtotal} جنيه\n`;
+      }
+      if (prevYears > 0) {
+        msg += `• متأخرات سابقة مرحلة: ${prevYears} جنيه\n`;
+      }
+      if (projectFee > 0) {
+        msg += `• مستحقات صيانة/مشروعات: ${projectFee} جنيه\n`;
+      }
+      if (partialPaid > 0) {
+        msg += `• خصم دفعات مسددة: -${partialPaid} جنيه\n`;
+      }
+      msg += `----------------------------\n`;
+      msg += `📌 إجمالي المبلغ المطلوب سداده: *${totalDebt} جنيه*\n`;
+      msg += `----------------------------\n`;
+      msg += `شاكرين لحضرتك حسن تعاونكم وسرعة السداد لانتظام خدمات العمارة وصيانة المصعد والنظافة.\n`;
+      msg += `صندوق العمارة - إدارة الحسابات`;
+
+      document.getElementById('whatsappMessage').innerText = msg;
+    }
+
+    function copyWhatsAppMessage() {
+      const text = document.getElementById('whatsappMessage').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const alertBox = document.getElementById('copyAlert');
+        alertBox.style.display = 'block';
+        setTimeout(() => { alertBox.style.display = 'none'; }, 3500);
+      });
+    }
+
+    window.onload = function() {
+      initMonths();
+      calculateArrears();
+    };
+  </script>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <img src="../assets/sandooq-logo.png" alt="صندوق العمارة" class="footer-logo" />
+            <span class="footer-title">صندوق العمارة</span>
+          </div>
+          <p class="footer-desc">تطبيق الهاتف العربي الأول المتخصص في إدارة أموال، اشتراكات، متأخرات، ومصروفات العمارات السكنية والمجموعات العقارية بكل سهولة وشفافية.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">الحلول والخصائص</h4>
+          <ul class="footer-links">
+            <li><a href="../solutions/building-expenses.html">إدارة المصروفات</a></li>
+            <li><a href="../solutions/building-subscriptions.html">تحصيل الاشتراكات</a></li>
+            <li><a href="../solutions/building-arrears.html">متابعة المتأخرات</a></li>
+            <li><a href="../solutions/building-receipts.html">إيصالات واتساب</a></li>
+            <li><a href="../solutions/building-maintenance.html">إدارة الصيانة والمشاريع</a></li>
+            <li><a href="../solutions/building-treasury.html">تعدد الخزائن والعهد</a></li>
+            <li><a href="../solutions/building-reports.html">التقارير وسجل العمارة</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">أدوات ودلائل مجانية</h4>
+          <ul class="footer-links">
+            <li><a href="building-fee-calculator.html">حاسبة اشتراك الشقة</a></li>
+            <li><a href="receipt-generator.html">مولد إيصال استلام إيجار/صيانة</a></li>
+            <li><a href="building-arrears-calculator.html">حاسبة متأخرات العمارة</a></li>
+            <li><a href="maintenance-budget-planner.html">حاسبة ميزانية الصيانة الكبرى</a></li>
+            <li><a href="../guides/building-fund-management-guide.html">دليل إدارة الصندوق للمبتدئين</a></li>
+            <li><a href="../guides/building-expenses-excel-sheet.html">شيت إكسيل مصاريف العمارة</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">عن التطبيق والخدمة</h4>
+          <ul class="footer-links">
+            <li><a href="../about.html">عن التطبيق</a></li>
+            <li><a href="../contact.html">تواصل معنا والدعم الفني</a></li>
+            <li><a href="../download.html">تحميل التطبيق</a></li>
+            <li><a href="../security.html">الأمان وحماية البيانات</a></li>
+            <li><a href="../privacy.html">سياسة الخصوصية</a></li>
+            <li><a href="../terms.html">شروط الاستخدام</a></li>
+            <li><a href="../delete-account.html">حذف الحساب والبيانات</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 صندوق العمارة (Sandooq El-Amara). جميع الحقوق محفوظة.</p>
+        <p class="footer-note">تطبيق أندرويد موثق على متجر Google Play ومصمم لخدمة أصحاب العقارات واتحادات الشاغلين.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

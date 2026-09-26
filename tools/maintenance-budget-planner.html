@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>حاسبة ميزانية وتوزيع تكلفة صيانة العمارة والمصاعد مجاناً</title>
+  <meta name="description" content="أداة تفاعلية لحساب ميزانية تعمير وصيانة المصاعد، دهان الواجهات، وتوزيع التكلفة على الشقق مع إمكانية استثناء الأدوار الأرضية واحتساب طوارئ التنفيذ." />
+  <link rel="canonical" href="https://sandoqalemara.com/tools/maintenance-budget-planner.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/tools/maintenance-budget-planner.html" />
+  <meta property="og:title" content="حاسبة ميزانية وتوزيع تكلفة صيانة العمارة والمصاعد مجاناً" />
+  <meta property="og:description" content="وزّع تكاليف مشاريع وصيانة العمارة الكبرى (أسانسير، عزل، دهانات) على السكان بدقة واحترافية." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/showcase-projects.png" />
+
+  <!-- Favicon & Styles -->
+  <link rel="icon" type="image/png" href="../assets/sandooq-logo.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .calc-container { max-width: 1000px; margin: 40px auto 80px; padding: 0 24px; }
+    .calc-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 36px 32px; box-shadow: var(--shadow-md); margin-top: 24px; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 28px; }
+    @media (max-width: 800px) { .calc-grid { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.95rem; color: var(--text-main); }
+    .form-group input, .form-group select { width: 100%; padding: 12px 14px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; font-family: inherit; background: var(--bg-surface); color: var(--text-main); }
+    .result-box { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; }
+    .result-total { font-size: 2.2rem; font-weight: 900; color: var(--primary-light); margin: 10px 0; }
+    .breakdown-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed var(--border-color); font-size: 0.95rem; }
+    .whatsapp-preview-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin-top: 20px; font-family: monospace, sans-serif; font-size: 0.9rem; line-height: 1.6; white-space: pre-wrap; color: #166534; }
+    .faq-section { margin-top: 50px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 36px; }
+    .faq-item { margin-bottom: 24px; }
+    .faq-item h3 { font-size: 1.15rem; color: var(--primary-light); margin-bottom: 8px; }
+    .faq-item p { color: var(--text-light); line-height: 1.8; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "حاسبة ميزانية وتوزيع تكلفة صيانة العمارة والمصاعد",
+        "url": "https://sandoqalemara.com/tools/maintenance-budget-planner.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EGP" },
+        "description": "أداة مجانية لحساب وتوزيع ميزانية مشاريع العمارة وتعمير المصاعد وتحديد نصيب كل شقة بنقرة واحدة."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://sandoqalemara.com/" },
+          { "@type": "ListItem", "position": 2, "name": "الأدوات المجانية", "item": "https://sandoqalemara.com/tools/" },
+          { "@type": "ListItem", "position": 3, "name": "حاسبة ميزانية الصيانة", "item": "https://sandoqalemara.com/tools/maintenance-budget-planner.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="../" class="logo">
+        <img src="../assets/sandooq-logo.png" alt="صندوق العمارة" class="logo-img" />
+        <span class="logo-text">صندوق العمارة</span>
+      </a>
+      <nav class="main-nav">
+        <a href="../">الرئيسية</a>
+        <a href="../solutions/">الحلول</a>
+        <a href="index.html" class="active">أدوات مجانية</a>
+        <a href="../guides/">دليل الإدارة</a>
+        <a href="../about.html">عن التطبيق</a>
+        <a href="../contact.html">تواصل معنا</a>
+      </nav>
+      <div class="header-cta">
+        <a href="../download.html" class="btn btn-primary">تحميل التطبيق</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="calc-container">
+    <div class="breadcrumb" style="margin-bottom: 20px; font-size: 0.95rem; color: var(--text-light);">
+      <a href="../" style="color: var(--primary-light); text-decoration: none;">الرئيسية</a> &gt; 
+      <a href="index.html" style="color: var(--primary-light); text-decoration: none;">الأدوات المجانية</a> &gt; 
+      <span>حاسبة ميزانية وتوزيع الصيانة</span>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+      <span style="display:inline-block; padding: 6px 14px; background: rgba(30, 58, 138, 0.1); color: var(--primary-color); border-radius: 20px; font-weight: 700; margin-bottom: 12px;">أداة تخطيط مالي مجانية</span>
+      <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">حاسبة ميزانية وتوزيع تكلفة صيانة العمارة والمصاعد</h1>
+      <p style="font-size: 1.1rem; color: var(--text-light); max-width: 720px; margin: 0 auto; line-height: 1.7;">
+        احسب نصيب كل شقة في صيانة المصعد الشاملة، عزل السطح، أو دهان الواجهات مع خيارات استثناء الأدوار الأرضية وحساب احتياطي الطوارئ.
+      </p>
+    </div>
+
+    <div class="calc-card">
+      <div class="calc-grid">
+        <!-- Input Form -->
+        <div>
+          <h2 style="font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">بيانات المشروع والتكاليف</h2>
+          
+          <div class="form-group">
+            <label for="projectName">اسم المشروع أو أعمال الصيانة:</label>
+            <input type="text" id="projectName" value="عمرة وصيانة شاملة للمصعد" placeholder="مثال: تجديد واجهة العمارة، موتور مياه جديد" oninput="calculateBudget()" />
+          </div>
+
+          <div class="form-group">
+            <label for="estimatedCost">التكلفة التقديرية (مقايسة الفني / المقاول) بالجنيه:</label>
+            <input type="number" id="estimatedCost" value="20000" min="100" step="500" oninput="calculateBudget()" />
+          </div>
+
+          <div class="form-group">
+            <label for="contingencyPercent">نسبة احتياطي طوارئ للمصروفات غير المتوقعة (%):</label>
+            <select id="contingencyPercent" onchange="calculateBudget()">
+              <option value="0">بدون احتياطي (0%)</option>
+              <option value="5">احتياطي بسيط (5%)</option>
+              <option value="10" selected>احتياطي موصى به (10%)</option>
+              <option value="15">احتياطي أمان عالٍ (15%)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="totalUnits">إجمالي عدد وحدات/شقق العمارة:</label>
+            <input type="number" id="totalUnits" value="12" min="2" max="200" oninput="calculateBudget()" />
+          </div>
+
+          <div class="form-group">
+            <label for="excludedUnits">عدد الشقق المستثناة (الأرضي أو المحلات التجارية):</label>
+            <input type="number" id="excludedUnits" value="2" min="0" oninput="calculateBudget()" />
+            <small style="color: var(--text-light); display:block; margin-top:4px;">مثلاً: شقق الدور الأرضي في حالة تعمير المصعد</small>
+          </div>
+        </div>
+
+        <!-- Result Summary -->
+        <div>
+          <h2 style="font-size: 1.3rem; margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">توزيع الحصص المطلوب تحصيلها</h2>
+          
+          <div class="result-box">
+            <span style="font-size: 0.95rem; color: var(--text-light);">حصة الشقة المشاركة الواحدة:</span>
+            <div class="result-total" id="costPerUnitDisplay">2,200 ج.م</div>
+
+            <div class="breakdown-row">
+              <span>التكلفة الأساسية للمقايسة:</span>
+              <strong id="baseCostDisplay">20,000 ج.م</strong>
+            </div>
+            <div class="breakdown-row">
+              <span>مبلغ احتياطي الطوارئ:</span>
+              <strong id="contingencyDisplay">2,000 ج.م</strong>
+            </div>
+            <div class="breakdown-row">
+              <span>إجمالي الميزانية المستهدفة:</span>
+              <strong id="totalTargetDisplay">22,000 ج.م</strong>
+            </div>
+            <div class="breakdown-row">
+              <span>عدد الشقق المشاركة في السداد:</span>
+              <strong id="participatingUnitsDisplay">10 شقق</strong>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+              <label style="font-weight: 700; font-size: 0.95rem;">نص إعلان المشروع لجروب واتساب العمارة:</label>
+              <button type="button" onclick="copyProjectNotice()" class="btn" style="padding: 4px 10px; font-size: 0.85rem; background: var(--secondary-color); color: #fff;">نسخ الإعلان 📋</button>
+            </div>
+            <div class="whatsapp-preview-box" id="projectNoticeBox">
+              <!-- Rendered via JS -->
+            </div>
+            <div id="copyNoticeAlert" style="display:none; color:#059669; font-size:0.85rem; margin-top:6px; font-weight:700;">تم نسخ نص الإعلان بنجاح!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Highlight -->
+    <div style="background: linear-gradient(135deg, rgba(30,58,138,0.06), rgba(16,185,129,0.06)); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 32px; margin-top: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+      <div style="max-width: 600px;">
+        <h3 style="font-size: 1.35rem; color: var(--primary-light); margin-bottom: 8px;">ميزة "سلفة صندوق العمارة" للمشاريع في تطبيقنا</h3>
+        <p style="color: var(--text-light); line-height: 1.7; margin-bottom: 0;">
+          إذا تأخر بعض الجيران في دفع حصتهم واحتاج الفني سلفة لبدء أعمال الصيانة فوراً، يتيح لك تطبيق <strong>صندوق العمارة</strong> اقتراض المبلغ مؤقتاً من الخزينة الرئيسية إلى حساب المشروع، وردّه تلقائياً فور سداد الشقق المتأخرة!
+        </p>
+      </div>
+      <div>
+        <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" class="btn btn-primary" target="_blank" rel="noopener">حمّل تطبيق صندوق العمارة مجاناً</a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <h2 style="font-size: 1.6rem; color: var(--text-main); margin-bottom: 24px;">نصائح قانونية وعملية في مشاريع وصيانة العمارات</h2>
+      
+      <div class="faq-item">
+        <h3>هل يدفع ساكن الدور الأرضي في صيانة أو تغيير المصعد؟</h3>
+        <p>وفقاً للعرف السائد وقرارات الجمعية العمومية لمعظم اتحادات الشاغلين في مصر، يُعفى ساكن الدور الأرضي عادة من تكاليف تعمير وتحديث كابينة ومحرك المصعد إذا لم يكن يستخدمه للوصول إلى الجراج أو الروف. ولكن يُلزم قانوناً بالمشاركة في صيانة الأجزاء المشتركة العامة كواجهة العقار، مدخل العمارة، ومواسير الصرف والمياه.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>لماذا يُنصح بوضع نسبة احتياطي طوارئ (10%) في أي مقايسة؟</h3>
+        <p>أثناء تنفيذ أعمال الصيانة المعقدة (مثل إصلاحات السباكة أو فك محرك الأسانسير)، تظهر قطع غيار تالفة غير مرئية في الفحص الأولي، أو قد ترتفع أسعار الخامات فجأة. وجود احتياطي طوارئ يحمي أمين الصندوق من الحرج ويمنع الاضطرار لجمع مبالغ إضافية من الجيران مرة أخرى.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function calculateBudget() {
+      const name = document.getElementById('projectName').value.trim() || 'مشروع صيانة العمارة';
+      const baseCost = parseFloat(document.getElementById('estimatedCost').value) || 0;
+      const contingencyPct = parseFloat(document.getElementById('contingencyPercent').value) || 0;
+      const totalUnits = parseInt(document.getElementById('totalUnits').value) || 1;
+      const excluded = parseInt(document.getElementById('excludedUnits').value) || 0;
+
+      const participating = Math.max(1, totalUnits - excluded);
+      const contingencyAmount = Math.round(baseCost * (contingencyPct / 100));
+      const totalTarget = baseCost + contingencyAmount;
+      const costPerUnit = Math.round(totalTarget / participating);
+
+      document.getElementById('costPerUnitDisplay').innerText = costPerUnit.toLocaleString('ar-EG') + ' ج.م';
+      document.getElementById('baseCostDisplay').innerText = baseCost.toLocaleString('ar-EG') + ' ج.م';
+      document.getElementById('contingencyDisplay').innerText = contingencyAmount.toLocaleString('ar-EG') + ' ج.م (' + contingencyPct + '%)';
+      document.getElementById('totalTargetDisplay').innerText = totalTarget.toLocaleString('ar-EG') + ' ج.م';
+      document.getElementById('participatingUnitsDisplay').innerText = participating + ' شقة (من أصل ' + totalUnits + ')';
+
+      let notice = `السادة جيراننا وأعضاء اتحاد ملاك العقار الكرام،\n`;
+      notice += `تحية طيبة وبعد،،\n\n`;
+      notice += `إلحاقاً لما تم الاتفاق عليه بخصوص [ ${name} ]:\n`;
+      notice += `• التكلفة التقديرية الإجمالية للمقايسة: ${baseCost} جنيه\n`;
+      if (contingencyAmount > 0) {
+        notice += `• احتياطي طوارئ وخامات (${contingencyPct}%): ${contingencyAmount} جنيه\n`;
+        notice += `• إجمالي الميزانية المستهدفة: ${totalTarget} جنيه\n`;
+      }
+      notice += `• عدد الشقق المشاركة: ${participating} شقة\n`;
+      notice += `----------------------------\n`;
+      notice += `📌 حصة كل شقة مستحقة: *${costPerUnit} جنيه*\n`;
+      notice += `----------------------------\n`;
+      notice += `يرجى التكرم بتسليم الحصة لأمين الصندوق أو عبر التحويل لبدء التنفيذ في أقرب وقت.\n`;
+      notice += `مع خالص التحية، إدارة اتحاد شاغلي العقار`;
+
+      document.getElementById('projectNoticeBox').innerText = notice;
+    }
+
+    function copyProjectNotice() {
+      const text = document.getElementById('projectNoticeBox').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const alertBox = document.getElementById('copyNoticeAlert');
+        alertBox.style.display = 'block';
+        setTimeout(() => { alertBox.style.display = 'none'; }, 3500);
+      });
+    }
+
+    window.onload = function() {
+      calculateBudget();
+    };
+  </script>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <img src="../assets/sandooq-logo.png" alt="صندوق العمارة" class="footer-logo" />
+            <span class="footer-title">صندوق العمارة</span>
+          </div>
+          <p class="footer-desc">تطبيق الهاتف العربي الأول المتخصص في إدارة أموال، اشتراكات، متأخرات، ومصروفات العمارات السكنية والمجموعات العقارية بكل سهولة وشفافية.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">الحلول والخصائص</h4>
+          <ul class="footer-links">
+            <li><a href="../solutions/building-expenses.html">إدارة المصروفات</a></li>
+            <li><a href="../solutions/building-subscriptions.html">تحصيل الاشتراكات</a></li>
+            <li><a href="../solutions/building-arrears.html">متابعة المتأخرات</a></li>
+            <li><a href="../solutions/building-receipts.html">إيصالات واتساب</a></li>
+            <li><a href="../solutions/building-maintenance.html">إدارة الصيانة والمشاريع</a></li>
+            <li><a href="../solutions/building-treasury.html">تعدد الخزائن والعهد</a></li>
+            <li><a href="../solutions/building-reports.html">التقارير وسجل العمارة</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">أدوات ودلائل مجانية</h4>
+          <ul class="footer-links">
+            <li><a href="building-fee-calculator.html">حاسبة اشتراك الشقة</a></li>
+            <li><a href="receipt-generator.html">مولد إيصال استلام إيجار/صيانة</a></li>
+            <li><a href="building-arrears-calculator.html">حاسبة متأخرات العمارة</a></li>
+            <li><a href="maintenance-budget-planner.html">حاسبة ميزانية الصيانة الكبرى</a></li>
+            <li><a href="../guides/building-fund-management-guide.html">دليل إدارة الصندوق للمبتدئين</a></li>
+            <li><a href="../guides/building-expenses-excel-sheet.html">شيت إكسيل مصاريف العمارة</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">عن التطبيق والخدمة</h4>
+          <ul class="footer-links">
+            <li><a href="../about.html">عن التطبيق</a></li>
+            <li><a href="../contact.html">تواصل معنا والدعم الفني</a></li>
+            <li><a href="../download.html">تحميل التطبيق</a></li>
+            <li><a href="../security.html">الأمان وحماية البيانات</a></li>
+            <li><a href="../privacy.html">سياسة الخصوصية</a></li>
+            <li><a href="../terms.html">شروط الاستخدام</a></li>
+            <li><a href="../delete-account.html">حذف الحساب والبيانات</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 صندوق العمارة (Sandooq El-Amara). جميع الحقوق محفوظة.</p>
+        <p class="footer-note">تطبيق أندرويد موثق على متجر Google Play ومصمم لخدمة أصحاب العقارات واتحادات الشاغلين.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

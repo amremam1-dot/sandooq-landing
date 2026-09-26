@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="تعرف على معايير الأمان وحماية البيانات المالية في تطبيق صندوق العمارة: التخزين المحلي المشفر، المزامنة السحابية عبر Google Firebase، وسياسة الخصوصية الصارمة." />
+  <title>الأمان وحماية البيانات | تطبيق صندوق العمارة</title>
+  <link rel="icon" type="image/png" href="assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" href="assets/sandooq-logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="canonical" href="https://sandoqalemara.com/security.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sandoqalemara.com/security.html" />
+  <meta property="og:title" content="الأمان وحماية البيانات المالية | تطبيق صندوق العمارة" />
+  <meta property="og:description" content="كيف يحمي صندوق العمارة سجلات عقارك وحساباتك: تخزين محلي معزول، تشفير أثناء النقل، ومزامنة سحابية آمنة." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .security-container { max-width: 920px; margin: 40px auto 80px; padding: 0 24px; }
+    .security-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 44px 36px; box-shadow: var(--shadow-sm); }
+    .security-card h1 { font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 16px; }
+    .security-card h2 { font-size: 1.45rem; font-weight: 700; color: var(--primary-light); margin: 32px 0 14px; }
+    .security-card p, .security-card li { font-size: 1.05rem; color: var(--text-light); line-height: 1.85; margin-bottom: 14px; }
+    .security-card ul { padding-right: 24px; margin-bottom: 24px; }
+    .sec-badge-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 28px 0; }
+    .sec-badge-item { background: var(--card-bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px; }
+    .sec-badge-item h3 { font-size: 1.15rem; color: var(--text-main); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .sec-badge-item p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
+    .callout-box { background: rgba(59, 130, 246, 0.08); border-right: 4px solid var(--primary-light); padding: 20px; border-radius: var(--radius-sm); margin: 28px 0; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "الأمان وحماية البيانات - صندوق العمارة",
+        "url": "https://sandoqalemara.com/security.html",
+        "description": "معايير الأمان وحماية البيانات والخصوصية المتبعة في تطبيق صندوق العمارة."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://sandoqalemara.com/" },
+          { "@type": "ListItem", "position": 2, "name": "الأمان وحماية البيانات", "item": "https://sandoqalemara.com/security.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="index.html">
+        <img src="assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        <span>صندوق العمارة</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <nav class="nav">
+        <a href="index.html">الرئيسية</a>
+        <a href="solutions/index.html">الحلول</a>
+        <a href="tools/index.html">الأدوات المجانية</a>
+        <a href="guides/index.html">أدلة الإدارة</a>
+        <a href="about.html">عن التطبيق</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="download.html" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="security-container">
+    <nav class="breadcrumb-nav" aria-label="مسار التنقل">
+      <a href="index.html">الرئيسية</a> &gt; <strong>الأمان وحماية البيانات</strong>
+    </nav>
+
+    <article class="security-card">
+      <h1>الأمان وحماية البيانات في صندوق العمارة</h1>
+      <p class="lead" style="font-size: 1.15rem; color: var(--text-main); font-weight: 600; line-height: 1.8;">
+        نحن ندرك أن البيانات المالية للعقارات وحسابات اشتراكات السكان تتطلب سرية وموثوقية عالية. توضح هذه الصفحة التدابير التقنية والسياسات المتبعة لحماية معلوماتك.
+      </p>
+
+      <div class="sec-badge-box">
+        <div class="sec-badge-item">
+          <h3>📱 تخزين محلي معزول</h3>
+          <p>تُحفظ قاعدة البيانات داخل مساحة التخزين الداخلية المحمية لنظام أندرويد (App Sandbox)، ولا يمكن للتطبيقات الأخرى الوصول إليها.</p>
+        </div>
+        <div class="sec-badge-item">
+          <h3>🔒 تشفير أثناء النقل</h3>
+          <p>تتم جميع عمليات المزامنة والتواصل مع الخوادم السحابية عبر بروتوكول HTTPS المشفر بأحدث شهادات TLS.</p>
+        </div>
+        <div class="sec-badge-item">
+          <h3>☁️ بنية Google Cloud السحابية</h3>
+          <p>تعتمد المزامنة السحابية الاحتياطية على منصة Google Firebase المعتمدة عالمياً بأعلى معايير حماية مراكز البيانات.</p>
+        </div>
+      </div>
+
+      <h2>1. نموذج العمل بدون إنترنت (Offline-First Isolation)</h2>
+      <p>
+        تم تصميم التطبيق ليعمل محلياً بالكامل على هاتفك دون إلزامية الاتصال المستمر بالإنترنت. هذا يعني أن كافة حساباتك وسجلات الدفع والمصروفات محفوظة على جهازك، ويمكنك استخدام التطبيق في أي وقت حتى في الأماكن التي تفتقر لتغطية الشبكة.
+      </p>
+
+      <h2>2. المزامنة السحابية والمصادقة الآمنة</h2>
+      <p>
+        عند اختيارك تفعيل المزامنة السحابية لحماية سجلاتك من الضياع، يتم التحقق من هويتك حصرياً عبر Google Sign-In المعتمد من شركة Google، دون الحاجة لإنشاء كلمات مرور إضافية قابلة للاختراق.
+      </p>
+      <ul>
+        <li>يتم ربط قاعدة بيانات العقار بمعرف حسابك السحابي فقط، ولا يتمكن أي مستخدم آخر من الوصول إليها.</li>
+        <li>لا نصل أبداً إلى كلمات مرور بريدك الإلكتروني، حيث تتم المصادقة عبر بروتوكول OAuth 2.0 المعتمد.</li>
+      </ul>
+
+      <h2>3. سياسة عدم بيع البيانات أو مشاركتها</h2>
+      <p>
+        نلتزم التزاماً كاملاً بعدم بيع، أو تأجير، أو مشاركة أي بيانات شخصية، أرقام شقق، أو سجلات مالية خاصة بك أو بالسكان مع أي جهات خارجية أو شبكات إعلانية. بياناتك تستخدم فقط لأداء المهام التي تطلبها داخل التطبيق.
+      </p>
+
+      <h2>4. النسخ الاحتياطي اليدوي والتحكم الكامل</h2>
+      <p>
+        يتيح لك التطبيق إنشاء نسخة احتياطية محلية متكاملة لبيانات العقار في أي وقت، وحفظها أو مشاركتها مع Google Drive الخاص بك أو تصديرها كملف Excel، مما يمنحك استقلالية تامة واحتفاظاً شخصياً بسجلاتك.
+      </p>
+
+      <h2>5. حق حذف الحساب والبيانات نهائياً</h2>
+      <p>
+        نحترم حقك المطلق في التحكم ببياناتك. يمكنك في أي وقت مسح كافة بيانات العقار من هاتفك ومن السحابة بنقرة زر واحدة من داخل التطبيق، أو عبر زيارة صفحة <a href="delete-account.html" style="color: var(--primary-light); text-decoration: underline;">طلب حذف الحساب والبيانات</a>.
+      </p>
+
+      <div class="callout-box">
+        <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--text-main);">تواصل مع مسؤول الأمان والدعم الفني</h3>
+        <p style="margin: 0; font-size: 0.98rem; color: var(--text-light);">
+          إذا كان لديك أي استفسار أمني أو ملاحظة تقنية، يمكنك مراسلتنا مباشرة على البريد الرسمي: <strong>maro.emam1@gmail.com</strong>
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand" style="justify-content: flex-start; margin-bottom: 8px;">
+            <img src="assets/sandooq-logo.png" alt="شعار صندوق العمارة" width="36" height="36" loading="lazy" />
+            <span>صندوق العمارة</span>
+          </div>
+          <p class="footer-brand-p">
+            المنصة والتطبيق المتخصص لإدارة حسابات العقارات السكنية واتحادات الملاك في مصر، لمتابعة التحصيلات والمصروفات بكل شفافية وبدون أخطاء.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="download.html">تحميل التطبيق</a></li>
+            <li><a href="about.html">عن التطبيق والمطور</a></li>
+            <li><a href="contact.html">تواصل معنا والدعم</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>الأدوات والحلول</h4>
+          <ul>
+            <li><a href="solutions/index.html">دليل الحلول المتخصصة</a></li>
+            <li><a href="tools/index.html">مركز الأدوات التفاعلية</a></li>
+            <li><a href="tools/building-fee-calculator.html">حاسبة اشتراك العمارة</a></li>
+            <li><a href="tools/receipt-generator.html">مولد إيصالات السداد</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>أدلة وسياسات</h4>
+          <ul>
+            <li><a href="guides/index.html">مكتبة أدلة الإدارة</a></li>
+            <li><a href="security.html">الأمان وحماية البيانات</a></li>
+            <li><a href="terms.html">شروط الاستخدام</a></li>
+            <li><a href="privacy.html">سياسة الخصوصية</a></li>
+            <li><a href="delete-account.html">طلب حذف الحساب والبيانات</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
