@@ -12,8 +12,8 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>موسوعة وأدلة إدارة ومحاسبة العمارات السكنية واتحاد الشاغلين | صندوق العمارة</title>
-  <meta name="description" content="مكتبة شاملة من الأدلة العملية والمحاسبية والقانونية لإدارة صناديق العمارات: تأسيس اتحاد الشاغلين، حسابات الأسانسير، الميزانية، التحصيل بإنستاباي، والتعامل مع المتأخرات." />
+  <title>موسوعة وأدلة إدارة ومحاسبة العمارات السكنية واتحاد الشاغلين (39 دليلاً) | صندوق العمارة</title>
+  <meta name="description" content="الموسوعة الشاملة والأكبر في مصر (39 دليلاً عملياً) لإدارة صناديق العمارات: تأسيس اتحاد الشاغلين، حسابات الأسانسير، صيانة المرافق، حسم النزاعات، والتحصيل الذكي." />
   <link rel="canonical" href="https://sandoqalemara.com/guides/" />
 
   <!-- Favicon & Touch Icons for Google Search & Browsers -->
@@ -43,13 +43,13 @@
 
   <style>
     .hub-container {
-      max-width: 1100px;
+      max-width: 1180px;
       margin: 40px auto 80px;
       padding: 0 24px;
     }
     .hub-header {
       text-align: right;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
     .hub-header h1 {
       font-size: 2.3rem;
@@ -62,17 +62,39 @@
       font-size: 1.1rem;
       color: var(--text-muted);
       line-height: 1.8;
-      max-width: 850px;
+      max-width: 900px;
+    }
+    .search-filter-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .search-input-box {
+      width: 100%;
+      max-width: 500px;
+      padding: 12px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-input-box:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
     }
     .categories-bar {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 36px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border-color);
     }
-    .cat-tag {
+    .cat-btn {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       color: var(--text-light);
@@ -80,24 +102,26 @@
       border-radius: var(--radius-full);
       font-size: 0.92rem;
       font-weight: 700;
+      cursor: pointer;
       text-decoration: none;
+      font-family: inherit;
       transition: var(--transition);
     }
-    .cat-tag:hover, .cat-tag.active {
+    .cat-btn:hover, .cat-btn.active {
       border-color: var(--primary-light);
       color: var(--primary-light);
       background: rgba(59, 130, 246, 0.08);
     }
     .guides-hub-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
       gap: 28px;
     }
     .guide-hub-card {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 32px 28px;
+      padding: 30px 26px;
       box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
@@ -147,24 +171,210 @@
 
   <!-- Structured Data: CollectionPage & Breadcrumb -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "موسوعة وأدلة إدارة ومحاسبة العمارات السكنية",
-    "url": "https://sandoqalemara.com/guides/",
-    "description": "دليل المقالات والأدلة الإرشادية لإدارة وصيانة العمارات واتحاد الشاغلين في مصر.",
-    "hasPart": [
-      { "@type": "Article", "name": "دليل إدارة صندوق العمارة وحسابات السكان خطوة بخطوة", "url": "https://sandoqalemara.com/guides/building-fund-management-guide.html" },
-      { "@type": "Article", "name": "دليل اتحاد الشاغلين وأمين الصندوق: التأسيس والمهام ومسؤولية المالك والمستأجر", "url": "https://sandoqalemara.com/guides/owners-union-and-treasurer-guide.html" },
-      { "@type": "Article", "name": "دليل تقسيم مصاريف العمارة: معادلة الأسانسير ومرتب البواب والنظافة", "url": "https://sandoqalemara.com/guides/elevator-and-services-cost-allocation.html" },
-      { "@type": "Article", "name": "دليل الميزانية السنوية للعمارة وصندوق الطوارئ وحساب الزيادة السنوية", "url": "https://sandoqalemara.com/guides/building-annual-budget-and-reserve.html" },
-      { "@type": "Article", "name": "التحصيل الرقمي لاشتراكات العمارة: إنستاباي وحساب نسبة التحصيل بدون نزاعات", "url": "https://sandoqalemara.com/guides/digital-collection-and-instapay.html" },
-      { "@type": "Article", "name": "عقود صيانة العمارة وحماية الخزينة من تسريب الكاش والتعامل مع الفنيين", "url": "https://sandoqalemara.com/guides/maintenance-contracts-and-cash-control.html" },
-      { "@type": "Article", "name": "نموذج شيت إكسيل (Excel) لحسابات ومصاريف العمارة واشتراكات الشقق", "url": "https://sandoqalemara.com/guides/building-expenses-excel-sheet.html" },
-      { "@type": "Article", "name": "قانون اتحاد الشاغلين رقم 119 لسنة 2008 ودور أمين الصندوق", "url": "https://sandoqalemara.com/guides/building-occupants-union-law-egypt.html" },
-      { "@type": "Article", "name": "كيف تتعامل مع تأخر سداد اشتراك العمارة؟ (خطة الـ 5 خطوات)", "url": "https://sandoqalemara.com/guides/how-to-deal-with-unpaid-building-fees.html" }
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "موسوعة وأدلة إدارة ومحاسبة العمارات السكنية",
+  "url": "https://sandoqalemara.com/guides/",
+  "description": "دليل المقالات والأدلة الإرشادية لإدارة وصيانة العمارات واتحاد الشاغلين في مصر.",
+  "hasPart": [
+    {
+      "@type": "Article",
+      "name": "اتحاد الشاغلين وأمين الصندوق: دليل التأسيس والمهام ومسؤولية المالك والمستأجر",
+      "url": "https://sandoqalemara.com/guides/owners-union-and-treasurer-guide.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل تقسيم مصاريف العمارة: معادلة الأسانسير بمعامل الأدوار، مرتب البواب، وصيانة الخدمات",
+      "url": "https://sandoqalemara.com/guides/elevator-and-services-cost-allocation.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل الميزانية السنوية للعمارة وصندوق الطوارئ: التخطيط المالي وتحديد نسبة الزيادة السنوية",
+      "url": "https://sandoqalemara.com/guides/building-annual-budget-and-reserve.html"
+    },
+    {
+      "@type": "Article",
+      "name": "التحصيل الرقمي لاشتراكات العمارة: إنستاباي، المحافظ الإلكترونية، ونظام حوافز السداد",
+      "url": "https://sandoqalemara.com/guides/digital-collection-and-instapay.html"
+    },
+    {
+      "@type": "Article",
+      "name": "عقود صيانة العمارة وحماية الخزينة من تسريب الكاش: التعامل مع الفنيين وتجنب الأخطاء المحاسبية",
+      "url": "https://sandoqalemara.com/guides/maintenance-contracts-and-cash-control.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل إدارة صندوق العمارة وحسابات السكان خطوة بخطوة للمبتدئين",
+      "url": "https://sandoqalemara.com/guides/building-fund-management-guide.html"
+    },
+    {
+      "@type": "Article",
+      "name": "نموذج شيت إكسيل (Excel) لحسابات ومصاريف العمارة واشتراكات الشقق",
+      "url": "https://sandoqalemara.com/guides/building-expenses-excel-sheet.html"
+    },
+    {
+      "@type": "Article",
+      "name": "قانون اتحاد الشاغلين رقم 119 لسنة 2008 ودور أمين الصندوق في مصر",
+      "url": "https://sandoqalemara.com/guides/building-occupants-union-law-egypt.html"
+    },
+    {
+      "@type": "Article",
+      "name": "كيف تتعامل مع تأخر سداد اشتراك العمارة؟ (خطة الـ 5 خطوات العملية)",
+      "url": "https://sandoqalemara.com/guides/how-to-deal-with-unpaid-building-fees.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل حسم نزاعات السطح (الروف): الملكية المشتركة، البناء المخالف، والطاقة الشمسية",
+      "url": "https://sandoqalemara.com/guides/roof-disputes-and-solar-energy.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل تنظيم جراج العمارة: توزيع البايكات، الركن العشوائي، وكهرباء شحن السيارات",
+      "url": "https://sandoqalemara.com/guides/building-parking-garage-rules.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل عزل السطح وتسريب مياه الحمامات: من يتحمل التكلفة قانوناً بين الأدوار؟",
+      "url": "https://sandoqalemara.com/guides/roof-and-bathroom-leak-waterproofing.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل المحلات التجارية في العمارة: اشتراك الصيانة، استخدام المصعد، وإشغال الرصيف",
+      "url": "https://sandoqalemara.com/guides/commercial-shops-in-building.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل تحويل الشقق لعيادات ومكاتب وحضانات: الرسوم والموافقات وحماية المرافق",
+      "url": "https://sandoqalemara.com/guides/converting-residential-to-commercial.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل وديعة الصيانة البنكية: استثمار الفوائد، حماية القيمة من التضخم، ومنع تآكل الأصل",
+      "url": "https://sandoqalemara.com/guides/maintenance-deposit-reserve-fund.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل تسليم وتسلم صندوق العمارة: محضر الجرد، تصفية الحسابات، ونقل الصلاحيات",
+      "url": "https://sandoqalemara.com/guides/handover-building-treasury-protocol.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل ضبط عهدة حارس العقار (البواب): السقف النقدي، دورة الصرف، وسندات الفواتير",
+      "url": "https://sandoqalemara.com/guides/gatekeeper-petty-cash-management.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل إعداد التقرير المالي السنوي وقراءة الحساب الختامي أمام الجمعية العمومية",
+      "url": "https://sandoqalemara.com/guides/annual-financial-report-building.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل الشقق المغلقة والمغتربين: هل تُعفى من الصيانة؟ والنسبة العادلة للاشتراك",
+      "url": "https://sandoqalemara.com/guides/closed-apartments-and-travelers-fees.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل العمرة الشاملة للأسانسير: تغيير الحبال والماكينة والكنترول دون الوقوع في النصب",
+      "url": "https://sandoqalemara.com/guides/elevator-major-overhaul-guide.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل تركيب مصعد جديد في عقار قديم: الإجراءات الهندسية، التراخيص، وتوزيع التكلفة",
+      "url": "https://sandoqalemara.com/guides/installing-new-elevator-old-building.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل صيانة مواتير المياه والبالونات والفلوماك: حلول ضعف الضغط وتقاسم الأعطال",
+      "url": "https://sandoqalemara.com/guides/water-pump-flomac-maintenance.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل عداد المياه المشترك وفواتير المياه المجمعة: خطوات تركيب عدادات فرعية وحساب الاستهلاك",
+      "url": "https://sandoqalemara.com/guides/shared-water-meter-submeters.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل كارت كهرباء السلم والخدمات: خطة إدارة الرصيد، مصابيح الحساسات، وتوفير الفاتورة",
+      "url": "https://sandoqalemara.com/guides/staircase-electricity-card-energy-saving.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل تنظيف وتطهير خزانات مياه الشرب فوق السطح: الاشتراطات الصحية وجدول التعقيم",
+      "url": "https://sandoqalemara.com/guides/water-tanks-cleaning-disinfection.html"
+    },
+    {
+      "@type": "Article",
+      "name": "الصيغ القانونية الكاملة لاتحاد الشاغلين: إنذارات التكليف بالوفاء وعرائض أوامر الأداء",
+      "url": "https://sandoqalemara.com/guides/legal-templates-payment-orders.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل اللائحة الداخلية للعمارة: صياغة ميثاق الجيرة وقواعد السكن المشترك",
+      "url": "https://sandoqalemara.com/guides/building-internal-bylaws-rules.html"
+    },
+    {
+      "@type": "Article",
+      "name": "صيانة الإيجار القديم والجديد في مصر: من يتحمل التكاليف قانوناً بين المالك والمستأجر؟",
+      "url": "https://sandoqalemara.com/guides/old-rent-vs-new-rent-maintenance.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل شقق الإيجار المفروش واليومي (Airbnb): الضوابط الأمنية ورسوم الصيانة الإضافية",
+      "url": "https://sandoqalemara.com/guides/furnished-apartments-airbnb-regulations.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل التعامل مع شروخ العمارة وقرارات الترميم والتنكيس: إجراءات اللجان الهندسية بالحي",
+      "url": "https://sandoqalemara.com/guides/building-cracks-structural-repair-orders.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل تشغيل وتأمين حارس العقار (البواب): العقود، التأمينات الاجتماعية، والحد الأدنى للأجور",
+      "url": "https://sandoqalemara.com/guides/building-guard-employment-insurance.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل إنهاء خدمة حارس العقار واسترداد غرفة السكن: المخالصة والإجراءات الآمنة",
+      "url": "https://sandoqalemara.com/guides/guard-service-termination-room-eviction.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل عقود شركات النظافة ومكافحة الحشرات والقوارض في العقارات السكنية",
+      "url": "https://sandoqalemara.com/guides/building-cleaning-pest-control-contracts.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل التعاقد مع الفنيين والمقاولين (سباك، كهربائي، نقاش): الدفعات، الفصال، والضمان",
+      "url": "https://sandoqalemara.com/guides/technicians-contractors-agreements-guarantees.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل تركيب كاميرات المراقبة بالعقار: المواصفات الفنية، الزوايا، وضوابط الخصوصية",
+      "url": "https://sandoqalemara.com/guides/building-cctv-cameras-privacy-law.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل تأمين أبواب العمارة بالأنظمة الذكية: الأبواب الأوتوماتيكية، بصمة الوجه، وكروت RFID",
+      "url": "https://sandoqalemara.com/guides/smart-access-gates-rfid-intercom.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل الإنتركم الصوتي والمرئي (Intercom): صيانة الخطوط، اختيار النظام، وفصل الأعطال",
+      "url": "https://sandoqalemara.com/guides/intercom-systems-maintenance-troubleshooting.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل السلامة ومكافحة الحرائق بالعمارات: طفايات الحريق، خراطيم الطوارئ، وخطة الإخلاء",
+      "url": "https://sandoqalemara.com/guides/building-fire-safety-evacuation-plan.html"
+    },
+    {
+      "@type": "Article",
+      "name": "دليل التحول إلى العمارة الذكية: إدارة قروب واتساب العقار والتواصل الراقي بلا شجار",
+      "url": "https://sandoqalemara.com/guides/smart-building-whatsapp-group-management.html"
+    }
+  ]
+}
   </script>
   <!-- Thunderbolt AI Chat Widget -->
   <script defer src="https://www.thunderbolt.com/gateway/api/v1/thunderbolt-ui/embed.js"></script>
@@ -204,152 +414,490 @@
 
     <div class="hub-header">
       <p class="eyebrow" style="display: inline-block; font-size: 0.85rem; color: var(--primary-light); font-weight: 700; margin-bottom: 8px;">📚 موسوعة المعرفة العقارية والمحاسبية</p>
-      <h1>أدلة إدارة ومحاسبة العمارات السكنية</h1>
+      <h1>أدلة إدارة ومحاسبة العمارات السكنية (39 دليلاً عملياً)</h1>
       <p>
         مرجع عملي شامل مبني على خبرات واقعية وقوانين البناء واتحاد الشاغلين في مصر لمساعدة أمناء الصناديق والملاك في تنظيم الحسابات، إدارة الأسانسير، حسم الخلافات، والتحصيل الذكي.
       </p>
     </div>
 
-    <div class="categories-bar">
-      <span class="cat-tag active">🏛️ كافة الأدلة (9)</span>
-      <span class="cat-tag">⚖️ التأسيس والقانون</span>
-      <span class="cat-tag">🧮 الحسابات والميزانيات</span>
-      <span class="cat-tag">💳 التحصيل وإنستاباي</span>
-      <span class="cat-tag">🛡️ الرقابة وعقود الصيانة</span>
+    <div class="search-filter-wrap">
+      <input type="text" id="guideSearch" class="search-input-box" placeholder="🔍 ابحث في الأدلة (مثلاً: أسانسير، إنستاباي، سطح، بواب، قانون...)" aria-label="بحث في أدلة الإدارة" />
+      
+      <div class="categories-bar" id="categoryFilter">
+        <button class="cat-btn active" data-filter="all">🏛️ كافة الأدلة (39)</button>
+        <button class="cat-btn" data-filter="law">⚖️ التأسيس والقانون</button>
+        <button class="cat-btn" data-filter="finance">🧮 الحسابات والميزانيات</button>
+        <button class="cat-btn" data-filter="collection">💳 التحصيل وإنستاباي</button>
+        <button class="cat-btn" data-filter="maintenance">🛡️ الرقابة وعقود الصيانة</button>
+      </div>
     </div>
 
-    <div class="guides-hub-grid">
-      <!-- Guide 1: التأسيس وإدارة الاتحاد -->
-      <article class="guide-hub-card">
+    <div class="guides-hub-grid" id="guidesGrid">
+
+      <article class="guide-hub-card" data-category="law">
         <div>
           <span class="guide-meta-badge">⚖️ التأسيس واللائحة</span>
           <div class="guide-icon-box">🏛️</div>
           <h2>اتحاد الشاغلين وأمين الصندوق: دليل التأسيس والمهام ومسؤولية المالك والمستأجر</h2>
-          <p>
-            خطوات التأسيس الرسمية، مهام أمين الصندوق الدورية، إدارة الجمعية العمومية، وحسم مسؤولية الصيانة بين المالك والمستأجر والشقق المغلقة.
-          </p>
+          <p>خطوات التأسيس الرسمية، مهام أمين الصندوق الدورية، إدارة الجمعية العمومية، وحسم مسؤولية الصيانة بين المالك والمستأجر والشقق المغلقة.</p>
         </div>
-        <a href="owners-union-and-treasurer-guide.html" class="button primary" style="width: 100%; text-align: center;">
+        <a href="owners-union-and-treasurer-guide.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           قراءة الدليل كاملاً ↗
         </a>
       </article>
 
-      <!-- Guide 2: معادلة الأسانسير وتوزيع المصاريف -->
-      <article class="guide-hub-card">
+      <article class="guide-hub-card" data-category="finance">
         <div>
           <span class="guide-meta-badge">🧮 التوزيع العادل</span>
           <div class="guide-icon-box">⚙️</div>
           <h2>دليل تقسيم مصاريف العمارة: معادلة الأسانسير بمعامل الأدوار، مرتب البواب، وصيانة الخدمات</h2>
-          <p>
-            كيف تقسم تكاليف المصعد بالأدوار مع استثناء الدور الأرضي، وحسم تقسيم مرتب الحارس والنظافة بالتساوي أم بالمساحة بمثال حسابي عملي.
-          </p>
+          <p>كيف تقسم تكاليف المصعد بالأدوار مع استثناء الدور الأرضي، وحسم تقسيم مرتب الحارس والنظافة بالتساوي أم بالمساحة بمثال حسابي عملي.</p>
         </div>
-        <a href="elevator-and-services-cost-allocation.html" class="button primary" style="width: 100%; text-align: center;">
+        <a href="elevator-and-services-cost-allocation.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           قراءة الدليل كاملاً ↗
         </a>
       </article>
 
-      <!-- Guide 3: الميزانية السنوية والاحتياطي -->
-      <article class="guide-hub-card">
+      <article class="guide-hub-card" data-category="finance">
         <div>
           <span class="guide-meta-badge">📈 التخطيط المالي</span>
           <div class="guide-icon-box">📊</div>
           <h2>دليل الميزانية السنوية للعمارة وصندوق الطوارئ: التخطيط المالي وتحديد نسبة الزيادة السنوية</h2>
-          <p>
-            كيف تضع ميزانية سنوية استباقية تحمي العقار من المفاجآت، خطوات تكوين صندوق الطوارئ، وحساب نسبة الزيادة السنوية لمواكبة التضخم.
-          </p>
+          <p>كيف تضع ميزانية سنوية استباقية تحمي العقار من المفاجآت، خطوات تكوين صندوق الطوارئ، وحساب نسبة الزيادة السنوية لمواكبة التضخم.</p>
         </div>
-        <a href="building-annual-budget-and-reserve.html" class="button primary" style="width: 100%; text-align: center;">
+        <a href="building-annual-budget-and-reserve.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           قراءة الدليل كاملاً ↗
         </a>
       </article>
 
-      <!-- Guide 4: التحصيل الرقمي وإنستاباي -->
-      <article class="guide-hub-card">
+      <article class="guide-hub-card" data-category="collection">
         <div>
           <span class="guide-meta-badge">💳 التحصيل الذكي</span>
           <div class="guide-icon-box">⚡</div>
           <h2>التحصيل الرقمي لاشتراكات العمارة: إنستاباي، المحافظ الإلكترونية، ونظام حوافز السداد</h2>
-          <p>
-            وداعاً لمطاردة الكاش: تفعيل InstaPay لعمارتك، حساب نسبة كفاءة التحصيل (Collection Rate)، وضوابط خصم السداد المبكر وخطة التصعيد للممتنعين.
-          </p>
+          <p>وداعاً لمطاردة الكاش: تفعيل InstaPay لعمارتك، حساب نسبة كفاءة التحصيل (Collection Rate)، وضوابط خصم السداد المبكر وخطة التصعيد للممتنعين.</p>
         </div>
-        <a href="digital-collection-and-instapay.html" class="button primary" style="width: 100%; text-align: center;">
+        <a href="digital-collection-and-instapay.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           قراءة الدليل كاملاً ↗
         </a>
       </article>
 
-      <!-- Guide 5: عقود الصيانة وحماية الخزينة -->
-      <article class="guide-hub-card">
+      <article class="guide-hub-card" data-category="maintenance">
         <div>
           <span class="guide-meta-badge">🛡️ الرقابة والنزاهة</span>
           <div class="guide-icon-box">🔧</div>
           <h2>عقود صيانة العمارة وحماية الخزينة من تسريب الكاش: التعامل مع الفنيين وتجنب الأخطاء المحاسبية</h2>
-          <p>
-            كيف تختار وتتابع عقود صيانة الأسانسير والمواتير، التعامل مع المقاولين بذكاء، أشهر 7 أخطاء في دفاتر العمارة، وبناء الثقة بالشفافية.
-          </p>
+          <p>كيف تختار وتتابع عقود صيانة الأسانسير والمواتير، التعامل مع المقاولين بذكاء، أشهر 7 أخطاء في دفاتر العمارة، وبناء الثقة بالشفافية.</p>
         </div>
-        <a href="maintenance-contracts-and-cash-control.html" class="button primary" style="width: 100%; text-align: center;">
+        <a href="maintenance-contracts-and-cash-control.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           قراءة الدليل كاملاً ↗
         </a>
       </article>
 
-      <!-- Guide 6: الدليل الشامل لإدارة الصندوق -->
-      <article class="guide-hub-card">
+      <article class="guide-hub-card" data-category="finance">
         <div>
           <span class="guide-meta-badge">📖 دليل شامل</span>
           <div class="guide-icon-box">🏢</div>
           <h2>دليل إدارة صندوق العمارة وحسابات السكان خطوة بخطوة للمبتدئين</h2>
-          <p>
-            الهيكل المالي الأساسي لصندوق العقار، ضبط عهدة البواب، فصل حسابات مشروعات الصيانة الاستثنائية، وطرق إدارة الدفاتر اليومية.
-          </p>
+          <p>الهيكل المالي الأساسي لصندوق العقار، ضبط عهدة البواب، فصل حسابات مشروعات الصيانة الاستثنائية، وطرق إدارة الدفاتر اليومية.</p>
         </div>
-        <a href="building-fund-management-guide.html" class="button primary" style="width: 100%; text-align: center;">
+        <a href="building-fund-management-guide.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           قراءة الدليل كاملاً ↗
         </a>
       </article>
 
-      <!-- Guide 7: شيت الإكسيل -->
-      <article class="guide-hub-card">
+      <article class="guide-hub-card" data-category="finance">
         <div>
           <span class="guide-meta-badge">📊 قوالب Excel</span>
           <div class="guide-icon-box">📈</div>
           <h2>نموذج شيت إكسيل (Excel) لحسابات ومصاريف العمارة واشتراكات الشقق</h2>
-          <p>
-            تصميم جدول إكسيل احترافي لمتابعة الإيرادات والمصروفات الشهرية مع أهم المعادلات الحسابية ورابط تحميل مباشر لنموذج جاهز للعمل.
-          </p>
+          <p>تصميم جدول إكسيل احترافي لمتابعة الإيرادات والمصروفات الشهرية مع أهم المعادلات الحسابية ورابط تحميل مباشر لنموذج جاهز للعمل.</p>
         </div>
-        <a href="building-expenses-excel-sheet.html" class="button primary" style="width: 100%; text-align: center;">
-          قراءة الدليل وتحميل النموذج ↗
+        <a href="building-expenses-excel-sheet.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
         </a>
       </article>
 
-      <!-- Guide 8: قانون 119 -->
-      <article class="guide-hub-card">
+      <article class="guide-hub-card" data-category="law">
         <div>
           <span class="guide-meta-badge">📜 نصوص القانون</span>
           <div class="guide-icon-box">⚖️</div>
           <h2>قانون اتحاد الشاغلين رقم 119 لسنة 2008 ودور أمين الصندوق في مصر</h2>
-          <p>
-            شرح المواد القانونية المنظمة لالتزامات الشاغلين في صيانة الأجزاء المشتركة، وحق الاتحاد في استصدار أمر أداء قضائي واجب النفاذ.
-          </p>
+          <p>شرح المواد القانونية المنظمة لالتزامات الشاغلين في صيانة الأجزاء المشتركة، وحق الاتحاد في استصدار أمر أداء قضائي واجب النفاذ.</p>
         </div>
-        <a href="building-occupants-union-law-egypt.html" class="button primary" style="width: 100%; text-align: center;">
-          قراءة الدليل القانوني ↗
+        <a href="building-occupants-union-law-egypt.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
         </a>
       </article>
 
-      <!-- Guide 9: خطة الـ 5 خطوات للمتأخرات -->
-      <article class="guide-hub-card">
+      <article class="guide-hub-card" data-category="collection">
         <div>
           <span class="guide-meta-badge">🤝 حلول الأزمات</span>
           <div class="guide-icon-box">💡</div>
           <h2>كيف تتعامل مع تأخر سداد اشتراك العمارة؟ (خطة الـ 5 خطوات العملية)</h2>
-          <p>
-            خطة متدرجة لأمناء الصناديق لمواجهة المماطلة وتأخر السداد بأسلوب نفسي ودبلوماسي يحافظ على الود ويضمن حقوق صندوق العمارة.
-          </p>
+          <p>خطة متدرجة لأمناء الصناديق لمواجهة المماطلة وتأخر السداد بأسلوب نفسي ودبلوماسي يحافظ على الود ويضمن حقوق صندوق العمارة.</p>
         </div>
-        <a href="how-to-deal-with-unpaid-building-fees.html" class="button primary" style="width: 100%; text-align: center;">
+        <a href="how-to-deal-with-unpaid-building-fees.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="law">
+        <div>
+          <span class="guide-meta-badge">⚖️ نزاعات الأسطح والروف</span>
+          <div class="guide-icon-box">🏠</div>
+          <h2>دليل حسم نزاعات السطح (الروف): الملكية المشتركة، البناء المخالف، والطاقة الشمسية</h2>
+          <p>دليل قانوني وعملي شامل لتنظيم استخدام أسطح العمارات في مصر: الملكية المشتركة، منع البناء المخالف، ضوابط تركيب محطات الطاقة الشمسية، وحماية أصل العقار.</p>
+        </div>
+        <a href="roof-disputes-and-solar-energy.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">🚗 إدارة وتنظيم الجراج</span>
+          <div class="guide-icon-box">🅿️</div>
+          <h2>دليل تنظيم جراج العمارة: توزيع البايكات، الركن العشوائي، وكهرباء شحن السيارات</h2>
+          <p>دليل شامل لإدارة جراجات العمارات السكنية: حقوق الملكية المشتركة والبايكات الخاصة، مكافحة الركن العشوائي، واحتساب كهرباء شحن السيارات الكهربائية.</p>
+        </div>
+        <a href="building-parking-garage-rules.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="law">
+        <div>
+          <span class="guide-meta-badge">💧 العزل والسباكة المشتركة</span>
+          <div class="guide-icon-box">🛠️</div>
+          <h2>دليل عزل السطح وتسريب مياه الحمامات: من يتحمل التكلفة قانوناً بين الأدوار؟</h2>
+          <p>كيف يحسم أمين الصندوق مسؤولية عزل السطح وتسريبات السباكة بين الجيران؟ الإجراءات القانونية، محاضر إثبات الحالة، وتقارير الخبراء وفق القانون المصري.</p>
+        </div>
+        <a href="roof-and-bathroom-leak-waterproofing.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="finance">
+        <div>
+          <span class="guide-meta-badge">🏢 الوحدات والمحلات التجارية</span>
+          <div class="guide-icon-box">🏪</div>
+          <h2>دليل المحلات التجارية في العمارة: اشتراك الصيانة، استخدام المصعد، وإشغال الرصيف</h2>
+          <p>كيفية احتساب اشتراك الصيانة العادل للمحلات التجارية والأنشطة الإدارية في العقار، معادلة استهلاك الأسانسير ونظافة الواجهة وخدمات الحراسة.</p>
+        </div>
+        <a href="commercial-shops-in-building.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="law">
+        <div>
+          <span class="guide-meta-badge">⚖️ الأنشطة الإدارية والتجارية</span>
+          <div class="guide-icon-box">🩺</div>
+          <h2>دليل تحويل الشقق لعيادات ومكاتب وحضانات: الرسوم والموافقات وحماية المرافق</h2>
+          <p>الضوابط القانونية والتنظيمية لتحويل الوحدات السكنية إلى أنشطة إدارية وتجارية، حق اتحاد الشاغلين في مضاعفة الاشتراك وتأمين المصعد.</p>
+        </div>
+        <a href="converting-residential-to-commercial.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="finance">
+        <div>
+          <span class="guide-meta-badge">📈 الودائع والاستثمار المالي</span>
+          <div class="guide-icon-box">🏦</div>
+          <h2>دليل وديعة الصيانة البنكية: استثمار الفوائد، حماية القيمة من التضخم، ومنع تآكل الأصل</h2>
+          <p>دليل متقدم لإدارة الودائع البنكية وصناديق الطوارئ للعقارات السكنية: أفضل الأوعية الادخارية، أحكام السحب من العوائد، وإعادة تقييم الوديعة سنوياً.</p>
+        </div>
+        <a href="maintenance-deposit-reserve-fund.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="finance">
+        <div>
+          <span class="guide-meta-badge">🛡️ الرقابة وتداول المسؤولية</span>
+          <div class="guide-icon-box">🤝</div>
+          <h2>دليل تسليم وتسلم صندوق العمارة: محضر الجرد، تصفية الحسابات، ونقل الصلاحيات</h2>
+          <p>النموذج والبروتوكول الرسمي لتسليم وتسلم خزينة ودفاتر العمارة بين أمناء الصناديق: جرد السيولة، مضاهاة البنوك، وإبراء الذمة المالية أمام الجمعية العمومية.</p>
+        </div>
+        <a href="handover-building-treasury-protocol.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="finance">
+        <div>
+          <span class="guide-meta-badge">🧮 إدارة المصروفات والعهد</span>
+          <div class="guide-icon-box">💵</div>
+          <h2>دليل ضبط عهدة حارس العقار (البواب): السقف النقدي، دورة الصرف، وسندات الفواتير</h2>
+          <p>كيف تمنع التسريب المالي وعجز الخزينة في مصاريف العمارة الصغيرة؟ دليل تطبيق العهدة المستديمة لحارس العقار مع نماذج سندات الصرف الدقيقة.</p>
+        </div>
+        <a href="gatekeeper-petty-cash-management.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="finance">
+        <div>
+          <span class="guide-meta-badge">📊 التقارير المالية والشفافية</span>
+          <div class="guide-icon-box">📑</div>
+          <h2>دليل إعداد التقرير المالي السنوي وقراءة الحساب الختامي أمام الجمعية العمومية</h2>
+          <p>خطوات إعداد تقرير مالي احترافي ومبسط لصندوق العمارة، عرض الإيرادات والمصروفات والمتأخرات بشفافية كاملة لنيل ثقة الملاك وبراءة الذمة.</p>
+        </div>
+        <a href="annual-financial-report-building.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="law">
+        <div>
+          <span class="guide-meta-badge">⚖️ الشقق المغلقة والمغتربين</span>
+          <div class="guide-icon-box">✈️</div>
+          <h2>دليل الشقق المغلقة والمغتربين: هل تُعفى من الصيانة؟ والنسبة العادلة للاشتراك</h2>
+          <p>الموقف القانوني والمالي للشقق غير المسكونة وملاكها المسافرين: التفرقة بين التكاليف الثابتة لحفظ المبنى والاستهلاك المتغير، ونسبة السداد العادلة.</p>
+        </div>
+        <a href="closed-apartments-and-travelers-fees.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">⚙️ صيانة وعمرات الأسانسير</span>
+          <div class="guide-icon-box">🛗</div>
+          <h2>دليل العمرة الشاملة للأسانسير: تغيير الحبال والماكينة والكنترول دون الوقوع في النصب</h2>
+          <p>متى يحتاج المصعد لتجديد كامل؟ مواصفات قطع الغيار الأصلية، شروط التعاقد وضمان الشركات، وكيف يكتشف أمين الصندوق التلاعب في أسعار الصيانة.</p>
+        </div>
+        <a href="elevator-major-overhaul-guide.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">🏗️ مشروعات التركيب والتأسيس</span>
+          <div class="guide-icon-box">🏢</div>
+          <h2>دليل تركيب مصعد جديد في عقار قديم: الإجراءات الهندسية، التراخيص، وتوزيع التكلفة</h2>
+          <p>خطوات تركيب أسانسير في منور أو واجهة عمارة قديمة: التراخيص بالحي، فحص الأحمال الهندسية، ومعادلة توزيع التكلفة التأسيسية بين الأدوار.</p>
+        </div>
+        <a href="installing-new-elevator-old-building.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">💧 مواتير المياه والمضخات</span>
+          <div class="guide-icon-box">🚰</div>
+          <h2>دليل صيانة مواتير المياه والبالونات والفلوماك: حلول ضعف الضغط وتقاسم الأعطال</h2>
+          <p>الدليل الهندسي والفني لمضخات المياه في العمارات: مقارنة البالونة والفلوماك، حماية الموتور من الاحتراق، وتوزيع نفقات الصيانة والصواعد المشتركة.</p>
+        </div>
+        <a href="water-pump-flomac-maintenance.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="finance">
+        <div>
+          <span class="guide-meta-badge">🧮 فواتير ومرافق مجمعة</span>
+          <div class="guide-icon-box">📊</div>
+          <h2>دليل عداد المياه المشترك وفواتير المياه المجمعة: خطوات تركيب عدادات فرعية وحساب الاستهلاك</h2>
+          <p>كيفية التغلب على خلافات فاتورة المياه المجمعة في العمارة: معادلات التوزيع العادل، وإجراءات تركيب عدادات فرعية كودية لكل شقة رسمياً.</p>
+        </div>
+        <a href="shared-water-meter-submeters.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">💡 ترشيد واستهلاك الطاقة</span>
+          <div class="guide-icon-box">⚡</div>
+          <h2>دليل كارت كهرباء السلم والخدمات: خطة إدارة الرصيد، مصابيح الحساسات، وتوفير الفاتورة</h2>
+          <p>كيفية تفادي انقطاع الكهرباء المفاجئ عن المصعد ومضخة المياه في العدادات الكودية مسبقة الدفع، وتركيب حساسات الحركة لتقليل الاستهلاك بنسبة 60%.</p>
+        </div>
+        <a href="staircase-electricity-card-energy-saving.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">🛡️ الصحة والسلامة السكنية</span>
+          <div class="guide-icon-box">🧪</div>
+          <h2>دليل تنظيف وتطهير خزانات مياه الشرب فوق السطح: الاشتراطات الصحية وجدول التعقيم</h2>
+          <p>المعايير الصحية الرسمية لغسيل وتعقيم خزانات مياه العمارات: الجدول الزمني الدوري، المواد الآمنة المصرح بها، وتوثيق محاضر التطهير للسكان.</p>
+        </div>
+        <a href="water-tanks-cleaning-disinfection.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="law">
+        <div>
+          <span class="guide-meta-badge">📜 صيغ ونماذج قانونية</span>
+          <div class="guide-icon-box">⚖️</div>
+          <h2>الصيغ القانونية الكاملة لاتحاد الشاغلين: إنذارات التكليف بالوفاء وعرائض أوامر الأداء</h2>
+          <p>نماذج وصيغ قانونية جاهزة لأمناء الصناديق في مصر: إنذار رسمي للممتنعين عن السداد، عريضة استصدار أمر أداء بالصيانة، ومحاضر الجمعيات العمومية.</p>
+        </div>
+        <a href="legal-templates-payment-orders.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="law">
+        <div>
+          <span class="guide-meta-badge">⚖️ اللوائح وميثاق الجيرة</span>
+          <div class="guide-icon-box">📜</div>
+          <h2>دليل اللائحة الداخلية للعمارة: صياغة ميثاق الجيرة وقواعد السكن المشترك</h2>
+          <p>كيفية كتابة واعتماد لائحة داخلية ملزمة لجميع السكان: مواعيد الهدوء والتشطيبات، تربية الحيوانات، التدخين في المداخل، وحظر إشغال الممرات.</p>
+        </div>
+        <a href="building-internal-bylaws-rules.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="law">
+        <div>
+          <span class="guide-meta-badge">⚖️ الإيجار القديم والجديد</span>
+          <div class="guide-icon-box">📜</div>
+          <h2>صيانة الإيجار القديم والجديد في مصر: من يتحمل التكاليف قانوناً بين المالك والمستأجر؟</h2>
+          <p>التفرقة الحاسمة في القانون المدني وقانون البناء بين الترميمات الأساسية (على المالك) والمصاريف التشغيلية (على المستأجر) وحل معضلة الإيجار القديم.</p>
+        </div>
+        <a href="old-rent-vs-new-rent-maintenance.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">🛡️ الأمن والإيجار المفروش</span>
+          <div class="guide-icon-box">🧳</div>
+          <h2>دليل شقق الإيجار المفروش واليومي (Airbnb): الضوابط الأمنية ورسوم الصيانة الإضافية</h2>
+          <p>كيفية تنظيم شقق الإيجار المفروش في العمارة: الإخطار الأمني بقسم الشرطة، حفظ هدوء العقار، وفرض مساهمة إضافية في استهلاك المصعد والمرافق.</p>
+        </div>
+        <a href="furnished-apartments-airbnb-regulations.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="law">
+        <div>
+          <span class="guide-meta-badge">🏗️ السلامة الإنشائية والترميم</span>
+          <div class="guide-icon-box">🏚️</div>
+          <h2>دليل التعامل مع شروخ العمارة وقرارات الترميم والتنكيس: إجراءات اللجان الهندسية بالحي</h2>
+          <p>التمييز بين الشروخ السطحية والشروخ الإنشائية الخطيرة، استدعاء الاستشاريين، والتعامل القانوني مع قرارات لجان الترميم والتنكيس وتوزيع تكاليف التدعيم.</p>
+        </div>
+        <a href="building-cracks-structural-repair-orders.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="law">
+        <div>
+          <span class="guide-meta-badge">👨‍💼 العمالة وحراسة العقار</span>
+          <div class="guide-icon-box">👮</div>
+          <h2>دليل تشغيل وتأمين حارس العقار (البواب): العقود، التأمينات الاجتماعية، والحد الأدنى للأجور</h2>
+          <p>الدليل القانوني والإداري لتوظيف البواب في مصر: نموذج عقد عمل محدد المهام، اشتراطات التأمينات الاجتماعية، وحماية صندوق العمارة من النزاعات العمالية.</p>
+        </div>
+        <a href="building-guard-employment-insurance.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="law">
+        <div>
+          <span class="guide-meta-badge">👨‍💼 العمالة وحراسة العقار</span>
+          <div class="guide-icon-box">🚪</div>
+          <h2>دليل إنهاء خدمة حارس العقار واسترداد غرفة السكن: المخالصة والإجراءات الآمنة</h2>
+          <p>الإجراءات القانونية والودية عند الاستغناء عن بواب العمارة: حساب مكافأة نهاية الخدمة، استلام عهدة الغرفة سلمياً، وتغيير الأقفال والكوالين فوراً.</p>
+        </div>
+        <a href="guard-service-termination-room-eviction.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">🧹 النظافة ومكافحة الآفات</span>
+          <div class="guide-icon-box">🪳</div>
+          <h2>دليل عقود شركات النظافة ومكافحة الحشرات والقوارض في العقارات السكنية</h2>
+          <p>كيفية التعاقد مع شركات جمع القمامة المتخصصة ورش المناور والمجاري السنوية، مواصفات المواد الفعالة الآمنة، وبنود العقود التي تضمن جودة الخدمة.</p>
+        </div>
+        <a href="building-cleaning-pest-control-contracts.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">🔧 التعاقدات والرقابة الفنية</span>
+          <div class="guide-icon-box">🔨</div>
+          <h2>دليل التعاقد مع الفنيين والمقاولين (سباك، كهربائي، نقاش): الدفعات، الفصال، والضمان</h2>
+          <p>أصول التعامل المحترف مع فنيي الصيانة والمقاولين: قاعدة الدفعات المرحلية، نموذج أمر الشغل، وكيفية شراء الخامات لضمان الجودة ومنع التلاعب بالفواتير.</p>
+        </div>
+        <a href="technicians-contractors-agreements-guarantees.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">📹 المراقبة والأمن السكني</span>
+          <div class="guide-icon-box">📷</div>
+          <h2>دليل تركيب كاميرات المراقبة بالعقار: المواصفات الفنية، الزوايا، وضوابط الخصوصية</h2>
+          <p>دليلك الكامل لتركيب شبكة CCTV في العمارة: الزوايا القانونية المسموحة وتجنب تصوير أبواب الشقق الخاصة، مواصفات التسجيل الليلي، وصلاحيات الوصول للتسجيلات.</p>
+        </div>
+        <a href="building-cctv-cameras-privacy-law.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">🚪 التحكم والدخول الذكي</span>
+          <div class="guide-icon-box">🔑</div>
+          <h2>دليل تأمين أبواب العمارة بالأنظمة الذكية: الأبواب الأوتوماتيكية، بصمة الوجه، وكروت RFID</h2>
+          <p>تطوير بوابة العمارة بالأقفال الكهرومغناطيسية والتحكم الرقمي: دراسة التكلفة والعمر الافتراضي، منع الغرباء، وكيفية إضافة وإلغاء كروت المستأجرين بسهولة.</p>
+        </div>
+        <a href="smart-access-gates-rfid-intercom.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">📞 شبكات الاتصال والإنتركم</span>
+          <div class="guide-icon-box">📟</div>
+          <h2>دليل الإنتركم الصوتي والمرئي (Intercom): صيانة الخطوط، اختيار النظام، وفصل الأعطال</h2>
+          <p>المقارنة بين الإنتركم التقليدي (Analog) والحديث (IP)، تشخيص أعطال الباور سبلاي والسماعات، وكيفية التعاقد على صيانة شبكة الاتصال الداخلي.</p>
+        </div>
+        <a href="intercom-systems-maintenance-troubleshooting.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="maintenance">
+        <div>
+          <span class="guide-meta-badge">🧯 الدفاع المدني والسلامة</span>
+          <div class="guide-icon-box">🚒</div>
+          <h2>دليل السلامة ومكافحة الحرائق بالعمارات: طفايات الحريق، خراطيم الطوارئ، وخطة الإخلاء</h2>
+          <p>اشتراطات الدفاع المدني لحماية الأبراج والعمارات السكنية: أنواع الطفايات المطلوبة للمدخل والمصعد والكهرباء، فحص الضغط الدوري، وتدريب السكان على الإخلاء.</p>
+        </div>
+        <a href="building-fire-safety-evacuation-plan.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          قراءة الدليل كاملاً ↗
+        </a>
+      </article>
+
+      <article class="guide-hub-card" data-category="collection">
+        <div>
+          <span class="guide-meta-badge">📱 التحول الرقمي والتواصل</span>
+          <div class="guide-icon-box">💬</div>
+          <h2>دليل التحول إلى العمارة الذكية: إدارة قروب واتساب العقار والتواصل الراقي بلا شجار</h2>
+          <p>قواعد ضبط قروب واتساب العمارة: سياسات النشر الإدارية، منع المشاحنات، تنظيم إعلانات التحصيل الرسمية، والربط مع تطبيق صندوق العمارة للشفافية المطلقة.</p>
+        </div>
+        <a href="smart-building-whatsapp-group-management.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           قراءة الدليل كاملاً ↗
         </a>
       </article>
@@ -374,17 +922,6 @@
           <div style="margin-top: 14px;">
             <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
               <img src="../assets/google-play-badge.svg" alt="احصل عليه من Google Play" width="135" height="40" loading="lazy" />
-            </a>
-          </div>
-          <div class="footer-social-links">
-            <a href="https://www.facebook.com/share/1F2HyGTkTb/" target="_blank" rel="noopener noreferrer" class="footer-social-btn facebook" title="فيسبوك" aria-label="فيسبوك">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/sandooqelamara?stkn=c2h1MGJldjRwY3R4" target="_blank" rel="noopener noreferrer" class="footer-social-btn instagram" title="إنستجرام" aria-label="إنستجرام">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP" target="_blank" rel="noopener noreferrer" class="footer-social-btn youtube" title="يوتيوب" aria-label="يوتيوب">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
           </div>
         </div>
@@ -426,8 +963,6 @@
             <li><a href="../security.html">الأمان وحماية البيانات</a></li>
             <li><a href="../privacy.html">سياسة الخصوصية</a></li>
             <li><a href="../terms.html">شروط الاستخدام والاشتراك</a></li>
-            <li><a href="../delete-account.html">طلب حذف الحساب والبيانات</a></li>
-            <li><a href="../llms.txt">فهرس وكلاء الذكاء الاصطناعي (llms.txt)</a></li>
           </ul>
         </div>
       </div>
@@ -437,5 +972,49 @@
   </footer>
 
   <script src="../script.js"></script>
+  <script>
+    // Client-side filtering & search for guides hub
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('guideSearch');
+      const catButtons = document.querySelectorAll('.cat-btn');
+      const cards = document.querySelectorAll('.guide-hub-card');
+
+      let currentCat = 'all';
+      let currentQuery = '';
+
+      function filterCards() {
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          const title = card.querySelector('h2').textContent.toLowerCase();
+          const desc = card.querySelector('p').textContent.toLowerCase();
+
+          const matchesCat = (currentCat === 'all' || cat === currentCat);
+          const matchesQuery = (!currentQuery || title.includes(currentQuery) || desc.includes(currentQuery));
+
+          if (matchesCat && matchesQuery) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      catButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          catButtons.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentCat = this.getAttribute('data-filter');
+          filterCards();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          currentQuery = this.value.trim().toLowerCase();
+          filterCards();
+        });
+      }
+    });
+  </script>
 </body>
 </html>
