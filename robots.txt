@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# AI Crawlers & LLM Agents
+# AI Crawlers, LLMs & Search Agents
 User-agent: GPTBot
 Allow: /
 
@@ -29,7 +29,22 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
-# LLMs Text Files
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# LLM Context Documentation & Machine-Readable Knowledge
 # https://sandoqalemara.com/llms.txt
 # https://sandoqalemara.com/llms-full.txt
 
