@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مولد جدول وخطة الصيانة الوقائية السنوية للعمارة مجاناً | صندوق العمارة</title>
+  <meta name="description" content="أداة لتوليد جدول زمني ذكي لكافة بنود الصيانة الدورية للعقار على مدار 12 شهراً، لتجنب الأعطال المفاجئة وحماية أرواح السكان وأموال الصندوق." />
+  <link rel="canonical" href="https://sandoqalemara.com/tools/preventive-maintenance-scheduler.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/tools/preventive-maintenance-scheduler.html" />
+  <meta property="og:title" content="مولد جدول وخطة الصيانة الوقائية السنوية للعمارة مجاناً" />
+  <meta property="og:description" content="أداة لتوليد جدول زمني ذكي لكافة بنود الصيانة الدورية للعقار على مدار 12 شهراً، لتجنب الأعطال المفاجئة وحماية أرواح السكان وأموال الصندوق." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="مولد جدول وخطة الصيانة الوقائية السنوية للعمارة مجاناً" />
+  <meta name="twitter:description" content="أداة لتوليد جدول زمني ذكي لكافة بنود الصيانة الدورية للعقار على مدار 12 شهراً، لتجنب الأعطال المفاجئة وحماية أرواح السكان وأموال الصندوق." />
+  <meta name="twitter:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <!-- Favicon & Styles -->
+  <link rel="icon" href="../favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .calc-container {
+      max-width: 1000px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .calc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-md);
+      margin-top: 24px;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 28px;
+    }
+    @media (max-width: 820px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+      box-sizing: border-box;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    .results-box {
+      background: linear-gradient(145deg, rgba(30, 58, 138, 0.2), rgba(16, 185, 129, 0.15));
+      border: 1px solid var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    .result-item.highlight {
+      border-bottom: none;
+      background: var(--card-bg);
+      padding: 18px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--secondary-color);
+    }
+    .result-label {
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .result-item.highlight .result-label {
+      color: var(--text-main);
+      font-size: 1.1rem;
+    }
+    .result-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .result-item.highlight .result-value {
+      font-size: 1.8rem;
+      color: var(--secondary-color);
+    }
+    .calc-guide-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-top: 50px;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-light);
+    }
+    .calc-guide-content h2 {
+      font-size: 1.5rem;
+      color: var(--text-main);
+      margin-top: 32px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+    .calc-guide-content h3 {
+      font-size: 1.25rem;
+      color: var(--primary-light);
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    .calc-guide-content p {
+      margin-bottom: 16px;
+    }
+    .calc-guide-content ul, .calc-guide-content ol {
+      padding-right: 28px;
+      margin-bottom: 20px;
+    }
+    .calc-guide-content li {
+      margin-bottom: 8px;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .content-table th, .content-table td {
+      padding: 12px 14px;
+      border: 1px solid var(--border-color);
+      text-align: right;
+    }
+    .content-table th {
+      background: var(--card-bg-subtle);
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .btn-action-wrap {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .btn-action {
+      flex: 1;
+      min-width: 140px;
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-align: center;
+      border: none;
+      font-family: inherit;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn-primary-action {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .btn-primary-action:hover {
+      background: var(--primary-light);
+    }
+    .btn-whatsapp-action {
+      background: #25D366;
+      color: #fff;
+    }
+    .btn-whatsapp-action:hover {
+      background: #1ebc59;
+    }
+    .btn-secondary-action {
+      background: var(--card-bg-subtle);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+    .btn-secondary-action:hover {
+      background: var(--card-bg);
+      border-color: var(--primary-light);
+    }
+    .cta-card-inline {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.25), rgba(16, 185, 129, 0.15));
+      border: 1px solid var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+    .cta-card-inline h3 {
+      font-size: 1.35rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+    .cta-card-inline p {
+      max-width: 620px;
+      margin: 0 auto 20px;
+      color: var(--text-light);
+    }
+    .breadcrumb-nav {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a {
+      color: var(--primary-light);
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .printable-area, .printable-area * {
+        visibility: visible;
+      }
+      .printable-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        color: #000 !important;
+        background: #fff !important;
+      }
+    }
+    
+  </style>
+
+  <!-- Structured Data: WebApplication & BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "مولد جدول وخطة الصيانة الوقائية السنوية للعمارة",
+        "url": "https://sandoqalemara.com/tools/preventive-maintenance-scheduler.html",
+        "description": "أداة لتوليد جدول زمني ذكي لكافة بنود الصيانة الدورية للعقار على مدار 12 شهراً، لتجنب الأعطال المفاجئة وحماية أرواح السكان وأموال الصندوق.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EGP"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://sandoqalemara.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "الأدوات المجانية",
+            "item": "https://sandoqalemara.com/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "مولد جدول وخطة الصيانة الوقائية السنوية للعمارة",
+            "item": "https://sandoqalemara.com/tools/preventive-maintenance-scheduler.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- Thunderbolt AI Chat Widget -->
+  <script defer src="https://www.thunderbolt.com/gateway/api/v1/thunderbolt-ui/embed.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../index.html">
+        <picture>
+          <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+          <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        </picture>
+        <span>صندوق العمارة</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <nav class="nav">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../solutions/index.html">الحلول</a>
+        <a href="index.html" style="color: var(--primary-light);">الأدوات المجانية</a>
+        <a href="../guides/index.html">أدلة الإدارة</a>
+        <a href="../about.html">عن التطبيق</a>
+        <a href="../contact.html">تواصل معنا</a>
+        <a href="../download.html" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calc-container">
+    <nav class="breadcrumb-nav" aria-label="مسار التنقل">
+      <a href="../index.html">الرئيسية</a> &gt; <a href="index.html">الأدوات المجانية</a> &gt; <strong>مولد جدول وخطة الصيانة الوقائية السنوية للعمارة</strong>
+    </nav>
+
+    
+    <div style="text-align: right; margin-bottom: 24px;">
+      <span style="display:inline-block; padding: 4px 12px; background: rgba(59, 130, 246, 0.1); color: var(--primary-light); border-radius: var(--radius-full); font-weight: 700; font-size: 0.85rem; margin-bottom: 10px;">📅 التخطيط الوقائي السنوي</span>
+      <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); line-height: 1.3; margin-bottom: 12px;">مولد جدول وخطة الصيانة الوقائية السنوية للعمارة</h1>
+      <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; max-width: 850px;">
+        لا تنتظر حتى يتعطل المصعد أو تغرق العمارة في الشتاء؛ ولّد جدول صيانة وقائي مخصص لعقاركم يوزع مهام الفحص والتطهير على مدار الـ 12 شهراً، قابل للطباعة والتعليق في المدخل.
+      </p>
+    </div>
+
+    <div class="calc-card">
+      <div style="margin-bottom: 20px;">
+        <label for="schedBldgName" style="font-weight: 700; color: var(--text-main); display: block; margin-bottom: 8px;">اسم العقار السكني *</label>
+        <input type="text" id="schedBldgName" value="عمارة النرجس 2" style="max-width: 400px; padding: 10px 14px; background: var(--card-bg-subtle); border: 1px solid var(--border-color); color: var(--text-main); border-radius: 4px;" />
+      </div>
+
+      <div class="printable-area">
+        <h3 style="font-size: 1.25rem; color: var(--text-main); margin-bottom: 16px;">الجدول الزمني السنوي الموصى به للصيانة الوقائية:</h3>
+        
+        <div class="table-wrapper">
+          <table class="content-table">
+            <thead>
+              <tr>
+                <th>الشهر</th>
+                <th>المرفق المستهدف</th>
+                <th>الإجراء الوقائي المطلوب</th>
+                <th>المسؤول عن التنفيذ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>يناير (1)</strong></td>
+                <td>صرف الأمطار والمزاريب</td>
+                <td>تسليك بلاعات مياه المطر بالسطح ومطابقة عمل مضخة تصريف الجراج الغاطسة</td>
+                <td>سباك الصيانة + الحارس</td>
+              </tr>
+              <tr>
+                <td><strong>مارس (3)</strong></td>
+                <td>خزانات مياه الشرب</td>
+                <td>غسيل وتطهير وتعقيم خزان المياه العلوي والتحقق من إحكام الغطاء</td>
+                <td>شركة تطهير متخصصة</td>
+              </tr>
+              <tr>
+                <td><strong>أبريل (4)</strong></td>
+                <td>مكافحة الحشرات والمناور</td>
+                <td>رش وقائي لغرف التفتيش وبئر المصعد ومناور الصرف ضد الصراصير والناموس</td>
+                <td>شركة إبادة حشرات</td>
+              </tr>
+              <tr>
+                <td><strong>يونيو (6)</strong></td>
+                <td>مواتير المياه ومفاتيح الفلوماك</td>
+                <td>قياس ضغط بالونة الموتور وفحص رولمان البلي والأولسيه لمنع التسريب الصيفي</td>
+                <td>فني مواتير معتمد</td>
+              </tr>
+              <tr>
+                <td><strong>سبتمبر (9)</strong></td>
+                <td>خزانات المياه (الدورة 2)</td>
+                <td>التطهير النصفي السنوي لخزانات المياه وفحص سلامة العوامة الميكانيكية</td>
+                <td>شركة تطهير معتمدة</td>
+              </tr>
+              <tr>
+                <td><strong>أكتوبر (10)</strong></td>
+                <td>عزل السطح وحبال المصعد</td>
+                <td>معاينة طبقات عزل السطح وسد الشروخ قبل الشتاء، وفحص وايرات الأسانسير</td>
+                <td>لجنة الاتحاد + شركة المصاعد</td>
+              </tr>
+              <tr>
+                <td><strong>نوفمبر (11)</strong></td>
+                <td>طفايات الحريق والكهرباء</td>
+                <td>فحص ضغط طفايات الحريق وإعادة تعبئتها، ومراجعة تربيط قواطع لوحة الكهرباء</td>
+                <td>مسؤول الدفاع المدني / كهربائي</td>
+              </tr>
+              <tr>
+                <td><strong>شهرياً (دوري)</strong></td>
+                <td>مصعد العقار وكاميرات المراقبة</td>
+                <td>تزييت وتشحيم الماكينة وضبط الفرامل والكوالين، والتأكد من تسجيل الهارد ديسك</td>
+                <td>شركة الصيانة + أمين الصندوق</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="btn-action-wrap" style="margin-top: 24px;">
+        <button onclick="window.print()" class="btn-action btn-primary-action">طباعة جدول الصيانة لتعليقه بالعمارة 🖨️</button>
+      </div>
+    </div>
+  
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand" style="justify-content: flex-start; margin-bottom: 8px;">
+            <picture>
+              <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+              <img src="../assets/sandooq-logo.png" alt="شعار صندوق العمارة" width="36" height="36" loading="lazy" />
+            </picture>
+            <span>صندوق العمارة</span>
+          </div>
+          <p class="footer-brand-p">
+            المنصة والتطبيق المتخصص لإدارة حسابات العقارات السكنية واتحادات الملاك في مصر، لمتابعة التحصيلات والمصروفات بكل شفافية وبدون أخطاء.
+          </p>
+          <div style="margin-top: 14px;">
+            <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
+              <img src="../assets/google-play-badge.svg" alt="احصل عليه من Google Play" width="135" height="40" loading="lazy" />
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>الحلول والخصائص</h3>
+          <ul>
+            <li><a href="../solutions/index.html">دليل كافة الحلول</a></li>
+            <li><a href="../solutions/building-expenses.html">إدارة المصروفات والفواتير</a></li>
+            <li><a href="../solutions/building-subscriptions.html">تحصيل اشتراكات الشقق</a></li>
+            <li><a href="../solutions/building-arrears.html">متابعة المتأخرات والديون</a></li>
+            <li><a href="../solutions/building-receipts.html">إيصالات واتساب الرقمية</a></li>
+            <li><a href="../solutions/building-maintenance.html">إدارة الصيانة والمشاريع</a></li>
+            <li><a href="../solutions/building-treasury.html">تعدد الخزائن وعهدة البواب</a></li>
+            <li><a href="../solutions/building-reports.html">التقارير وسجل العمارة</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>أدوات ودلائل مجانية</h3>
+          <ul>
+            <li><a href="index.html">مركز الأدوات التفاعلية (20 أداة)</a></li>
+            <li><a href="elevator-cost-calculator.html">حاسبة تقسيم الأسانسير</a></li>
+            <li><a href="water-bill-splitter.html">حاسبة فاتورة المياه المجمعة</a></li>
+            <li><a href="building-bylaws-generator.html">مولد اللائحة الداخلية</a></li>
+            <li><a href="legal-notice-generator.html">مولد إنذار المتأخرات</a></li>
+            <li><a href="treasury-handover-generator.html">محضر تسليم وتسلم الخزينة</a></li>
+            <li><a href="staircase-electricity-calculator.html">حاسبة توفير كهرباء السلم</a></li>
+            <li><a href="commercial-unit-fee-calculator.html">حاسبة المحلات والعيادات</a></li>
+            <li><a href="roof-waterproofing-calculator.html">حاسبة عزل السطح</a></li>
+            <li><a href="assembly-minutes-generator.html">مولد محضر الجمعية العمومية</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>عن التطبيق والخدمة</h3>
+          <ul>
+            <li><a href="../about.html">عن التطبيق والمطور</a></li>
+            <li><a href="../contact.html">تواصل معنا والدعم الفني</a></li>
+            <li><a href="../download.html">تحميل التطبيق ومواصفاته</a></li>
+            <li><a href="../security.html">الأمان وحماية البيانات</a></li>
+            <li><a href="../privacy.html">سياسة الخصوصية</a></li>
+            <li><a href="../terms.html">شروط الاستخدام والاشتراك</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    
+    document.getElementById('schedBldgName').addEventListener('input', function() {
+      // live update if needed
+    });
+  
+  </script>
+</body>
+</html>

@@ -12,8 +12,8 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>الأدوات المجانية لإدارة العمارة وحساب المصروفات (10 أدوات تفاعلية) | صندوق العمارة</title>
-  <meta name="description" content="مجموعة الأدوات التفاعلية المجانية الأقوى لأمناء الصناديق والملاك: حاسبة الأسانسير، فاتورة المياه، اشتراك الصيانة، مولد إيصالات النقدية، مولد اللائحة، والإنذارات القانونية." />
+  <title>الأدوات المجانية لإدارة العمارة وحساب المصروفات (20 أداة تفاعلية) | صندوق العمارة</title>
+  <meta name="description" content="مجموعة الأدوات التفاعلية المجانية الأكبر في مصر (20 أداة): حاسبة الأسانسير، فاتورة المياه، اشتراك الصيانة، مولد إيصالات النقدية، عقود الصيانة، واللوائح الرسمية." />
   <link rel="canonical" href="https://sandoqalemara.com/tools/" />
 
   <!-- Favicon & Touch Icons for Google Search & Browsers -->
@@ -28,12 +28,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sandoqalemara.com/tools/" />
   <meta property="og:title" content="الأدوات المجانية لإدارة العمارة وحساب المصروفات | صندوق العمارة" />
-  <meta property="og:description" content="10 أدوات محاسبية وقانونية تفاعلية مجانية لإدارة العمارات السكنية بدون أخطاء." />
+  <meta property="og:description" content="20 أداة محاسبية وقانونية تفاعلية مجانية لإدارة العمارات السكنية بدون أخطاء." />
   <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="أدوات إدارة العمارة المجانية (10 أدوات تفاعلية)" />
+  <meta name="twitter:title" content="أدوات إدارة العمارة المجانية (20 أداة تفاعلية)" />
   <meta name="twitter:description" content="حاسبة الأسانسير، فاتورة المياه، إيصالات السداد، واللوائح الداخلية مجاناً." />
   <meta name="twitter:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
 
@@ -43,7 +43,7 @@
 
   <style>
     .hub-container {
-      max-width: 1080px;
+      max-width: 1180px;
       margin: 40px auto 80px;
       padding: 0 24px;
     }
@@ -62,7 +62,55 @@
       font-size: 1.1rem;
       color: var(--text-muted);
       line-height: 1.8;
-      max-width: 850px;
+      max-width: 900px;
+    }
+    .search-filter-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 36px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .search-input-box {
+      width: 100%;
+      max-width: 500px;
+      padding: 12px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-input-box:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    .categories-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .cat-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-light);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    .cat-btn:hover, .cat-btn.active {
+      border-color: var(--primary-light);
+      color: var(--primary-light);
+      background: rgba(59, 130, 246, 0.08);
     }
     .tools-hub-grid {
       display: grid;
@@ -73,7 +121,7 @@
       background: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 32px 28px;
+      padding: 30px 26px;
       box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
@@ -90,13 +138,13 @@
       margin-bottom: 16px;
     }
     .tool-hub-card h2 {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       color: var(--text-main);
       margin-bottom: 12px;
       line-height: 1.4;
     }
     .tool-hub-card p {
-      font-size: 0.96rem;
+      font-size: 0.95rem;
       color: var(--text-light);
       line-height: 1.7;
       margin-bottom: 24px;
@@ -118,61 +166,9 @@
   "@graph": [
     {
       "@type": "CollectionPage",
-      "name": "الأدوات المجانية لإدارة العمارة وحساب المصروفات",
+      "name": "الأدوات المجانية لإدارة العمارة وحساب المصروفات (20 أداة تفاعلية)",
       "url": "https://sandoqalemara.com/tools/",
-      "description": "دليل الأدوات المجانية المخصصة لحساب مصاريف العقارات وتوليد إيصالات السداد واللوائح.",
-      "hasPart": [
-        {
-          "@type": "WebApplication",
-          "name": "حاسبة اشتراك ومصاريف العمارة",
-          "url": "https://sandoqalemara.com/tools/building-fee-calculator.html"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "مولد إيصال استلام اشتراك العمارة",
-          "url": "https://sandoqalemara.com/tools/receipt-generator.html"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "حاسبة تقسيم تكلفة وعمرة الأسانسير بمعامل الأدوار",
-          "url": "https://sandoqalemara.com/tools/elevator-cost-calculator.html"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "حاسبة تقسيم فاتورة المياه المجمعة بالعدل",
-          "url": "https://sandoqalemara.com/tools/water-bill-splitter.html"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "حاسبة متأخرات الشقق والشهور غير المسددة",
-          "url": "https://sandoqalemara.com/tools/building-arrears-calculator.html"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "مخطط ومحاكي ميزانية صيانة العقار السنوية",
-          "url": "https://sandoqalemara.com/tools/maintenance-budget-planner.html"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "حاسبة وديعة الصيانة ومواجهة التضخم البنكي",
-          "url": "https://sandoqalemara.com/tools/maintenance-deposit-calculator.html"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "مولد اللائحة الداخلية وميثاق الجيرة الرسمي",
-          "url": "https://sandoqalemara.com/tools/building-bylaws-generator.html"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "مولد إنذار التكليف بالوفاء ومطالبة المتأخرات",
-          "url": "https://sandoqalemara.com/tools/legal-notice-generator.html"
-        },
-        {
-          "@type": "WebApplication",
-          "name": "حاسبة مستحقات ومكافأة نهاية خدمة البواب",
-          "url": "https://sandoqalemara.com/tools/guard-settlement-calculator.html"
-        }
-      ]
+      "description": "دليل الأدوات المجانية المخصصة لحساب مصاريف العقارات وتوليد إيصالات السداد واللوائح والعقود."
     },
     {
       "@type": "BreadcrumbList",
@@ -231,71 +227,94 @@
     </nav>
 
     <div class="hub-header">
-      <p class="eyebrow" style="display: inline-block; font-size: 0.85rem; color: var(--primary-light); font-weight: 700; margin-bottom: 8px;">🧰 مركز الأدوات التفاعلية</p>
-      <h1>أدوات مجانية لأمناء الصناديق واتحادات الملاك (10 أدوات)</h1>
+      <p class="eyebrow" style="display: inline-block; font-size: 0.85rem; color: var(--primary-light); font-weight: 700; margin-bottom: 8px;">🧰 مركز الأدوات العملية التفاعلية</p>
+      <h1>أدوات مجانية لإدارة العمارة وحساب المصروفات (20 أداة)</h1>
       <p>
-        مجموعة أدوات عملية ومحاسبية وقانونية مصممة لمساعدتك في إدارة حسابات العمارة اليومية والشهرية، حساب نصيب كل شقة بالعدل، تقسيم فواتير المياه والأسانسير، وتوليد اللوائح والإنذارات الرسمية دون أي تكلفة.
+        مجموعة أدوات عملية ومحاسبية وقانونية مصممة لمساعدتك في إدارة حسابات العمارة اليومية والشهرية، حساب نصيب كل شقة بالعدل، تقسيم فواتير المياه والأسانسير، وتوليد اللوائح والإنذارات والعقود الرسمية دون أي تكلفة.
       </p>
     </div>
 
-    <div class="tools-hub-grid">
+    <div class="search-filter-wrap">
+      <input type="text" id="toolSearch" class="search-input-box" placeholder="🔍 ابحث في الأدوات (مثلاً: أسانسير، مياه، لائحة، عقد، بواب، عزل، كاميرات...)" aria-label="بحث في الأدوات المجانية" />
+      
+      <div class="categories-bar" id="toolCategoryFilter">
+        <button class="cat-btn active" data-filter="all">🛠️ كافة الأدوات (20)</button>
+        <button class="cat-btn" data-filter="finance">🧮 الحسابات والميزانيات</button>
+        <button class="cat-btn" data-filter="maintenance">⚙️ الصيانة والمقايسات</button>
+        <button class="cat-btn" data-filter="law">⚖️ العقود واللوائح الرسمية</button>
+        <button class="cat-btn" data-filter="collection">💳 التحصيل والإيصالات</button>
+      </div>
+    </div>
 
-      <article class="tool-hub-card">
+    <div class="tools-hub-grid" id="toolsGrid">
+
+      <article class="tool-hub-card" data-category="finance">
         <div>
           <div class="tool-icon-box">🧮</div>
           <h2>حاسبة اشتراك ومصاريف العمارة</h2>
-          <p>أدخل بنود مصاريف عقارك (راتب البواب، صيانة المصعد، فواتير الكهرباء والمياه العمومية) ونسبة احتياطي الطوارئ لمعرفة القيمة العادلة لاشتراك كل شقة بدقة، مع إمكانية مشاركة التقرير في جروب واتساب العمارة.</p>
+          <p>أدخل بنود مصاريف عقارك (راتب البواب، صيانة المصعد، فواتير الكهرباء والمياه العمومية) ونسبة احتياطي الطوارئ لمعرفة القيمة العادلة لاشتراك كل شقة بدقة.</p>
         </div>
         <a href="building-fee-calculator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           فتح حاسبة الاشتراك ↗
         </a>
       </article>
 
-      <article class="tool-hub-card">
+      <article class="tool-hub-card" data-category="collection">
         <div>
           <div class="tool-icon-box">🧾</div>
           <h2>مولد إيصال استلام اشتراك العمارة</h2>
-          <p>أنشئ إيصال نقدية رسمي وموثق باسم الساكن ورقم الشقة وقيمة المبلغ والشهر المسدد وطريقة الدفع (كاش، إنستاباي، فودافون كاش). يمكنك طباعة الإيصال فوراً بصيغة PDF أو إرسال نسخة منسقة على واتساب.</p>
+          <p>أنشئ إيصال نقدية رسمي وموثق باسم الساكن ورقم الشقة وقيمة المبلغ والشهر المسدد وطريقة الدفع (كاش، إنستاباي، فودافون كاش) للطباعة أو الإرسال على واتساب.</p>
         </div>
         <a href="receipt-generator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           إنشاء إيصال سداد فوري ↗
         </a>
       </article>
 
-      <article class="tool-hub-card">
+      <article class="tool-hub-card" data-category="maintenance">
         <div>
           <div class="tool-icon-box">⚙️</div>
           <h2>حاسبة تقسيم تكلفة وعمرة الأسانسير بمعامل الأدوار</h2>
-          <p>احسب نصيب كل شقة من مصاريف تأسيس الأسانسير أو العمرة الجسيمة وتغيير الوايرات والماكينة بمعادلة رياضية عادلة تعتمد على معامل الارتفاع مع استثناء الدور الأرضي.</p>
+          <p>احسب نصيب كل شقة من مصاريف تأسيس الأسانسير أو العمرة الجسيمة وتغيير الوايرات والماكينة بمعادلة رياضية عادلة تعتمد على معامل الارتفاع واستثناء الأرضي.</p>
         </div>
         <a href="elevator-cost-calculator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           فتح حاسبة الأسانسير ↗
         </a>
       </article>
 
-      <article class="tool-hub-card">
+      <article class="tool-hub-card" data-category="finance">
         <div>
           <div class="tool-icon-box">💧</div>
           <h2>حاسبة تقسيم فاتورة المياه المجمعة بالعدل</h2>
-          <p>قسّم فاتورة العداد العمومي بحسب عدد الأفراد الفعليين المقيمين في كل شقة أو بالتساوي، مع استقطاع نسبة مياه نظافة السلم وخدمات الحارس بدقة ومنع خلافات الجيران.</p>
+          <p>قسّم فاتورة العداد العمومي بحسب عدد الأفراد الفعليين المقيمين في كل شقة أو بالتساوي، مع استقطاع نسبة مياه نظافة السلم وخدمات الحارس بدقة.</p>
         </div>
         <a href="water-bill-splitter.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           فتح حاسبة فاتورة المياه ↗
         </a>
       </article>
 
-      <article class="tool-hub-card">
+      <article class="tool-hub-card" data-category="finance">
+        <div>
+          <div class="tool-icon-box">🏪</div>
+          <h2>حاسبة اشتراك المحلات والأنشطة الإدارية في العمارة</h2>
+          <p>احسب الاشتراك العادل للمحلات التجارية والعيادات والمكاتب وفق كثافة الاستهلاك والمترددين، مع حسم بنود استهلاك المصعد والنظافة بواجهة المبنى.</p>
+        </div>
+        <a href="commercial-unit-fee-calculator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          فتح حاسبة المحلات ↗
+        </a>
+      </article>
+
+      <article class="tool-hub-card" data-category="collection">
         <div>
           <div class="tool-icon-box">📉</div>
           <h2>حاسبة متأخرات الشقق والشهور غير المسددة</h2>
-          <p>أداة لحساب إجمالي المديونيات المتراكمة على الشقق المتأخرة، وإجمالي العجز الناتج في صندوق العقار، مع توليد رسالة مطالبة ودية تلقائية لكل شقة لإرسالها عبر واتساب.</p>
+          <p>أداة لحساب إجمالي المديونيات المتراكمة على الشقق المتأخرة، وإجمالي العجز الناتج في صندوق العقار، مع توليد رسالة مطالبة ودية تلقائية لواتساب.</p>
         </div>
         <a href="building-arrears-calculator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           فتح حاسبة المتأخرات ↗
         </a>
       </article>
 
-      <article class="tool-hub-card">
+      <article class="tool-hub-card" data-category="finance">
         <div>
           <div class="tool-icon-box">📊</div>
           <h2>مخطط ومحاكي ميزانية صيانة العقار السنوية</h2>
@@ -306,47 +325,146 @@
         </a>
       </article>
 
-      <article class="tool-hub-card">
+      <article class="tool-hub-card" data-category="finance">
         <div>
           <div class="tool-icon-box">🏦</div>
           <h2>حاسبة وديعة الصيانة ومواجهة التضخم البنكي</h2>
-          <p>احسب العائد الشهري والسنوي لأموال الوديعة في البنك، وتأكد هل فوائد الوديعة تكفي صيانة العقار أم أن رأس المال يتآكل بسبب التضخم، مع حساب استكمال الوديعة المطلوب.</p>
+          <p>احسب العائد الشهري والسنوي لأموال الوديعة في البنك، وتأكد هل فوائد الوديعة تكفي صيانة العقار أم أن رأس المال يتآكل بسبب التضخم، مع حساب استكمال الوديعة.</p>
         </div>
         <a href="maintenance-deposit-calculator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           فتح حاسبة الوديعة ↗
         </a>
       </article>
 
-      <article class="tool-hub-card">
+      <article class="tool-hub-card" data-category="maintenance">
+        <div>
+          <div class="tool-icon-box">⚡</div>
+          <h2>حاسبة استهلاك كارت كهرباء السلم والحساسات الذكية</h2>
+          <p>احسب حجم التوفير المالي عند استبدال لمبات السلم والمدخل بلمبات الليد المزودة بحساسات حركة (Motion Sensors)، وفترة استرداد رأس المال بالشهور.</p>
+        </div>
+        <a href="staircase-electricity-calculator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          حاسبة توفير الكهرباء ↗
+        </a>
+      </article>
+
+      <article class="tool-hub-card" data-category="maintenance">
+        <div>
+          <div class="tool-icon-box">🏠</div>
+          <h2>حاسبة مقايسة عزل السطح وتكلفة الشقة</h2>
+          <p>خطط لمشروع عزل سطح العمارة المائي والحراري: احسب تكلفة لفائف الممبرين والمصنعية والمونة الإسمنتية، وقسّم التكلفة الإجمالية بعدالة على كافة شقق العقار.</p>
+        </div>
+        <a href="roof-waterproofing-calculator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          حاسبة مقايسة العزل ↗
+        </a>
+      </article>
+
+      <article class="tool-hub-card" data-category="finance">
+        <div>
+          <div class="tool-icon-box">💵</div>
+          <h2>حاسبة تصفية عهدة البواب النقدية والفواتير</h2>
+          <p>صفّ عهدة مشتريات البواب في ثوانٍ: أدخل سقف العهدة، فواتير المشتريات الصغيرة، واكتشف المبلغ الواجب صرفه بدقة لمنع العجز والتسريب المالي.</p>
+        </div>
+        <a href="petty-cash-tracker.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          تصفية عهدة البواب ↗
+        </a>
+      </article>
+
+      <article class="tool-hub-card" data-category="maintenance">
+        <div>
+          <div class="tool-icon-box">📹</div>
+          <h2>حاسبة مقايسة كاميرات المراقبة وتأمين العقار</h2>
+          <p>احسب تكلفة تركيب شبكة كاميرات المراقبة CCTV بالعقار: الكاميرات، جهاز التسجيل NVR، الهارد، والباور سبلاي، وحصة كل شقة بالتفصيل.</p>
+        </div>
+        <a href="cctv-security-calculator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          مقايسة كاميرات المراقبة ↗
+        </a>
+      </article>
+
+      <article class="tool-hub-card" data-category="law">
+        <div>
+          <div class="tool-icon-box">👮</div>
+          <h2>حاسبة مستحقات ومكافأة نهاية خدمة حارس العقار</h2>
+          <p>سوّي حسابات حارس العمارة بأمان قانوني: احسب مكافأة نهاية الخدمة وأجر الأيام وبدل الإجازات، وولّد إقرار مخالصة مالية واستلام الغرفة فورياً.</p>
+        </div>
+        <a href="guard-settlement-calculator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          حساب مستحقات الحارس ↗
+        </a>
+      </article>
+
+      <article class="tool-hub-card" data-category="law">
         <div>
           <div class="tool-icon-box">📜</div>
           <h2>مولد اللائحة الداخلية وميثاق الجيرة الرسمي</h2>
-          <p>أنشئ لائحة داخلية ملزمة قانونياً لعقارتكم في دقيقتين: مواعيد الهدوء، ضوابط الأسانسير والجراج والسطح والحيوانات الأليفة، واطبعها كوثيقة رسمية موقعة من السكان.</p>
+          <p>أنشئ لائحة داخلية ملزمة قانونياً لعقارتكم في دقيقتين: مواعيد الهدوء، ضوابط الأسانسير والجراج والسطح والحيوانات الأليفة، واطبعها كوثيقة رسمية موقعة.</p>
         </div>
         <a href="building-bylaws-generator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           توليد اللائحة الداخلية ↗
         </a>
       </article>
 
-      <article class="tool-hub-card">
+      <article class="tool-hub-card" data-category="law">
         <div>
           <div class="tool-icon-box">⚖️</div>
           <h2>مولد إنذار التكليف بالوفاء ومطالبة المتأخرات</h2>
-          <p>أداة قانونية لتوليد صيغة إنذار رسمي على يد محضر موجه للشاغلين الممتنعين عن السداد طبقاً لقانون البناء 119 والمادة 202 مرافعات تمهيداً لاستصدار أمر الأداء.</p>
+          <p>أداة قانونية لتوليد صيغة إنذار رسمي على يد محضر موجه للشاغلين الممتنعين عن السداد طبقاً لقانون البناء 119 والمادة 202 مرافعات تمهيداً لأمر الأداء.</p>
         </div>
         <a href="legal-notice-generator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
           توليد الإنذار القضائي ↗
         </a>
       </article>
 
-      <article class="tool-hub-card">
+      <article class="tool-hub-card" data-category="finance">
         <div>
-          <div class="tool-icon-box">👮</div>
-          <h2>حاسبة مستحقات ومكافأة نهاية خدمة البواب</h2>
-          <p>سوّي حسابات حارس العقار بأمان قانوني: احسب مكافأة نهاية الخدمة وأجر الأيام المتبقية وبدل الإجازات، وولّد إقرار مخالصة مالية واستلام الغرفة فورياً للطباعة.</p>
+          <div class="tool-icon-box">🤝</div>
+          <h2>مولد محضر تسليم وتسلم صندوق العمارة والخزينة</h2>
+          <p>أداة رسمية لإنشاء محضر استلام وتسليم شامل ومحكم قانونياً عند تغيير أمين الصندوق: جرد السيولة النقدية، أرصدة البنك، ودفاتر الإيصالات، مع إبراء الذمة.</p>
         </div>
-        <a href="guard-settlement-calculator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
-          فتح حاسبة مستحقات الحارس ↗
+        <a href="treasury-handover-generator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          توليد محضر التسليم ↗
+        </a>
+      </article>
+
+      <article class="tool-hub-card" data-category="law">
+        <div>
+          <div class="tool-icon-box">🏛️</div>
+          <h2>مولد محضر اجتماع الجمعية العمومية المعتمد</h2>
+          <p>وثّق قرارات اجتماع السكان والجمعية العمومية بنموذج رسمي محكم: نصاب الحضور، بنود جدول الأعمال، نتائج التصويت، واعتماد الميزانية، للطباعة وتوقيع الملاك.</p>
+        </div>
+        <a href="assembly-minutes-generator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          توليد محضر الجمعية ↗
+        </a>
+      </article>
+
+      <article class="tool-hub-card" data-category="law">
+        <div>
+          <div class="tool-icon-box">📝</div>
+          <h2>مولد عقود صيانة الأسانسير والخدمات المحكمة</h2>
+          <p>احمِ خزانة العمارة بعقد صيانة احترافي يلزم شركة المصاعد أو فني الخدمات بغرامات التأخير، الرد خلال ساعتين في الطوارئ، وضمان قطع الغيار الأصلية.</p>
+        </div>
+        <a href="maintenance-contract-generator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          توليد عقد الصيانة ↗
+        </a>
+      </article>
+
+      <article class="tool-hub-card" data-category="maintenance">
+        <div>
+          <div class="tool-icon-box">📅</div>
+          <h2>مولد جدول وخطة الصيانة الوقائية السنوية للعمارة</h2>
+          <p>ولّد جدول صيانة وقائي مخصص لعقاركم يوزع مهام الفحص والتطهير (المصعد، الخزان، الصرف، الطفايات، المواتير) على مدار الـ 12 شهراً، للطباعة والتعليق.</p>
+        </div>
+        <a href="preventive-maintenance-scheduler.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          توليد جدول الصيانة ↗
+        </a>
+      </article>
+
+      <article class="tool-hub-card" data-category="collection">
+        <div>
+          <div class="tool-icon-box">📋</div>
+          <h2>مولد بطاقة بيانات الساكن ودليل الطوارئ</h2>
+          <p>نظم سجلات شقق العمارة بدقة: أنشئ بطاقة بيانات رسمية لكل شقة تشمل صفة الإشغال، أرقام التواصل للطوارئ، وبيانات السيارات بالجراج، للحفظ والطباعة.</p>
+        </div>
+        <a href="resident-directory-card-generator.html" class="button primary" style="width: 100%; text-align: center; margin-top: auto;">
+          توليد بطاقة الشقة ↗
         </a>
       </article>
     </div>
@@ -391,15 +509,16 @@
         <div class="footer-col">
           <h3>أدوات ودلائل مجانية</h3>
           <ul>
-            <li><a href="index.html">مركز الأدوات التفاعلية (10 أدوات)</a></li>
+            <li><a href="index.html">مركز الأدوات التفاعلية (20 أداة)</a></li>
             <li><a href="elevator-cost-calculator.html">حاسبة تقسيم الأسانسير</a></li>
             <li><a href="water-bill-splitter.html">حاسبة فاتورة المياه المجمعة</a></li>
             <li><a href="building-bylaws-generator.html">مولد اللائحة الداخلية</a></li>
             <li><a href="legal-notice-generator.html">مولد إنذار المتأخرات</a></li>
-            <li><a href="guard-settlement-calculator.html">حاسبة مستحقات البواب</a></li>
-            <li><a href="maintenance-deposit-calculator.html">حاسبة وديعة الصيانة</a></li>
-            <li><a href="building-fee-calculator.html">حاسبة اشتراك الشقة</a></li>
-            <li><a href="receipt-generator.html">مولد إيصالات السداد</a></li>
+            <li><a href="treasury-handover-generator.html">محضر تسليم وتسلم الخزينة</a></li>
+            <li><a href="staircase-electricity-calculator.html">حاسبة توفير كهرباء السلم</a></li>
+            <li><a href="commercial-unit-fee-calculator.html">حاسبة المحلات والعيادات</a></li>
+            <li><a href="roof-waterproofing-calculator.html">حاسبة عزل السطح</a></li>
+            <li><a href="assembly-minutes-generator.html">مولد محضر الجمعية العمومية</a></li>
           </ul>
         </div>
 
@@ -421,5 +540,48 @@
   </footer>
 
   <script src="../script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('toolSearch');
+      const catButtons = document.querySelectorAll('.cat-btn');
+      const cards = document.querySelectorAll('.tool-hub-card');
+
+      let currentCat = 'all';
+      let currentQuery = '';
+
+      function filterCards() {
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          const title = card.querySelector('h2').textContent.toLowerCase();
+          const desc = card.querySelector('p').textContent.toLowerCase();
+
+          const matchesCat = (currentCat === 'all' || cat === currentCat);
+          const matchesQuery = (!currentQuery || title.includes(currentQuery) || desc.includes(currentQuery));
+
+          if (matchesCat && matchesQuery) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      catButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          catButtons.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentCat = this.getAttribute('data-filter');
+          filterCards();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          currentQuery = this.value.trim().toLowerCase();
+          filterCards();
+        });
+      }
+    });
+  </script>
 </body>
 </html>

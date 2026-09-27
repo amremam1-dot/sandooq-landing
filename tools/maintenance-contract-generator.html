@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مولد عقود صيانة المصاعد والمرافق السكنية مجاناً | صيغة قانونية ملزمة | صندوق العمارة</title>
+  <meta name="description" content="أنشئ عقداً قانونياً محكماً لصيانة مصعد العمارة أو الإنتركم أو المواتير، مع بنود غرامات التأخير وضمان قطع الغيار وحماية أموال الصندوق." />
+  <link rel="canonical" href="https://sandoqalemara.com/tools/maintenance-contract-generator.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/tools/maintenance-contract-generator.html" />
+  <meta property="og:title" content="مولد عقود صيانة المصاعد والمرافق السكنية مجاناً | صيغة قانونية ملزمة" />
+  <meta property="og:description" content="أنشئ عقداً قانونياً محكماً لصيانة مصعد العمارة أو الإنتركم أو المواتير، مع بنود غرامات التأخير وضمان قطع الغيار وحماية أموال الصندوق." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="مولد عقود صيانة المصاعد والمرافق السكنية مجاناً | صيغة قانونية ملزمة" />
+  <meta name="twitter:description" content="أنشئ عقداً قانونياً محكماً لصيانة مصعد العمارة أو الإنتركم أو المواتير، مع بنود غرامات التأخير وضمان قطع الغيار وحماية أموال الصندوق." />
+  <meta name="twitter:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <!-- Favicon & Styles -->
+  <link rel="icon" href="../favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .calc-container {
+      max-width: 1000px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .calc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-md);
+      margin-top: 24px;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 28px;
+    }
+    @media (max-width: 820px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+      box-sizing: border-box;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    .results-box {
+      background: linear-gradient(145deg, rgba(30, 58, 138, 0.2), rgba(16, 185, 129, 0.15));
+      border: 1px solid var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    .result-item.highlight {
+      border-bottom: none;
+      background: var(--card-bg);
+      padding: 18px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--secondary-color);
+    }
+    .result-label {
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .result-item.highlight .result-label {
+      color: var(--text-main);
+      font-size: 1.1rem;
+    }
+    .result-value {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .result-item.highlight .result-value {
+      font-size: 1.8rem;
+      color: var(--secondary-color);
+    }
+    .calc-guide-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-top: 50px;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-light);
+    }
+    .calc-guide-content h2 {
+      font-size: 1.5rem;
+      color: var(--text-main);
+      margin-top: 32px;
+      margin-bottom: 14px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+    .calc-guide-content h3 {
+      font-size: 1.25rem;
+      color: var(--primary-light);
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    .calc-guide-content p {
+      margin-bottom: 16px;
+    }
+    .calc-guide-content ul, .calc-guide-content ol {
+      padding-right: 28px;
+      margin-bottom: 20px;
+    }
+    .calc-guide-content li {
+      margin-bottom: 8px;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .content-table th, .content-table td {
+      padding: 12px 14px;
+      border: 1px solid var(--border-color);
+      text-align: right;
+    }
+    .content-table th {
+      background: var(--card-bg-subtle);
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .btn-action-wrap {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .btn-action {
+      flex: 1;
+      min-width: 140px;
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-align: center;
+      border: none;
+      font-family: inherit;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn-primary-action {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .btn-primary-action:hover {
+      background: var(--primary-light);
+    }
+    .btn-whatsapp-action {
+      background: #25D366;
+      color: #fff;
+    }
+    .btn-whatsapp-action:hover {
+      background: #1ebc59;
+    }
+    .btn-secondary-action {
+      background: var(--card-bg-subtle);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+    .btn-secondary-action:hover {
+      background: var(--card-bg);
+      border-color: var(--primary-light);
+    }
+    .cta-card-inline {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.25), rgba(16, 185, 129, 0.15));
+      border: 1px solid var(--primary-light);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+    .cta-card-inline h3 {
+      font-size: 1.35rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+    .cta-card-inline p {
+      max-width: 620px;
+      margin: 0 auto 20px;
+      color: var(--text-light);
+    }
+    .breadcrumb-nav {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a {
+      color: var(--primary-light);
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .printable-area, .printable-area * {
+        visibility: visible;
+      }
+      .printable-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        color: #000 !important;
+        background: #fff !important;
+      }
+    }
+    
+  </style>
+
+  <!-- Structured Data: WebApplication & BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "مولد عقود صيانة الأسانسير والخدمات المحكمة",
+        "url": "https://sandoqalemara.com/tools/maintenance-contract-generator.html",
+        "description": "أنشئ عقداً قانونياً محكماً لصيانة مصعد العمارة أو الإنتركم أو المواتير، مع بنود غرامات التأخير وضمان قطع الغيار وحماية أموال الصندوق.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EGP"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://sandoqalemara.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "الأدوات المجانية",
+            "item": "https://sandoqalemara.com/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "مولد عقود صيانة الأسانسير والخدمات المحكمة",
+            "item": "https://sandoqalemara.com/tools/maintenance-contract-generator.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- Thunderbolt AI Chat Widget -->
+  <script defer src="https://www.thunderbolt.com/gateway/api/v1/thunderbolt-ui/embed.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="../index.html">
+        <picture>
+          <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+          <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        </picture>
+        <span>صندوق العمارة</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <nav class="nav">
+        <a href="../index.html">الرئيسية</a>
+        <a href="../solutions/index.html">الحلول</a>
+        <a href="index.html" style="color: var(--primary-light);">الأدوات المجانية</a>
+        <a href="../guides/index.html">أدلة الإدارة</a>
+        <a href="../about.html">عن التطبيق</a>
+        <a href="../contact.html">تواصل معنا</a>
+        <a href="../download.html" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calc-container">
+    <nav class="breadcrumb-nav" aria-label="مسار التنقل">
+      <a href="../index.html">الرئيسية</a> &gt; <a href="index.html">الأدوات المجانية</a> &gt; <strong>مولد عقود صيانة الأسانسير والخدمات المحكمة</strong>
+    </nav>
+
+    
+    <div style="text-align: right; margin-bottom: 24px;">
+      <span style="display:inline-block; padding: 4px 12px; background: rgba(59, 130, 246, 0.1); color: var(--primary-light); border-radius: var(--radius-full); font-weight: 700; font-size: 0.85rem; margin-bottom: 10px;">📜 صياغة العقود الفنية</span>
+      <h1 style="font-size: 2.2rem; font-weight: 800; color: var(--text-main); line-height: 1.3; margin-bottom: 12px;">مولد عقود صيانة الأسانسير والخدمات المحكمة</h1>
+      <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.8; max-width: 850px;">
+        احمِ خزانة العمارة وأرواح السكان بعقد صيانة احترافي يلزم شركة المصاعد أو فني الخدمات بغرامات التأخير، الرد خلال ساعتين في الطوارئ، وضمان قطع الغيار الأصلية.
+      </p>
+    </div>
+
+    <div class="calc-card">
+      <div class="calc-grid">
+        <div>
+          <h2 style="font-size: 1.25rem; color: var(--text-main); margin-top: 0; margin-bottom: 20px;">أطراف العقد وشروط الصيانة</h2>
+          
+          <div class="form-group">
+            <label for="mcClient">الطرف الأول (الممثل عن اتحاد الشاغلين) *</label>
+            <input type="text" id="mcClient" value="اتحاد شاغلي عمارة الأمل - أ/ عمرو إمام" />
+          </div>
+
+          <div class="form-group">
+            <label for="mcVendor">الطرف الثاني (شركة الصيانة / المقاول) *</label>
+            <input type="text" id="mcVendor" value="شركة الأهرام للمصاعد والتحكم الهندسي" />
+          </div>
+
+          <div class="form-group">
+            <label for="mcScope">طبيعة العقد والخدمة *</label>
+            <select id="mcScope">
+              <option value="elevator" selected>صيانة مصعد العقار الدورية الدورية وشاملة الطوارئ</option>
+              <option value="intercom">صيانة شبكة الإنتركم وكوالين الدخول الذكية</option>
+              <option value="pumps">صيانة مواتير ومضخات مياه الشرب وصواعدها</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="mcMonthlyFee">قيمة الاشتراك الشهري المتفق عليه (ج.م) *</label>
+            <input type="number" id="mcMonthlyFee" value="1200" min="200" step="50" />
+          </div>
+
+          <button id="genMcBtn" class="btn-action btn-primary-action" style="width: 100%;">توليد العقد الرسمي الملزم 📜</button>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h2 style="font-size: 1.25rem; color: var(--text-main); margin: 0;">معاينة العقد الرسمي</h2>
+            <button onclick="window.print()" class="btn-action btn-primary-action" style="padding: 6px 16px; font-size: 0.88rem;">طباعة العقد 🖨️</button>
+          </div>
+
+          <div id="mcDocPreview" class="printable-area" style="background: #fff; color: #1e293b; padding: 24px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 0.88rem; line-height: 1.7; max-height: 520px; overflow-y: auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand" style="justify-content: flex-start; margin-bottom: 8px;">
+            <picture>
+              <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+              <img src="../assets/sandooq-logo.png" alt="شعار صندوق العمارة" width="36" height="36" loading="lazy" />
+            </picture>
+            <span>صندوق العمارة</span>
+          </div>
+          <p class="footer-brand-p">
+            المنصة والتطبيق المتخصص لإدارة حسابات العقارات السكنية واتحادات الملاك في مصر، لمتابعة التحصيلات والمصروفات بكل شفافية وبدون أخطاء.
+          </p>
+          <div style="margin-top: 14px;">
+            <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
+              <img src="../assets/google-play-badge.svg" alt="احصل عليه من Google Play" width="135" height="40" loading="lazy" />
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>الحلول والخصائص</h3>
+          <ul>
+            <li><a href="../solutions/index.html">دليل كافة الحلول</a></li>
+            <li><a href="../solutions/building-expenses.html">إدارة المصروفات والفواتير</a></li>
+            <li><a href="../solutions/building-subscriptions.html">تحصيل اشتراكات الشقق</a></li>
+            <li><a href="../solutions/building-arrears.html">متابعة المتأخرات والديون</a></li>
+            <li><a href="../solutions/building-receipts.html">إيصالات واتساب الرقمية</a></li>
+            <li><a href="../solutions/building-maintenance.html">إدارة الصيانة والمشاريع</a></li>
+            <li><a href="../solutions/building-treasury.html">تعدد الخزائن وعهدة البواب</a></li>
+            <li><a href="../solutions/building-reports.html">التقارير وسجل العمارة</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>أدوات ودلائل مجانية</h3>
+          <ul>
+            <li><a href="index.html">مركز الأدوات التفاعلية (20 أداة)</a></li>
+            <li><a href="elevator-cost-calculator.html">حاسبة تقسيم الأسانسير</a></li>
+            <li><a href="water-bill-splitter.html">حاسبة فاتورة المياه المجمعة</a></li>
+            <li><a href="building-bylaws-generator.html">مولد اللائحة الداخلية</a></li>
+            <li><a href="legal-notice-generator.html">مولد إنذار المتأخرات</a></li>
+            <li><a href="treasury-handover-generator.html">محضر تسليم وتسلم الخزينة</a></li>
+            <li><a href="staircase-electricity-calculator.html">حاسبة توفير كهرباء السلم</a></li>
+            <li><a href="commercial-unit-fee-calculator.html">حاسبة المحلات والعيادات</a></li>
+            <li><a href="roof-waterproofing-calculator.html">حاسبة عزل السطح</a></li>
+            <li><a href="assembly-minutes-generator.html">مولد محضر الجمعية العمومية</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>عن التطبيق والخدمة</h3>
+          <ul>
+            <li><a href="../about.html">عن التطبيق والمطور</a></li>
+            <li><a href="../contact.html">تواصل معنا والدعم الفني</a></li>
+            <li><a href="../download.html">تحميل التطبيق ومواصفاته</a></li>
+            <li><a href="../security.html">الأمان وحماية البيانات</a></li>
+            <li><a href="../privacy.html">سياسة الخصوصية</a></li>
+            <li><a href="../terms.html">شروط الاستخدام والاشتراك</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    
+    function genContract() {
+      const client = document.getElementById('mcClient').value || '';
+      const vendor = document.getElementById('mcVendor').value || '';
+      const fee = parseFloat(document.getElementById('mcMonthlyFee').value) || 0;
+
+      const html = '<div style="text-align: center; border-bottom: 2px solid #1e3a8a; padding-bottom: 8px; margin-bottom: 12px;">' +
+                   '<h3 style="font-size: 1.2rem; color: #1e3a8a; margin: 0;">عقد اتفاق صيانة دورية وطوارئ ملزم</h3>' +
+                   '</div>' +
+                   '<p><strong>الطرف الأول:</strong> ' + client + ' (المستفيد)</p>' +
+                   '<p><strong>الطرف الثاني:</strong> ' + vendor + ' (الشركة المنفذة)</p>' +
+                   '<p style="font-weight: 700; margin-bottom: 6px;">بنود العقد وشروط التنفيذ:</p>' +
+                   '<ol style="padding-right: 18px; line-height: 1.6;">' +
+                   '<li><strong>المقابل المالي:</strong> يلتزم الطرف الأول بسداد مبلغ (' + fee.toLocaleString('ar-EG') + ' ج.م) شهرياً للطرف الثاني بموجب إيصال رسمي.</li>' +
+                   '<li><strong>الزيارات الدورية:</strong> يلتزم الطرف الثاني بعمل زيارتين شهرياً للفحص الفني والتزييت والتشحيم وضبط الفرامل والكوالين.</li>' +
+                   '<li><strong>استجابة الطوارئ:</strong> يلتزم الطرف الثاني بإرسال فني طوارئ خلال ساعتين (2 ساعة) كحد أقصى عند الإبلاغ عن احتجاز ركاب أو توقف كامل.</li>' +
+                   '<li><strong>غرامة التأخير:</strong> تخصم غرامة قدرها 200 ج.م عن كل يوم تأخير في إصلاح الأعطال دون عذر قهري.</li>' +
+                   '<li><strong>قطع الغيار:</strong> تلتزم الشركة بتقديم شهادات المنشأ الأصلية لأي قطعة غيار مستبدلة مع ضمان كتابي لمدة لا تقل عن سنة.</li>' +
+                   '</ol>' +
+                   '<div style="margin-top: 20px; display: flex; justify-content: space-between; font-size: 0.82rem;">' +
+                   '<div><strong>توقيع الطرف الأول:</strong> .....................</div>' +
+                   '<div><strong>توقيع وختم الطرف الثاني:</strong> .....................</div>' +
+                   '</div>';
+
+      document.getElementById('mcDocPreview').innerHTML = html;
+    }
+
+    document.getElementById('genMcBtn').addEventListener('click', genContract);
+    genContract();
+  
+  </script>
+</body>
+</html>
