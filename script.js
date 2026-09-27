@@ -169,4 +169,15 @@ document.addEventListener("DOMContentLoaded", () => {
       trackEvent("pricing_click", { plan: planName });
     });
   });
+
+  // Video Chapter navigation helper
+  window.seekAppVideo = function(seconds) {
+    const iframe = document.getElementById("mainWalkthroughVideo");
+    if (iframe) {
+      iframe.src = `https://www.youtube-nocookie.com/embed/0wJ3LRZAtq0?start=${seconds}&autoplay=1`;
+      iframe.scrollIntoView({ behavior: "smooth", block: "center" });
+      trackEvent("video_chapter_click", { timestamp: seconds });
+    }
+  };
 });
+

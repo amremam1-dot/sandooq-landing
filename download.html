@@ -296,6 +296,63 @@
         </div>
       </div>
 
+      <!-- App Video Walkthrough -->
+      <div class="video-section-download" style="margin-top: 48px; text-align: right;">
+        <h2 style="font-size: 1.5rem; color: var(--primary-light); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+          <span>🎬 فيديو توضيحي: كيف يعمل تطبيق صندوق العمارة؟</span>
+        </h2>
+        <p style="font-size: 0.98rem; color: var(--text-muted); margin-bottom: 24px; line-height: 1.7;">
+          شاهد جولة عملية بالفيديو توضح كيفية إنشاء حساب العقار، تسجيل اشتراكات الشقق، وإرسال أول إيصال سداد عبر واتساب.
+        </p>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              id="mainWalkthroughVideo"
+              src="https://www.youtube-nocookie.com/embed/0wJ3LRZAtq0?start=12"
+              title="شرح تطبيق صندوق العمارة كاملًا"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <div class="video-info-box">
+            <div class="video-chapters-title">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>أهم أجزاء الشرح (اضغط للمشاهدة المباشرة):</span>
+            </div>
+
+            <div class="video-chapters-grid">
+              <button type="button" class="chapter-btn" onclick="seekAppVideo(12)">
+                <span class="chapter-time">00:12</span>
+                <span class="chapter-text">نظرة عامة على الشاشة الرئيسية وحركة الخزينة</span>
+              </button>
+              <button type="button" class="chapter-btn" onclick="seekAppVideo(90)">
+                <span class="chapter-time">01:30</span>
+                <span class="chapter-text">إدارة شقق العمارة وتحديد اشتراكات السكان</span>
+              </button>
+              <button type="button" class="chapter-btn" onclick="seekAppVideo(195)">
+                <span class="chapter-time">03:15</span>
+                <span class="chapter-text">تسجيل التحصيل الفوري وتوليد إيصال واتساب</span>
+              </button>
+              <button type="button" class="chapter-btn" onclick="seekAppVideo(340)">
+                <span class="chapter-time">05:40</span>
+                <span class="chapter-text">إدارة عهدة البواب ومشتريات الصيانة اليومية</span>
+              </button>
+              <button type="button" class="chapter-btn" onclick="seekAppVideo(440)">
+                <span class="chapter-time">07:20</span>
+                <span class="chapter-text">المشاريع المستقلة وحسابات صندوق المسجد</span>
+              </button>
+              <button type="button" class="chapter-btn" onclick="seekAppVideo(550)">
+                <span class="chapter-time">09:10</span>
+                <span class="chapter-text">استخراج كشوف المتأخرات وتقارير PDF الشاملة</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Quick 3-Step Setup -->
       <div class="steps-section">
         <h2>كيف تبدأ في 3 خطوات بسيطة؟</h2>
