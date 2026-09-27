@@ -72,12 +72,26 @@
           "bestRating": "5",
           "worstRating": "1"
         },
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "EGP",
-          "description": "فترة تجربة مجانية شاملة لكافة المميزات"
-        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EGP",
+            "description": "فترة تجربة مجانية شاملة لكافة المميزات"
+          },
+          {
+            "@type": "Offer",
+            "price": "49.99",
+            "priceCurrency": "EGP",
+            "description": "الاشتراك الشهري"
+          },
+          {
+            "@type": "Offer",
+            "price": "499.99",
+            "priceCurrency": "EGP",
+            "description": "الاشتراك السنوي الذهبي (12 شهراً + شهر هدية)"
+          }
+        ],
         "downloadUrl": "https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara",
         "description": "تطبيق لإدارة اشتراكات ومصروفات وصيانة العمارات واتحادات الملاك، وتوليد إيصالات سداد واتساب وتقارير PDF وExcel."
       },
@@ -621,7 +635,7 @@
           <p class="pricing-subtitle">جرب كافة ميزات التطبيق المتقدمة لعمارتك دون دفع أي رسوم مقدماً.</p>
           <div class="pricing-price-box">
             <span class="pricing-price">0 ج.م</span>
-            <span class="pricing-duration"> / فترة تجريبية</span>
+            <span class="pricing-duration"> / فترة تجريبية مجانية</span>
           </div>
           <ul class="pricing-features-list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> تسجيل كافة الشقق والوحدات</li>
@@ -629,17 +643,17 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> تسجيل المصروفات وحساب المتأخرات</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> تجربة كاملة بدون قيود</li>
           </ul>
-          <a href="#download" class="button secondary" style="width: 100%; text-align: center;">ابدأ التجربة المجانية</a>
+          <a href="download.html" class="button secondary" style="width: 100%; text-align: center;">ابدأ التجربة المجانية</a>
         </div>
 
         <!-- الاشتراك السنوي الذهبي -->
         <div class="pricing-card popular">
           <div class="popular-ribbon">🔥 الأكثر توفيراً وشعبية</div>
           <h3 class="pricing-title">الاشتراك السنوي الذهبي</h3>
-          <p class="pricing-subtitle">أفضل قيمة توفير: 13 شهراً بسعر 12 شهراً فقط عند استخدام كود الهدية، مع توفير شهرين مقارنة بالشهري.</p>
+          <p class="pricing-subtitle">أفضل قيمة توفير: 13 شهراً بسعر 12 شهراً فقط عند استخدام كود الهدية، مع توفير شهرين مقارنة بالاشتراك الشهري.</p>
           <div class="pricing-price-box">
-            <span class="pricing-price">سنوي مخفض</span>
-            <span class="pricing-duration"> / 12 شهراً (+ شهر هدية)</span>
+            <span class="pricing-price">499.99 ج.م</span>
+            <span class="pricing-duration"> / سنوياً (12 شهراً + شهر هدية)</span>
           </div>
           <ul class="pricing-features-list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> مزامنة سحابية غير محدودة ومشفرة</li>
@@ -649,7 +663,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> تصدير كامل لملفات PDF وإكسيل Excel</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> دعم فني مباشر وأولوية بالتحديثات</li>
           </ul>
-          <a href="#download" class="button primary" style="width: 100%; text-align: center;">اشترك بالباقة السنوية</a>
+          <a href="download.html" class="button primary" style="width: 100%; text-align: center;">اشترك بالباقة السنوية</a>
           <div class="payment-methods-strip">
             <span>متاح عبر Google Play أو</span>
             <span class="instapay-tag">InstaPay ⚡</span>
@@ -661,8 +675,8 @@
           <h3 class="pricing-title">الاشتراك الشهري</h3>
           <p class="pricing-subtitle">مرونة تامة مع تجديد شهري (+ شهر إضافي هدية عند إدخال كود دعوة).</p>
           <div class="pricing-price-box">
-            <span class="pricing-price">شهري مرن</span>
-            <span class="pricing-duration"> / تجديد شهري</span>
+            <span class="pricing-price">49.99 ج.م</span>
+            <span class="pricing-duration"> / شهرياً</span>
           </div>
           <ul class="pricing-features-list">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> كامل مميزات النسخ السحابي والواتساب</li>
@@ -670,7 +684,11 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> كشوفات PDF وتقارير المتأخرات</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> إلغاء الاشتراك بنقرة واحدة بأي وقت</li>
           </ul>
-          <a href="download.html" class="button secondary" style="width: 100%; text-align: center;">ابدأ التجربة المجانية</a>
+          <a href="download.html" class="button secondary" style="width: 100%; text-align: center;">اشترك بالباقة الشهرية</a>
+          <div class="payment-methods-strip">
+            <span>متاح عبر Google Play أو</span>
+            <span class="instapay-tag">InstaPay ⚡</span>
+          </div>
         </div>
       </div>
     </section>
