@@ -29,6 +29,11 @@
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="canonical" href="https://sandoqalemara.com/" />
+  <script>
+    if (window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('/index')) {
+      window.history.replaceState(null, '', window.location.origin + '/' + window.location.search + window.location.hash);
+    }
+  </script>
   <link rel="help" type="text/markdown" href="https://sandoqalemara.com/llms.txt" title="LLM Knowledge Base" />
   <!-- Preload LCP hero image -->
   <link rel="preload" as="image" href="assets/hero-main.webp" type="image/webp" fetchpriority="high" />
@@ -64,14 +69,6 @@
         "alternateName": ["Sandooq El-Amara", "تطبيق صندوق العمارة"],
         "operatingSystem": "Android",
         "applicationCategory": "FinanceApplication",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "128",
-          "reviewCount": "128",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
         "offers": [
           {
             "@type": "Offer",
@@ -186,9 +183,9 @@
       <nav class="nav">
         <a href="#features">المميزات</a>
         <a href="#video-tour">فيديو الشرح</a>
-        <a href="solutions/index.html">الحلول المتخصصة</a>
-        <a href="tools/index.html">الأدوات المجانية</a>
-        <a href="guides/index.html">أدلة الإدارة</a>
+        <a href="/solutions/">الحلول المتخصصة</a>
+        <a href="/tools/">الأدوات المجانية</a>
+        <a href="/guides/">أدلة الإدارة</a>
         <a href="about.html">عن التطبيق</a>
         <a href="contact.html">تواصل معنا</a>
         <a href="download.html" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
@@ -759,8 +756,8 @@
         <h2>مركز أدوات أمناء الصناديق واتحادات الملاك</h2>
         <p class="lead-text">أدوات محاسبية تفاعلية ونماذج عملية جاهزة للاستخدام مجاناً لتنظيم حسابات عمارتك دون أي تكلفة.</p>
         <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 18px;">
-          <a href="tools/index.html" class="button secondary" style="font-size: 0.92rem; padding: 8px 18px;">🧮 الدخول لمركز الأدوات التفاعلية ➔</a>
-          <a href="guides/index.html" class="button secondary" style="font-size: 0.92rem; padding: 8px 18px;">📚 تصفح مكتبة أدلة الإدارة ➔</a>
+          <a href="/tools/" class="button secondary" style="font-size: 0.92rem; padding: 8px 18px;">🧮 الدخول لمركز الأدوات التفاعلية ➔</a>
+          <a href="/guides/" class="button secondary" style="font-size: 0.92rem; padding: 8px 18px;">📚 تصفح مكتبة أدلة الإدارة ➔</a>
         </div>
       </div>
 
@@ -825,21 +822,21 @@
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-          <a href="solutions/index.html" class="feature-card" style="text-decoration: none; border-color: rgba(59, 130, 246, 0.3);">
+          <a href="/solutions/" class="feature-card" style="text-decoration: none; border-color: rgba(59, 130, 246, 0.3);">
             <div style="font-size: 2rem; margin-bottom: 8px;">🚀</div>
             <h3 style="font-size: 1.2rem; color: var(--text-main);">الحلول المتخصصة</h3>
             <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">صفحات حلول مفصلة للمصروفات، الاشتراكات، المتأخرات، الإيصالات، الصيانة، والخزائن.</p>
             <span style="color: var(--primary-light); font-weight: 700; font-size: 0.9rem; margin-top: auto;">استعراض الحلول ➔</span>
           </a>
 
-          <a href="tools/index.html" class="feature-card" style="text-decoration: none; border-color: rgba(16, 185, 129, 0.3);">
+          <a href="/tools/" class="feature-card" style="text-decoration: none; border-color: rgba(16, 185, 129, 0.3);">
             <div style="font-size: 2rem; margin-bottom: 8px;">🧮</div>
             <h3 style="font-size: 1.2rem; color: var(--text-main);">مركز الأدوات المجانية</h3>
             <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">حاسبات اشتراكات، مولد إيصالات PDF، حاسبة متأخرات، ومخطط ميزانية المصعد.</p>
             <span style="color: var(--secondary-color); font-weight: 700; font-size: 0.9rem; margin-top: auto;">تصفح الأدوات ➔</span>
           </a>
 
-          <a href="guides/index.html" class="feature-card" style="text-decoration: none; border-color: rgba(245, 158, 11, 0.3);">
+          <a href="/guides/" class="feature-card" style="text-decoration: none; border-color: rgba(245, 158, 11, 0.3);">
             <div style="font-size: 2rem; margin-bottom: 8px;">📚</div>
             <h3 style="font-size: 1.2rem; color: var(--text-main);">أدلة الإدارة والقانون</h3>
             <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.6;">قانون اتحاد الشاغلين المصري 119/2008، خطة التعامل مع المتأخرات، وشيت إكسيل مجاني.</p>
@@ -1025,7 +1022,7 @@
         <div class="footer-col">
           <h3>الحلول والخصائص</h3>
           <ul>
-            <li><a href="solutions/index.html">دليل كافة الحلول</a></li>
+            <li><a href="/solutions/">دليل كافة الحلول</a></li>
             <li><a href="solutions/building-expenses.html">إدارة المصروفات والفواتير</a></li>
             <li><a href="solutions/building-subscriptions.html">تحصيل اشتراكات الشقق</a></li>
             <li><a href="solutions/building-arrears.html">متابعة المتأخرات والديون</a></li>
@@ -1040,12 +1037,12 @@
         <div class="footer-col">
           <h3>أدوات ودلائل مجانية</h3>
           <ul>
-            <li><a href="tools/index.html">مركز الأدوات التفاعلية</a></li>
+            <li><a href="/tools/">مركز الأدوات التفاعلية</a></li>
             <li><a href="tools/building-fee-calculator.html">حاسبة اشتراك الشقة</a></li>
             <li><a href="tools/receipt-generator.html">مولد إيصالات السداد</a></li>
             <li><a href="tools/building-arrears-calculator.html">حاسبة متأخرات العمارة</a></li>
             <li><a href="tools/maintenance-budget-planner.html">حاسبة ميزانية الصيانة</a></li>
-            <li><a href="guides/index.html">مكتبة أدلة الإدارة</a></li>
+            <li><a href="/guides/">مكتبة أدلة الإدارة</a></li>
             <li><a href="guides/building-fund-management-guide.html">دليل إدارة الصندوق للمبتدئين</a></li>
             <li><a href="guides/building-expenses-excel-sheet.html">شيت إكسيل مصاريف العمارة</a></li>
             <li><a href="guides/building-occupants-union-law-egypt.html">قانون اتحاد الشاغلين في مصر</a></li>

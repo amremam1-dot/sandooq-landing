@@ -329,7 +329,7 @@
   <!-- Header -->
   <header class="site-header">
     <div class="header-container">
-      <a class="brand" href="../index.html">
+      <a class="brand" href="/">
         <picture>
           <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
           <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
@@ -342,10 +342,10 @@
       </button>
 
       <nav class="nav">
-        <a href="../index.html">الرئيسية</a>
-        <a href="../solutions/index.html">الحلول</a>
-        <a href="index.html" style="color: var(--primary-light);">الأدوات المجانية</a>
-        <a href="../guides/index.html">أدلة الإدارة</a>
+        <a href="/">الرئيسية</a>
+        <a href="/solutions/">الحلول</a>
+        <a href="/tools/" style="color: var(--primary-light);">الأدوات المجانية</a>
+        <a href="/guides/">أدلة الإدارة</a>
         <a href="../about.html">عن التطبيق</a>
         <a href="../contact.html">تواصل معنا</a>
         <a href="../download.html" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
@@ -355,7 +355,7 @@
 
   <main class="calc-container">
     <nav class="breadcrumb-nav" aria-label="مسار التنقل">
-      <a href="../index.html">الرئيسية</a> &gt; <a href="index.html">الأدوات المجانية</a> &gt; <strong>مولد اللائحة الداخلية وميثاق الجيرة الرسمي للعمارة</strong>
+      <a href="/">الرئيسية</a> &gt; <a href="/tools/">الأدوات المجانية</a> &gt; <strong>مولد اللائحة الداخلية وميثاق الجيرة الرسمي للعمارة</strong>
     </nav>
 
     
@@ -392,22 +392,22 @@
             <label>البنود المراد تفعيلها في اللائحة (اختر ما يناسبكم):</label>
             <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 8px;">
               <label style="font-weight: 400; display: flex; align-items: center; gap: 8px;">
-                <input type="checkbox" id="chkQuiet" checked style="width: auto;" /> حظر أعمال الدريل والتشطيب الصاخبة بعد 6:00 م ويوم الجمعة
+                <input type="checkbox" id="chkQuiet" aria-label="حظر أعمال الدريل والتشطيب الصاخبة بعد 6:00 م ويوم الجمعة" checked style="width: auto;" /> حظر أعمال الدريل والتشطيب الصاخبة بعد 6:00 م ويوم الجمعة
               </label>
               <label style="font-weight: 400; display: flex; align-items: center; gap: 8px;">
-                <input type="checkbox" id="chkElevator" checked style="width: auto;" /> حظر نقل الأثاث ومواد البناء بالمصعد بدون وقاية وتأمين مسبق
+                <input type="checkbox" id="chkElevator" aria-label="حظر نقل الأثاث ومواد البناء بالمصعد بدون وقاية وتأمين مسبق" checked style="width: auto;" /> حظر نقل الأثاث ومواد البناء بالمصعد بدون وقاية وتأمين مسبق
               </label>
               <label style="font-weight: 400; display: flex; align-items: center; gap: 8px;">
-                <input type="checkbox" id="chkHallway" checked style="width: auto;" /> حظر وضع الأحذية أو المخلفات أو الدراجات في ممرات وبسطات السلم
+                <input type="checkbox" id="chkHallway" aria-label="منع وضع الأحذية أو المهملات أو الدراجات في الطرقة والمناور" checked style="width: auto;" /> حظر وضع الأحذية أو المخلفات أو الدراجات في ممرات وبسطات السلم
               </label>
               <label style="font-weight: 400; display: flex; align-items: center; gap: 8px;">
-                <input type="checkbox" id="chkRoof" checked style="width: auto;" /> حظر غلق باب السطح بقفل أو البناء أو وضع كراكيب فوق الروف
+                <input type="checkbox" id="chkRoof" aria-label="حظر تخزين المخلفات أو إقامة عشش ومزارع طيور بالسطح المشترك" checked style="width: auto;" /> حظر غلق باب السطح بقفل أو البناء أو وضع كراكيب فوق الروف
               </label>
               <label style="font-weight: 400; display: flex; align-items: center; gap: 8px;">
-                <input type="checkbox" id="chkPets" checked style="width: auto;" /> تقييد الكلاب والحيوانات الأليفة بسلسلة وكمامة داخل المصعد والمدخل
+                <input type="checkbox" id="chkPets" aria-label="ضوابط اقتناء الحيوانات الأليفة مع مراعاة النظافة ومنع الإزعاج" checked style="width: auto;" /> تقييد الكلاب والحيوانات الأليفة بسلسلة وكمامة داخل المصعد والمدخل
               </label>
               <label style="font-weight: 400; display: flex; align-items: center; gap: 8px;">
-                <input type="checkbox" id="chkFines" checked style="width: auto;" /> تطبيق جدول غرامات تدريجية (100 إلى 300 ج) على المخالفين
+                <input type="checkbox" id="chkFines" aria-label="تطبيق غرامة تأخير 5% أو 50 جنيهاً شهرياً عن الممتنعين عن السداد" checked style="width: auto;" /> تطبيق جدول غرامات تدريجية (100 إلى 300 ج) على المخالفين
               </label>
             </div>
           </div>
@@ -456,7 +456,7 @@
         <div class="footer-col">
           <h3>الحلول والخصائص</h3>
           <ul>
-            <li><a href="../solutions/index.html">دليل كافة الحلول</a></li>
+            <li><a href="/solutions/">دليل كافة الحلول</a></li>
             <li><a href="../solutions/building-expenses.html">إدارة المصروفات والفواتير</a></li>
             <li><a href="../solutions/building-subscriptions.html">تحصيل اشتراكات الشقق</a></li>
             <li><a href="../solutions/building-arrears.html">متابعة المتأخرات والديون</a></li>
@@ -470,7 +470,7 @@
         <div class="footer-col">
           <h3>أدوات ودلائل مجانية</h3>
           <ul>
-            <li><a href="index.html">مركز الأدوات التفاعلية</a></li>
+            <li><a href="/tools/">مركز الأدوات التفاعلية</a></li>
             <li><a href="building-fee-calculator.html">حاسبة اشتراك الشقة</a></li>
             <li><a href="receipt-generator.html">مولد إيصالات السداد</a></li>
             <li><a href="building-arrears-calculator.html">حاسبة متأخرات العمارة</a></li>
