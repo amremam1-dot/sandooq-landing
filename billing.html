@@ -679,31 +679,7 @@
     }
 
     /* Auth Tabs */
-    .auth-tabs-bar {
-      display: flex;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: var(--radius-sm);
-      padding: 3px;
-      margin-bottom: 14px;
-    }
-    .auth-tab-btn {
-      flex: 1;
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-family: inherit;
-      font-size: 0.85rem;
-      font-weight: 700;
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-    .auth-tab-btn.active {
-      background: var(--card-bg);
-      color: var(--text-main);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
+    
 
     /* Feedback messages */
     .auth-message-banner {
@@ -1027,11 +1003,11 @@
           <div id="authLoggedOutView" class="auth-box-container">
             <div class="auth-badge-pill">
               <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-              <span>تسجيل دخول حقيقي ومباشر</span>
+              <span>تسجيل دخول إلزامي للسداد</span>
             </div>
-            <h4 class="auth-box-title">سجّل دخولك بنفس حسابك في التطبيق</h4>
+            <h4 class="auth-box-title">سجّل دخولك بحسابك في التطبيق</h4>
             <p class="auth-box-desc">
-              سجّل دخولك بنفس حساب Google أو البريد المسجل به على هاتفك لربط اشتراكك وتفعيله فورياً في قاعدة بيانات التطبيق.
+              الدفع متاح حصرياً للمستخدمين المسجلين في تطبيق صندوق العمارة. سجّل دخولك بحساب Google أو البريد المسجل به على هاتفك لربط وتفعيل اشتراكك فوراً.
             </p>
 
             <!-- Google Sign-In Button -->
@@ -1047,26 +1023,15 @@
 
             <!-- Divider -->
             <div class="auth-divider-line">
-              <span>أو بالبريد وكلمة المرور</span>
+              <span>أو تسجيل الدخول بالبريد وكلمة المرور</span>
             </div>
 
-            <!-- Auth Mode Tabs (Login / Register) -->
-            <div class="auth-tabs-bar">
-              <button type="button" class="auth-tab-btn active" id="tabLogin" onclick="setAuthMode('login')">تسجيل الدخول</button>
-              <button type="button" class="auth-tab-btn" id="tabSignup" onclick="setAuthMode('signup')">إنشاء حساب جديد</button>
-            </div>
-
-            <!-- Email & Password Form -->
+            <!-- Email & Password Form (Login Only) -->
             <form id="emailAuthForm" onsubmit="handleEmailAuth(event)">
               <div id="authMsgBanner" class="auth-message-banner" style="display:none;"></div>
 
-              <div class="form-group-custom" id="authNameGroup" style="display:none; margin-bottom:12px;">
-                <label class="form-label-custom" for="authDisplayNameInput">اسم أمين الصندوق / العمارة</label>
-                <input type="text" id="authDisplayNameInput" class="form-input-custom" placeholder="مثال: م. أحمد (عمارة الأمل)" />
-              </div>
-
               <div class="form-group-custom" style="margin-bottom:12px;">
-                <label class="form-label-custom" for="authEmailInput">البريد الإلكتروني <span style="color:var(--danger-color)">*</span></label>
+                <label class="form-label-custom" for="authEmailInput">البريد الإلكتروني المسجل في التطبيق <span style="color:var(--danger-color)">*</span></label>
                 <input type="email" id="authEmailInput" class="form-input-custom" placeholder="name@gmail.com" required dir="ltr" />
               </div>
 
@@ -1076,7 +1041,7 @@
               </div>
 
               <button type="submit" class="btn-auth-email-submit" id="btnEmailSubmit">
-                <span id="btnEmailSubmitText">تسجيل الدخول</span>
+                <span id="btnEmailSubmitText">تسجيل الدخول ومتابعة السداد</span>
               </button>
 
               <div class="auth-extra-links" id="forgotPassLinkWrap">
@@ -1084,12 +1049,6 @@
                 <span style="font-size:0.75rem; color:var(--text-muted)">مشفر وآمن بـ Firebase</span>
               </div>
             </form>
-
-            <div class="manual-entry-accordion">
-              <button type="button" class="btn-text-link" id="btnToggleManual" onclick="toggleManualEmailEntry()">
-                أو إدخال البريد يدوياً دون تسجيل دخول ▾
-              </button>
-            </div>
           </div>
 
           <!-- REAL AUTH BOX: Logged In State (Connected User Card) -->
@@ -1117,7 +1076,10 @@
           </div>
 
           <!-- Checkout Account Fields (Locked & Pre-filled when logged in, or manually filled) -->
-          <div id="manualFieldsWrap">
+          <div id="loginRequiredNotice" style="background: rgba(245, 158, 11, 0.1); border: 1px dashed var(--accent-color); border-radius: var(--radius-sm); padding: 14px 18px; text-align: center; color: #f59e0b; font-size: 0.88rem; font-weight: 700; margin-bottom: 16px;">
+            🔒 يرجى تسجيل الدخول أعلاه أولاً بحسابك في تطبيق صندوق العمارة لتأكيد بياناتك وتفعيل الاشتراك.
+          </div>
+          <div id="manualFieldsWrap" style="opacity: 0.5; pointer-events: none;">
             <div class="form-group-custom">
               <label class="form-label-custom" for="inputUserEmail">
                 البريد الإلكتروني المراد تفعيله <span style="color:var(--danger-color)">*</span>
@@ -1416,7 +1378,6 @@
     let currentPlanTitle = 'الاشتراك السنوي الذهبي (VIP)';
     let orderRef = '';
     let isSignUpMode = false;
-    let manualFieldsVisible = false;
     const API_ENDPOINT = 'https://sandooq-rust.vercel.app/api/subscriptions/instapay-request';
 
     // Generate unique random order reference for this session
@@ -1475,6 +1436,14 @@
         loggedOutView.style.display = 'none';
         loggedInView.style.display = 'block';
 
+        const fieldsWrap = document.getElementById('manualFieldsWrap');
+        if (fieldsWrap) {
+          fieldsWrap.style.opacity = '1';
+          fieldsWrap.style.pointerEvents = 'auto';
+        }
+        const notice = document.getElementById('loginRequiredNotice');
+        if (notice) notice.style.display = 'none';
+
         const displayName = user.displayName || user.email.split('@')[0];
         const email = user.email;
 
@@ -1524,6 +1493,14 @@
         // Logged Out
         loggedOutView.style.display = 'block';
         loggedInView.style.display = 'none';
+
+        const fieldsWrap = document.getElementById('manualFieldsWrap');
+        if (fieldsWrap) {
+          fieldsWrap.style.opacity = '0.5';
+          fieldsWrap.style.pointerEvents = 'none';
+        }
+        const notice = document.getElementById('loginRequiredNotice');
+        if (notice) notice.style.display = 'block';
 
         emailInput.readOnly = false;
         emailInput.style.backgroundColor = '';
@@ -1620,16 +1597,7 @@
       }
     }
 
-    // Switch between Login and Sign-up tabs
-    function setAuthMode(mode) {
-      isSignUpMode = (mode === 'signup');
-      document.getElementById('tabLogin').classList.toggle('active', !isSignUpMode);
-      document.getElementById('tabSignup').classList.toggle('active', isSignUpMode);
-      document.getElementById('btnEmailSubmitText').textContent = isSignUpMode ? 'إنشاء الحساب والتفعيل' : 'تسجيل الدخول';
-      document.getElementById('authNameGroup').style.display = isSignUpMode ? 'block' : 'none';
-      document.getElementById('forgotPassLinkWrap').style.display = isSignUpMode ? 'none' : 'flex';
-      clearAuthBanner();
-    }
+    
 
     // Email & Password Auth Handler
     async function handleEmailAuth(e) {
@@ -1638,7 +1606,6 @@
 
       const email = document.getElementById('authEmailInput').value.trim();
       const password = document.getElementById('authPasswordInput').value;
-      const displayName = document.getElementById('authDisplayNameInput')?.value.trim();
 
       if (!email || !password) {
         showAuthBanner('يرجى كتابة البريد وكلمة المرور.', 'error');
@@ -1649,21 +1616,8 @@
       submitBtn.disabled = true;
 
       try {
-        if (isSignUpMode) {
-          if (password.length < 6) {
-            showAuthBanner('كلمة المرور يجب ألا تقل عن 6 أحرف أو أرقام.', 'error');
-            submitBtn.disabled = false;
-            return;
-          }
-          const cred = await auth.createUserWithEmailAndPassword(email, password);
-          if (displayName && cred.user) {
-            await cred.user.updateProfile({ displayName: displayName });
-          }
-          showAuthBanner('تم إنشاء الحساب وتسجيل الدخول بنجاح! 🎉', 'success');
-        } else {
-          await auth.signInWithEmailAndPassword(email, password);
-          showAuthBanner('تم تسجيل الدخول بنجاح! مرحباً بك.', 'success');
-        }
+        await auth.signInWithEmailAndPassword(email, password);
+        showAuthBanner('تم تسجيل الدخول بنجاح! مرحباً بك.', 'success');
       } catch (err) {
         console.error('Email Auth Error:', err);
         showAuthBanner(getFriendlyAuthError(err), 'error');
@@ -1701,17 +1655,7 @@
       }
     }
 
-    // Toggle Manual Email Entry
-    function toggleManualEmailEntry() {
-      manualFieldsVisible = !manualFieldsVisible;
-      const btn = document.getElementById('btnToggleManual');
-      if (manualFieldsVisible) {
-        btn.textContent = 'إخفاء الإدخال اليدوي ▴';
-        document.getElementById('inputUserEmail').focus();
-      } else {
-        btn.textContent = 'أو إدخال البريد يدوياً دون تسجيل دخول ▾';
-      }
-    }
+    
 
     // Helpers for Auth Messages
     function showAuthBanner(msg, type) {
@@ -1734,7 +1678,7 @@
         case 'auth/wrong-password':
           return 'كلمة المرور أو البريد الإلكتروني غير صحيح. اضغط "نسيت كلمة المرور؟" لاستعادتها.';
         case 'auth/user-not-found':
-          return 'لا يوجد حساب مسجل بهذا البريد. يمكنك الضغط على "إنشاء حساب جديد" للتسجيل فوراً.';
+          return 'لا يوجد حساب مسجل بهذا البريد في تطبيق صندوق العمارة. يرجى التأكد من البريد أو الدخول بحساب Google المسجل به على هاتفك.';
         case 'auth/invalid-email':
           return 'صيغة البريد الإلكتروني غير صحيحة.';
         case 'auth/email-already-in-use':
@@ -1874,9 +1818,13 @@ ${currentUser ? `- معرّف الحساب (UID): ${currentUser.uid}` : ''}
       const payerPhone = document.getElementById('inputPayerPhone').value.trim();
       const refCode = document.getElementById('inputReferralCode').value.trim();
 
+      if (!currentUser) {
+        alert('⚠️ يرجى تسجيل الدخول أولاً بنفس حسابك في تطبيق صندوق العمارة لإتمام السداد وتفعيل الاشتراك.');
+        document.getElementById('authLoggedOutView').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
       if (!email || !email.includes('@')) {
-        alert('يرجى تسجيل الدخول بحسابك أو كتابة البريد الإلكتروني المسجل به في تطبيق صندوق العمارة بشكل صحيح.');
-        document.getElementById('inputUserEmail').focus();
+        alert('يرجى التأكد من البريد الإلكتروني للحساب.');
         return;
       }
       if (!payerName) {
