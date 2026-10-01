@@ -845,6 +845,285 @@
       text-align: center;
     }
 
+
+    /* ==========================================================================
+       Comprehensive Mobile Optimization (Screens <= 768px and <= 480px)
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .billing-page-container {
+        padding: 0 12px;
+        margin: 18px auto 40px;
+      }
+      .billing-hero {
+        margin-bottom: 24px;
+      }
+      .billing-hero h1 {
+        font-size: 1.55rem;
+        line-height: 1.35;
+        margin-bottom: 10px;
+      }
+      .billing-hero .lead-text {
+        font-size: 0.92rem;
+        line-height: 1.65;
+        margin-bottom: 16px;
+      }
+      .trust-badges-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 14px;
+      }
+      .trust-badge-pill {
+        font-size: 0.76rem;
+        padding: 6px 8px;
+        justify-content: center;
+        text-align: center;
+        border-radius: 8px;
+      }
+
+      /* Plans Grid on Mobile */
+      .plans-selection-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+      .plan-option-card {
+        padding: 18px 14px;
+        border-radius: 16px;
+      }
+      .plan-badge-top {
+        top: -11px;
+        left: 14px;
+        font-size: 0.74rem;
+        padding: 3px 10px;
+      }
+      .plan-title-wrap h3 {
+        font-size: 1.15rem;
+      }
+      .plan-price-row {
+        margin: 8px 0;
+      }
+      .plan-price-num {
+        font-size: 1.85rem;
+      }
+      .plan-price-period {
+        font-size: 0.85rem;
+      }
+      .plan-desc-note {
+        font-size: 0.82rem;
+        margin-bottom: 12px;
+        line-height: 1.5;
+      }
+      .plan-features-mini {
+        gap: 7px;
+        margin-bottom: 12px;
+      }
+      .plan-features-mini li {
+        font-size: 0.82rem;
+        gap: 8px;
+      }
+      .plan-features-mini svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      /* Checkout Card on Mobile */
+      .checkout-wrapper-card {
+        padding: 18px 12px;
+        border-radius: 16px;
+        margin-bottom: 28px;
+      }
+      .checkout-header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-bottom: 14px;
+        margin-bottom: 18px;
+      }
+      .checkout-header-bar h2 {
+        font-size: 1.25rem !important;
+      }
+      #summaryPlanLabel {
+        font-size: 0.84rem !important;
+      }
+      .order-ref-pill {
+        font-size: 0.82rem;
+        padding: 4px 10px;
+        align-self: flex-start;
+      }
+
+      /* Auth Box on Mobile */
+      .auth-box-container {
+        padding: 16px 12px;
+        border-radius: 14px;
+        margin-bottom: 18px;
+      }
+      .auth-badge-pill {
+        font-size: 0.74rem;
+        padding: 3px 8px;
+      }
+      .auth-box-title {
+        font-size: 1.05rem;
+      }
+      .auth-box-desc {
+        font-size: 0.82rem;
+        line-height: 1.5;
+        margin-bottom: 14px;
+      }
+      .btn-google-auth {
+        padding: 12px 14px;
+        font-size: 0.92rem;
+        border-radius: 10px;
+        min-height: 48px;
+      }
+      .btn-google-auth svg {
+        width: 20px;
+        height: 20px;
+      }
+      .btn-auth-email-submit {
+        padding: 12px 14px;
+        font-size: 0.92rem;
+        border-radius: 10px;
+        min-height: 48px;
+      }
+      .form-input-custom,
+      #authEmailInput,
+      #authPasswordInput {
+        font-size: 16px !important; /* Prevents auto-zoom on iOS */
+        padding: 11px 12px;
+        border-radius: 10px;
+      }
+
+      /* Connected Profile Card on Mobile */
+      .connected-profile-card {
+        padding: 16px 12px;
+        border-radius: 14px;
+        margin-bottom: 18px;
+      }
+      .connected-user-row {
+        gap: 10px;
+      }
+      .user-avatar-image,
+      .user-avatar-initials {
+        width: 44px;
+        height: 44px;
+        font-size: 1.15rem;
+      }
+      .user-meta-texts h4 {
+        font-size: 0.98rem;
+      }
+      .user-meta-texts .user-email {
+        font-size: 0.78rem;
+      }
+      .btn-signout-card {
+        padding: 5px 10px;
+        font-size: 0.74rem;
+      }
+      .user-status-strip-box {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+      }
+
+      /* InstaPay Card on Mobile */
+      .instapay-method-card {
+        padding: 18px 12px;
+        border-radius: 14px;
+      }
+      .instapay-badge-row {
+        margin-bottom: 14px;
+      }
+      .instapay-logo-badge {
+        font-size: 0.92rem;
+        padding: 3px 8px;
+      }
+      .ipa-copy-box {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 10px 12px;
+      }
+      .ipa-address-text {
+        font-size: 1.05rem;
+        text-align: center;
+        letter-spacing: 0.5px;
+      }
+      .btn-copy-ipa {
+        width: 100%;
+        justify-content: center;
+        padding: 9px;
+        font-size: 0.86rem;
+      }
+      .btn-open-instapay {
+        padding: 13px 14px;
+        font-size: 0.95rem;
+        border-radius: 10px;
+        min-height: 48px;
+      }
+      .instapay-instructions-list {
+        font-size: 0.8rem;
+        gap: 6px;
+        margin: 12px 0 14px;
+      }
+
+      /* Activation Action Button on Mobile */
+      .checkout-final-actions {
+        margin-top: 24px;
+        padding-top: 18px;
+        gap: 12px;
+      }
+      .btn-activate-instant {
+        padding: 14px 16px;
+        font-size: 0.98rem;
+        border-radius: 12px;
+        min-height: 50px;
+        width: 100%;
+      }
+      .btn-whatsapp-confirm {
+        width: 100%;
+        padding: 11px 14px;
+        font-size: 0.86rem;
+        text-align: center;
+        justify-content: center;
+      }
+
+      /* Toast on Mobile */
+      .toast-copy-notify {
+        width: 88%;
+        max-width: 320px;
+        padding: 10px 14px;
+        font-size: 0.82rem;
+        text-align: center;
+        justify-content: center;
+      }
+
+      /* Success box on Mobile */
+      .success-confirmation-card {
+        padding: 24px 14px;
+        border-radius: 16px;
+      }
+      .success-confirmation-card h2 {
+        font-size: 1.4rem !important;
+      }
+
+      /* FAQ on Mobile */
+      .billing-faq {
+        margin-top: 36px;
+      }
+      .billing-faq h2 {
+        font-size: 1.35rem;
+        margin-bottom: 18px;
+      }
+      .faq-accordion-header {
+        padding: 14px 14px;
+        font-size: 0.92rem;
+      }
+      .faq-accordion-body {
+        padding: 0 14px 14px;
+        font-size: 0.84rem;
+        line-height: 1.6;
+      }
+    }
+
   </style>
 
   <!-- Structured Data: WebPage & Offers -->
