@@ -1,3 +1,4 @@
+<!-- Sandooq El-Amara Billing v1.02 -->
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -23,6 +24,10 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/sandooq-logo.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Firebase SDK (v10 Compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -570,6 +575,300 @@
       transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
+
+    /* ==========================================================================
+       Real Application Authentication Box & Connected User Card
+       ========================================================================== */
+    .auth-box-container {
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    .auth-box-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6 0%, #10b981 50%, #f59e0b 100%);
+    }
+    .auth-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 10px;
+    }
+    .auth-box-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .auth-box-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    
+    /* Google Sign In Button */
+    .btn-google-auth {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      background: #ffffff;
+      color: #1f2937;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+    .btn-google-auth:hover:not(:disabled) {
+      background: #f9fafb;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    }
+    .btn-google-auth:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    .btn-google-auth svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    /* Auth Divider */
+    .auth-divider-line {
+      display: flex;
+      align-items: center;
+      margin: 18px 0 14px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    .auth-divider-line::before,
+    .auth-divider-line::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .auth-divider-line span {
+      padding: 0 10px;
+      font-weight: 600;
+    }
+
+    /* Auth Tabs */
+    .auth-tabs-bar {
+      display: flex;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+      margin-bottom: 14px;
+    }
+    .auth-tab-btn {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .auth-tab-btn.active {
+      background: var(--card-bg);
+      color: var(--text-main);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Feedback messages */
+    .auth-message-banner {
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .auth-message-banner.error {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+    }
+    .auth-message-banner.success {
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #6ee7b7;
+    }
+
+    .btn-auth-email-submit {
+      width: 100%;
+      background: var(--primary-light);
+      color: #ffffff;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 11px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-auth-email-submit:hover:not(:disabled) {
+      background: #2563eb;
+    }
+    .btn-auth-email-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .auth-extra-links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 0.8rem;
+    }
+    .btn-text-link {
+      background: none;
+      border: none;
+      color: var(--primary-light);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+    }
+    .btn-text-link:hover {
+      color: #93c5fd;
+    }
+
+    /* Connected User Profile Card */
+    .connected-profile-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+      border: 2px solid rgba(16, 185, 129, 0.5);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15);
+      margin-bottom: 22px;
+      position: relative;
+    }
+    .connected-profile-card::after {
+      content: 'متصل بحساب التطبيق ✓';
+      position: absolute;
+      top: -11px;
+      left: 20px;
+      background: #10b981;
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+    }
+    .connected-user-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .user-avatar-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .user-avatar-image {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid #10b981;
+      object-fit: cover;
+      background: #0f172a;
+    }
+    .user-avatar-initials {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid #10b981;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .user-meta-texts h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0 0 3px;
+    }
+    .user-meta-texts .user-email {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      direction: ltr;
+      text-align: right;
+    }
+    .btn-signout-card {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      color: #f87171;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .btn-signout-card:hover {
+      background: rgba(239, 68, 68, 0.25);
+      color: #fca5a5;
+    }
+    .user-status-strip-box {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: var(--text-light);
+    }
+    .manual-entry-accordion {
+      margin-top: 14px;
+      text-align: center;
+    }
+
   </style>
 
   <!-- Structured Data: WebPage & Offers -->
@@ -621,6 +920,10 @@
         <a href="about.html">عن التطبيق</a>
         <a href="contact.html">تواصل معنا</a>
         <a href="download.html" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
+        <div id="navUserArea" style="display:none; align-items:center; gap:8px; margin-inline-start: 10px; background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 9999px; border: 1px solid rgba(16, 185, 129, 0.3);">
+          <img id="navAvatarImg" src="assets/sandooq-logo.png" alt="Avatar" style="width:24px; height:24px; border-radius:50%; object-fit:cover;" />
+          <span id="navUserName" style="font-size:0.8rem; font-weight:700; color:var(--text-main);"></span>
+        </div>
       </nav>
     </div>
   </header>
@@ -713,35 +1016,133 @@
       </div>
 
       <div class="checkout-steps-grid">
-        <!-- Step 1: User Account Form -->
+        <!-- Step 1: Real App Account Authentication & Details -->
         <div>
           <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
             <span style="background: var(--primary-light); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem;">١</span>
-            بيانات الحساب المراد تفعيله
+            حسابك في تطبيق صندوق العمارة
           </h3>
 
-          <div class="form-group-custom">
-            <label class="form-label-custom" for="inputUserEmail">البريد الإلكتروني المسجل في التطبيق <span style="color:var(--danger-color)">*</span></label>
-            <input type="email" id="inputUserEmail" class="form-input-custom" placeholder="name@gmail.com" required dir="ltr" />
-            <div id="emailStatusFeedback" class="account-status-tag" style="display:none;"></div>
-            <span style="display:block; font-size:0.78rem; color:var(--text-muted); margin-top:4px;">
-              يجب أن يكون نفس البريد المسجل به حسابك في تطبيق صندوق العمارة لربط التفعيل بحسابك.
-            </span>
+          <!-- REAL AUTH BOX: Logged Out State -->
+          <div id="authLoggedOutView" class="auth-box-container">
+            <div class="auth-badge-pill">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <span>تسجيل دخول حقيقي ومباشر</span>
+            </div>
+            <h4 class="auth-box-title">سجّل دخولك بنفس حسابك في التطبيق</h4>
+            <p class="auth-box-desc">
+              سجّل دخولك بنفس حساب Google أو البريد المسجل به على هاتفك لربط اشتراكك وتفعيله فورياً في قاعدة بيانات التطبيق.
+            </p>
+
+            <!-- Google Sign-In Button -->
+            <button type="button" class="btn-google-auth" id="btnGoogleSignIn" onclick="handleGoogleSignIn()">
+              <svg viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              <span id="btnGoogleText">الدخول السريع بحساب Google</span>
+            </button>
+
+            <!-- Divider -->
+            <div class="auth-divider-line">
+              <span>أو بالبريد وكلمة المرور</span>
+            </div>
+
+            <!-- Auth Mode Tabs (Login / Register) -->
+            <div class="auth-tabs-bar">
+              <button type="button" class="auth-tab-btn active" id="tabLogin" onclick="setAuthMode('login')">تسجيل الدخول</button>
+              <button type="button" class="auth-tab-btn" id="tabSignup" onclick="setAuthMode('signup')">إنشاء حساب جديد</button>
+            </div>
+
+            <!-- Email & Password Form -->
+            <form id="emailAuthForm" onsubmit="handleEmailAuth(event)">
+              <div id="authMsgBanner" class="auth-message-banner" style="display:none;"></div>
+
+              <div class="form-group-custom" id="authNameGroup" style="display:none; margin-bottom:12px;">
+                <label class="form-label-custom" for="authDisplayNameInput">اسم أمين الصندوق / العمارة</label>
+                <input type="text" id="authDisplayNameInput" class="form-input-custom" placeholder="مثال: م. أحمد (عمارة الأمل)" />
+              </div>
+
+              <div class="form-group-custom" style="margin-bottom:12px;">
+                <label class="form-label-custom" for="authEmailInput">البريد الإلكتروني <span style="color:var(--danger-color)">*</span></label>
+                <input type="email" id="authEmailInput" class="form-input-custom" placeholder="name@gmail.com" required dir="ltr" />
+              </div>
+
+              <div class="form-group-custom" style="margin-bottom:12px;">
+                <label class="form-label-custom" for="authPasswordInput">كلمة المرور <span style="color:var(--danger-color)">*</span></label>
+                <input type="password" id="authPasswordInput" class="form-input-custom" placeholder="••••••••" required />
+              </div>
+
+              <button type="submit" class="btn-auth-email-submit" id="btnEmailSubmit">
+                <span id="btnEmailSubmitText">تسجيل الدخول</span>
+              </button>
+
+              <div class="auth-extra-links" id="forgotPassLinkWrap">
+                <button type="button" class="btn-text-link" onclick="handleForgotPassword()">نسيت كلمة المرور؟</button>
+                <span style="font-size:0.75rem; color:var(--text-muted)">مشفر وآمن بـ Firebase</span>
+              </div>
+            </form>
+
+            <div class="manual-entry-accordion">
+              <button type="button" class="btn-text-link" id="btnToggleManual" onclick="toggleManualEmailEntry()">
+                أو إدخال البريد يدوياً دون تسجيل دخول ▾
+              </button>
+            </div>
           </div>
 
-          <div class="form-group-custom">
-            <label class="form-label-custom" for="inputPayerName">اسم أمين الصندوق / صاحب التحويل <span style="color:var(--danger-color)">*</span></label>
-            <input type="text" id="inputPayerName" class="form-input-custom" placeholder="الاسم ثلاثي أو اسم العمارة" required />
+          <!-- REAL AUTH BOX: Logged In State (Connected User Card) -->
+          <div id="authLoggedInView" style="display:none;">
+            <div class="connected-profile-card">
+              <div class="connected-user-row">
+                <div class="user-avatar-badge-wrap">
+                  <img id="userAvatarImg" class="user-avatar-image" src="assets/sandooq-logo.png" alt="User Avatar" style="display:none;" />
+                  <div id="userAvatarFallback" class="user-avatar-initials">ص</div>
+                  <div class="user-meta-texts">
+                    <h4 id="userNameGreeting">أهلاً بك</h4>
+                    <div class="user-email" id="userEmailDisplay">-</div>
+                  </div>
+                </div>
+                <button type="button" class="btn-signout-card" onclick="handleSignOut()">
+                  خروج / تبديل
+                </button>
+              </div>
+
+              <!-- Real App Subscription Status -->
+              <div class="user-status-strip-box" id="userStatusStrip">
+                <div id="userSubscriptionDetails">جارٍ استعلام حالة حسابك واشتراكك من التطبيق...</div>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group-custom">
-            <label class="form-label-custom" for="inputPayerPhone">رقم الهاتف / الواتساب للتواصل <span style="color:var(--danger-color)">*</span></label>
-            <input type="tel" id="inputPayerPhone" class="form-input-custom" placeholder="010XXXXXXXX" required dir="ltr" />
-          </div>
+          <!-- Checkout Account Fields (Locked & Pre-filled when logged in, or manually filled) -->
+          <div id="manualFieldsWrap">
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="inputUserEmail">
+                البريد الإلكتروني المراد تفعيله <span style="color:var(--danger-color)">*</span>
+              </label>
+              <input type="email" id="inputUserEmail" class="form-input-custom" placeholder="name@gmail.com" required dir="ltr" />
+              <div id="emailStatusFeedback" class="account-status-tag" style="display:none;"></div>
+              <span style="display:block; font-size:0.78rem; color:var(--text-muted); margin-top:4px;">
+                هو نفس الحساب الذي ستستخدمه في تطبيق الهاتف لتفعيل مميزات الـ VIP.
+              </span>
+            </div>
 
-          <div class="form-group-custom">
-            <label class="form-label-custom" for="inputReferralCode">كود الدعوة أو كود الخصم (إن وجد)</label>
-            <input type="text" id="inputReferralCode" class="form-input-custom" placeholder="مثال: REF-1234" dir="ltr" />
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="inputPayerName">اسم أمين الصندوق / صاحب التحويل <span style="color:var(--danger-color)">*</span></label>
+              <input type="text" id="inputPayerName" class="form-input-custom" placeholder="الاسم ثلاثي أو اسم العمارة" required />
+            </div>
+
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="inputPayerPhone">رقم الهاتف / الواتساب للتواصل <span style="color:var(--danger-color)">*</span></label>
+              <input type="tel" id="inputPayerPhone" class="form-input-custom" placeholder="010XXXXXXXX" required dir="ltr" />
+            </div>
+
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="inputReferralCode">كود الدعوة أو كود الخصم (إن وجد)</label>
+              <input type="text" id="inputReferralCode" class="form-input-custom" placeholder="مثال: REF-1234" dir="ltr" />
+            </div>
           </div>
         </div>
 
@@ -989,11 +1390,33 @@
 
   <script src="script.js"></script>
   <script>
-    // State
+    // ==========================================================================
+    // Firebase Real Authentication & Direct Billing Logic
+    // ==========================================================================
+    const firebaseConfig = {
+      apiKey: atob("QUl6YVN5Q29UVEZPckM0c2lYRDhSTmlBRXBQQnFFQmRmaUY4QkNV"),
+      authDomain: "sandooq-504815.firebaseapp.com",
+      projectId: "sandooq-504815",
+      storageBucket: "sandooq-504815.firebasestorage.app",
+      messagingSenderId: "432041227068",
+      appId: "1:432041227068:web:b8d53dd321b5681c4c2439"
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // App State
+    let currentUser = null;
+    let currentAppUserData = null;
     let currentPlan = 'yearly';
     let currentAmount = '499.99';
     let currentPlanTitle = 'الاشتراك السنوي الذهبي (VIP)';
     let orderRef = '';
+    let isSignUpMode = false;
+    let manualFieldsVisible = false;
     const API_ENDPOINT = 'https://sandooq-rust.vercel.app/api/subscriptions/instapay-request';
 
     // Generate unique random order reference for this session
@@ -1003,6 +1426,7 @@
       return `#IPN-${yr}-${rnd}`;
     }
 
+    // Initialize Order & Auth Listeners
     function initOrder() {
       orderRef = generateOrderRef();
       document.getElementById('displayOrderRef').textContent = orderRef;
@@ -1023,8 +1447,312 @@
         document.getElementById('inputUserEmail').value = e;
         checkUserEmail(e);
       }
+
+      // Setup Firebase Auth State Listener
+      auth.onAuthStateChanged(handleAuthStateChanged);
+
+      // Catch redirect sign-in results (mobile browsers fallback)
+      auth.getRedirectResult().catch(err => {
+        if (err && err.code && err.code !== 'auth/null-user') {
+          showAuthBanner(getFriendlyAuthError(err), 'error');
+        }
+      });
     }
 
+    // ==========================================================================
+    // Firebase Auth State Handling
+    // ==========================================================================
+    async function handleAuthStateChanged(user) {
+      currentUser = user;
+      const loggedOutView = document.getElementById('authLoggedOutView');
+      const loggedInView = document.getElementById('authLoggedInView');
+      const emailInput = document.getElementById('inputUserEmail');
+      const nameInput = document.getElementById('inputPayerName');
+      const navUserArea = document.getElementById('navUserArea');
+
+      if (user) {
+        // User IS logged in with authentic app account
+        loggedOutView.style.display = 'none';
+        loggedInView.style.display = 'block';
+
+        const displayName = user.displayName || user.email.split('@')[0];
+        const email = user.email;
+
+        document.getElementById('userNameGreeting').textContent = `أهلاً يا ${displayName}`;
+        document.getElementById('userEmailDisplay').textContent = email;
+
+        // Avatar
+        const avatarImg = document.getElementById('userAvatarImg');
+        const avatarFallback = document.getElementById('userAvatarFallback');
+        if (user.photoURL) {
+          avatarImg.src = user.photoURL;
+          avatarImg.style.display = 'block';
+          avatarFallback.style.display = 'none';
+        } else {
+          avatarFallback.textContent = displayName.charAt(0).toUpperCase();
+          avatarFallback.style.display = 'flex';
+          avatarImg.style.display = 'none';
+        }
+
+        // Auto-fill & Lock email input
+        emailInput.value = email;
+        emailInput.readOnly = true;
+        emailInput.style.backgroundColor = 'rgba(16, 185, 129, 0.08)';
+        emailInput.style.borderColor = 'var(--secondary-color)';
+
+        const feedback = document.getElementById('emailStatusFeedback');
+        feedback.className = 'account-status-tag verified';
+        feedback.innerHTML = `✓ حسابك موثق ومتصل مباشرة بقاعدة بيانات تطبيق صندوق العمارة`;
+        feedback.style.display = 'inline-flex';
+
+        if (!nameInput.value) {
+          nameInput.value = displayName;
+        }
+
+        // Top Navigation User Area
+        if (navUserArea) {
+          navUserArea.style.display = 'inline-flex';
+          document.getElementById('navUserName').textContent = displayName.split(' ')[0];
+          if (user.photoURL) {
+            document.getElementById('navAvatarImg').src = user.photoURL;
+          }
+        }
+
+        // Query Real User Document in Firestore
+        fetchUserAppDoc(user.uid, email);
+      } else {
+        // Logged Out
+        loggedOutView.style.display = 'block';
+        loggedInView.style.display = 'none';
+
+        emailInput.readOnly = false;
+        emailInput.style.backgroundColor = '';
+        emailInput.style.borderColor = '';
+
+        if (navUserArea) {
+          navUserArea.style.display = 'none';
+        }
+      }
+      updateWhatsappLink();
+    }
+
+    // Query App User Document
+    async function fetchUserAppDoc(uid, email) {
+      const detailsEl = document.getElementById('userSubscriptionDetails');
+      detailsEl.innerHTML = '<span style="opacity:0.8">جارٍ جلب تفاصيل حسابك من التطبيق...</span>';
+
+      let docData = null;
+
+      // 1. Direct Client Firestore Read
+      try {
+        const snap = await db.collection('users').doc(uid).get();
+        if (snap.exists) {
+          docData = snap.data();
+        }
+      } catch (_) {}
+
+      // 2. Fallback to API check
+      if (!docData) {
+        try {
+          const res = await fetch(`${API_ENDPOINT}?email=${encodeURIComponent(email)}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (data.exists) docData = data;
+          }
+        } catch (_) {}
+      }
+
+      if (docData) {
+        currentAppUserData = docData;
+        let html = '';
+
+        if (docData.isSubscribed || docData.subscriptionState === 'VIP') {
+          const exp = docData.subscriptionExpiresAtMillis ? new Date(docData.subscriptionExpiresAtMillis).toLocaleDateString('ar-EG') : 'نشط';
+          html = `<span style="color:#ffd700; font-weight:800;">👑 باقة VIP نشطة</span> • ينتهي في: ${exp} • يمكنك التجديد الآن لإضافة سنة جديدة.`;
+        } else if (docData.hasActiveAccess || docData.freeAccessState === 'FREE_ACTIVE') {
+          const exp = docData.freeAccessExpiresAtMillis ? new Date(docData.freeAccessExpiresAtMillis).toLocaleDateString('ar-EG') : 'سارية';
+          html = `<span style="color:#10b981; font-weight:800;">⏳ الفترة التجريبية نشطة</span> • تنتهي في: ${exp} • سدد الآن لترقية حسابك لباقة VIP السنوية بدون انقطاع.`;
+        } else {
+          html = `<span style="color:#f59e0b; font-weight:800;">⚠️ حسابك يحتاج إلى ترقية / تجديد</span> • سدد باقتك بالأسفل لتفعيل كافة المميزات السحابية فوراً.`;
+        }
+
+        if (docData.buildingTitle) {
+          html += `<br><span style="font-size:0.8rem; color:var(--text-muted)">🏢 عقار مسجل: <strong>${docData.buildingTitle}</strong></span>`;
+        }
+        detailsEl.innerHTML = html;
+      } else {
+        detailsEl.innerHTML = `<span style="color:#10b981; font-weight:700;">✓ حساب جديد وجاهز للتفعيل الفوري وربطه بالتطبيق مباشرة.</span>`;
+      }
+    }
+
+    // Google Sign-In Handler
+    async function handleGoogleSignIn() {
+      clearAuthBanner();
+      const btn = document.getElementById('btnGoogleSignIn');
+      const textSpan = document.getElementById('btnGoogleText');
+      const originalText = textSpan.textContent;
+
+      btn.disabled = true;
+      textSpan.textContent = 'جارٍ الاتصال بحساب Google...';
+
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: 'select_account' });
+
+      try {
+        await auth.signInWithPopup(provider);
+      } catch (err) {
+        console.error('Google Sign-in Error:', err);
+        if (err.code === 'auth/popup-blocked') {
+          try {
+            await auth.signInWithRedirect(provider);
+            return;
+          } catch (rErr) {
+            showAuthBanner('تعذر فتح نافذة تسجيل الدخول. يرجى تفعيل النوافذ المنبثقة.', 'error');
+          }
+        } else if (err.code === 'auth/popup-closed-by-user') {
+          // Window closed by user
+        } else {
+          showAuthBanner(getFriendlyAuthError(err), 'error');
+        }
+      } finally {
+        btn.disabled = false;
+        textSpan.textContent = originalText;
+      }
+    }
+
+    // Switch between Login and Sign-up tabs
+    function setAuthMode(mode) {
+      isSignUpMode = (mode === 'signup');
+      document.getElementById('tabLogin').classList.toggle('active', !isSignUpMode);
+      document.getElementById('tabSignup').classList.toggle('active', isSignUpMode);
+      document.getElementById('btnEmailSubmitText').textContent = isSignUpMode ? 'إنشاء الحساب والتفعيل' : 'تسجيل الدخول';
+      document.getElementById('authNameGroup').style.display = isSignUpMode ? 'block' : 'none';
+      document.getElementById('forgotPassLinkWrap').style.display = isSignUpMode ? 'none' : 'flex';
+      clearAuthBanner();
+    }
+
+    // Email & Password Auth Handler
+    async function handleEmailAuth(e) {
+      e.preventDefault();
+      clearAuthBanner();
+
+      const email = document.getElementById('authEmailInput').value.trim();
+      const password = document.getElementById('authPasswordInput').value;
+      const displayName = document.getElementById('authDisplayNameInput')?.value.trim();
+
+      if (!email || !password) {
+        showAuthBanner('يرجى كتابة البريد وكلمة المرور.', 'error');
+        return;
+      }
+
+      const submitBtn = document.getElementById('btnEmailSubmit');
+      submitBtn.disabled = true;
+
+      try {
+        if (isSignUpMode) {
+          if (password.length < 6) {
+            showAuthBanner('كلمة المرور يجب ألا تقل عن 6 أحرف أو أرقام.', 'error');
+            submitBtn.disabled = false;
+            return;
+          }
+          const cred = await auth.createUserWithEmailAndPassword(email, password);
+          if (displayName && cred.user) {
+            await cred.user.updateProfile({ displayName: displayName });
+          }
+          showAuthBanner('تم إنشاء الحساب وتسجيل الدخول بنجاح! 🎉', 'success');
+        } else {
+          await auth.signInWithEmailAndPassword(email, password);
+          showAuthBanner('تم تسجيل الدخول بنجاح! مرحباً بك.', 'success');
+        }
+      } catch (err) {
+        console.error('Email Auth Error:', err);
+        showAuthBanner(getFriendlyAuthError(err), 'error');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    }
+
+    // Forgot Password Handler
+    async function handleForgotPassword() {
+      clearAuthBanner();
+      const email = document.getElementById('authEmailInput').value.trim();
+      if (!email || !email.includes('@')) {
+        showAuthBanner('اكتب بريدك الإلكتروني في الحقل أعلاه أولاً لإرسال رابط استعادة كلمة المرور.', 'error');
+        document.getElementById('authEmailInput').focus();
+        return;
+      }
+      try {
+        await auth.sendPasswordResetEmail(email);
+        showAuthBanner(`تم إرسال رابط إعادة تعيين كلمة المرور إلى: ${email}. راجع بريدك الإلكتروني الآن.`, 'success');
+      } catch (err) {
+        showAuthBanner(getFriendlyAuthError(err), 'error');
+      }
+    }
+
+    // Sign Out Handler
+    async function handleSignOut() {
+      if (confirm('هل تريد تسجيل الخروج من حسابك في تطبيق صندوق العمارة؟')) {
+        await auth.signOut();
+        currentAppUserData = null;
+        document.getElementById('inputUserEmail').value = '';
+        document.getElementById('inputPayerName').value = '';
+        document.getElementById('emailStatusFeedback').style.display = 'none';
+        updateWhatsappLink();
+      }
+    }
+
+    // Toggle Manual Email Entry
+    function toggleManualEmailEntry() {
+      manualFieldsVisible = !manualFieldsVisible;
+      const btn = document.getElementById('btnToggleManual');
+      if (manualFieldsVisible) {
+        btn.textContent = 'إخفاء الإدخال اليدوي ▴';
+        document.getElementById('inputUserEmail').focus();
+      } else {
+        btn.textContent = 'أو إدخال البريد يدوياً دون تسجيل دخول ▾';
+      }
+    }
+
+    // Helpers for Auth Messages
+    function showAuthBanner(msg, type) {
+      const banner = document.getElementById('authMsgBanner');
+      banner.className = `auth-message-banner ${type}`;
+      banner.innerHTML = `<span>${type === 'error' ? '⚠️' : '✓'}</span> <span>${msg}</span>`;
+      banner.style.display = 'flex';
+    }
+
+    function clearAuthBanner() {
+      const banner = document.getElementById('authMsgBanner');
+      banner.style.display = 'none';
+      banner.innerHTML = '';
+    }
+
+    function getFriendlyAuthError(err) {
+      if (!err || !err.code) return err?.message || 'حدث خطأ غير متوقع.';
+      switch (err.code) {
+        case 'auth/invalid-credential':
+        case 'auth/wrong-password':
+          return 'كلمة المرور أو البريد الإلكتروني غير صحيح. اضغط "نسيت كلمة المرور؟" لاستعادتها.';
+        case 'auth/user-not-found':
+          return 'لا يوجد حساب مسجل بهذا البريد. يمكنك الضغط على "إنشاء حساب جديد" للتسجيل فوراً.';
+        case 'auth/invalid-email':
+          return 'صيغة البريد الإلكتروني غير صحيحة.';
+        case 'auth/email-already-in-use':
+          return 'هذا البريد مسجل بالفعل في التطبيق! اختر تبويب "تسجيل الدخول" واكتب كلمة المرور.';
+        case 'auth/weak-password':
+          return 'كلمة المرور ضعيفة جداً. يجب أن تكون 6 خانات على الأقل.';
+        case 'auth/too-many-requests':
+          return 'تم حظر المحاولات مؤقتاً لتكرار المحاولات الخاطئة. يرجى الانتظار دقيقة والمحاولة مجدداً.';
+        case 'auth/network-request-failed':
+          return 'تعذر الاتصال بالخادم. تأكد من اتصال الإنترنت.';
+        default:
+          return err.message || 'فشل تسجيل الدخول. يرجى المحاولة لاحقاً.';
+      }
+    }
+
+    // ==========================================================================
+    // Checkout, Plans & InstaPay Logic
+    // ==========================================================================
     function selectPlan(plan) {
       currentPlan = plan;
       const cardYearly = document.getElementById('planCardYearly');
@@ -1062,6 +1790,7 @@
 - البريد الإلكتروني: ${email || 'لم يتم تحديده بعد'}
 - اسم المشترك: ${name || 'أمين الصندوق'}
 - رقم المحفظة: ${phone || '-'}
+${currentUser ? `- معرّف الحساب (UID): ${currentUser.uid}` : ''}
 يرجى تأكيد واعتماد الاشتراك.`;
 
       const encoded = encodeURIComponent(text);
@@ -1080,9 +1809,9 @@
         clearTimeout(emailLookupTimer);
         const val = e.target.value.trim();
         updateWhatsappLink();
-        if (val.length > 5 && val.includes('@')) {
+        if (!currentUser && val.length > 5 && val.includes('@')) {
           emailLookupTimer = setTimeout(() => checkUserEmail(val), 600);
-        } else {
+        } else if (!currentUser) {
           document.getElementById('emailStatusFeedback').style.display = 'none';
         }
       });
@@ -1094,6 +1823,7 @@
     if (phoneInput) phoneInput.addEventListener('input', updateWhatsappLink);
 
     async function checkUserEmail(email) {
+      if (currentUser) return;
       const feedback = document.getElementById('emailStatusFeedback');
       try {
         const res = await fetch(`${API_ENDPOINT}?email=${encodeURIComponent(email)}`);
@@ -1112,9 +1842,7 @@
           feedback.innerHTML = `⚡ حساب جديد — سيتم ربطه وتفعيله تلقائياً فور تسجيلك في التطبيق بهذا البريد`;
           feedback.style.display = 'inline-flex';
         }
-      } catch (_) {
-        // Silent fail on check
-      }
+      } catch (_) {}
     }
 
     function copyIpaAddress() {
@@ -1147,7 +1875,7 @@
       const refCode = document.getElementById('inputReferralCode').value.trim();
 
       if (!email || !email.includes('@')) {
-        alert('يرجى كتابة البريد الإلكتروني المسجل به في تطبيق صندوق العمارة بشكل صحيح.');
+        alert('يرجى تسجيل الدخول بحسابك أو كتابة البريد الإلكتروني المسجل به في تطبيق صندوق العمارة بشكل صحيح.');
         document.getElementById('inputUserEmail').focus();
         return;
       }
@@ -1165,6 +1893,7 @@
       try {
         const payload = {
           orderRef: orderRef,
+          userId: currentUser ? currentUser.uid : '',
           userEmail: email,
           userName: payerName,
           payerName: payerName,
@@ -1215,7 +1944,6 @@
         }
       } catch (err) {
         console.error('Activation error:', err);
-        // Fallback: If network glitch, still open WhatsApp and reassure user
         alert('تم تسجيل بياناتك المبدئية، يرجى مشاركة إشعار التحويل عبر واتساب لتأكيد تفعيل حسابك فوراً.');
         updateWhatsappLink();
         window.open(document.getElementById('btnWhatsappShare').href, '_blank');
