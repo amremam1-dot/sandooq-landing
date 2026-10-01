@@ -5,3 +5,5 @@
 /privacy-policy.html /privacy.html 301
 /privacy/ /privacy.html 301
 /delete.html /delete-account.html 301
+/billing /billing.html 200
+/subscribe /billing.html 301

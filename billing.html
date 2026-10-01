@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>باقات الاشتراك والدفع الإلكتروني المباشر | تطبيق صندوق العمارة (InstaPay)</title>
+  <meta name="description" content="اشترك أو جدد باقة صندوق العمارة مباشرة وبأمان عبر إنستاباي InstaPay مع تفعيل فوري لكافة المميزات السحابية وإيصالات الواتساب وتقارير الـ PDF." />
+  <link rel="canonical" href="https://sandoqalemara.com/billing.html" />
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/billing.html" />
+  <meta property="og:title" content="باقات الاشتراك والدفع الإلكتروني | صندوق العمارة" />
+  <meta property="og:description" content="سدد اشتراك عمارتك عبر InstaPay أو متجر Google Play مع تفعيل فوري بدون أي انتظار." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="الاشتراك والدفع الإلكتروني - صندوق العمارة" />
+  <meta name="twitter:description" content="باقات مرنة وتفعيل فوري عبر إنستاباي InstaPay لحسابات وإدارة عمارات مصر." />
+  <meta name="twitter:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    .billing-page-container {
+      max-width: 1080px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+    .billing-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .billing-hero h1 {
+      font-size: 2.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+    .billing-hero .lead-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 24px;
+      line-height: 1.8;
+    }
+    .trust-badges-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .trust-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 6px 16px;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+    .trust-badge-pill.highlight {
+      border-color: var(--secondary-color);
+      color: var(--secondary-color);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    /* Plans Selector Section */
+    .plans-selection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .plan-option-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      position: relative;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+    .plan-option-card:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .plan-option-card.selected {
+      border-color: #3b82f6;
+      background: linear-gradient(180deg, var(--card-bg) 0%, rgba(59, 130, 246, 0.08) 100%);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25), var(--shadow-md);
+    }
+    .plan-badge-top {
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    }
+    .plan-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .plan-title-wrap h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+    }
+    .plan-radio-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .plan-option-card.selected .plan-radio-circle {
+      border-color: #3b82f6;
+      background: #3b82f6;
+    }
+    .plan-radio-circle::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .plan-option-card.selected .plan-radio-circle::after {
+      opacity: 1;
+    }
+    .plan-price-row {
+      margin: 14px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .plan-price-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+    .plan-price-period {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .plan-desc-note {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .plan-features-mini {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-grow: 1;
+    }
+    .plan-features-mini li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    .plan-features-mini svg {
+      width: 18px;
+      height: 18px;
+      color: var(--secondary-color);
+      flex-shrink: 0;
+    }
+
+    /* Checkout Details Container */
+    .checkout-wrapper-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 50px;
+    }
+    .checkout-header-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+      gap: 14px;
+    }
+    .order-ref-pill {
+      background: var(--card-bg-subtle);
+      border: 1px dashed var(--border-color);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-family: monospace;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    /* Step Grid */
+    .checkout-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 840px) {
+      .checkout-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    .form-group-custom {
+      margin-bottom: 18px;
+    }
+    .form-label-custom {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+    .form-input-custom {
+      width: 100%;
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      box-sizing: border-box;
+    }
+    .form-input-custom:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+    .account-status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      margin-top: 6px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .account-status-tag.verified {
+      color: var(--secondary-color);
+    }
+    .account-status-tag.pending {
+      color: var(--accent-color);
+    }
+
+    /* InstaPay Payment Details Card */
+    .instapay-method-card {
+      background: linear-gradient(135deg, #2e0854 0%, #4a148c 50%, #5a2d82 100%);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(90, 45, 130, 0.35);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .instapay-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .instapay-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .instapay-logo-badge {
+      background: #ffffff;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 900;
+      color: #5a2d82;
+      font-size: 1.05rem;
+      letter-spacing: -0.5px;
+    }
+    .ipa-copy-box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 10px;
+    }
+    .ipa-address-text {
+      font-family: monospace;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffd700;
+      direction: ltr;
+    }
+    .btn-copy-ipa {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-copy-ipa:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .instapay-instructions-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+    }
+    .instapay-instructions-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .btn-open-instapay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #ffd700;
+      color: #2e0854;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    .btn-open-instapay:hover {
+      background: #ffea75;
+      transform: translateY(-2px);
+    }
+
+    /* Actions Bottom Bar */
+    .checkout-final-actions {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      text-align: center;
+    }
+    .btn-activate-instant {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      border: none;
+      font-family: inherit;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 520px;
+    }
+    .btn-activate-instant:hover:not(:disabled) {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.45);
+    }
+    .btn-activate-instant:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+    .btn-whatsapp-confirm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--secondary-color);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: var(--transition);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      background: rgba(16, 185, 129, 0.05);
+    }
+    .btn-whatsapp-confirm:hover {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: var(--secondary-color);
+    }
+
+    /* Success Card */
+    .success-confirmation-card {
+      display: none;
+      background: var(--card-bg);
+      border: 2px solid var(--secondary-color);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      margin: 30px auto;
+      max-width: 650px;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+    }
+    .success-confirmation-card.active {
+      display: block;
+      animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .success-icon-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--secondary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .success-icon-circle svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* FAQ Section */
+    .billing-faq {
+      margin-top: 60px;
+    }
+    .billing-faq h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 28px;
+    }
+    .faq-accordion-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .faq-accordion-header {
+      padding: 18px 22px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    .faq-accordion-body {
+      display: none;
+      padding: 0 22px 20px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+    .faq-accordion-item.open .faq-accordion-body {
+      display: block;
+    }
+    .faq-accordion-item.open .faq-arrow {
+      transform: rotate(180deg);
+    }
+    .faq-arrow {
+      transition: var(--transition);
+    }
+    
+    /* Copy Toast Notification */
+    .toast-copy-notify {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0f172a;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      font-weight: 700;
+      font-size: 0.92rem;
+      z-index: 9999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #334155;
+    }
+    .toast-copy-notify.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+
+  <!-- Structured Data: WebPage & Offers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "باقات الاشتراك والدفع الإلكتروني المباشر | تطبيق صندوق العمارة",
+    "url": "https://sandoqalemara.com/billing.html",
+    "description": "سداد اشتراكات تطبيق صندوق العمارة لعمارتك عبر InstaPay والمنظومة الوطنية للمدفوعات اللحظية.",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "https://sandoqalemara.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "الاشتراكات والدفع",
+          "item": "https://sandoqalemara.com/billing.html"
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="/">
+        <img src="assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        <span>صندوق العمارة</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <nav class="nav">
+        <a href="/">الرئيسية</a>
+        <a href="/tools/">الأدوات المجانية</a>
+        <a href="/guides/">أدلة الإدارة</a>
+        <a href="billing.html" class="active" style="color: var(--secondary-color); font-weight: 800;">الاشتراكات والدفع ⚡</a>
+        <a href="about.html">عن التطبيق</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="download.html" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="billing-page-container">
+    <nav class="breadcrumb-nav" aria-label="مسار التنقل" style="margin-bottom: 24px;">
+      <a href="/">الرئيسية</a> &gt; <strong>الاشتراكات والفوترة</strong>
+    </nav>
+
+    <!-- Hero -->
+    <div class="billing-hero">
+      <h1>باقات الاشتراك والدفع الإلكتروني المباشر</h1>
+      <p class="lead-text">
+        سدد أو جدد اشتراك عمارتك مباشرة وبأمان وسهولة عبر <strong>إنستاباي (InstaPay)</strong> أو بطاقتك البنكية، مع <strong>تفعيل فوري</strong> لكافة المميزات السحابية بدون أي تأخير.
+      </p>
+
+      <div class="trust-badges-bar">
+        <span class="trust-badge-pill highlight">⚡ تفعيل فوري بدون انتظار (نظام الأمانة)</span>
+        <span class="trust-badge-pill">🔒 تحويل مباشر وآمن عبر شبكة المدفوعات IPN</span>
+        <span class="trust-badge-pill">☁️ حفظ سحابي كامل ومزامنة مشفرة</span>
+        <span class="trust-badge-pill">💬 دعم فني مباشر عبر WhatsApp</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Plan Selection Cards -->
+    <div class="plans-selection-grid">
+      <!-- Yearly Plan Card -->
+      <div class="plan-option-card selected" id="planCardYearly" onclick="selectPlan('yearly')">
+        <div class="plan-badge-top">🔥 الأكثر توفيراً (13 شهراً بسعر 12)</div>
+        <div class="plan-header">
+          <div class="plan-title-wrap">
+            <h3>الاشتراك السنوي الذهبي (VIP)</h3>
+          </div>
+          <div class="plan-radio-circle"></div>
+        </div>
+        <div class="plan-price-row">
+          <span class="plan-price-num">499.99</span>
+          <span class="plan-price-period">ج.م / سنوياً (12 شهراً + شهر هدية)</span>
+        </div>
+        <p class="plan-desc-note">
+          توفير شهرين كاملين مقارنة بالتجديد الشهري + شهر إضافي مجاني عند تفعيل الهدية.
+        </p>
+        <ul class="plan-features-mini">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> مزامنة سحابية غير محدودة ومشفرة</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> إيصالات ومطالبات واتساب بكروت صور رسمية</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> إدارة المشاريع وصناديق المسجد والعهد النقدية</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> تقارير PDF وإكسيل مفصلة ومخصصة 100%</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> أولوية الدعم الفني وتحديثات التطبيق المستمرة</li>
+        </ul>
+      </div>
+
+      <!-- Monthly Plan Card -->
+      <div class="plan-option-card" id="planCardMonthly" onclick="selectPlan('monthly')">
+        <div class="plan-header">
+          <div class="plan-title-wrap">
+            <h3>الاشتراك الشهري</h3>
+          </div>
+          <div class="plan-radio-circle"></div>
+        </div>
+        <div class="plan-price-row">
+          <span class="plan-price-num">49.99</span>
+          <span class="plan-price-period">ج.م / شهرياً</span>
+        </div>
+        <p class="plan-desc-note">
+          مرونة كاملة وتجديد مريح شهراً بشهر مع إمكانية الترقية للباقة السنوية في أي وقت.
+        </p>
+        <ul class="plan-features-mini">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> النسخ السحابي المشفر للبيانات</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> توليد إيصالات السداد على واتساب</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> تسجيل المصروفات وحساب المتأخرات تلقائياً</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> تصدير كشوفات الحساب وملفات PDF</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Interactive Multi-Step Checkout Card -->
+    <div class="checkout-wrapper-card" id="checkoutBox">
+      <div class="checkout-header-bar">
+        <div>
+          <h2 style="font-size: 1.45rem; font-weight: 800; margin: 0 0 4px; color: var(--text-main);">
+            فاتورة التحويل وبيانات السداد
+          </h2>
+          <span style="font-size: 0.9rem; color: var(--text-muted);" id="summaryPlanLabel">
+            الباقة المختارة: الاشتراك السنوي الذهبي (VIP) • 499.99 ج.م
+          </span>
+        </div>
+        <div class="order-ref-pill">
+          رقم الفاتورة: <span id="displayOrderRef">#IPN-26-XXXXX</span>
+        </div>
+      </div>
+
+      <div class="checkout-steps-grid">
+        <!-- Step 1: User Account Form -->
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+            <span style="background: var(--primary-light); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem;">١</span>
+            بيانات الحساب المراد تفعيله
+          </h3>
+
+          <div class="form-group-custom">
+            <label class="form-label-custom" for="inputUserEmail">البريد الإلكتروني المسجل في التطبيق <span style="color:var(--danger-color)">*</span></label>
+            <input type="email" id="inputUserEmail" class="form-input-custom" placeholder="name@gmail.com" required dir="ltr" />
+            <div id="emailStatusFeedback" class="account-status-tag" style="display:none;"></div>
+            <span style="display:block; font-size:0.78rem; color:var(--text-muted); margin-top:4px;">
+              يجب أن يكون نفس البريد المسجل به حسابك في تطبيق صندوق العمارة لربط التفعيل بحسابك.
+            </span>
+          </div>
+
+          <div class="form-group-custom">
+            <label class="form-label-custom" for="inputPayerName">اسم أمين الصندوق / صاحب التحويل <span style="color:var(--danger-color)">*</span></label>
+            <input type="text" id="inputPayerName" class="form-input-custom" placeholder="الاسم ثلاثي أو اسم العمارة" required />
+          </div>
+
+          <div class="form-group-custom">
+            <label class="form-label-custom" for="inputPayerPhone">رقم الهاتف / الواتساب للتواصل <span style="color:var(--danger-color)">*</span></label>
+            <input type="tel" id="inputPayerPhone" class="form-input-custom" placeholder="010XXXXXXXX" required dir="ltr" />
+          </div>
+
+          <div class="form-group-custom">
+            <label class="form-label-custom" for="inputReferralCode">كود الدعوة أو كود الخصم (إن وجد)</label>
+            <input type="text" id="inputReferralCode" class="form-input-custom" placeholder="مثال: REF-1234" dir="ltr" />
+          </div>
+        </div>
+
+        <!-- Step 2: InstaPay Payment Details -->
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+            <span style="background: #5a2d82; color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem;">٢</span>
+            السداد عبر المنظومة الوطنية اللحظية (InstaPay)
+          </h3>
+
+          <div class="instapay-method-card">
+            <div class="instapay-badge-row">
+              <div class="instapay-logo-wrap">
+                <span class="instapay-logo-badge">InstaPay</span>
+                <span style="font-weight:700; font-size:0.95rem;">تحويل فوري لحظي ⚡</span>
+              </div>
+              <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700;">
+                شبكة IPN الوطنية
+              </span>
+            </div>
+
+            <!-- IPA Row -->
+            <label style="display:block; font-size:0.82rem; color:rgba(255,255,255,0.85); margin-bottom:6px;">
+              عنوان الدفع اللحظي الرسمي (IPA):
+            </label>
+            <div class="ipa-copy-box">
+              <span class="ipa-address-text" id="ipaValue">amremam@instapay</span>
+              <button type="button" class="btn-copy-ipa" onclick="copyIpaAddress()">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>نسخ العنوان</span>
+              </button>
+            </div>
+
+            <!-- Beneficiary & Amount -->
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 12px; background: rgba(0,0,0,0.15); padding: 8px 12px; border-radius: 6px;">
+              <span>اسم المستلم المعتمد:</span>
+              <strong style="color: #ffd700;">Amr Mohamed</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 16px; background: rgba(0,0,0,0.15); padding: 8px 12px; border-radius: 6px;">
+              <span>المبلغ المطلوب سداده:</span>
+              <strong style="color: #ffd700; font-size: 1.05rem;" id="instapayRequiredAmount">499.99 ج.م</strong>
+            </div>
+
+            <!-- Direct Launch Button -->
+            <a href="https://ipn.eg/S/amremam/instapay/1kWbWN" target="_blank" rel="noopener noreferrer" class="btn-open-instapay" id="btnLaunchInstaPay">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span>فتح تطبيق InstaPay والتحويل مباشرة ⚡</span>
+            </a>
+
+            <ul class="instapay-instructions-list">
+              <li>
+                <span>1.</span>
+                <span>اضغط زر فتح تطبيق InstaPay أو انسخ عنوان الدفع أعلاه.</span>
+              </li>
+              <li>
+                <span>2.</span>
+                <span>حوّل المبلغ المحدد لحساب <strong>amremam@instapay</strong>.</span>
+              </li>
+              <li>
+                <span>3.</span>
+                <span>بعد إتمام التحويل، اضغط زر التفعيل الفوري بالأسفل مباشرة.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Activation Action Bar -->
+      <div class="checkout-final-actions">
+        <button type="button" class="btn-activate-instant" id="btnActivateInstant" onclick="handleInstantActivation()">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span id="btnActivateText">أتممت التحويل؟ اضغط هنا لتفعيل اشتراكك فوراً ⚡</span>
+        </button>
+
+        <span style="font-size: 0.88rem; color: var(--text-muted); max-width: 580px;">
+          ⚡ <strong>نظام الأمانة والتفعيل الفوري:</strong> يتم منح حسابك مهلة سماح فورية لمدة 48 ساعة بمجرد الضغط ريثما يتم تأكيد وصول الحوالة البنكية، لتتمكن من استخدام التطبيق فوراً وبدون أي تعطيل.
+        </span>
+
+        <a href="https://wa.me/201033332272" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-confirm" id="btnWhatsappShare">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>إرسال إشعار التحويل عبر WhatsApp للتأكيد 💬</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Success Confirmation State (Hidden until activated) -->
+    <div class="success-confirmation-card" id="successBox">
+      <div class="success-icon-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
+        🎉 تم تسجيل وتفعيل اشتراكك بنجاح!
+      </h2>
+      <p style="font-size: 1.05rem; color: var(--text-light); line-height: 1.8; margin-bottom: 24px;" id="successMsgText">
+        شكراً لثقتك في تطبيق صندوق العمارة. تم تفعيل اشتراكك فورياً بنظام الأمانة لمدة 48 ساعة ريثما يتم مراجعة وتأكيد الحوالة البنكية من قِبل الإدارة.
+      </p>
+
+      <div style="background: var(--card-bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 16px 20px; text-align: right; margin-bottom: 28px;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+          <span style="color:var(--text-muted)">رقم مرجع الفاتورة:</span>
+          <strong style="color:var(--accent-color)" id="successRefNum">#IPN-26-XXXXX</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+          <span style="color:var(--text-muted)">البريد الإلكتروني المرتبط:</span>
+          <strong style="color:var(--text-main)" id="successEmailVal">-</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between;">
+          <span style="color:var(--text-muted)">الباقة المفعلة:</span>
+          <strong style="color:var(--secondary-color)" id="successPlanVal">الاشتراك السنوي الذهبي</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
+        <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" class="button primary" style="padding: 12px 28px;">
+          فتح تطبيق صندوق العمارة 🚀
+        </a>
+        <a href="https://wa.me/201033332272" target="_blank" rel="noopener noreferrer" class="button secondary" id="btnSuccessWhatsapp" style="padding: 12px 24px;">
+          مشاركة الإيصال على واتساب 💬
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="billing-faq">
+      <h2>الأسئلة الشائعة حول الاشتراكات والدفع</h2>
+
+      <div class="faq-accordion-item">
+        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+          <span>كيف يتم تفعيل اشتراكي فورياً عبر InstaPay؟</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="faq-accordion-body">
+          بمجرد قيامك بالتحويل إلى عنوان إنستاباي المعتمد (amremam@instapay) والضغط على زر "أتممت التحويل"، يتصل الموقع مباشرة بخوادم قاعدة بيانات التطبيق ويمنح حسابك فترة سماح فورية وتفعيل كامل لكافة المميزات لمدة 48 ساعة دون أي انتظار، ويتم اعتماد الاشتراك نهائياً فور مراجعة الإدارة للتحويل.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+          <span>ماذا يحدث إذا لم أكن سجلت حسابي في التطبيق بعد؟</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="faq-accordion-body">
+          يمكنك السداد والاشتراك الآن عبر هذه الصفحة بكل بساطة. اكتب بريدك الإلكتروني الذي تنوي استخدامه، وعند تحميل التطبيق وتسجيل الدخول بحساب Google بنفس هذا البريد، سيتم ربط وتفعيل اشتراكك فورياً وتلقائياً على التطبيق.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+          <span>هل تتوفر طرق دفع أخرى غير InstaPay؟</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="faq-accordion-body">
+          نعم! يمكنك أيضاً الاشتراك والدفع مباشرة من داخل التطبيق عبر متجر <strong>Google Play</strong> باستخدام بطاقاتك البنكية، أو كروت ميزة، أو المحافظ الإلكترونية (فودافون كاش، أورنج، اتصالات، وي كاش عبر بطاقات الشراء أونلاين)، أو رصيد متجر جوجل.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+          <span>ما هي مميزات الاشتراك السنوي الذهبي مقارنة بالشهري؟</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="faq-accordion-body">
+          الاشتراك السنوي يمنحك توفيراً بنسبة 17% (توفير شهرين كاملين) بالإضافة إلى شهر هدية مجاناً (13 شهراً بسعر 12 شهراً)، مع أولوية دعم فني وضمان استمرارية الحفظ والمزامنة السحابية لكافة بيانات عمارتك وسكانك وإيصالاتك دون انقطاع.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+          <span>كيف أتواصل مع الدعم الفني في حال واجهت أي استفسار؟</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="faq-accordion-body">
+          فريق دعم تطبيق صندوق العمارة متاح يومياً عبر واتساب على الرقم المباشر: <strong>01033332272</strong> (أو +201033332272)، ومستعدون لمساعدتك فوراً في إعداد حساب عمارتك أو تأكيد اشتراكك.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Copy Toast Notification -->
+  <div class="toast-copy-notify" id="copyToast">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span>تم نسخ عنوان إنستاباي (amremam@instapay) بنجاح 📋</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-header">
+            <img src="assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="40" height="40" />
+            <span class="footer-brand-title">صندوق العمارة</span>
+          </div>
+          <p class="footer-brand-p">
+            المنصة والتطبيق المتخصص لإدارة حسابات العقارات السكنية واتحادات الملاك في مصر، لمتابعة التحصيلات والمصروفات بكل شفافية وبدون أخطاء.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://www.facebook.com/sandoqalemara/" target="_blank" rel="noopener noreferrer" class="footer-social-btn facebook" title="فيسبوك" aria-label="فيسبوك">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/sandooqelamara?stkn=c2h1MGJldjRwY3R4" target="_blank" rel="noopener noreferrer" class="footer-social-btn instagram" title="إنستجرام" aria-label="إنستجرام">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP" target="_blank" rel="noopener noreferrer" class="footer-social-btn youtube" title="يوتيوب" aria-label="يوتيوب">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="/">الرئيسية</a></li>
+            <li><a href="billing.html">الاشتراكات والدفع ⚡</a></li>
+            <li><a href="download.html">تحميل التطبيق</a></li>
+            <li><a href="about.html">عن التطبيق والمطور</a></li>
+            <li><a href="contact.html">تواصل معنا والدعم</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>الأدوات المجانية</h4>
+          <ul>
+            <li><a href="/tools/">مركز الأدوات التفاعلية</a></li>
+            <li><a href="tools/building-fee-calculator.html">حاسبة اشتراك العمارة</a></li>
+            <li><a href="tools/receipt-generator.html">مولد إيصالات السداد</a></li>
+            <li><a href="guides/building-expenses-excel-sheet.html">شيت إكسيل المصروفات</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>أدلة وسياسات</h4>
+          <ul>
+            <li><a href="/guides/">مكتبة أدلة الإدارة</a></li>
+            <li><a href="guides/building-fund-management-guide.html">دليل إدارة الصندوق وقانونه</a></li>
+            <li><a href="privacy.html">سياسة الخصوصية</a></li>
+            <li><a href="delete-account.html">طلب حذف الحساب والبيانات</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة. <span class="site-version" style="display: inline-block; margin-right: 8px; opacity: 0.8; font-size: 0.85em;">(إصدار الموقع: v1.01.001)</span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // State
+    let currentPlan = 'yearly';
+    let currentAmount = '499.99';
+    let currentPlanTitle = 'الاشتراك السنوي الذهبي (VIP)';
+    let orderRef = '';
+    const API_ENDPOINT = 'https://sandooq-rust.vercel.app/api/subscriptions/instapay-request';
+
+    // Generate unique random order reference for this session
+    function generateOrderRef() {
+      const rnd = Math.floor(10000 + Math.random() * 90000);
+      const yr = new Date().getFullYear() % 100;
+      return `#IPN-${yr}-${rnd}`;
+    }
+
+    function initOrder() {
+      orderRef = generateOrderRef();
+      document.getElementById('displayOrderRef').textContent = orderRef;
+      updateWhatsappLink();
+
+      // Read query param if set: ?plan=monthly or ?plan=yearly
+      const urlParams = new URLSearchParams(window.location.search);
+      const p = urlParams.get('plan');
+      if (p === 'monthly') {
+        selectPlan('monthly');
+      } else {
+        selectPlan('yearly');
+      }
+
+      // Read email if passed in query param: ?email=...
+      const e = urlParams.get('email');
+      if (e) {
+        document.getElementById('inputUserEmail').value = e;
+        checkUserEmail(e);
+      }
+    }
+
+    function selectPlan(plan) {
+      currentPlan = plan;
+      const cardYearly = document.getElementById('planCardYearly');
+      const cardMonthly = document.getElementById('planCardMonthly');
+      const summaryLabel = document.getElementById('summaryPlanLabel');
+      const instapayAmount = document.getElementById('instapayRequiredAmount');
+
+      if (plan === 'yearly') {
+        currentAmount = '499.99';
+        currentPlanTitle = 'الاشتراك السنوي الذهبي (VIP)';
+        cardYearly.classList.add('selected');
+        cardMonthly.classList.remove('selected');
+        summaryLabel.textContent = 'الباقة المختارة: الاشتراك السنوي الذهبي (VIP) • 499.99 ج.م (13 شهراً)';
+        instapayAmount.textContent = '499.99 ج.م';
+      } else {
+        currentAmount = '49.99';
+        currentPlanTitle = 'الاشتراك الشهري';
+        cardMonthly.classList.add('selected');
+        cardYearly.classList.remove('selected');
+        summaryLabel.textContent = 'الباقة المختارة: الاشتراك الشهري • 49.99 ج.م';
+        instapayAmount.textContent = '49.99 ج.م';
+      }
+      updateWhatsappLink();
+    }
+
+    function updateWhatsappLink() {
+      const email = (document.getElementById('inputUserEmail')?.value || '').trim();
+      const name = (document.getElementById('inputPayerName')?.value || '').trim();
+      const phone = (document.getElementById('inputPayerPhone')?.value || '').trim();
+
+      const text = `السلام عليكم، قمت بتحويل اشتراك تطبيق صندوق العمارة عبر إنستاباي:
+- رقم الفاتورة: ${orderRef}
+- الباقة: ${currentPlanTitle}
+- المبلغ: ${currentAmount} ج.م
+- البريد الإلكتروني: ${email || 'لم يتم تحديده بعد'}
+- اسم المشترك: ${name || 'أمين الصندوق'}
+- رقم المحفظة: ${phone || '-'}
+يرجى تأكيد واعتماد الاشتراك.`;
+
+      const encoded = encodeURIComponent(text);
+      const url = `https://wa.me/201033332272?text=${encoded}`;
+      const btnWA = document.getElementById('btnWhatsappShare');
+      const btnSuccessWA = document.getElementById('btnSuccessWhatsapp');
+      if (btnWA) btnWA.href = url;
+      if (btnSuccessWA) btnSuccessWA.href = url;
+    }
+
+    // Dynamic Email Lookup check
+    let emailLookupTimer = null;
+    const emailInput = document.getElementById('inputUserEmail');
+    if (emailInput) {
+      emailInput.addEventListener('input', (e) => {
+        clearTimeout(emailLookupTimer);
+        const val = e.target.value.trim();
+        updateWhatsappLink();
+        if (val.length > 5 && val.includes('@')) {
+          emailLookupTimer = setTimeout(() => checkUserEmail(val), 600);
+        } else {
+          document.getElementById('emailStatusFeedback').style.display = 'none';
+        }
+      });
+    }
+
+    const nameInput = document.getElementById('inputPayerName');
+    if (nameInput) nameInput.addEventListener('input', updateWhatsappLink);
+    const phoneInput = document.getElementById('inputPayerPhone');
+    if (phoneInput) phoneInput.addEventListener('input', updateWhatsappLink);
+
+    async function checkUserEmail(email) {
+      const feedback = document.getElementById('emailStatusFeedback');
+      try {
+        const res = await fetch(`${API_ENDPOINT}?email=${encodeURIComponent(email)}`);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.exists) {
+          feedback.className = 'account-status-tag verified';
+          feedback.innerHTML = `✓ حساب مسجل في التطبيق (${data.displayName || 'أمين الصندوق'}) — جاهز للتفعيل الفوري`;
+          feedback.style.display = 'inline-flex';
+          if (!nameInput.value && data.displayName) {
+            nameInput.value = data.displayName;
+            updateWhatsappLink();
+          }
+        } else {
+          feedback.className = 'account-status-tag pending';
+          feedback.innerHTML = `⚡ حساب جديد — سيتم ربطه وتفعيله تلقائياً فور تسجيلك في التطبيق بهذا البريد`;
+          feedback.style.display = 'inline-flex';
+        }
+      } catch (_) {
+        // Silent fail on check
+      }
+    }
+
+    function copyIpaAddress() {
+      const ipa = 'amremam@instapay';
+      navigator.clipboard.writeText(ipa).then(() => {
+        showCopyToast();
+      }).catch(() => {
+        const temp = document.createElement('textarea');
+        temp.value = ipa;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        showCopyToast();
+      });
+    }
+
+    function showCopyToast() {
+      const toast = document.getElementById('copyToast');
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    async function handleInstantActivation() {
+      const email = document.getElementById('inputUserEmail').value.trim();
+      const payerName = document.getElementById('inputPayerName').value.trim();
+      const payerPhone = document.getElementById('inputPayerPhone').value.trim();
+      const refCode = document.getElementById('inputReferralCode').value.trim();
+
+      if (!email || !email.includes('@')) {
+        alert('يرجى كتابة البريد الإلكتروني المسجل به في تطبيق صندوق العمارة بشكل صحيح.');
+        document.getElementById('inputUserEmail').focus();
+        return;
+      }
+      if (!payerName) {
+        alert('يرجى إدخال اسم صاحب التحويل أو اسم العمارة.');
+        document.getElementById('inputPayerName').focus();
+        return;
+      }
+
+      const btn = document.getElementById('btnActivateInstant');
+      const btnText = document.getElementById('btnActivateText');
+      btn.disabled = true;
+      btnText.textContent = 'جاري تسجيل وتفعيل اشتراكك الفوري...';
+
+      try {
+        const payload = {
+          orderRef: orderRef,
+          userEmail: email,
+          userName: payerName,
+          payerName: payerName,
+          payerPhone: payerPhone,
+          plan: currentPlan,
+          amountEgp: currentAmount,
+          paymentMethod: 'INSTAPAY',
+          referredByCode: refCode
+        };
+
+        const res = await fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          // Show Success Box
+          document.getElementById('checkoutBox').style.display = 'none';
+          const successBox = document.getElementById('successBox');
+          document.getElementById('successRefNum').textContent = orderRef;
+          document.getElementById('successEmailVal').textContent = email;
+          document.getElementById('successPlanVal').textContent = currentPlanTitle;
+          if (data.message) {
+            document.getElementById('successMsgText').textContent = data.message;
+          }
+          updateWhatsappLink();
+          successBox.classList.add('active');
+          successBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // Track Purchase Attempt Event
+          if (typeof gtag === 'function') {
+            gtag('event', 'purchase_request_submitted', {
+              order_id: orderRef,
+              value: parseFloat(currentAmount),
+              currency: 'EGP',
+              items: [{ item_name: currentPlanTitle, price: parseFloat(currentAmount) }]
+            });
+          }
+        } else {
+          alert(data.error || 'تعذر استكمال التفعيل الفوري. يمكنك التواصل مباشرة عبر واتساب لتأكيد حسابك.');
+          btn.disabled = false;
+          btnText.textContent = 'أتممت التحويل؟ اضغط هنا لتفعيل اشتراكك فوراً ⚡';
+        }
+      } catch (err) {
+        console.error('Activation error:', err);
+        // Fallback: If network glitch, still open WhatsApp and reassure user
+        alert('تم تسجيل بياناتك المبدئية، يرجى مشاركة إشعار التحويل عبر واتساب لتأكيد تفعيل حسابك فوراً.');
+        updateWhatsappLink();
+        window.open(document.getElementById('btnWhatsappShare').href, '_blank');
+        btn.disabled = false;
+        btnText.textContent = 'أتممت التحويل؟ اضغط هنا لتفعيل اشتراكك فوراً ⚡';
+      }
+    }
+
+    function toggleFaq(header) {
+      const item = header.closest('.faq-accordion-item');
+      item.classList.toggle('open');
+    }
+
+    document.addEventListener('DOMContentLoaded', initOrder);
+  </script>
+</body>
+</html>
