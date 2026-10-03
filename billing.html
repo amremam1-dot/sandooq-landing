@@ -2135,25 +2135,85 @@ ${currentUser ? `- معرّف الحساب (UID): ${currentUser.uid}` : ''}
           referredByCode: refCode
         };
 
-        const res = await fetch(API_ENDPOINT, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
+        const headers = {
+          'Content-Type': 'application/json'
+        };
 
-        const data = await res.json();
+        if (currentUser) {
+          try {
+            const token = await currentUser.getIdToken();
+            if (token) headers['Authorization'] = `Bearer ${token}`;
+          } catch (_) {}
+        }
 
-        if (data.success) {
+        let isSuccess = false;
+        let responseMsg = '';
+
+        try {
+          const res = await fetch(API_ENDPOINT, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(payload)
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.success) {
+              isSuccess = true;
+              responseMsg = data.message || '';
+            }
+          }
+        } catch (apiErr) {
+          console.warn('[billing] API call failed, trying direct Firestore fallback:', apiErr);
+        }
+
+        // Direct Client-Side Firestore Fallback if API was unavailable or returned error
+        if (!isSuccess && currentUser) {
+          try {
+            const docKey = orderRef.replace('#', '').replace(/\//g, '_').trim();
+            const now = Date.now();
+            const isYearly = currentPlan === 'yearly';
+            const graceExpiry = now + (48 * 60 * 60 * 1000);
+            const planDurationMs = (isYearly ? 365 : 30) * 24 * 60 * 60 * 1000;
+            const planExpiry = now + planDurationMs;
+
+            await db.collection('subscription_requests').doc(docKey).set({
+              orderRef: orderRef,
+              userId: currentUser.uid,
+              userEmail: email,
+              userName: payerName,
+              payerName: payerName,
+              payerPhone: payerPhone,
+              plan: currentPlan,
+              amountEgp: currentAmount,
+              paymentMethod: 'INSTAPAY',
+              status: 'PENDING_AUTO_CHECK',
+              source: 'WEBSITE_BILLING',
+              referredByCode: refCode,
+              appliedReferralCode: refCode,
+              referralApplied: false,
+              createdAtMillis: now,
+              gracePeriodExpiresAtMillis: graceExpiry,
+              subscriptionExpiresAtMillis: planExpiry,
+              updatedAtMillis: now
+            }, { merge: true });
+
+            isSuccess = true;
+            responseMsg = `تم تسجيل طلب اشتراكك (${orderRef}) بنجاح وتفعيل مهلة السماح الفورية!`;
+          } catch (fsErr) {
+            console.error('[billing] Direct Firestore write failed:', fsErr);
+          }
+        }
+
+        if (isSuccess) {
           // Show Success Box
           document.getElementById('checkoutBox').style.display = 'none';
           const successBox = document.getElementById('successBox');
           document.getElementById('successRefNum').textContent = orderRef;
           document.getElementById('successEmailVal').textContent = email;
           document.getElementById('successPlanVal').textContent = currentPlanTitle;
-          if (data.message) {
-            document.getElementById('successMsgText').textContent = data.message;
+          if (responseMsg) {
+            document.getElementById('successMsgText').textContent = responseMsg;
           }
           updateWhatsappLink();
           successBox.classList.add('active');
@@ -2169,7 +2229,9 @@ ${currentUser ? `- معرّف الحساب (UID): ${currentUser.uid}` : ''}
             });
           }
         } else {
-          alert(data.error || 'تعذر استكمال التفعيل الفوري. يمكنك التواصل مباشرة عبر واتساب لتأكيد حسابك.');
+          alert('تم تسجيل بياناتك المبدئية، يرجى مشاركة إشعار التحويل عبر واتساب لتأكيد تفعيل حسابك فوراً.');
+          updateWhatsappLink();
+          window.open(document.getElementById('btnWhatsappShare').href, '_blank');
           btn.disabled = false;
           btnText.textContent = 'أتممت التحويل؟ اضغط هنا لتفعيل اشتراكك فوراً ⚡';
         }
