@@ -1,4 +1,4 @@
-﻿<!-- Sandooq El-Amara Billing v1.02 -->
+<!-- Sandooq El-Amara Billing v1.02 -->
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
@@ -1354,11 +1354,11 @@
             </div>
           </div>
 
-          <!-- Checkout Account Fields (Locked & Pre-filled when logged in, or manually filled) -->
+          <!-- Checkout Account Fields (Locked & Pre-filled when logged in, hidden when logged out) -->
           <div id="loginRequiredNotice" style="background: rgba(245, 158, 11, 0.1); border: 1px dashed var(--accent-color); border-radius: var(--radius-sm); padding: 14px 18px; text-align: center; color: #f59e0b; font-size: 0.88rem; font-weight: 700; margin-bottom: 16px;">
-            🔒 يرجى تسجيل الدخول أعلاه أولاً بحسابك في تطبيق صندوق العمارة لتأكيد بياناتك وتفعيل الاشتراك.
+            🔒 يرجى تسجيل الدخول أعلاه أولاً بحسابك في تطبيق صندوق العمارة لإظهار وتأكيد بيانات الاشتراك.
           </div>
-          <div id="manualFieldsWrap" style="opacity: 0.5; pointer-events: none;">
+          <div id="manualFieldsWrap" style="display: none;">
             <div class="form-group-custom">
               <label class="form-label-custom" for="inputUserEmail">
                 البريد الإلكتروني المراد تفعيله <span style="color:var(--danger-color)">*</span>
@@ -1685,6 +1685,8 @@
       const e = urlParams.get('email');
       if (e) {
         document.getElementById('inputUserEmail').value = e;
+        const authEmail = document.getElementById('authEmailInput');
+        if (authEmail) authEmail.value = e;
         checkUserEmail(e);
       }
 
@@ -1717,6 +1719,7 @@
 
         const fieldsWrap = document.getElementById('manualFieldsWrap');
         if (fieldsWrap) {
+          fieldsWrap.style.display = 'block';
           fieldsWrap.style.opacity = '1';
           fieldsWrap.style.pointerEvents = 'auto';
         }
@@ -1775,6 +1778,7 @@
 
         const fieldsWrap = document.getElementById('manualFieldsWrap');
         if (fieldsWrap) {
+          fieldsWrap.style.display = 'none';
           fieldsWrap.style.opacity = '0.5';
           fieldsWrap.style.pointerEvents = 'none';
         }
