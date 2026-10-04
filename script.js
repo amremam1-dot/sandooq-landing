@@ -146,9 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabCaptions = document.querySelectorAll(".tab-caption");
 
   const showcaseImages = {
-    dashboard: "assets/showcase-dashboard.webp",
-    units: "assets/showcase-units.webp",
-    payments: "assets/showcase-payments.webp"
+    dashboard: "assets/showcase-dashboard-720.webp",
+    units: "assets/showcase-units-720.webp",
+    payments: "assets/showcase-payments-720.webp"
   };
 
   showcaseTabs.forEach(tab => {

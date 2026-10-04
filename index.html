@@ -64,8 +64,10 @@
   <link rel="describedby" type="text/markdown" href="/llms.txt" title="LLM Knowledge Base Summary" />
   <link rel="service-doc" type="text/markdown" href="/llms-full.txt" title="Full LLM Documentation" />
   <link rel="help" type="text/markdown" href="https://sandoqalemara.com/llms.txt" title="LLM Knowledge Base" />
-  <!-- Preload LCP hero image -->
-  <link rel="preload" as="image" href="assets/hero-main.webp" type="image/webp" fetchpriority="high" />
+  <!-- Preload LCP hero image with responsive srcset -->
+  <link rel="preload" as="image" href="assets/hero-main-720.webp" type="image/webp"
+    imagesrcset="assets/hero-main-360.webp 360w, assets/hero-main-720.webp 720w, assets/hero-main.webp 1080w"
+    imagesizes="(max-width: 640px) 280px, 320px" fetchpriority="high" />
 
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website" />
@@ -268,8 +270,13 @@
         <div class="phone-mockup">
           <div class="phone-screen">
             <picture>
-              <source srcset="assets/hero-main.webp" type="image/webp" />
-              <img src="assets/hero-main.png" alt="شاشة تطبيق صندوق العمارة الرئيسية" width="320" height="711" loading="eager" fetchpriority="high" decoding="async" />
+              <source type="image/webp"
+                srcset="assets/hero-main-360.webp 360w, assets/hero-main-720.webp 720w, assets/hero-main.webp 1080w"
+                sizes="(max-width: 640px) 280px, 320px" />
+              <img src="assets/hero-main-720.png"
+                srcset="assets/hero-main-360.png 360w, assets/hero-main-720.png 720w, assets/hero-main.png 1080w"
+                sizes="(max-width: 640px) 280px, 320px"
+                alt="شاشة تطبيق صندوق العمارة الرئيسية" width="320" height="711" loading="eager" fetchpriority="high" decoding="async" />
             </picture>
           </div>
         </div>
@@ -533,7 +540,10 @@
 
         <div class="showcase-media">
           <div class="showcase-screen">
-            <img id="showcase-img" src="assets/showcase-dashboard.webp" alt="استعراض شاشة التطبيق الرئيسية" width="320" height="711" loading="lazy" />
+            <img id="showcase-img" src="assets/showcase-dashboard-720.webp"
+              srcset="assets/showcase-dashboard-360.webp 360w, assets/showcase-dashboard-720.webp 720w"
+              sizes="(max-width: 640px) 280px, 320px"
+              alt="استعراض شاشة التطبيق الرئيسية" width="320" height="711" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -627,19 +637,19 @@
       <div class="gallery-wrapper">
         <div class="gallery-scroll">
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/1.webp" alt="الرئيسية وحركة الخزينة" width="260" height="578" loading="lazy" /></div>
+            <div class="gallery-card"><img src="assets/1-320.webp" alt="الرئيسية وحركة الخزينة" width="260" height="578" loading="lazy" decoding="async" /></div>
             <span>الرئيسية وحركة الخزينة</span>
           </div>
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/2.webp" alt="إدارة الشقق" width="260" height="578" loading="lazy" /></div>
+            <div class="gallery-card"><img src="assets/2-320.webp" alt="إدارة الشقق" width="260" height="578" loading="lazy" decoding="async" /></div>
             <span>قائمة الشقق والاشتراكات</span>
           </div>
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/3.webp" alt="تحصيل الدفعات" width="260" height="578" loading="lazy" /></div>
+            <div class="gallery-card"><img src="assets/3-320.webp" alt="تحصيل الدفعات" width="260" height="578" loading="lazy" decoding="async" /></div>
             <span>نافذة تحصيل الدفعات</span>
           </div>
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/4.webp" alt="إضافة شقة" width="260" height="578" loading="lazy" /></div>
+            <div class="gallery-card"><img src="assets/4-320.webp" alt="إضافة شقة" width="260" height="578" loading="lazy" decoding="async" /></div>
             <span>إضافة وتعديل بيانات الشقة</span>
           </div>
         </div>
