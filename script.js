@@ -65,7 +65,7 @@ document.documentElement.classList.add("js-ready");
           }
         }, opts);
       } catch (err) {
-        console.error("WebMCP registration error:", err);
+        console.debug("WebMCP registration note:", err);
       }
     }
   }
