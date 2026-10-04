@@ -1,0 +1,13 @@
+{
+  "resource": "https://sandoqalemara.com",
+  "authorization_servers": [
+    "https://sandoqalemara.com"
+  ],
+  "scopes_supported": [
+    "read",
+    "write"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ]
+}
