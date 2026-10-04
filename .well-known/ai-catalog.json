@@ -1,0 +1,20 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Sandooq El-Amara",
+    "identifier": "did:web:sandoqalemara.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:sandoqalemara.com:skill:building-management",
+      "displayName": "Building Management Skill",
+      "type": "application/x-agent-skill",
+      "url": "https://sandoqalemara.com/.well-known/agent-skills/building-management/SKILL.md",
+      "representativeQueries": [
+        "حساب اشتراك العمارة الشهري",
+        "تسجيل مصاريف وصيانة العمارة",
+        "متابعة متأخرات الشقق وإيصالات السداد"
+      ]
+    }
+  ]
+}

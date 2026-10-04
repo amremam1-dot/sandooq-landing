@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "building-management",
+      "type": "skill-md",
+      "description": "Manage residential building finances, units, dues, and expenses with Sandooq El-Amara.",
+      "url": "https://sandoqalemara.com/.well-known/agent-skills/building-management/SKILL.md",
+      "digest": "sha256:4f7a405b499ce7a3041f39b10eeb969269484518390b55369dfd956c7ba11331"
+    }
+  ]
+}
