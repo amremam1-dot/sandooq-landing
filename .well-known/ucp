@@ -1,0 +1,13 @@
+{
+  "protocol_version": "1.0.0",
+  "services": [
+    "billing",
+    "subscriptions"
+  ],
+  "capabilities": [
+    "instant-checkout"
+  ],
+  "endpoints": {
+    "checkout": "https://sandoqalemara.com/billing.html"
+  }
+}
