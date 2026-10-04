@@ -17,7 +17,7 @@
     "write"
   ],
   "agent_auth": {
-    "skill": "https://isitagentready.com/.well-known/agent-skills/auth-md/SKILL.md",
+    "skill": "https://sandoqalemara.com/auth.md",
     "register_uri": "https://sandoqalemara.com/agent/register",
     "identity_types_supported": [
       "anonymous"
