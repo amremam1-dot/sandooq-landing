@@ -1,5 +1,9 @@
 document.documentElement.classList.add("js-ready");
 
+if (typeof window !== "undefined" && (window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('/index'))) {
+  window.history.replaceState(null, '', window.location.origin + '/' + window.location.search + window.location.hash);
+}
+
 // --- WebMCP (Model Context Protocol for Browser & AI Agents) ---
 (function initWebMcp() {
   function registerTools() {

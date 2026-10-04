@@ -1,15 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-R8XXF32BFW');
-  </script>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,8 +19,7 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <!-- Non-Blocking Stylesheet Loading (Eliminates Render Blocking) -->
-  <link rel="preload" href="styles.css" as="style" />
-  <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'" />
+  <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="styles.css" /></noscript>
 
   <!-- Critical Above-The-Fold CSS -->
@@ -54,11 +44,6 @@
     @media (max-width:968px){.hero{grid-template-columns:1fr;text-align:center;padding:50px 20px 60px}.nav{display:none}}
   </style>
   <link rel="canonical" href="https://sandoqalemara.com/" />
-  <script>
-    if (window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('/index')) {
-      window.history.replaceState(null, '', window.location.origin + '/' + window.location.search + window.location.hash);
-    }
-  </script>
   <!-- Machine-Readable Agent Discovery (RFC 8288 / RFC 9727) -->
   <link rel="api-catalog" type="application/linkset+json" href="/.well-known/api-catalog" title="API Catalog" />
   <link rel="describedby" type="text/markdown" href="/llms.txt" title="LLM Knowledge Base Summary" />
@@ -83,11 +68,10 @@
   <meta name="twitter:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
 
   <!-- Google Fonts — non-render-blocking -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" /></noscript>
 
   <!-- JSON-LD Structured Data: SoftwareApplication & FAQPage & Organization -->
   <script type="application/ld+json">
@@ -1120,5 +1104,13 @@
   </form>
 
   <script src="script.js" defer></script>
+  <!-- Google tag (gtag.js) - loaded non-blocking at bottom -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
 </body>
 </html>
