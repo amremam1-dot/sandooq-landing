@@ -1,5 +1,100 @@
 document.documentElement.classList.add("js-ready");
 
+// --- WebMCP (Model Context Protocol for Browser & AI Agents) ---
+(function initWebMcp() {
+  function registerTools() {
+    const ctx = (typeof document !== "undefined" && document.modelContext)
+      || (typeof navigator !== "undefined" && navigator.modelContext);
+
+    if (ctx && typeof ctx.registerTool === "function") {
+      if (window.__webmcp_registered) return;
+      window.__webmcp_registered = true;
+
+      const ac = typeof AbortController !== "undefined" ? new AbortController() : null;
+      const opts = ac ? { signal: ac.signal } : {};
+
+      try {
+        ctx.registerTool({
+          name: "calculate_building_fee",
+          description: "Calculate monthly dues per apartment given total common expenses and number of units in Sandooq El-Amara.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              units_count: {
+                type: "number",
+                description: "Total number of units or apartments in the building"
+              },
+              expenses_total: {
+                type: "number",
+                description: "Total estimated monthly expenses in EGP"
+              }
+            },
+            required: ["units_count", "expenses_total"]
+          },
+          execute: async ({ units_count, expenses_total }) => {
+            const units = Math.max(1, Number(units_count) || 1);
+            const total = Number(expenses_total) || 0;
+            return {
+              fee_per_unit: Math.ceil(total / units),
+              units: units,
+              total_expenses: total,
+              currency: "EGP"
+            };
+          }
+        }, opts);
+
+        ctx.registerTool({
+          name: "get_sandooq_info",
+          description: "Retrieve official features, download links, and pricing for Sandooq El-Amara residential property fund manager.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              query: {
+                type: "string",
+                description: "Optional query or feature topic"
+              }
+            }
+          },
+          execute: async () => {
+            return {
+              name: "صندوق العمارة (Sandooq El-Amara)",
+              download_url: "https://sandoqalemara.com/download.html",
+              billing_url: "https://sandoqalemara.com/billing.html",
+              website: "https://sandoqalemara.com"
+            };
+          }
+        }, opts);
+      } catch (err) {
+        console.error("WebMCP registration error:", err);
+      }
+    }
+  }
+
+  registerTools();
+
+  if (typeof document !== "undefined") {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", registerTools);
+    }
+    window.addEventListener("load", registerTools);
+  }
+
+  try {
+    let _ctx = (typeof document !== "undefined") ? document.modelContext : null;
+    if (typeof document !== "undefined" && !document.modelContext) {
+      Object.defineProperty(document, "modelContext", {
+        configurable: true,
+        enumerable: true,
+        get: () => _ctx,
+        set: (val) => {
+          _ctx = val;
+          registerTools();
+        }
+      });
+    }
+  } catch (e) {}
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   // Helper for GA4 Event Tracking
   function trackEvent(name, params) {

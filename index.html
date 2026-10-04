@@ -1077,7 +1077,12 @@
 
       <p class="footer-copy">© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة. <span class="site-version" style="display: inline-block; margin-right: 8px; opacity: 0.8; font-size: 0.85em;">(إصدار الموقع: v1.01.001)</span></p>
     </div>
-  </footer>
+  <!-- Declarative WebMCP Tools for AI Agents -->
+  <form id="webmcp-calculator" toolname="calculate_building_fee" tooldescription="حساب قيمة الاشتراك الشهري للشقق بناءً على إجمالي مصاريف الصيانة وعدد الوحدات" style="display:none;" aria-hidden="true">
+    <input type="number" name="units_count" toolparamdescription="عدد الشقق أو الوحدات في العقار" value="10" />
+    <input type="number" name="expenses_total" toolparamdescription="إجمالي المصاريف الشهرية التقديرية بالجنيه المصري" value="5000" />
+    <button type="submit">احسب</button>
+  </form>
 
   <script src="script.js"></script>
 </body>
