@@ -1,0 +1,21 @@
+{
+  "name": "sandooq-el-amara-agent",
+  "version": "1.0.0",
+  "description": "AI Agent for Sandooq El-Amara residential building financial management",
+  "supportedInterfaces": [
+    {
+      "url": "https://sandoqalemara.com/a2a",
+      "protocol": "HTTP"
+    }
+  ],
+  "capabilities": {
+    "streaming": false
+  },
+  "skills": [
+    {
+      "id": "building-management",
+      "name": "Building Management",
+      "description": "Calculate dues, track arrears, and generate building financial summaries"
+    }
+  ]
+}
