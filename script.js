@@ -278,5 +278,27 @@ document.addEventListener("DOMContentLoaded", () => {
       trackEvent("video_chapter_click", { timestamp: seconds });
     }
   };
+
+  // 7. Lazy-load Thunderbolt AI Chat Widget (Eliminates initial Forced Reflow & saves 199 KiB JS)
+  (function initChatbot() {
+    function loadChatbot() {
+      if (window.__chatbot_loaded) return;
+      window.__chatbot_loaded = true;
+      const script = document.createElement("script");
+      script.src = "https://www.thunderbolt.com/gateway/api/v1/thunderbolt-ui/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(() => setTimeout(loadChatbot, 3500));
+    } else {
+      setTimeout(loadChatbot, 4000);
+    }
+    ['scroll', 'mousemove', 'touchstart', 'click'].forEach(evt => {
+      window.addEventListener(evt, loadChatbot, { once: true, passive: true });
+    });
+  })();
 });
+
 
