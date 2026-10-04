@@ -15,5 +15,18 @@
   "scopes_supported": [
     "read",
     "write"
-  ]
+  ],
+  "agent_auth": {
+    "skill": "https://isitagentready.com/.well-known/agent-skills/auth-md/SKILL.md",
+    "register_uri": "https://sandoqalemara.com/agent/register",
+    "identity_types_supported": [
+      "anonymous"
+    ],
+    "anonymous": {
+      "credential_types_supported": [
+        "bearer"
+      ],
+      "claim_uri": "https://sandoqalemara.com/agent/claim"
+    }
+  }
 }
