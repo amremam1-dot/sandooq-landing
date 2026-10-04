@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# AI Content Signals (RFC / AI Preferences)
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
 # AI Crawlers, LLMs & Search Agents
 User-agent: GPTBot
 Allow: /

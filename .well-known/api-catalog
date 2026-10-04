@@ -1,0 +1,23 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://sandoqalemara.com/",
+      "describedby": [
+        {
+          "href": "https://sandoqalemara.com/llms.txt",
+          "type": "text/markdown"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://sandoqalemara.com/llms-full.txt",
+          "type": "text/markdown"
+        },
+        {
+          "href": "https://sandoqalemara.com/agent-knowledge.md",
+          "type": "text/markdown"
+        }
+      ]
+    }
+  ]
+}

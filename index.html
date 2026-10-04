@@ -34,6 +34,10 @@
       window.history.replaceState(null, '', window.location.origin + '/' + window.location.search + window.location.hash);
     }
   </script>
+  <!-- Machine-Readable Agent Discovery (RFC 8288 / RFC 9727) -->
+  <link rel="api-catalog" type="application/linkset+json" href="/.well-known/api-catalog" title="API Catalog" />
+  <link rel="describedby" type="text/markdown" href="/llms.txt" title="LLM Knowledge Base Summary" />
+  <link rel="service-doc" type="text/markdown" href="/llms-full.txt" title="Full LLM Documentation" />
   <link rel="help" type="text/markdown" href="https://sandoqalemara.com/llms.txt" title="LLM Knowledge Base" />
   <!-- Preload LCP hero image -->
   <link rel="preload" as="image" href="assets/hero-main.webp" type="image/webp" fetchpriority="high" />
