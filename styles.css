@@ -1460,29 +1460,47 @@ body.light-theme .moon-icon { display: none; }
     display: flex;
     align-items: center;
     justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    color: var(--text-main);
+    z-index: 1001;
+    transition: background 0.2s;
+  }
+  .menu-toggle:hover, .menu-toggle.active {
+    background: rgba(255, 255, 255, 0.08);
   }
   .nav {
     position: fixed;
     top: 68px;
     right: 0;
+    left: 0;
     width: 100%;
     max-height: calc(100vh - 70px);
     overflow-y: auto;
     background: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 24px 20px;
     gap: 14px;
     transform: translateY(-150%);
     opacity: 0;
-    transition: var(--transition);
+    pointer-events: none;
+    visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.25s;
     box-shadow: var(--shadow-lg);
     z-index: 999;
   }
   .nav.open {
-    transform: translateY(0);
-    opacity: 1;
+    display: flex !important;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
   }
   .nav a {
     font-size: 1rem;

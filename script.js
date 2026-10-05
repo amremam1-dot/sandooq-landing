@@ -99,7 +99,7 @@ if (typeof window !== "undefined" && (window.location.pathname.endsWith('/index.
   } catch (e) {}
 })();
 
-document.addEventListener("DOMContentLoaded", () => {
+function initMainApp() {
   // Helper for GA4 Event Tracking
   function trackEvent(name, params) {
     if (typeof gtag === "function") {
@@ -124,15 +124,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. Mobile Menu Toggle
+  // 2. Mobile Menu Toggle (Robust, click outside, escape key, visual state)
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector(".nav");
 
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("open");
-      const isOpen = navMenu.classList.contains("open");
-      menuToggle.setAttribute("aria-expanded", isOpen);
+  if (menuToggle && navMenu && !menuToggle.__menuInitialized) {
+    menuToggle.__menuInitialized = true;
+
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = navMenu.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.classList.toggle("active", isOpen);
     });
 
     // Close menu when clicking links
@@ -140,7 +143,26 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", () => {
         navMenu.classList.remove("open");
         menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.classList.remove("active");
       });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (navMenu.classList.contains("open") && !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+        navMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.classList.remove("active");
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navMenu.classList.contains("open")) {
+        navMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.classList.remove("active");
+      }
     });
   }
 
@@ -299,6 +321,12 @@ document.addEventListener("DOMContentLoaded", () => {
       window.addEventListener(evt, loadChatbot, { once: true, passive: true });
     });
   })();
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initMainApp);
+} else {
+  initMainApp();
+}
 
 
