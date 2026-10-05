@@ -89,8 +89,8 @@
     <div class="header-container">
       <a class="brand" href="/">
         <picture>
-          <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
-          <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+          <source srcset="/assets/sandooq-logo.webp" type="image/webp" />
+          <img src="/assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
         </picture>
         <span>صندوق العمارة</span>
       </a>
@@ -100,13 +100,20 @@
       </button>
 
       <nav class="nav">
-        <a href="/">الرئيسية</a>
-        <a href="/solutions/">الحلول</a>
-        <a href="/tools/" style="color: var(--primary-light);">الأدوات المجانية</a>
+        <a href="/#features">المميزات</a>
+        <a href="/#video-tour">فيديو الشرح</a>
+        <a href="/tools/">الأدوات المجانية</a>
         <a href="/guides/">أدلة الإدارة</a>
-        <a href="../about.html">عن التطبيق</a>
-        <a href="../contact.html">تواصل معنا</a>
-        <a href="../download.html" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
+        <a href="/billing.html" style="color: var(--secondary-color); font-weight: 800; white-space: nowrap;">الاشتراكات ⚡</a>
+        <a href="/about.html">عن التطبيق</a>
+        <a href="/contact.html">تواصل معنا</a>
+        <a href="/download.html" class="button primary" style="padding: 8px 16px; font-size: 0.88rem; white-space: nowrap;">تحميل التطبيق</a>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="تبديل المظهر الليلي/النهاري">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
       </nav>
     </div>
   </header>
