@@ -7,3 +7,5 @@
 /delete.html /delete-account.html 301
 /billing /billing.html 200
 /subscribe /billing.html 301
+/billing-easy /billing-easy.html 200
+/easy-billing /billing-easy.html 301

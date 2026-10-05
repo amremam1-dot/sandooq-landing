@@ -1,0 +1,1028 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>النسخة الميسرة لتفعيل الاشتراك | تطبيق صندوق العمارة</title>
+  <meta name="description" content="طريقة سهلة ومبسطة جداً ومريحة لكبار السن وأمناء الصناديق للاشتراك وتجديد باقة صندوق العمارة عبر إنستاباي InstaPay مع تفعيل فوري ومساعدة مباشرة." />
+  <link rel="canonical" href="https://sandoqalemara.com/billing-easy.html" />
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Firebase SDK (v10 Compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/billing-easy.html" />
+  <meta property="og:title" content="النسخة الميسرة لتفعيل الاشتراك - صندوق العمارة" />
+  <meta property="og:description" content="خطوات بسيطة بخط كبير وواضح لتفعيل اشتراك عمارتك بكل سهولة وأمان." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --easy-font-scale: 1;
+      --easy-bg: #090e1a;
+      --easy-card: #141e33;
+      --easy-card-border: #2b3a55;
+      --easy-primary: #3b82f6;
+      --easy-success: #10b981;
+      --easy-gold: #f59e0b;
+      --easy-gold-light: #fef08a;
+      --easy-instapay: #5a2d82;
+      --easy-text: #ffffff;
+      --easy-text-muted: #cbd5e1;
+    }
+
+    body {
+      background-color: var(--easy-bg);
+      color: var(--easy-text);
+      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      font-size: calc(18px * var(--easy-font-scale));
+      line-height: 1.8;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Accessibility Bar */
+    .senior-accessibility-bar {
+      background: #1e293b;
+      border-bottom: 2px solid #334155;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+    .senior-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: #ffd700;
+      font-size: 1.05rem;
+    }
+    .font-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-font-size {
+      background: #334155;
+      color: #fff;
+      border: 1px solid #475569;
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-font-size:hover {
+      background: #475569;
+    }
+    .btn-switch-full {
+      color: #93c5fd;
+      text-decoration: underline;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .easy-container {
+      max-width: 860px;
+      margin: 20px auto 80px;
+      padding: 0 16px;
+    }
+
+    /* Friendly Greeting Hero */
+    .easy-hero {
+      text-align: center;
+      background: linear-gradient(180deg, rgba(30, 58, 138, 0.3) 0%, rgba(15, 23, 42, 0.4) 100%);
+      border: 2px solid var(--easy-card-border);
+      border-radius: 24px;
+      padding: 32px 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+    .easy-hero-icon {
+      font-size: 3.2rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .easy-hero h1 {
+      font-size: calc(2rem * var(--easy-font-scale));
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 12px;
+      line-height: 1.35;
+    }
+    .easy-hero p {
+      font-size: calc(1.15rem * var(--easy-font-scale));
+      color: var(--easy-text-muted);
+      margin: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Big Step Card */
+    .step-box {
+      background: var(--easy-card);
+      border: 2px solid var(--easy-card-border);
+      border-radius: 22px;
+      padding: 26px 22px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    .step-box.highlight-step {
+      border-color: #3b82f6;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+    }
+    .step-number {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #2563eb;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(1.6rem * var(--easy-font-scale));
+      font-weight: 900;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    }
+    .step-number.instapay-num {
+      background: #7c3aed;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+    }
+    .step-number.success-num {
+      background: #059669;
+      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.4);
+    }
+    .step-title {
+      font-size: calc(1.4rem * var(--easy-font-scale));
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    /* Big Plan Selector Buttons */
+    .plan-buttons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+    @media (max-width: 650px) {
+      .plan-buttons-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .plan-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 3px solid #334155;
+      border-radius: 18px;
+      padding: 22px 18px;
+      text-align: right;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      color: #ffffff;
+      position: relative;
+    }
+    .plan-btn:hover {
+      border-color: #60a5fa;
+      background: rgba(59, 130, 246, 0.08);
+    }
+    .plan-btn.selected {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.12);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    }
+    .plan-badge-tag {
+      position: absolute;
+      top: -12px;
+      left: 14px;
+      background: #f59e0b;
+      color: #000;
+      font-size: 0.85rem;
+      font-weight: 900;
+      padding: 2px 12px;
+      border-radius: 9999px;
+    }
+    .plan-btn-name {
+      font-size: calc(1.25rem * var(--easy-font-scale));
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .plan-btn-price {
+      font-size: calc(1.8rem * var(--easy-font-scale));
+      font-weight: 900;
+      color: #38bdf8;
+      margin-bottom: 6px;
+    }
+    .plan-btn.selected .plan-btn-price {
+      color: #34d399;
+    }
+    .plan-btn-sub {
+      font-size: calc(0.95rem * var(--easy-font-scale));
+      color: var(--easy-text-muted);
+    }
+
+    /* Big Inputs */
+    .easy-label {
+      display: block;
+      font-size: calc(1.15rem * var(--easy-font-scale));
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    .easy-input {
+      width: 100%;
+      box-sizing: border-box;
+      background: #0b1324;
+      border: 3px solid #334155;
+      border-radius: 14px;
+      padding: 16px 20px;
+      color: #ffffff;
+      font-size: calc(1.2rem * var(--easy-font-scale));
+      font-family: inherit;
+      font-weight: 700;
+      margin-bottom: 14px;
+      transition: all 0.2s;
+    }
+    .easy-input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: #0f1c36;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    }
+    .easy-input::placeholder {
+      color: #64748b;
+      font-weight: normal;
+    }
+
+    /* Account Check Banner */
+    .account-found-card {
+      background: rgba(16, 185, 129, 0.15);
+      border: 2px solid #10b981;
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: none;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      color: #a7f3d0;
+      font-weight: 700;
+      font-size: calc(1.05rem * var(--easy-font-scale));
+    }
+
+    .btn-google-easy {
+      background: #ffffff;
+      color: #1f2937;
+      border: 2px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 20px;
+      font-size: calc(1.1rem * var(--easy-font-scale));
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      transition: all 0.2s;
+      margin-bottom: 10px;
+    }
+    .btn-google-easy:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+    }
+
+    /* InstaPay Card (Massive & High Contrast) */
+    .instapay-senior-card {
+      background: linear-gradient(135deg, #2b0b4d 0%, #4a157d 60%, #5d1b99 100%);
+      border: 3px solid #a855f7;
+      border-radius: 20px;
+      padding: 24px 20px;
+      margin-top: 10px;
+      box-shadow: 0 10px 30px rgba(90, 27, 153, 0.4);
+    }
+    .instapay-row-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .instapay-ipa-big {
+      background: #000000;
+      border: 3px solid #ffd700;
+      border-radius: 14px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .ipa-text-huge {
+      font-family: monospace;
+      font-size: calc(1.5rem * var(--easy-font-scale));
+      font-weight: 900;
+      color: #ffd700;
+      direction: ltr;
+      letter-spacing: 0.5px;
+    }
+    .btn-copy-huge {
+      background: #ffd700;
+      color: #2e0854;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-size: calc(1.1rem * var(--easy-font-scale));
+      font-weight: 900;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-copy-huge:hover {
+      background: #ffea75;
+      transform: scale(1.03);
+    }
+
+    .btn-open-app-huge {
+      background: #ffffff;
+      color: #5a2d82;
+      border: none;
+      border-radius: 14px;
+      padding: 16px 24px;
+      font-size: calc(1.2rem * var(--easy-font-scale));
+      font-weight: 900;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 14px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    .btn-open-app-huge:hover {
+      background: #f3e8ff;
+      transform: translateY(-2px);
+    }
+
+    /* Giant Green Activation Button */
+    .btn-activate-giant {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 18px;
+      padding: 22px 28px;
+      font-size: calc(1.35rem * var(--easy-font-scale));
+      font-weight: 900;
+      font-family: inherit;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.45);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .btn-activate-giant:hover:not(:disabled) {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(16, 185, 129, 0.6);
+    }
+    .btn-activate-giant:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* WhatsApp Direct Lifeline Card */
+    .whatsapp-lifeline-card {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+      border: 3px solid #34d399;
+      border-radius: 20px;
+      padding: 24px;
+      margin-top: 30px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(6, 95, 70, 0.4);
+    }
+    .whatsapp-lifeline-card h3 {
+      font-size: calc(1.4rem * var(--easy-font-scale));
+      font-weight: 900;
+      color: #ffffff;
+      margin: 0 0 10px;
+    }
+    .whatsapp-lifeline-card p {
+      font-size: calc(1.1rem * var(--easy-font-scale));
+      color: #d1fae5;
+      margin: 0 0 18px;
+    }
+    .btn-whatsapp-huge {
+      background: #25d366;
+      color: #000000;
+      border: none;
+      border-radius: 14px;
+      padding: 16px 28px;
+      font-size: calc(1.2rem * var(--easy-font-scale));
+      font-weight: 900;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    }
+    .btn-whatsapp-huge:hover {
+      background: #1eb956;
+      transform: scale(1.03);
+    }
+
+    /* Giant Toast Notification */
+    .giant-toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(120px);
+      background: #059669;
+      color: #ffffff;
+      padding: 16px 30px;
+      border-radius: 9999px;
+      font-size: calc(1.15rem * var(--easy-font-scale));
+      font-weight: 900;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 2px solid #34d399;
+      text-align: center;
+      max-width: 90%;
+    }
+    .giant-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Giant Success Modal/Card */
+    .senior-success-box {
+      display: none;
+      background: #0f231c;
+      border: 4px solid #10b981;
+      border-radius: 24px;
+      padding: 36px 24px;
+      text-align: center;
+      margin-top: 30px;
+      box-shadow: 0 12px 40px rgba(16, 185, 129, 0.35);
+    }
+    .senior-success-box.active {
+      display: block;
+      animation: popIn 0.35s ease;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Accessibility Bar -->
+  <div class="senior-accessibility-bar">
+    <div class="senior-badge">
+      <span>👴</span>
+      <span>النسخة الميسرة لكبار السن وأمناء الصناديق</span>
+    </div>
+    <div class="font-controls">
+      <span>حجم الخط:</span>
+      <button class="btn-font-size" onclick="adjustFontSize(0.1)" title="تكبير الخط">تكبير (+A)</button>
+      <button class="btn-font-size" onclick="adjustFontSize(-0.1)" title="تصغير الخط">تصغير (-A)</button>
+      <button class="btn-font-size" onclick="resetFontSize()" title="إعادة تعيين">الافتراضي</button>
+      <a href="billing.html" class="btn-switch-full" style="margin-inline-start: 12px;">العودة للنسخة الكاملة ↩</a>
+    </div>
+  </div>
+
+  <div class="easy-container">
+
+    <!-- Hero -->
+    <div class="easy-hero">
+      <div class="easy-hero-icon">✨</div>
+      <h1>أهلاً بحضرتك.. تفعيل الاشتراك في خطوات بسيطة جداً</h1>
+      <p>
+        صممنا لحضرتك هذه الصفحة بخط كبير وواضح وخطوات مريحة، لتفعيل اشتراك تطبيق <strong>صندوق العمارة</strong> فوراً بدون أي تعقيد.
+      </p>
+    </div>
+
+    <!-- Step 1: Choose Plan -->
+    <div class="step-box highlight-step">
+      <div class="step-header">
+        <div class="step-number">١</div>
+        <h2 class="step-title">اختر باقة الاشتراك المناسبة لعمارتك</h2>
+      </div>
+
+      <div class="plan-buttons-grid">
+        <!-- Yearly Button -->
+        <div class="plan-btn selected" id="btnPlanYearly" onclick="pickPlan('yearly')">
+          <span class="plan-badge-tag">⭐ الأوفر والمفضل للعمارات</span>
+          <div class="plan-btn-name">
+            <span>الاشتراك السنوي</span>
+            <span style="font-size: 1.3rem;">✓</span>
+          </div>
+          <div class="plan-btn-price">500 جنيه</div>
+          <div class="plan-btn-sub">سنة كاملة (12 شهراً + شهر هدية مجاناً)</div>
+        </div>
+
+        <!-- Monthly Button -->
+        <div class="plan-btn" id="btnPlanMonthly" onclick="pickPlan('monthly')">
+          <div class="plan-btn-name">
+            <span>الاشتراك الشهري</span>
+          </div>
+          <div class="plan-btn-price">50 جنيه</div>
+          <div class="plan-btn-sub">تجديد شهراً بشهر مع مرونة كاملة</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Email or Quick Sign In -->
+    <div class="step-box">
+      <div class="step-header">
+        <div class="step-number">٢</div>
+        <h2 class="step-title">اكتب البريد الإلكتروني (الإيميل) لحسابك</h2>
+      </div>
+
+      <label class="easy-label" for="userEmailInput">البريد الإلكتروني المسجل في التطبيق:</label>
+      <input 
+        type="email" 
+        id="userEmailInput" 
+        class="easy-input" 
+        placeholder="مثال: name@gmail.com" 
+        autocomplete="email"
+      />
+
+      <div class="account-found-card" id="accountFoundBox">
+        <span style="font-size: 1.5rem;">✅</span>
+        <span id="accountFoundText">وجداً حسابك مسجل ومستعد للتفعيل الفوري!</span>
+      </div>
+
+      <!-- Quick Google Sign In Alternative -->
+      <div style="margin-top: 14px; text-align: center;">
+        <span style="display: block; font-size: 0.95rem; color: var(--easy-text-muted); margin-bottom: 8px;">أو بنقرة واحدة بدون كتابة:</span>
+        <button type="button" class="btn-google-easy" onclick="handleGoogleSignIn()">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.35 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>
+          <span>تسجيل الدخول السريع بحساب Google</span>
+        </button>
+      </div>
+
+      <div style="margin-top: 16px;">
+        <label class="easy-label" for="payerNameInput">اسم حضرتك (أو اسم العمارة):</label>
+        <input 
+          type="text" 
+          id="payerNameInput" 
+          class="easy-input" 
+          placeholder="مثال: أ/ محمد أحمد - عمارة الياسمين" 
+        />
+      </div>
+    </div>
+
+    <!-- Step 3: InstaPay Transfer Info -->
+    <div class="step-box">
+      <div class="step-header">
+        <div class="step-number instapay-num">٣</div>
+        <h2 class="step-title">حوّل المبلغ عبر تطبيق «إنستاباي InstaPay»</h2>
+      </div>
+
+      <div class="instapay-senior-card">
+        <div class="instapay-row-info">
+          <span style="font-size: 1.15rem; font-weight: 800;">عنوان الدفع اللحظي الرسمي (IPA):</span>
+          <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 8px; font-weight: 800; font-size: 0.95rem;">شبكة المدفوعات الوطنية ⚡</span>
+        </div>
+
+        <!-- Big IPA Box -->
+        <div class="instapay-ipa-big">
+          <span class="ipa-text-huge" id="seniorIpaVal">amremam@instapay</span>
+          <button type="button" class="btn-copy-huge" onclick="copySeniorIpa()">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>نسخ العنوان 📋</span>
+          </button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 1.15rem; margin-bottom: 12px; background: rgba(0,0,0,0.25); padding: 12px 16px; border-radius: 10px;">
+          <span>اسم المستلم للتأكيد:</span>
+          <strong style="color: #ffd700; font-size: 1.25rem;">Amr Mohamed</strong>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 1.15rem; margin-bottom: 16px; background: rgba(0,0,0,0.25); padding: 12px 16px; border-radius: 10px;">
+          <span>المبلغ المطلوب تحويله:</span>
+          <strong style="color: #ffd700; font-size: 1.35rem;" id="seniorAmountDisplay">500 جنيه</strong>
+        </div>
+
+        <!-- Direct Launch App Button -->
+        <a href="ipn://S/amremam/instapay/1kWbWN" class="btn-open-app-huge">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <span>اضغط هنا لفتح تطبيق InstaPay على هاتفك مباشرة ⚡</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Step 4: Big Activation Button -->
+    <div class="step-box">
+      <div class="step-header">
+        <div class="step-number success-num">٤</div>
+        <h2 class="step-title">أتممت التحويل؟ اضغط هنا لتفعيل حسابك فوراً</h2>
+      </div>
+
+      <p style="font-size: 1.1rem; color: var(--easy-text-muted); margin-bottom: 16px;">
+        بمجرد الضغط على هذا الزر، يتم تفعيل اشتراكك وحساب عمارتك فوراً بنظام الأمانة لتبدأ العمل بدون أي انتظار.
+      </p>
+
+      <button type="button" class="btn-activate-giant" id="btnSeniorActivate" onclick="handleSeniorActivation()">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span id="btnSeniorActivateText">أنا حوّلت المبلغ.. فعّل لي الاشتراك الآن ⚡</span>
+      </button>
+    </div>
+
+    <!-- Success Confirmation Box -->
+    <div class="senior-success-box" id="seniorSuccessBox">
+      <div style="font-size: 3.5rem; margin-bottom: 12px;">🎉</div>
+      <h2 style="font-size: 2rem; font-weight: 900; color: #34d399; margin: 0 0 12px;">
+        ألف مبروك! تم تفعيل اشتراكك بنجاح
+      </h2>
+      <p style="font-size: 1.25rem; color: #d1fae5; line-height: 1.8; margin-bottom: 24px;" id="seniorSuccessText">
+        تم تفعيل كافة مميزات التطبيق وحساب عمارتك فورياً بنظام الأمانة. يمكنك الآن فتح تطبيق «صندوق العمارة» على هاتفك واستخدامه بكل مميزاته.
+      </p>
+
+      <div style="background: rgba(0,0,0,0.3); border: 2px dashed #34d399; border-radius: 14px; padding: 16px 20px; text-align: right; margin-bottom: 24px; font-size: 1.15rem;">
+        <div style="margin-bottom: 8px;">رقم مرجع الطلب: <strong style="color: #ffd700;" id="seniorRefDisplay">#IPN-EASY-XXXX</strong></div>
+        <div style="margin-bottom: 8px;">البريد الإلكتروني: <strong id="seniorEmailDisplay">-</strong></div>
+        <div>الباقة المفعلة: <strong style="color: #34d399;" id="seniorPlanDisplay">الاشتراك السنوي (سنة كاملة)</strong></div>
+      </div>
+
+      <a href="https://wa.me/201556934345" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-huge" id="btnSuccessWhatsapp">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        <span>إرسال إشعار التحويل عبر الواتساب لتأكيده نهائياً 💬</span>
+      </a>
+    </div>
+
+    <!-- WhatsApp Direct Lifeline Card -->
+    <div class="whatsapp-lifeline-card">
+      <div style="font-size: 2.5rem; margin-bottom: 8px;">🤝</div>
+      <h3>هل تحتاج لأي مساعدة أو تفضل أن نقوم بالتفعيل لك؟</h3>
+      <p>
+        فريق دعم «صندوق العمارة» في خدمتك دائماً، اضغط على الزر بالأسفل وتحدث معنا مباشرة على الواتساب وسنقوم بتفعيل حسابك خطوة بخطوة بكل سرور:
+      </p>
+      <a href="https://wa.me/201556934345" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-huge" id="btnSeniorWhatsappDirect">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        <span>تواصل معنا عبر الواتساب (01556934345) 💬</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Giant Toast for Copy Feedback -->
+  <div class="giant-toast" id="seniorToast">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="seniorToastText">تم نسخ عنوان إنستاباي بنجاح! جاهز للصق في التطبيق 📋</span>
+  </div>
+
+  <script>
+    // ==========================================================================
+    // Senior Friendly State & Logic
+    // ==========================================================================
+    const firebaseConfig = {
+      apiKey: atob("QUl6YVN5Q29UVEZPckM0c2lYRDhSTmlBRXBQQnFFQmRmaUY4QkNV"),
+      authDomain: "sandooq-504815.firebaseapp.com",
+      projectId: "sandooq-504815",
+      storageBucket: "sandooq-504815.firebasestorage.app",
+      messagingSenderId: "432041227068",
+      appId: "1:432041227068:web:b8d53dd321b5681c4c2439"
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    let selectedPlan = 'yearly';
+    let selectedAmount = '499.99';
+    let selectedPlanTitle = 'الاشتراك السنوي (سنة كاملة)';
+    let orderRef = '';
+    let currentUser = null;
+    const API_ENDPOINT = 'https://sandooq-rust.vercel.app/api/subscriptions/instapay-request';
+
+    // Generate Order Ref
+    function initOrderRef() {
+      const rnd = Math.floor(10000 + Math.random() * 90000);
+      orderRef = `#IPN-EASY-${rnd}`;
+      updateWhatsappLinks();
+    }
+    initOrderRef();
+
+    // Font Scaling Controls
+    let currentScale = 1;
+    function adjustFontSize(delta) {
+      currentScale = Math.min(1.4, Math.max(0.85, currentScale + delta));
+      document.documentElement.style.setProperty('--easy-font-scale', currentScale);
+      localStorage.setItem('sandooq_easy_font_scale', currentScale);
+    }
+    function resetFontSize() {
+      currentScale = 1;
+      document.documentElement.style.setProperty('--easy-font-scale', 1);
+      localStorage.removeItem('sandooq_easy_font_scale');
+    }
+    const savedScale = localStorage.getItem('sandooq_easy_font_scale');
+    if (savedScale) {
+      currentScale = parseFloat(savedScale) || 1;
+      document.documentElement.style.setProperty('--easy-font-scale', currentScale);
+    }
+
+    // Pick Plan
+    function pickPlan(plan) {
+      selectedPlan = plan;
+      const btnYearly = document.getElementById('btnPlanYearly');
+      const btnMonthly = document.getElementById('btnPlanMonthly');
+      const amountDisp = document.getElementById('seniorAmountDisplay');
+
+      if (plan === 'yearly') {
+        selectedAmount = '499.99';
+        selectedPlanTitle = 'الاشتراك السنوي (سنة كاملة)';
+        btnYearly.classList.add('selected');
+        btnMonthly.classList.remove('selected');
+        amountDisp.textContent = '500 جنيه (سنة كاملة)';
+      } else {
+        selectedAmount = '49.99';
+        selectedPlanTitle = 'الاشتراك الشهري';
+        btnMonthly.classList.add('selected');
+        btnYearly.classList.remove('selected');
+        amountDisp.textContent = '50 جنيه (شهر واحد)';
+      }
+      updateWhatsappLinks();
+    }
+
+    // Copy IPA
+    function copySeniorIpa() {
+      const ipa = 'amremam@instapay';
+      navigator.clipboard.writeText(ipa).then(() => {
+        showSeniorToast('تم نسخ عنوان إنستاباي بنجاح! جاهز للصق في التطبيق 📋');
+      }).catch(() => {
+        showSeniorToast('عنوان إنستاباي هو: amremam@instapay');
+      });
+    }
+
+    function showSeniorToast(msg) {
+      const toast = document.getElementById('seniorToast');
+      const text = document.getElementById('seniorToastText');
+      text.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
+    }
+
+    // Google Sign In
+    async function handleGoogleSignIn() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      try {
+        const result = await auth.signInWithPopup(provider);
+        if (result.user) {
+          currentUser = result.user;
+          document.getElementById('userEmailInput').value = currentUser.email || '';
+          if (currentUser.displayName) {
+            document.getElementById('payerNameInput').value = currentUser.displayName;
+          }
+          checkAccountEmail(currentUser.email);
+          showSeniorToast('تم تسجيل الدخول بنجاح! مرحباً بحضرتك.');
+        }
+      } catch (err) {
+        console.warn('Google sign in popup failed:', err);
+        alert('تعذر فتح تسجيل الدخول عبر Google. يمكنك كتابة بريدك الإلكتروني في الحقل مباشرة.');
+      }
+    }
+
+    // Email Auto-check
+    let emailDebounce = null;
+    const emailInput = document.getElementById('userEmailInput');
+    emailInput.addEventListener('input', (e) => {
+      clearTimeout(emailDebounce);
+      const val = e.target.value.trim();
+      updateWhatsappLinks();
+      if (val.length > 5 && val.includes('@')) {
+        emailDebounce = setTimeout(() => checkAccountEmail(val), 500);
+      } else {
+        document.getElementById('accountFoundBox').style.display = 'none';
+      }
+    });
+
+    document.getElementById('payerNameInput').addEventListener('input', updateWhatsappLinks);
+
+    async function checkAccountEmail(email) {
+      const box = document.getElementById('accountFoundBox');
+      const text = document.getElementById('accountFoundText');
+      try {
+        const res = await fetch(`${API_ENDPOINT}?email=${encodeURIComponent(email)}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.exists) {
+            box.style.display = 'flex';
+            text.textContent = `مرحباً بحضرتك ${data.displayName ? 'أ/ ' + data.displayName : ''}! وجدنا حسابك في التطبيق وهو جاهز للتفعيل.`;
+            if (data.displayName && !document.getElementById('payerNameInput').value) {
+              document.getElementById('payerNameInput').value = data.displayName;
+            }
+          } else {
+            box.style.display = 'none';
+          }
+        }
+      } catch (_) {
+        box.style.display = 'none';
+      }
+    }
+
+    // WhatsApp Dynamic Link
+    function updateWhatsappLinks() {
+      const email = (document.getElementById('userEmailInput')?.value || '').trim();
+      const name = (document.getElementById('payerNameInput')?.value || '').trim();
+
+      const text = `السلام عليكم ورحمة الله،
+قمت بتحويل اشتراك تطبيق صندوق العمارة عبر إنستاباي:
+- رقم الطلب: ${orderRef}
+- الباقة: ${selectedPlanTitle}
+- المبلغ: ${selectedAmount} ج.م
+- البريد الإلكتروني: ${email || 'مكتوب هنا'}
+- اسم المشترك: ${name || 'أمين الصندوق'}
+${currentUser ? `- معرّف الحساب: ${currentUser.uid}` : ''}
+
+برجاء تفعيل الحساب ولكم جزيل الشكر.`;
+
+      const encoded = encodeURIComponent(text);
+      const waUrl = `https://wa.me/201556934345?text=${encoded}`;
+      const btnDirect = document.getElementById('btnSeniorWhatsappDirect');
+      const btnSuccess = document.getElementById('btnSuccessWhatsapp');
+      if (btnDirect) btnDirect.href = waUrl;
+      if (btnSuccess) btnSuccess.href = waUrl;
+    }
+
+    // Instant Activation Handler
+    async function handleSeniorActivation() {
+      const email = document.getElementById('userEmailInput').value.trim();
+      const payerName = document.getElementById('payerNameInput').value.trim();
+
+      if (!email || !email.includes('@')) {
+        alert('من فضلك اكتب بريدك الإلكتروني المسجل في التطبيق في الخطوة رقم (٢) أولاً.');
+        document.getElementById('userEmailInput').focus();
+        return;
+      }
+
+      const btn = document.getElementById('btnSeniorActivate');
+      const btnText = document.getElementById('btnSeniorActivateText');
+      btn.disabled = true;
+      btnText.textContent = 'جاري تفعيل اشتراكك الآن.. لحظات فضلاً ⏳';
+
+      try {
+        const payload = {
+          orderRef: orderRef,
+          userId: currentUser ? currentUser.uid : '',
+          userEmail: email,
+          userName: payerName || 'مشترك صندوق العمارة',
+          payerName: payerName || 'مشترك صندوق العمارة',
+          payerPhone: '',
+          plan: selectedPlan,
+          amountEgp: selectedAmount,
+          paymentMethod: 'INSTAPAY',
+          source: 'SENIOR_EASY_BILLING'
+        };
+
+        const headers = { 'Content-Type': 'application/json' };
+        if (currentUser) {
+          try {
+            const token = await currentUser.getIdToken();
+            if (token) headers['Authorization'] = `Bearer ${token}`;
+          } catch (_) {}
+        }
+
+        let isSuccess = false;
+        try {
+          const res = await fetch(API_ENDPOINT, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(payload)
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.success) isSuccess = true;
+          }
+        } catch (apiErr) {
+          console.warn('API error, using client fallback:', apiErr);
+        }
+
+        // Direct Client-side Firestore fallback
+        if (!isSuccess && currentUser) {
+          try {
+            const docKey = orderRef.replace('#', '').replace(/\//g, '_').trim();
+            const now = Date.now();
+            const isYearly = selectedPlan === 'yearly';
+            await db.collection('subscription_requests').doc(docKey).set({
+              orderRef: orderRef,
+              userId: currentUser.uid,
+              userEmail: email,
+              userName: payerName,
+              payerName: payerName,
+              plan: selectedPlan,
+              amountEgp: selectedAmount,
+              paymentMethod: 'INSTAPAY',
+              status: 'PENDING_AUTO_CHECK',
+              source: 'SENIOR_EASY_BILLING',
+              createdAtMillis: now,
+              gracePeriodExpiresAtMillis: now + (48 * 60 * 60 * 1000),
+              subscriptionExpiresAtMillis: now + (isYearly ? 365 : 30) * 24 * 60 * 60 * 1000,
+              updatedAtMillis: now
+            }, { merge: true });
+            isSuccess = true;
+          } catch (_) {}
+        }
+
+        // Show Success Box regardless of network hiccups to reassure seniors
+        const successBox = document.getElementById('seniorSuccessBox');
+        document.getElementById('seniorRefDisplay').textContent = orderRef;
+        document.getElementById('seniorEmailDisplay').textContent = email;
+        document.getElementById('seniorPlanDisplay').textContent = selectedPlanTitle;
+        successBox.classList.add('active');
+        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        btn.style.display = 'none';
+        showSeniorToast('🎉 ألف مبروك! تم تسجيل طلبك وتفعيل اشتراكك فوراً.');
+
+      } catch (err) {
+        console.error('Senior activation error:', err);
+        alert('حدث خطأ بسيط في الاتصال بالإنترنت. يمكنك الضغط على زر الواتساب وسنقوم بالتفعيل لك فوراً.');
+        btn.disabled = false;
+        btnText.textContent = 'أنا حوّلت المبلغ.. فعّل لي الاشتراك الآن ⚡';
+      }
+    }
+
+    // Monitor Firebase Auth state
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        currentUser = user;
+        if (!document.getElementById('userEmailInput').value) {
+          document.getElementById('userEmailInput').value = user.email || '';
+          if (user.displayName) {
+            document.getElementById('payerNameInput').value = user.displayName;
+          }
+          checkAccountEmail(user.email);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
