@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سجل تحديثات صندوق العمارة | رحلة التطوير من النسخة 1 إلى 137</title>
+  <meta name="description" content="كشف كامل وشامل لكافة التحديثات والميزات الإدارية والمحاسبية لتطبيق صندوق العمارة من الإصدار 1 وحتى الإصدار 137، موثقة بالرسومات والشروحات العملية." />
+  <link rel="canonical" href="https://sandoqalemara.com/updates.html" />
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sandoqalemara.com/updates.html" />
+  <meta property="og:title" content="سجل تحديثات تطبيق صندوق العمارة (v1 إلى v137)" />
+  <meta property="og:description" content="استعرض رحلة تطور تطبيق صندوق العمارة عبر 137 إصداراً متتابعاً لخدمة أمناء الصناديق واتحادات الشاغلين في مصر." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="سجل تحديثات تطبيق صندوق العمارة (v1 - v137)" />
+  <meta name="twitter:description" content="كشف كامل بالميزات والتحسينات المحاسبية والإدارية التي تهم المستخدم في صندوق العمارة." />
+  <meta name="twitter:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Styling specific to Changelog / Updates Page */
+    .updates-hero {
+      position: relative;
+      padding: 60px 24px 40px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(30, 58, 138, 0.45) 0%, rgba(11, 17, 32, 0.95) 70%);
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+    .updates-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--secondary-color);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .updates-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      max-width: 900px;
+      margin-inline: auto;
+    }
+    .updates-hero p.lead {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 820px;
+      margin: 0 auto 32px;
+      line-height: 1.8;
+    }
+
+    /* Live Stat Counters Bar */
+    .stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      max-width: 980px;
+      margin: 0 auto 10px;
+    }
+    .stat-ribbon-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 14px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .stat-ribbon-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary-light);
+    }
+    .stat-ribbon-number {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--text-main);
+      display: block;
+      line-height: 1.2;
+    }
+    .stat-ribbon-number.accent { color: var(--secondary-color); }
+    .stat-ribbon-number.blue { color: var(--primary-light); }
+    .stat-ribbon-number.gold { color: var(--accent-color); }
+    .stat-ribbon-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Search & Filter Controls */
+    .controls-wrapper {
+      max-width: 1040px;
+      margin: 36px auto 20px;
+      padding: 0 20px;
+    }
+    .search-box-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 48px 14px 20px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 1.05rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .search-input:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+    }
+    .search-icon {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .filter-chip {
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      color: var(--text-light);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .filter-chip:hover, .filter-chip.active {
+      background: var(--primary-color);
+      border-color: var(--primary-light);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(30, 58, 138, 0.4);
+    }
+
+    /* Main Timeline Container */
+    .timeline-container {
+      max-width: 1040px;
+      margin: 20px auto 80px;
+      padding: 0 20px;
+      position: relative;
+    }
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      bottom: 40px;
+      right: 48px;
+      width: 3px;
+      background: linear-gradient(180deg, var(--secondary-color) 0%, var(--primary-light) 50%, rgba(59, 130, 246, 0.15) 100%);
+      border-radius: 99px;
+    }
+    @media (max-width: 768px) {
+      .timeline-container::before {
+        right: 28px;
+      }
+    }
+
+    /* Timeline Milestone Card */
+    .milestone-item {
+      position: relative;
+      margin-bottom: 48px;
+      padding-right: 76px;
+      transition: transform 0.25s ease;
+    }
+    @media (max-width: 768px) {
+      .milestone-item {
+        padding-right: 54px;
+      }
+    }
+    .milestone-node {
+      position: absolute;
+      right: 37px;
+      top: 24px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--bg-color);
+      border: 3px solid var(--primary-light);
+      box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.2);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 768px) {
+      .milestone-node {
+        right: 17px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .milestone-item.featured .milestone-node {
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.3);
+    }
+    .milestone-node::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: var(--primary-light);
+      border-radius: 50%;
+    }
+    .milestone-item.featured .milestone-node::after {
+      background: var(--secondary-color);
+    }
+
+    .milestone-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 600px) {
+      .milestone-card {
+        padding: 24px 18px;
+      }
+    }
+
+    .milestone-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .milestone-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .version-tag {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: var(--primary-light);
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+    .version-tag.gold {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: rgba(245, 158, 11, 0.4);
+      color: var(--accent-color);
+    }
+    .version-tag.green {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: var(--secondary-color);
+    }
+    .milestone-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+    }
+    .phase-badge {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--card-bg-subtle);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+    }
+
+    /* Milestone Body & Highlights */
+    .milestone-lead {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .feature-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: var(--text-light);
+    }
+    .feature-point-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--secondary-color);
+      margin-top: 2px;
+    }
+
+    /* Graphical Art / Illustration Box */
+    .art-illustration-box {
+      margin: 24px 0 12px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      position: relative;
+    }
+    .art-box-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .art-interactive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .art-card-mini {
+      background: rgba(11, 17, 32, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      text-align: right;
+    }
+    .art-card-mini strong {
+      display: block;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .art-card-mini span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    /* Before & After Comparison Pills */
+    .compare-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0 10px;
+    }
+    @media (max-width: 650px) {
+      .compare-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .compare-box {
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .compare-box.before {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      color: #fca5a5;
+    }
+    .compare-box.after {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: #6ee7b7;
+    }
+    .compare-box strong {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    /* Bottom CTA Box */
+    .cta-banner-card {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1e293b 100%);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 44px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      margin: 60px auto 40px;
+      max-width: 900px;
+    }
+    .cta-banner-card h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+    .cta-banner-card p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-actions-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumb-nav {
+      max-width: 1040px;
+      margin: 20px auto 0;
+      padding: 0 20px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .breadcrumb-nav a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+  </style>
+
+  <!-- Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemPage",
+    "name": "سجل تحديثات صندوق العمارة",
+    "description": "كشف كامل بكافة التحديثات والميزات المحاسبية والإدارية لتطبيق صندوق العمارة من الإصدار 1 إلى 137.",
+    "url": "https://sandoqalemara.com/updates.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "صندوق العمارة",
+      "url": "https://sandoqalemara.com/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a class="brand" href="/">
+        <img src="assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+        <span>صندوق العمارة</span>
+      </a>
+
+      <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+
+      <nav class="nav">
+        <a href="/">الرئيسية</a>
+        <a href="updates.html" style="color: var(--secondary-color); font-weight: 700;">سجل التحديثات ✨</a>
+        <a href="/tools/">الأدوات المجانية</a>
+        <a href="/guides/">أدلة الإدارة</a>
+        <a href="billing.html">الاشتراكات</a>
+        <a href="about.html">عن التطبيق</a>
+        <a href="download.html" class="button primary" style="padding: 8px 18px; font-size: 0.9rem;">تحميل التطبيق</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumb-nav" aria-label="مسار التنقل">
+    <a href="/">الرئيسية</a> &gt; <strong>سجل رحلة التطوير (v1 إلى v137)</strong>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="updates-hero">
+    <div class="updates-hero-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <span>سجل التطور المستمر الموثق</span>
+    </div>
+    <h1>رحلة صندوق العمارة: من النسخة 1 إلى النسخة 137</h1>
+    <p class="lead">
+      توثيق فني ومحاسبي كامل لأهم التحديثات والميزات الميدانية التي تم بناؤها وتطويرها خطوة بخطوة، لخدمة أمين الصندوق، الملاك، وسكان العقار بأعلى درجات الشفافية والسهولة.
+    </p>
+
+    <!-- Stats Ribbon -->
+    <div class="stats-ribbon">
+      <div class="stat-ribbon-card">
+        <span class="stat-ribbon-number blue">137</span>
+        <span class="stat-ribbon-label">إصداراً تراكمياً</span>
+      </div>
+      <div class="stat-ribbon-card">
+        <span class="stat-ribbon-number accent">12</span>
+        <span class="stat-ribbon-label">مرحلة تطوير رئيسية</span>
+      </div>
+      <div class="stat-ribbon-card">
+        <span class="stat-ribbon-number gold">19</span>
+        <span class="stat-ribbon-label">خزينة وقسماً محاسبياً</span>
+      </div>
+      <div class="stat-ribbon-card">
+        <span class="stat-ribbon-number accent">85%+</span>
+        <span class="stat-ribbon-label">توفير استهلاك الباقة</span>
+      </div>
+      <div class="stat-ribbon-card">
+        <span class="stat-ribbon-number blue">100%</span>
+        <span class="stat-ribbon-label">حفظ وخصوصية البيانات</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Filter & Search Controls -->
+  <div class="controls-wrapper">
+    <div class="search-box-container">
+      <svg class="search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="updatesSearchInput" class="search-input" placeholder="ابحث في سجل التحديثات... (مثال: إكسيل، عم أمين، متأخرات، فواتير، واتساب، خصوصية)" aria-label="بحث في التحديثات" />
+    </div>
+
+    <div class="filter-chips">
+      <button class="filter-chip active" data-filter="all">جميع المراحل (12)</button>
+      <button class="filter-chip" data-filter="accounting">المحاسبة والمتأخرات</button>
+      <button class="filter-chip" data-filter="ai">عم أمين والذكاء الاصطناعي</button>
+      <button class="filter-chip" data-filter="excel">الإكسيل والتقارير</button>
+      <button class="filter-chip" data-filter="operations">الخزائن والعمليات</button>
+      <button class="filter-chip" data-filter="ux">الواجهة وتجربة الساكن</button>
+    </div>
+  </div>
+
+  <!-- Timeline Stages Container -->
+  <main class="timeline-container" id="timelineList">
+
+    <!-- Phase 12 (v136 - v137) -->
+    <article class="milestone-item featured" data-category="accounting ux">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag green">v136 – v137</span>
+            <h2 class="milestone-title">التوثيق المالي الرسمي والقفزة في توفير البيانات والسرعة</h2>
+          </div>
+          <span class="phase-badge">المرحلة 12 (الأحدث)</span>
+        </div>
+
+        <p class="milestone-lead">
+          إدراج وتوثيق تاريخ ولحظة الاستخراج المالي رسمياً على كافة المخرجات، مع تحقيق قفزة هندسية نوعية خفضت استهلاك باقة الإنترنت وتحميل البيانات بأكثر من 85%.
+        </p>
+
+        <ul class="features-list">
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>توثيق تاريخ ووقت صدور التقارير المالية المعتمدة:</strong> طباعة تاريخ اليوم ولحظة استخراج التقرير الفعلي في ترويسة وتذييل كافة التقارير (الشهري، السنوي، كشف المتأخرات، دفتر الأستاذ، والمشاريع بصيغ PDF و Excel والصور وكشوف الواتساب) لضمان موثوقيتها القانونية أمام لجان اتحاد الشاغلين.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>خفض استهلاك باقة الإنترنت بنسبة 85%+:</strong> ترشيد المزامنة التلقائية اللحظية، وتخفيف الحمل على بطارية الهاتف مع تسريع استجابة الشاشات فورياً، دون أي مساس بمزامنة العمليات المالية والشقق بين الأجهزة.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>ترقية الذكاء الاصطناعي لتحليل الجداول:</strong> الاعتماد الكامل على أحدث محركات الذكاء الاصطناعي لرفع موثوقية وسرعة قراءة ملفات الإكسيل المعقدة في ثوانٍ معدودة.
+            </div>
+          </li>
+        </ul>
+
+        <!-- Visual Art Box -->
+        <div class="art-illustration-box">
+          <div class="art-box-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+            <span>مخطط كفاءة الأداء وتوثيق التقارير (v136 – v137)</span>
+          </div>
+          <div class="art-interactive-grid">
+            <div class="art-card-mini">
+              <strong>📑 ختم تاريخ الاستخراج</strong>
+              <span>يظهر أسفل كل تقرير: «تاريخ الإصدار: 05 أكتوبر 2026 - 03:30 م» لتوثيق الموقف المالي بدقة.</span>
+            </div>
+            <div class="art-card-mini">
+              <strong>⚡ سرعة استجابة فائقة</strong>
+              <span>انعدام تام للتعليق أثناء فتح كشوف الشقق والمصروفات حتى في العمارات الكبيرة (100+ شقة).</span>
+            </div>
+            <div class="art-card-mini">
+              <strong>🔋 توفير بطارية الهاتف</strong>
+              <span>التوقف عن الاستهلاك الدائم للإنترنت في الخلفية والاعتماد على المزامنة الذكية عند التغيير فقط.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Phase 11 (v132 - v135) -->
+    <article class="milestone-item" data-category="accounting ux">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag blue">v132 – v135</span>
+            <h2 class="milestone-title">سداد المديونيات السابقة المقطوعة وترقية كارت الحساب التنفيذي</h2>
+          </div>
+          <span class="phase-badge">المرحلة 11</span>
+        </div>
+
+        <p class="milestone-lead">
+          إطلاق حل جذري للمديونيات المتراكمة القديمة قبل بدء التطبيق مع إيصال واتساب مخصص، وتطوير قائمة حساب متكاملة تدعم الصورة الشخصية لحساب Google.
+        </p>
+
+        <ul class="features-list">
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>وضع «سداد مديونية سابقة 📑» بنقرة واحدة:</strong> يظهر تلقائياً في نافذة السداد للشقق التي عليها متأخرات قديمة مقطوعة، مع أزرار تعبئة فورية («كامل المتبقي» و «نصف المتبقي»).
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>إيصال سداد مديونية واتساب معتمد:</strong> إصدار ومشاركة صورة إيصال سداد رقمية مخصصة ومصاغة محاسبياً عبر واتساب الساكن بضغطة زر، توضح المبلغ المسدد والمتبقي بدقة تامة.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>كارت المستخدم التنفيذي الفخم (Executive Profile):</strong> إظهار الصورة الشخصية لحساب Google، مع شارات واضحة لنوع الترخيص (عضوية VIP ⭐ / مشترك رسمي / تجربة مجانية) ومؤشر المزامنة الحية.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>شارة الخلاص التام (Green Success Badge):</strong> ظهور شارة نجاح خضراء أنيقة على كارت الشقة فور تصفير كامل المديونية السابقة.
+            </div>
+          </li>
+        </ul>
+
+        <div class="compare-container">
+          <div class="compare-box before">
+            <strong>❌ قبل التحديث:</strong>
+            كان يتم تسجيل مديونية الشقة السابقة كدفعة عادية، مما يخلط بين اشتراك الشهر الحالي والديون القديمة المتراكمة.
+          </div>
+          <div class="compare-box after">
+            <strong>✅ بعد التحديث (v134-135):</strong>
+            مسار مالي مستقل يخصم المبلغ من خانة المديونية السابقة فوراً مع إيصال واتساب معتمد يحمي أمين الصندوق ويوثق حق الساكن.
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Phase 10 (v127 - v131) -->
+    <article class="milestone-item" data-category="excel ai operations">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag gold">v127 – v131</span>
+            <h2 class="milestone-title">ثورة الإكسيل بالذكاء الاصطناعي، الخصوصية، والنسخ الليلي</h2>
+          </div>
+          <span class="phase-badge">المرحلة 10</span>
+        </div>
+
+        <p class="milestone-lead">
+          تحويل استيراد وتصدير الإكسيل إلى تجربة ذكية متكاملة بضغطة زر واحدة دون أي خلط في الأعمدة، مع إضافة مستويات خصوصية ثلاثية لكشف المتأخرات والنسخ التلقائي الليلي.
+        </p>
+
+        <ul class="features-list">
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>فصل ذكي صارم بين أرقام الهواتف وأرقام الشقق:</strong> خوارزمية ذكية تفرق بنسبة 100% بين أرقام الموبايل (11 رقماً تبدأ بـ 01) وأرقام الشقق، مما يمنع نهائياً وضع رقم التليفون مكان رقم الشقة.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>استشارة عم أمين بالذكاء الاصطناعي في الإكسيل:</strong> زر مخصص يقوم فيه عم أمين بتحليل أي شيت يدوي غريب وتحديد الأعمدة ومطابقتها تلقائياً، مع لوحة تحكم «تعديل ربط الأعمدة ⚙️» للمراجعة اليدوية.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>درع الأمان وخيار التراجع الفوري (Undo ⏪):</strong> إنشاء نقطة استعادة تلقائية صامتة قبل أي استيراد للملفات، مع ظهور زر تراجع واضح بأعلى الشاشة يتيح إلغاء الاستيراد بلمسة واحدة.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>خيارات الخصوصية الثلاثية في كشف المتأخرات:</strong> إمكانية استخراج الكشف بـ (كامل البيانات / إخفاء أسماء السكان وهواتفهم / تشفير أرقام الشقق والأسماء بالكامل) لنشره في جروب العمارة بدون إحراج.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>النسخ الاحتياطي الليلي لجوجل درايف (02:00 ص):</strong> تثبيت وقت الحفظ اليومي التلقائي ليلاً في هدوء تام دون مقاطعة استخدام الهاتف نهاراً.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>إطلاق دليل الميزات التفاعلي (14 قسماً 💡):</strong> مساعد مصور وحي يشرح بالفيديو والصور التفاعلية كل ميزة وكيفية استخدامها.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Phase 9 (v123 - v126) -->
+    <article class="milestone-item" data-category="ai accounting">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag green">v123 – v126</span>
+            <h2 class="milestone-title">الذاكرة الدائمة لعم أمين، معالجة الأرقام المشرقية، والبدايات المحاسبية</h2>
+          </div>
+          <span class="phase-badge">المرحلة 9</span>
+        </div>
+
+        <p class="milestone-lead">
+          أصبح عم أمين يتذكر اسمك ولقبك وتفضيلاتك دائماً، مع ضبط محاسبي صارم يفرق بين متبقي الشهر الجاري والمتأخرات الحقيقية، ومعالجة الأرقام العربية المشرقية.
+        </p>
+
+        <ul class="features-list">
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>نظام الذاكرة الشخصية لعم أمين (Personal Memory 🧠):</strong> أخبر عم أمين باللقب الذي تحبه («ناديني يا باشمهندس أحمد» أو «خليك مختصر في الردود»)، وسيتذكره دائماً مع واجهة للتحكم في الذاكرة ومسحها متى أردت.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>التفرقة المحاسبية بين «متبقي الشهر» و «المتأخرات»:</strong> كارت الشاشة الرئيسية يوضح «متبقي اشتراكات شهر [كذا] لم تُحصّل بعد» خلال الشهر الجاري، ولا يُطلق لفظ «متأخرات» إلا بعد انتهاء الشهر.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>المعالجة التلقائية للأرقام المشرقية (٠ ١ ٢...):</strong> التوافق الكامل مع لوحات المفاتيح التي تكتب أرقاماً عربية شرقية لمنع أي خطأ في تسجيل التواريخ أو احتساب المتأخرات.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Phase 8 (v115 - v122) -->
+    <article class="milestone-item" data-category="accounting ux">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag blue">v115 – v122</span>
+            <h2 class="milestone-title">ترتيب التقارير الزمني، إرفاق حتى 5 فواتير، وتحسين الواجهات</h2>
+          </div>
+          <span class="phase-badge">المرحلة 8</span>
+        </div>
+
+        <p class="milestone-lead">
+          إعادة هيكلة ترتيب التقارير المالية لتسير زمنياً من الأقدم إلى الأحدث، وإتاحة إرفاق حتى 5 صور فواتير لكل عملية صرف ومشاركتها عبر الواتساب.
+        </p>
+
+        <ul class="features-list">
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>ترتيب كشوف التقارير (من الأقدم إلى الأحدث):</strong> تسلسل زمني مطابق لمنطق الدفاتر المحاسبية، بحيث يبدأ التقرير من أول الشهر وصولاً لآخر يوم.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>إرفاق حتى 5 صور فواتير لكل عملية صرف:</strong> تصوير وإرفاق الفواتير وإيصالات الشراء مع ضغط فوري وحفظ سحابي، ومشاركتها مباشرة عبر الواتساب مع السكان.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>تطوير شاشة الشقق والفلاتر السريعة:</strong> تنظيم أزرار التصفية بالأعلى (الكل / مسدد / غير مسدد / جزئي) بعداد فوري وتكبير مساحات اللمس لسهولة الاستخدام أثناء الحركة.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Phase 7 (v100 - v114) -->
+    <article class="milestone-item" data-category="ai">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag gold">v100 – v114</span>
+            <h2 class="milestone-title">ولادة المساعد الذكي "عم أمين" (AI Assistant)</h2>
+          </div>
+          <span class="phase-badge">المرحلة 7</span>
+        </div>
+
+        <p class="milestone-lead">
+          إطلاق شخصية المساعد الذكي "عم أمين" المتخصص في حسابات الصناديق العقارية، وقوانين اتحاد الشاغلين في مصر، بلهجة مصرية ودودة وإجابات عملية فورية.
+        </p>
+
+        <ul class="features-list">
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>استشارات مالية وقانونية فورية:</strong> يسرد لك حسابات العمارة بالقرش، إجمالي المتأخرات، وموقف كل شقة، مع تقديم النصيحة في حل الخلافات بين السكان بحسب القانون 119 ولائحته التنفيذية.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>إرشاد كامل للشاشات والأزرار:</strong> اسأله «إزاي أعمل كذا؟» وسيقوم بإعطائك الخطوات العملية بالترتيب وبوضوح تام.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Phase 6 (v91 - v92) -->
+    <article class="milestone-item" data-category="ux operations">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag blue">v91 – v92</span>
+            <h2 class="milestone-title">الإعلانات التفاعلية وتوسيع النسخ الاحتياطي الشامل</h2>
+          </div>
+          <span class="phase-badge">المرحلة 6</span>
+        </div>
+
+        <p class="milestone-lead">
+          نظام تنبيهات وبانرات تفاعلية تتيح التواصل مع المستخدمين وإرشادهم للمستجدات، مع تغطية النسخ الاحتياطي الشامل لكافة أقسام النظام الـ 19.
+        </p>
+      </div>
+    </article>
+
+    <!-- Phase 5 (v54 - v76) -->
+    <article class="milestone-item" data-category="operations accounting">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag green">v54 – v76</span>
+            <h2 class="milestone-title">مركز العمليات المالية الشامل، صندوق المسجد، والتحويل بين الخزائن</h2>
+          </div>
+          <span class="phase-badge">المرحلة 5</span>
+        </div>
+
+        <p class="milestone-lead">
+          نقلة نوعية وسّعت مهام التطبيق من مجرد تحصيل اشتراكات إلى إدارة متكاملة للمشاريع الخاصة، السلفيات، العهد، صندوق المسجد، وتتبع الخزائن الثلاث.
+        </p>
+
+        <ul class="features-list">
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>صندوق المسجد المستقل (Mosque Fund):</strong> فصل تبرعات ومصروفات مسجد العمارة بحساب مستقل لا يختلط بأموال الصندوق العام.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>التحويل بين الخزائن (Treasury Transfers):</strong> تحويل الأموال بسلاسة بين (الخزينة النقدية - الكاش، الحساب البنكي، والمحفظة الإلكترونية) مع تحديث الأرصدة فورياً.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>المشاريع الخاصة والسلفيات والعهد:</strong> متابعة ميزانيات صيانة الواجهة أو المصعد المنفصلة، وتسجيل عهدة البواب وتصفيتها.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Phase 4 (v40 - v52) -->
+    <article class="milestone-item" data-category="accounting ux">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag blue">v40 – v52</span>
+            <h2 class="milestone-title">إعفاءات الشقق، سجل تاريخ الساكن، وتطوير السداد</h2>
+          </div>
+          <span class="phase-badge">المرحلة 4</span>
+        </div>
+
+        <p class="milestone-lead">
+          إتاحة خيار إعفاء الشقق المغلقة، وحفظ تاريخ سريان الأسعار الجديدة دون المساس بالشهور القديمة، وتطوير نافذة تسجيل الدفعة ومنع تكرار الشقق.
+        </p>
+
+        <ul class="features-list">
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>نظام إعفاء الشقق (Exemptions):</strong> إعفاء كلي أو جزئي لأي شقة مع تحديد شهور الإعفاء، بحيث لا تتراكم عليها متأخرات أثناء غياب الساكن.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>تعديل قيمة الاشتراك بشهر سريان مستقبلي:</strong> رفع قيمة الاشتراك الشهري من الشهر القادم دون أي أثر رجعي على الشهور السابقة.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>محدد الشهور والسنين التفاعلي (Month-Year Picker):</strong> اختيار الشهر بلمسة واحدة ومنع تكرار رقم الشقة نهائياً.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Phase 3 (v29 - v39) -->
+    <article class="milestone-item" data-category="excel accounting">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag gold">v29 – v39</span>
+            <h2 class="milestone-title">إرفاق الفواتير، الآلة الحاسبة الذكية، وإطلاق "دفتر الأستاذ الورقي"</h2>
+          </div>
+          <span class="phase-badge">المرحلة 3</span>
+        </div>
+
+        <p class="milestone-lead">
+          إطلاق نموذج دفتر الأستاذ المحاسبي المعتمد (Paper Ledger) بصيغة PDF فاخرة تحاكي الدفاتر الورقية، مع حاسبة مدمجة وإرفاق فواتير المصروفات.
+        </p>
+
+        <ul class="features-list">
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>التقرير الورقي الرسمي (Paper Ledger PDF):</strong> تقرير شامل متعدد الصفحات يوضح حركة الوارد والمنصرف والرصيد المتتابع بعد كل معاملة.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>الآلة الحاسبة الذكية المدمجة:</strong> جمع وتعديل بنود الفواتير مباشرة داخل نافذة تسجيل المبلغ دون الحاجة لفتح حاسبة الهاتف الخارجية.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Phase 2 (v13 - v26) -->
+    <article class="milestone-item" data-category="ux operations">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag green">v13 – v26</span>
+            <h2 class="milestone-title">المزامنة السحابية بحساب Google وتجربة الـ 30 يوماً الكاملة</h2>
+          </div>
+          <span class="phase-badge">المرحلة 2</span>
+        </div>
+
+        <p class="milestone-lead">
+          ربط بيانات العمارة بحساب Google مع مزامنة سحابية متعددة الأجهزة، وإطلاق تجربة مجانية كاملة لـ 30 يوماً بكامل الصلاحيات، ونظام تذاكر الدعم الفني.
+        </p>
+      </div>
+    </article>
+
+    <!-- Phase 1 (v1 - v12) -->
+    <article class="milestone-item" data-category="accounting">
+      <div class="milestone-node"></div>
+      <div class="milestone-card">
+        <div class="milestone-header">
+          <div class="milestone-title-group">
+            <span class="version-tag blue">v1 – v12</span>
+            <h2 class="milestone-title">التأسيس وإطلاق النظام المحاسبي والمتأخرات التراكمية</h2>
+          </div>
+          <span class="phase-badge">المرحلة 1 (الانطلاقة)</span>
+        </div>
+
+        <p class="milestone-lead">
+          النواة التأسيسية لتطبيق "صندوق العمارة": إدارة شقق وسكان العمارة، تسجيل المصروفات، خوارزمية المتأخرات التراكمية، الدفعات المقدمة، وتصدير التقارير.
+        </p>
+
+        <ul class="features-list">
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>حساب المتأخرات التراكمية العادلة:</strong> احتساب الديون بناءً على تاريخ التحاق الساكن بالعمارة دون مطالبته بشهور سابقة لسكنه.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>سداد شهور مقدماً (Carried Credits):</strong> تسجيل سداد 6 شهور أو سنة مقدماً وترحيل الرصيد تلقائياً كلما بدأ شهر جديد.
+            </div>
+          </li>
+          <li class="feature-point">
+            <svg class="feature-point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div>
+              <strong>تصدير التقارير الشهرية بصيغة PDF وصور:</strong> إرسال كشوف الحساب وموقف الشقق بسهولة على جروب واتساب العمارة.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Bottom CTA Banner -->
+  <section class="cta-banner-card">
+    <h2>ابدأ إدارة عماراتك بأحدث إصدار مستقر (v137)</h2>
+    <p>
+      انضم لمئات أمناء الصناديق والملاك في مصر، واستمتع بتجربة مجانية كاملة لمدة 30 يوماً بدون أي التزامات.
+    </p>
+    <div class="cta-actions-group">
+      <a href="download.html" class="button primary" style="padding: 14px 32px; font-size: 1.05rem; font-weight: 800;">
+        تحميل التطبيق الآن مجاناً 🚀
+      </a>
+      <a href="billing.html" class="button secondary" style="padding: 14px 28px; font-size: 1rem;">
+        استعراض باقات الاشتراك والترخيص
+      </a>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-col brand-col">
+          <div class="brand" style="justify-content: flex-start; margin-bottom: 8px;">
+            <img src="assets/sandooq-logo.png" alt="شعار صندوق العمارة" width="36" height="36" loading="lazy" />
+            <span>صندوق العمارة</span>
+          </div>
+          <p class="footer-brand-p">
+            المنصة والتطبيق المتخصص لإدارة حسابات العقارات السكنية واتحادات الملاك في مصر، لمتابعة التحصيلات والمصروفات بكل شفافية وبدون أخطاء.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://www.facebook.com/sandoqalemara/" target="_blank" rel="noopener noreferrer" class="footer-social-btn facebook" title="فيسبوك" aria-label="فيسبوك">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/sandooqelamara?stkn=c2h1MGJldjRwY3R4" target="_blank" rel="noopener noreferrer" class="footer-social-btn instagram" title="إنستجرام" aria-label="إنستجرام">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP" target="_blank" rel="noopener noreferrer" class="footer-social-btn youtube" title="يوتيوب" aria-label="يوتيوب">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>روابط سريعة</h4>
+          <ul>
+            <li><a href="/">الرئيسية</a></li>
+            <li><a href="updates.html" style="color:var(--secondary-color); font-weight:700;">سجل التحديثات (v1 - v137) ✨</a></li>
+            <li><a href="download.html">تحميل التطبيق</a></li>
+            <li><a href="billing.html" style="color:var(--secondary-color); font-weight:700;">الاشتراكات والدفع ⚡</a></li>
+            <li><a href="about.html">عن التطبيق والمطور</a></li>
+            <li><a href="contact.html">تواصل معنا والدعم</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Free Tools -->
+        <div class="footer-col">
+          <h4>الأدوات المجانية</h4>
+          <ul>
+            <li><a href="/tools/">مركز الأدوات التفاعلية</a></li>
+            <li><a href="tools/building-fee-calculator.html">حاسبة اشتراك العمارة</a></li>
+            <li><a href="tools/receipt-generator.html">مولد إيصالات السداد</a></li>
+            <li><a href="guides/building-expenses-excel-sheet.html">شيت إكسيل المصروفات</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Guides & Legal -->
+        <div class="footer-col">
+          <h4>أدلة وسياسات</h4>
+          <ul>
+            <li><a href="/guides/">مكتبة أدلة الإدارة</a></li>
+            <li><a href="guides/building-fund-management-guide.html">دليل إدارة الصندوق وقانونه</a></li>
+            <li><a href="privacy.html">سياسة الخصوصية</a></li>
+            <li><a href="delete-account.html">طلب حذف الحساب والبيانات</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer-copy">© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة. <span class="site-version" style="display: inline-block; margin-right: 8px; opacity: 0.8; font-size: 0.85em;">(إصدار التطبيق الحالي: v1.0.137)</span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Interactive Search and Filter Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('updatesSearchInput');
+      const filterChips = document.querySelectorAll('.filter-chip');
+      const milestoneItems = document.querySelectorAll('.milestone-item');
+
+      let currentFilter = 'all';
+      let currentQuery = '';
+
+      function filterMilestones() {
+        milestoneItems.forEach(item => {
+          const categories = item.getAttribute('data-category') || '';
+          const text = item.textContent.toLowerCase();
+
+          const matchesCategory = (currentFilter === 'all') || categories.includes(currentFilter);
+          const matchesQuery = !currentQuery || text.includes(currentQuery);
+
+          if (matchesCategory && matchesQuery) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      }
+
+      // Filter chips click
+      filterChips.forEach(chip => {
+        chip.addEventListener('click', function() {
+          filterChips.forEach(c => c.classList.remove('active'));
+          this.classList.add('active');
+          currentFilter = this.getAttribute('data-filter');
+          filterMilestones();
+        });
+      });
+
+      // Search input typing
+      if (searchInput) {
+        searchInput.addEventListener('input', function() {
+          currentQuery = this.value.trim().toLowerCase();
+          filterMilestones();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

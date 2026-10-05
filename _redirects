@@ -9,3 +9,6 @@
 /subscribe /billing.html 301
 /billing-easy /billing-easy.html 200
 /easy-billing /billing-easy.html 301
+/updates /updates.html 200
+/changelog /updates.html 301
+/versions /updates.html 301
