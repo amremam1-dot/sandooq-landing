@@ -64,7 +64,17 @@ if (typeof window !== "undefined" && (window.location.pathname.endsWith('/index.
               name: "صندوق العمارة (Sandooq El-Amara)",
               download_url: "https://sandoqalemara.com/download.html",
               billing_url: "https://sandoqalemara.com/billing.html",
-              website: "https://sandoqalemara.com"
+              website: "https://sandoqalemara.com",
+              features: [
+                "الإدخال الصوتي الذكي مع عم أمين بالعامية المصرية",
+                "استيراد وتصدير إكسيل متطور بالذكاء الاصطناعي مع درع التراجع الفوري",
+                "توليد إيصالات ومطالبات واتساب فورية",
+                "سداد المديونيات السابقة المقطوعة مع مسار مالي مستقل",
+                "إدارة المشاريع الخاصة وصناديق الصيانة وعمرة المصعد",
+                "ضبط عهدة البواب النقدية وصندوق المسجد المستقل",
+                "إرفاق صور الفواتير السحابية والمحلية ومشاركتها",
+                "يعمل أوفلاين بدون إنترنت مع مزامنة سحابية مشفرة"
+              ]
             };
           }
         }, opts);
@@ -174,7 +184,9 @@ function initMainApp() {
   const showcaseImages = {
     dashboard: "assets/showcase-dashboard-720.webp",
     units: "assets/showcase-units-720.webp",
-    payments: "assets/showcase-payments-720.webp"
+    payments: "assets/showcase-payments-720.webp",
+    voice: "assets/showcase-voice.jpg",
+    excel: "assets/showcase-reports.webp"
   };
 
   showcaseTabs.forEach(tab => {
