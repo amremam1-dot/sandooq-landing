@@ -1227,7 +1227,7 @@
     <div class="plans-selection-grid">
       <!-- Yearly Plan Card -->
       <div class="plan-option-card selected" id="planCardYearly" onclick="selectPlan('yearly')">
-        <div class="plan-badge-top">🔥 الأكثر توفيراً (13 شهراً بسعر 12)</div>
+        <div class="plan-badge-top">🔥 الأكثر توفيراً (توفير شهرين كاملين)</div>
         <div class="plan-header">
           <div class="plan-title-wrap">
             <h3>الاشتراك السنوي الذهبي (VIP)</h3>
@@ -1236,10 +1236,10 @@
         </div>
         <div class="plan-price-row">
           <span class="plan-price-num">499.99</span>
-          <span class="plan-price-period">ج.م / سنوياً (12 شهراً + شهر هدية)</span>
+          <span class="plan-price-period">ج.م / سنوياً (12 شهراً)</span>
         </div>
         <p class="plan-desc-note">
-          توفير شهرين كاملين مقارنة بالتجديد الشهري + شهر إضافي مجاني عند تفعيل الهدية.
+          توفير شهرين كاملين مقارنة بالتجديد الشهري (499.99 ج.م بدلاً من 600 ج.م سنوياً).
         </p>
         <ul class="plan-features-mini">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> مزامنة سحابية غير محدودة ومشفرة</li>
@@ -1570,7 +1570,7 @@
           <svg class="faq-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </div>
         <div class="faq-accordion-body">
-          الاشتراك السنوي يمنحك توفيراً بنسبة 17% (توفير شهرين كاملين) بالإضافة إلى شهر هدية مجاناً (13 شهراً بسعر 12 شهراً)، مع أولوية دعم فني وضمان استمرارية الحفظ والمزامنة السحابية لكافة بيانات عمارتك وسكانك وإيصالاتك دون انقطاع.
+          الاشتراك السنوي يمنحك توفيراً بنسبة تقارب 17% (توفير شهرين كاملين مقارنة بالتجديد الشهري، أي 499.99 ج.م بدلاً من 600 ج.م سنوياً)، مع أولوية دعم فني وضمان استمرارية الحفظ والمزامنة السحابية لكافة بيانات عمارتك وسكانك وإيصالاتك دون انقطاع.
         </div>
       </div>
 
@@ -2016,7 +2016,7 @@
         currentPlanTitle = 'الاشتراك السنوي الذهبي (VIP)';
         cardYearly.classList.add('selected');
         cardMonthly.classList.remove('selected');
-        summaryLabel.textContent = 'الباقة المختارة: الاشتراك السنوي الذهبي (VIP) • 499.99 ج.م (13 شهراً)';
+        summaryLabel.textContent = 'الباقة المختارة: الاشتراك السنوي الذهبي (VIP) • 499.99 ج.م (12 شهراً)';
         instapayAmount.textContent = '499.99 ج.م';
       } else {
         currentAmount = '49.99';
