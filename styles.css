@@ -1577,6 +1577,152 @@ body.light-theme .moon-icon { display: none; }
   font-weight: 700;
 }
 
+/* Read more button on marquee card */
+.marquee-read-more-btn {
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: var(--primary-light);
+  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  transition: var(--transition);
+  margin-top: 4px;
+}
+
+.marquee-read-more-btn:hover {
+  background: var(--primary-light);
+  color: #fff;
+  border-color: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+/* Review Full Details Modal */
+.review-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(11, 17, 32, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.review-modal-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.review-modal-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 680px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  text-align: right;
+  direction: rtl;
+}
+
+.review-modal-backdrop.is-active .review-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.review-modal-close {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg-subtle);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 2;
+}
+
+.review-modal-close:hover {
+  color: var(--text-main);
+  background: rgba(239, 68, 68, 0.2);
+  border-color: var(--danger-color);
+}
+
+.review-modal-header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.review-modal-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.review-modal-body {
+  padding: 24px 28px;
+  overflow-y: auto;
+  line-height: 1.85;
+  color: var(--text-light);
+  font-size: 0.98rem;
+  flex-grow: 1;
+}
+
+.review-modal-body p {
+  margin: 0 0 14px;
+}
+
+.review-modal-body p:last-child {
+  margin-bottom: 0;
+}
+
+.review-modal-body strong {
+  color: var(--text-main);
+}
+
+.review-modal-footer {
+  padding: 16px 28px;
+  border-top: 1px solid var(--border-color);
+  background: var(--card-bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }

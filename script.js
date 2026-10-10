@@ -333,6 +333,76 @@ function initMainApp() {
       window.addEventListener(evt, loadChatbot, { once: true, passive: true });
     });
   })();
+
+  // 8. Reviews Full Details Modal
+  const FULL_REVIEWS_DATA = {
+    mostafa: {
+      name: "Mostafa Hassan (مصطفى حسن)",
+      role: "أمين صندوق عمارة — مستخدم نشط",
+      badge: "✓ تجربة شاملة وموثقة",
+      initials: "MH",
+      avatarBg: "linear-gradient(135deg, #10b981, #059669)",
+      fullText: [
+        "احب اشرحلكم تجربتي مع البرنامج بدون اى نفاق او كذب.....",
+        "<strong>اولا :</strong> البرنامج محترم جدا وشافى ووافى ولامم كل امور العمارة ويستحق عن جدارة احسن تطبيق لادارة اى عماره.",
+        "<strong>ثانيا ودا الاهم :</strong> القائمين على البرنامج والله والله والله ناس فى قمه الزوق والادب والضمير؛ انا بعتلهم كميه اضافات وتعديلات على البرنامج كبيره جدا ودا باين من المنشورات اللى انا بعتها على الجروب، والناس بصراحه مزهقتش ولاملت منى ولاتجاهلونى ووصلوا لدرجه انهم كانوا بيكلمونى خاص واتس وماسنجر للتأكد من التعديلات والتغيرات اللى طلبتها وكل طلب تعديل اوتغير او تحديث طلبته بصراحه هما عملوه واحسن كمان ماكنت متخيل.",
+        "وصلوا التطبيق انه يفسر اى شئ انت متخيله سواء للمستخدم او للساكن لو حب يستفسر عن اى شئ، واللى عجبنى فيهم سرعه العمل والتعديل والتحديث بعد ماببعتلهم التعديل فى نفس اليوم او يوم بالكتير كل التعديلات والتحديثات بتتعمل واحسن مابطلب بصراحة.....",
+        "انت اكتر حاجه عجبانى فى التطبيق فريق العمل لسرعه فى الرد على المستخدمين ومتابعة التعديلات اللى طالبه المستحدم ومتابعته اكتر من التطبيق نفسه، بالرغم من التطبيق جامد جدا ولاغنى عنه، ولكن اللى حببنى فى البرنامج اكتر بصراحة فريق العمل القائم عليه..... اتمنى من القائمين عليه الاستمرار فى تقديم خدمه الدعم للتطبيق للمستحدمين وعدم التغافل عن البرنامج بعد فتره طويله وتجاهله مما يؤدى الى اسقاط او ضياع البرنامج."
+      ]
+    },
+    mohamed: {
+      name: "Mohamed Emam (محمد إمام)",
+      role: "إدارة وتشغيل عقارات",
+      badge: "✓ تجربة فعلية ومستمرة",
+      initials: "ME",
+      avatarBg: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
+      fullText: [
+        "بصراحة ومن خلال تجربة فعلية ومستمرّة للتطبيق، أستطيع القول إن التطبيق أكثر من رائع، وإمكانياته مميزة جدًا، ويجمع بين سهولة الاستخدام والدقة والتنظيم والشفافية بشكل واضح.",
+        "وأرى أن الإمكانيات الموجودة حاليًا، مع التحديثات والتطوير المستمر، تجعله مشروعًا واعدًا جدًا وقادرًا على أن يكون رقم واحد في هذا المجال مستقبلًا بإذن الله.",
+        "وأكثر ما يميزه أن التطوير لا يتوقف، فكل فترة نجد أفكارًا جديدة وتحسينات تضيف قيمة حقيقية وتجعله أكثر احترافية وسهولة في الاستخدام. وهذا يدل على أن القائمين عليه لديهم رؤية."
+      ]
+    }
+  };
+
+  window.openReviewModal = function(key) {
+    const data = FULL_REVIEWS_DATA[key];
+    if (!data) return;
+    const modal = document.getElementById("reviewModal");
+    if (!modal) return;
+
+    document.getElementById("modalName").textContent = data.name;
+    document.getElementById("modalRole").textContent = data.role;
+    document.getElementById("modalAvatar").textContent = data.initials;
+    document.getElementById("modalAvatar").style.background = data.avatarBg;
+    document.getElementById("modalBadge").textContent = data.badge;
+
+    const bodyEl = document.getElementById("modalBody");
+    bodyEl.innerHTML = data.fullText.map(p => `<p>${p}</p>`).join("");
+
+    modal.classList.add("is-active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  window.closeReviewModal = function() {
+    const modal = document.getElementById("reviewModal");
+    if (!modal) return;
+    modal.classList.remove("is-active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") window.closeReviewModal();
+  });
+
+  const modalEl = document.getElementById("reviewModal");
+  if (modalEl) {
+    modalEl.addEventListener("click", (e) => {
+      if (e.target.id === "reviewModal") window.closeReviewModal();
+    });
+  }
+
 }
 
 if (document.readyState === "loading") {
