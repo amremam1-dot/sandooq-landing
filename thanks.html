@@ -355,7 +355,7 @@
     <!-- Stats Ribbon -->
     <div class="thanks-stats-ribbon">
       <div class="stat-ribbon-card">
-        <span class="stat-ribbon-number gold" id="heroContributorsCount">0</span>
+        <span class="stat-ribbon-number gold" id="heroContributorsCount">7</span>
         <span class="stat-ribbon-label">شريك نجاح ومساهم</span>
       </div>
       <div class="stat-ribbon-card">
@@ -376,14 +376,76 @@
       <input type="text" id="namesSearchInput" class="search-input" placeholder="ابحث بالاسم في لوحة الشرف..." aria-label="بحث في الأسماء" />
     </div>
     <div class="count-indicator">
-      يتم عرض <span id="displayedCount">0</span> من شركاء النجاح
+      يتم عرض <span id="displayedCount">7</span> من شركاء النجاح
     </div>
   </div>
 
   <!-- Contributors Grid Container -->
   <main class="contributors-container">
     <div class="contributors-grid" id="contributorsGrid">
-      <!-- Cards will be populated dynamically from CONTRIBUTORS list -->
+      <div class="contributor-card">
+        <div class="contributor-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="contributor-info">
+          <h3 class="contributor-name" title="Mohamed Emam">Mohamed Emam</h3>
+          <div class="contributor-tag"><span>شريك نجاح ومساهم</span></div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="contributor-info">
+          <h3 class="contributor-name" title="Sara Mohamed">Sara Mohamed</h3>
+          <div class="contributor-tag"><span>شريك نجاح ومساهم</span></div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="contributor-info">
+          <h3 class="contributor-name" title="George Francis">George Francis</h3>
+          <div class="contributor-tag"><span>شريك نجاح ومساهم</span></div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="contributor-info">
+          <h3 class="contributor-name" title="Tamer Abuelmagd">Tamer Abuelmagd</h3>
+          <div class="contributor-tag"><span>شريك نجاح ومساهم</span></div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="contributor-info">
+          <h3 class="contributor-name" title="Muhamed Said">Muhamed Said</h3>
+          <div class="contributor-tag"><span>شريك نجاح ومساهم</span></div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="contributor-info">
+          <h3 class="contributor-name" title="Mostafa Hassan">Mostafa Hassan</h3>
+          <div class="contributor-tag"><span>شريك نجاح ومساهم</span></div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="contributor-info">
+          <h3 class="contributor-name" title="Hosam Salem">Hosam Salem</h3>
+          <div class="contributor-tag"><span>شريك نجاح ومساهم</span></div>
+        </div>
+      </div>
     </div>
 
     <!-- Empty Search State -->
@@ -489,7 +551,13 @@
      * =========================================================================
      */
     const CONTRIBUTORS = [
-      // سيتم وضع الأسماء هنا فور تزويدنا بها من المستخدم
+      "Mohamed Emam",
+      "Sara Mohamed",
+      "George Francis",
+      "Tamer Abuelmagd",
+      "Muhamed Said",
+      "Mostafa Hassan",
+      "Hosam Salem"
     ];
 
     document.addEventListener('DOMContentLoaded', function() {
