@@ -117,12 +117,43 @@ function initMainApp() {
     }
   }
 
-  // 1. Theme Toggle
+  // 1. Theme Toggle & Theme-Aware App Screenshots (Dark <-> Light)
   const themeToggleBtn = document.getElementById("theme-toggle");
   const currentTheme = localStorage.getItem("sandooq_theme") || "dark";
 
+  function toThemeAssetUrl(value, isLight) {
+    if (!value) return value;
+    return value.replace(
+      /(assets\/(?:hero-main(?:-\d+)?|showcase-[a-z]+(?:-\d+)?|[1-4](?:-\d+)?))(?:-light)?\.(webp|png|jpg)/g,
+      (_, prefix, ext) => `${prefix}${isLight ? "-light" : ""}.${ext}`
+    );
+  }
+
+  function applyThemeScreenshots(isLight) {
+    document.querySelectorAll("picture source[srcset]").forEach(source => {
+      const current = source.getAttribute("srcset");
+      const updated = toThemeAssetUrl(current, isLight);
+      if (updated !== current) source.setAttribute("srcset", updated);
+    });
+    document.querySelectorAll("img").forEach(img => {
+      const currentSrcset = img.getAttribute("srcset");
+      if (currentSrcset) {
+        const updatedSrcset = toThemeAssetUrl(currentSrcset, isLight);
+        if (updatedSrcset !== currentSrcset) img.setAttribute("srcset", updatedSrcset);
+      }
+      const currentSrc = img.getAttribute("src");
+      if (currentSrc) {
+        const updatedSrc = toThemeAssetUrl(currentSrc, isLight);
+        if (updatedSrc !== currentSrc) img.setAttribute("src", updatedSrc);
+      }
+    });
+  }
+
   if (currentTheme === "light") {
     document.body.classList.add("light-theme");
+    applyThemeScreenshots(true);
+  } else {
+    applyThemeScreenshots(false);
   }
 
   if (themeToggleBtn) {
@@ -130,6 +161,7 @@ function initMainApp() {
       document.body.classList.toggle("light-theme");
       const isLight = document.body.classList.contains("light-theme");
       localStorage.setItem("sandooq_theme", isLight ? "light" : "dark");
+      applyThemeScreenshots(isLight);
       trackEvent("theme_toggle", { selected_theme: isLight ? "light" : "dark" });
     });
   }
@@ -181,12 +213,14 @@ function initMainApp() {
   const showcaseImg = document.getElementById("showcase-img");
   const tabCaptions = document.querySelectorAll(".tab-caption");
 
-  const showcaseImages = {
-    dashboard: "assets/showcase-dashboard-720.webp",
-    units: "assets/showcase-units-720.webp",
-    payments: "assets/showcase-payments-720.webp",
-    voice: "assets/showcase-voice.jpg",
-    excel: "assets/showcase-reports.webp"
+  const showcaseBaseNames = {
+    dashboard: "showcase-dashboard",
+    units: "showcase-units",
+    payments: "showcase-payments",
+    voice: "showcase-voice",
+    excel: "showcase-excel",
+    reports: "showcase-reports",
+    projects: "showcase-projects"
   };
 
   showcaseTabs.forEach(tab => {
@@ -197,11 +231,15 @@ function initMainApp() {
       showcaseTabs.forEach(t => t.classList.remove("active"));
       tab.classList.add("active");
 
-      // Update screenshot
-      if (showcaseImg && showcaseImages[target]) {
+      // Update screenshot (respecting active Dark/Light theme)
+      const base = showcaseBaseNames[target];
+      if (showcaseImg && base) {
+        const isLight = document.body.classList.contains("light-theme");
+        const suffix = isLight ? "-light" : "";
         showcaseImg.style.opacity = "0";
         setTimeout(() => {
-          showcaseImg.src = showcaseImages[target];
+          showcaseImg.setAttribute("srcset", `assets/${base}-360${suffix}.webp 360w, assets/${base}-720${suffix}.webp 720w`);
+          showcaseImg.setAttribute("src", `assets/${base}-720${suffix}.webp`);
           showcaseImg.style.opacity = "1";
         }, 150);
       }

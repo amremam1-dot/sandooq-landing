@@ -731,12 +731,20 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
               <span>السداد وإيصال واتساب</span>
             </button>
+            <button class="showcase-tab" data-target="reports">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
+              <span>التقارير والفائض 📅</span>
+            </button>
+            <button class="showcase-tab" data-target="projects">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              <span>المشاريع الخاصة 🛠️</span>
+            </button>
           </div>
 
           <div class="tab-caption-container">
             <div class="tab-caption active" id="caption-dashboard">
               <h3>رؤية مالية واضحة ولحظية</h3>
-              <p>متابعة رصيد الخزينة الحالي، إجمالي التحصيلات، والمصروفات، ونسبة سداد اشتراكات الشهر الجاري بنظرة واحدة سريعة مع ملخص التحويلات البنكية والنقدية.</p>
+              <p>متابعة رصيد الخزينة الحالي (كاش، بنك، محفظة إلكترونية)، إجمالي التحصيلات، والمصروفات، ورصيد المشاريع الخاصة بنظرة واحدة سريعة مع سجل أحدث العمليات.</p>
             </div>
             <div class="tab-caption" id="caption-voice">
               <h3>تحدث بالعامية المصرية وعم أمين يسجلها فوراً</h3>
@@ -748,11 +756,19 @@
             </div>
             <div class="tab-caption" id="caption-units">
               <h3>قائمة الشقق مقسمة حسب الطوابق</h3>
-              <p>تصفح شقق العمارة وتعرف فوراً على الشقق المسددة والمتأخرة مع فلترة سريعة وإمكانية توليد الشقق بالأدوار دفعة واحدة وتعديل بيانات الاشتراكات.</p>
+              <p>تصفح شقق العمارة وتعرف فوراً على الشقق المسددة باللون الأخضر والمتأخرة باللون الأحمر مع فلترة سريعة وإمكانية السداد المقدم وإرسال إيصال واتساب بضغطة زر.</p>
             </div>
             <div class="tab-caption" id="caption-payments">
               <h3>سداد فوري مع إيصال واتساب</h3>
               <p>سجل تحصيل الدفعة مع اختيار شهر السداد أو شهور متعددة مسبقة، وإرسال بطاقة إيصال دفع فورية على واتساب للساكن تحفظ حقه وتمنحك راحة البال.</p>
+            </div>
+            <div class="tab-caption" id="caption-reports">
+              <h3>تقارير شهرية وسنوية وكشوف متأخرات بضغطة زر</h3>
+              <p>ملخص شامل للوارد والمنصرف وفائض الشهر ورصيد أول وآخر المدة مع 8 أنواع من التقارير (الشهري، التفصيلي، السنوي، المصروفات، المتأخرات، الورقي، المخصص، والإحصائيات) جاهزة للمشاركة كـ PDF أو صورة.</p>
+            </div>
+            <div class="tab-caption" id="caption-projects">
+              <h3>ميزانية مستقلة للمشاريع الكبرى والطوارئ</h3>
+              <p>افصل حسابات المشاريع الكبرى (مثل تجديد المدخل أو عمرة المصعد) عن مصروفات الصيانة الشهرية، وتابع نسبة التحصيل والمنصرف وفائض المشروع لكل شقة بدقة.</p>
             </div>
           </div>
         </div>
@@ -761,7 +777,7 @@
             <img id="showcase-img" src="assets/showcase-dashboard-720.webp"
               srcset="assets/showcase-dashboard-360.webp 360w, assets/showcase-dashboard-720.webp 720w"
               sizes="(max-width: 640px) 280px, 320px"
-              alt="استعراض شاشة التطبيق الرئيسية" width="320" height="711" loading="lazy" decoding="async" />
+              alt="استعراض شاشة التطبيق الرئيسية" width="320" height="658" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -1074,19 +1090,47 @@
       <div class="gallery-wrapper">
         <div class="gallery-scroll">
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/1-320.webp" alt="الرئيسية وحركة الخزينة" width="260" height="578" loading="lazy" decoding="async" /></div>
+            <div class="gallery-card"><img src="assets/1-320.webp" alt="الرئيسية وحركة الخزينة" width="260" height="534" loading="lazy" decoding="async" /></div>
             <span>الرئيسية وحركة الخزينة</span>
           </div>
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/2-320.webp" alt="إدارة الشقق" width="260" height="578" loading="lazy" decoding="async" /></div>
+            <div class="gallery-card"><img src="assets/2-320.webp" alt="إدارة الشقق" width="260" height="534" loading="lazy" decoding="async" /></div>
             <span>قائمة الشقق والاشتراكات</span>
           </div>
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/3-320.webp" alt="تحصيل الدفعات" width="260" height="578" loading="lazy" decoding="async" /></div>
+            <div class="gallery-card"><img src="assets/3-320.webp" alt="تحصيل الدفعات" width="260" height="534" loading="lazy" decoding="async" /></div>
             <span>نافذة تحصيل الدفعات</span>
           </div>
           <div class="gallery-item">
-            <div class="gallery-card"><img src="assets/4-320.webp" alt="إضافة شقة" width="260" height="578" loading="lazy" decoding="async" /></div>
+            <div class="gallery-card"><img src="assets/showcase-voice-360.webp" alt="الإدخال الصوتي مع عم أمين" width="260" height="534" loading="lazy" decoding="async" /></div>
+            <span>الإدخال الصوتي مع عم أمين</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-card"><img src="assets/showcase-reports-360.webp" alt="التقرير الشهري وفائض الشهر" width="260" height="534" loading="lazy" decoding="async" /></div>
+            <span>التقرير الشهري وفائض الشهر</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-card"><img src="assets/showcase-arrears-360.webp" alt="كشف المتأخرات وخصوصية البيانات" width="260" height="534" loading="lazy" decoding="async" /></div>
+            <span>كشف المتأخرات وخصوصية الأسماء</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-card"><img src="assets/showcase-projects-360.webp" alt="المشاريع الخاصة وتجديد المدخل" width="260" height="534" loading="lazy" decoding="async" /></div>
+            <span>المشاريع الخاصة والطوارئ</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-card"><img src="assets/showcase-custody-360.webp" alt="العهد المالية وفواتير الحارس" width="260" height="534" loading="lazy" decoding="async" /></div>
+            <span>العهد المالية وفواتير الحارس</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-card"><img src="assets/showcase-loans-360.webp" alt="سلف الصندوق وكشف السداد" width="260" height="534" loading="lazy" decoding="async" /></div>
+            <span>سلف الصندوق وكشف السداد</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-card"><img src="assets/showcase-mosque-360.webp" alt="صندوق المسجد المستقل" width="260" height="534" loading="lazy" decoding="async" /></div>
+            <span>صندوق المسجد المستقل</span>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-card"><img src="assets/4-320.webp" alt="إضافة شقة" width="260" height="534" loading="lazy" decoding="async" /></div>
             <span>إضافة وتعديل بيانات الشقة</span>
           </div>
         </div>
