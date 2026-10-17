@@ -303,14 +303,87 @@ function initMainApp() {
     });
   });
 
-  // Video Chapter navigation helper
-  window.seekAppVideo = function(seconds) {
+  // Interactive Video Playlist Controller (13 Episodes - Playlist PLfSS2nVkX6dI)
+  const PLAYLIST_EPISODES = [
+    { id: "C9wv3r-7N-c", num: 1, title: "1. تأسيس العمارة وضبط الرصيد الافتتاحي والشقق 🏢" },
+    { id: "fPzorxfQGPM", num: 2, title: "2. تحصيل الاشتراكات وإرسال إيصالات واتساب 💬🧾" },
+    { id: "ZzYUbtcXEvU", num: 3, title: "3. تسجيل المصروفات والفواتير ودليل الفنيين 🛠️" },
+    { id: "cuTH6KHVkoQ", num: 4, title: "4. حصر المتأخرات وتذكيرات الواتساب والمشاريع ⚠️" },
+    { id: "Nd0tkdWNaTE", num: 5, title: "5. المساعد الذكي «عم أمين» والنسخ الاحتياطي 🤖☁️" },
+    { id: "zs3a-KSyjRM", num: 6, title: "6. شرح التقرير الشهري 📅 وكشف تقفيل الشقق" },
+    { id: "KdW14cxKlnA", num: 7, title: "7. شرح التقرير التفصيلي 🔍 وكشف الشفافية الكامل" },
+    { id: "eQUOfVfqDBc", num: 8, title: "8. شرح التقرير السنوي 📆 وجدول مصفوفة الشقق" },
+    { id: "DyYj_BpvO3c", num: 9, title: "9. شرح تقرير وجرد المصروفات 💸 وتحليل البنود" },
+    { id: "3eewR72yJmk", num: 10, title: "10. كشف المتأخرات وميزة إخفاء الأسماء والموبايل 🛡️" },
+    { id: "zDVLUntcDAY", num: 11, title: "11. التقرير الورقي 📜 (الدفتر الكلاسيكي للطباعة)" },
+    { id: "6rV6Mtc0K-4", num: 12, title: "12. التقرير المخصص ⚙️ لتفصيل كشف حساب حسب الطلب" },
+    { id: "ZS6qM0RFPYA", num: 13, title: "13. الإحصائيات والرسوم البيانية 📈 لتحليل الأداء" }
+  ];
+
+  let currentEpisodeIndex = 0;
+
+  window.playPlaylistEpisode = function(index, shouldScroll = true) {
+    if (index < 0 || index >= PLAYLIST_EPISODES.length) return;
+    currentEpisodeIndex = index;
+    const ep = PLAYLIST_EPISODES[index];
+
     const iframe = document.getElementById("mainWalkthroughVideo");
     if (iframe) {
-      iframe.src = `https://www.youtube-nocookie.com/embed/0wJ3LRZAtq0?start=${seconds}&autoplay=1`;
-      iframe.scrollIntoView({ behavior: "smooth", block: "center" });
-      trackEvent("video_chapter_click", { timestamp: seconds });
+      iframe.src = `https://www.youtube-nocookie.com/embed/${ep.id}?autoplay=1&rel=0&list=PLfSS2nVkX6dI`;
+      if (shouldScroll && window.innerWidth < 960) {
+        const stage = document.getElementById("videoPhoneStage") || iframe;
+        stage.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     }
+
+    const badgeTextEl = document.getElementById("activeEpisodeBadgeText");
+    if (badgeTextEl) {
+      badgeTextEl.textContent = `الحلقة ${ep.num} من ${PLAYLIST_EPISODES.length} • قيد التشغيل`;
+    }
+
+    const titleEl = document.getElementById("activeEpisodeTitle");
+    if (titleEl) {
+      titleEl.textContent = ep.title;
+    }
+
+    const directLinkEl = document.getElementById("activeEpisodeYtLink");
+    if (directLinkEl) {
+      directLinkEl.href = `https://www.youtube.com/watch?v=${ep.id}&list=PLfSS2nVkX6dI`;
+    }
+
+    const prevBtn = document.getElementById("prevEpisodeBtn");
+    const nextBtn = document.getElementById("nextEpisodeBtn");
+    if (prevBtn) prevBtn.disabled = (index === 0);
+    if (nextBtn) nextBtn.disabled = (index === PLAYLIST_EPISODES.length - 1);
+
+    document.querySelectorAll(".episode-card").forEach((card) => {
+      const cardIdx = Number(card.getAttribute("data-ep-index"));
+      card.classList.toggle("is-active", cardIdx === index);
+    });
+
+    trackEvent("playlist_episode_play", { episode: ep.num, video_id: ep.id });
+  };
+
+  window.stepPlaylistEpisode = function(delta) {
+    const nextIdx = currentEpisodeIndex + delta;
+    if (nextIdx >= 0 && nextIdx < PLAYLIST_EPISODES.length) {
+      window.playPlaylistEpisode(nextIdx, false);
+    }
+  };
+
+  window.filterPlaylistCategory = function(category, btnEl) {
+    if (btnEl) {
+      document.querySelectorAll(".playlist-tab-btn").forEach(b => b.classList.remove("is-active"));
+      btnEl.classList.add("is-active");
+    }
+    document.querySelectorAll(".episode-card").forEach((card) => {
+      const cat = card.getAttribute("data-ep-cat");
+      if (category === "all" || cat === category) {
+        card.style.display = "flex";
+      } else {
+        card.style.display = "none";
+      }
+    });
   };
 
   // 7. Lazy-load Thunderbolt AI Chat Widget (Eliminates initial Forced Reflow & saves 199 KiB JS)

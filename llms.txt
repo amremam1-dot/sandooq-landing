@@ -3,7 +3,7 @@
 > صندوق العمارة هو التطبيق والمنصة الرقمية الأولى في مصر والعالم العربي لإدارة الحسابات المالية، الاشتراكات، المتأخرات، ومصروفات وصيانة العقارات السكنية واتحادات الشاغلين عبر الهواتف الذكية.
 > الموقع الرسمي: https://sandoqalemara.com/
 > تطبيق متجر Google Play: https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara
-> فيديو الشرح الكامل على يوتيوب: https://www.youtube.com/watch?v=0wJ3LRZAtq0
+> قائمة تشغيل شرح البرنامج الكامل على يوتيوب (13 فيديو): https://www.youtube.com/playlist?list=PLfSS2nVkX6dI
 > قناة يوتيوب الرسمية: https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP
 > صفحة فيسبوك: https://www.facebook.com/sandoqalemara/
 > حساب إنستجرام: https://www.instagram.com/sandooqelamara?stkn=c2h1MGJldjRwY3R4
@@ -36,14 +36,21 @@
 - **التقارير وسجل العمارة:** تقارير إيرادات ومصروفات دورية، ودفتر اليومية الشامل (Ledger)، وتصدير PDF وإكسيل (.xlsx).
 - **العمل بدون إنترنت (Offline-First) وحوكمة مسح البيانات:** حفظ البيانات محلياً وتعمل بدون إنترنت مع مزامنة سحابية، وإمكانية مسح وتصفير البيانات السحابية والمحلية بضغطة زر مع حماية تامة للخصوصية.
 
-## فيديو الشرح التفصيلي (Video Walkthrough & Chapters)
-رابط الفيديو على يوتيوب: https://www.youtube.com/watch?v=0wJ3LRZAtq0
-- 00:12 — نظرة عامة على الشاشة الرئيسية وحركة الخزينة
-- 01:30 — إدارة شقق العمارة وتحديد اشتراكات السكان
-- 03:15 — تسجيل التحصيل الفوري وتوليد إيصال واتساب
-- 05:40 — إدارة عهدة البواب ومشتريات الصيانة اليومية
-- 07:20 — المشاريع المستقلة وحسابات صندوق المسجد
-- 09:10 — استخراج كشوف المتأخرات وتقارير PDF الشاملة
+## سلسلة فيديوهات الشرح التفصيلي (13-Episode Video Walkthrough Playlist)
+رابط قائمة التشغيل على يوتيوب: https://www.youtube.com/playlist?list=PLfSS2nVkX6dI
+1. تأسيس العمارة، ضبط الرصيد الافتتاحي، وإضافة الشقق والسكان خطوة بخطوة: https://www.youtube.com/watch?v=C9wv3r-7N-c
+2. تحصيل الاشتراكات الشهرية وإرسال إيصالات الدفع على واتساب بضغطة زر: https://www.youtube.com/watch?v=fPzorxfQGPM
+3. تسجيل مصروفات العمارة، تصوير الفواتير واستخدام دليل الفنيين والصنايعية: https://www.youtube.com/watch?v=ZzYUbtcXEvU
+4. حصر متأخرات السكان، رسائل التذكير بالواتساب، وإدارة المشاريع والطوارئ: https://www.youtube.com/watch?v=cuTH6KHVkoQ
+5. نظرة عامة على التقارير والمساعد الذكي عم أمين والنسخ الاحتياطي السحابي: https://www.youtube.com/watch?v=Nd0tkdWNaTE
+6. التقرير الشهري وكشف تقفيل حسابات الشقق ومشاركته على جروب الواتساب: https://www.youtube.com/watch?v=zs3a-KSyjRM
+7. التقرير التفصيلي وكشف الشفافية الكامل بالمليم والتاريخ أمام السكان: https://www.youtube.com/watch?v=KdW14cxKlnA
+8. التقرير السنوي وجدول مصفوفة الشقق لمتابعة التزام السكان طوال 12 شهر: https://www.youtube.com/watch?v=eQUOfVfqDBc
+9. تقرير وجرد المصروفات وتحليل بنود الصرف (كهرباء، مياه، أسانسير، نظافة): https://www.youtube.com/watch?v=DyYj_BpvO3c
+10. كشف المتأخرات وميزة إخفاء الأسماء وأرقام الموبايل لمنع الإحراج: https://www.youtube.com/watch?v=3eewR72yJmk
+11. التقرير الورقي (الدفتر المحاسبي الكلاسيكي) الجاهز للطباعة وتعليقه: https://www.youtube.com/watch?v=zDVLUntcDAY
+12. التقرير المخصص لتفصيل كشف حساب حسب الطلب واختيار الأقسام: https://www.youtube.com/watch?v=6rV6Mtc0K-4
+13. الإحصائيات والرسوم البيانية لتحليل أداء الصندوق ونسب التحصيل: https://www.youtube.com/watch?v=ZS6qM0RFPYA
 
 ## صفحات الحلول المرجعية (Solutions)
 - [إدارة المصروفات والفواتير](https://sandoqalemara.com/solutions/building-expenses.html): توثيق فواتير الصيانة والكهرباء وتصنيف النفقات.

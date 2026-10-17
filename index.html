@@ -767,73 +767,292 @@
       </div>
     </section>
 
-    <!-- Video Walkthrough Section -->
+    <!-- Video Walkthrough Playlist Section -->
     <section class="video-section reveal" id="video-tour">
       <div class="section-header">
-        <p class="eyebrow">🎬 فيديو الشرح الكامل</p>
-        <h2>شاهد تطبيق صندوق العمارة عملياً خطوة بخطوة</h2>
-        <p class="lead-text">جولة مرئية شاملة لشاشات التطبيق: إدارة حركة الخزينة، تحصيل الاشتراكات وإرسال إيصالات واتساب، ومتابعة عهدة الصيانة دون تعقيد.</p>
+        <p class="eyebrow">🎬 مكتبة الشرح التفاعلية (13 حلقة قصيرة ومباشرة)</p>
+        <h2>شاهد شرح برنامج صندوق العمارة خطوة بخطوة من التأسيس للتقارير</h2>
+        <p class="lead-text">سلسلة فيديوهات قصيرة وواضحة من شاشة الموبايل الحقيقية؛ اختر أي موضوع لتشغيله فوراً والتعرف على طريقة تأسيس العقار، التحصيل، الفواتير، وشرح كافة التقارير المالية الـ 8.</p>
       </div>
 
       <div class="video-container">
-        <div class="video-card">
-          <div class="video-wrapper">
-            <iframe
-              id="mainWalkthroughVideo"
-              src="https://www.youtube-nocookie.com/embed/0wJ3LRZAtq0?start=12"
-              title="شرح تطبيق صندوق العمارة كاملًا | إدارة حسابات العمارة والاشتراكات والمصروفات والمتأخرات"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
+        <div class="video-playlist-layout">
+          <!-- Phone Frame Video Player Stage -->
+          <div class="video-phone-stage" id="videoPhoneStage">
+            <div class="player-active-header">
+              <div class="player-ep-badge">
+                <span class="pulse-dot"></span>
+                <span id="activeEpisodeBadgeText">الحلقة 1 من 13 • قيد التشغيل</span>
+              </div>
+              <h3 class="player-active-title" id="activeEpisodeTitle">1. تأسيس العمارة وضبط الرصيد الافتتاحي والشقق 🏢</h3>
+            </div>
+
+            <div class="phone-frame-wrapper">
+              <iframe
+                id="mainWalkthroughVideo"
+                src="https://www.youtube-nocookie.com/embed/C9wv3r-7N-c?rel=0&list=PLfSS2nVkX6dI"
+                title="شرح برنامج صندوق العمارة الكامل | من التأسيس للتقارير خطوة بخطوة"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+
+            <div class="video-nav-controls">
+              <button type="button" class="video-nav-btn" id="prevEpisodeBtn" onclick="stepPlaylistEpisode(-1)" disabled>
+                <span>⏭️ الحلقة السابقة</span>
+              </button>
+              <button type="button" class="video-nav-btn" id="nextEpisodeBtn" onclick="stepPlaylistEpisode(1)">
+                <span>الحلقة التالية ⏮️</span>
+              </button>
+            </div>
+
+            <a id="activeEpisodeYtLink" href="https://www.youtube.com/watch?v=C9wv3r-7N-c&list=PLfSS2nVkX6dI" target="_blank" rel="noopener noreferrer" class="video-direct-yt-link">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <span>فتح هذا الفيديو في تطبيق يوتيوب</span>
+            </a>
           </div>
 
-          <div class="video-info-box">
-            <div class="video-info-header">
-              <span class="video-badge">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                فيديو عالي الجودة HD
-              </span>
-              <a href="https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP" target="_blank" rel="noopener" class="video-channel-btn" aria-label="اشترك في قناة يوتيوب">
+          <!-- Interactive 13-Episode Playlist Panel -->
+          <div class="playlist-panel">
+            <div class="playlist-panel-header">
+              <div class="playlist-filter-tabs" role="tablist" aria-label="تصفية فيديوهات الشرح">
+                <button type="button" class="playlist-tab-btn is-active" onclick="filterPlaylistCategory('all', this)">الكل (13 فيديو)</button>
+                <button type="button" class="playlist-tab-btn" onclick="filterPlaylistCategory('basics', this)">🏢 أساسيات التشغيل (5)</button>
+                <button type="button" class="playlist-tab-btn" onclick="filterPlaylistCategory('reports', this)">📊 التقارير المالية الـ 8 (8)</button>
+              </div>
+
+              <a href="https://www.youtube.com/playlist?list=PLfSS2nVkX6dI" target="_blank" rel="noopener noreferrer" class="video-channel-btn" aria-label="مشاهدة القائمة كاملة على يوتيوب">
                 <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                <span>اشترك بقناتنا على يوتيوب</span>
+                <span>قائمة التشغيل على يوتيوب</span>
               </a>
             </div>
 
-            <div class="video-chapters-title">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              <span>فصول ومحطات الشرح (اضغط للانتقال المباشر للفقرة داخل الفيديو):</span>
-            </div>
+            <div class="playlist-episodes-grid">
+              <!-- Episode 1 -->
+              <button type="button" class="episode-card is-active" data-ep-index="0" data-ep-cat="basics" onclick="playPlaylistEpisode(0)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/C9wv3r-7N-c/mqdefault.jpg" alt="تأسيس العمارة والشقق" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">01</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag">أساسيات التشغيل</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">تأسيس العمارة وإضافة الشقق والسكان 🏢</h4>
+                  <p class="episode-desc">ضبط الرصيد الافتتاحي للخزينة وتأسيس وحدات العقار خطوة بخطوة.</p>
+                </div>
+              </button>
 
-            <div class="video-chapters-grid">
-              <button type="button" class="chapter-btn" onclick="seekAppVideo(12)">
-                <span class="chapter-time">00:12</span>
-                <span class="chapter-text">نظرة عامة على الشاشة الرئيسية وحركة الخزينة</span>
+              <!-- Episode 2 -->
+              <button type="button" class="episode-card" data-ep-index="1" data-ep-cat="basics" onclick="playPlaylistEpisode(1)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/fPzorxfQGPM/mqdefault.jpg" alt="تحصيل الاشتراكات وإيصالات واتساب" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">02</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag">أساسيات التشغيل</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">تحصيل الاشتراكات وإيصالات واتساب 💬🧾</h4>
+                  <p class="episode-desc">تسجيل الدفعات الشهرية وإرسال إيصال استلام رسمي على واتساب بضغطة زر.</p>
+                </div>
               </button>
-              <button type="button" class="chapter-btn" onclick="seekAppVideo(90)">
-                <span class="chapter-time">01:30</span>
-                <span class="chapter-text">إدارة شقق العمارة وتحديد اشتراكات السكان</span>
+
+              <!-- Episode 3 -->
+              <button type="button" class="episode-card" data-ep-index="2" data-ep-cat="basics" onclick="playPlaylistEpisode(2)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/ZzYUbtcXEvU/mqdefault.jpg" alt="تسجيل المصروفات ودليل الفنيين" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">03</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag">أساسيات التشغيل</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">تسجيل المصروفات والفواتير ودليل الفنيين 🛠️</h4>
+                  <p class="episode-desc">تدوين مصروفات العمارة، تصوير الفواتير، واستخدام سجل الصنايعية والفنيين.</p>
+                </div>
               </button>
-              <button type="button" class="chapter-btn" onclick="seekAppVideo(195)">
-                <span class="chapter-time">03:15</span>
-                <span class="chapter-text">تسجيل التحصيل الفوري وتوليد إيصال واتساب</span>
+
+              <!-- Episode 4 -->
+              <button type="button" class="episode-card" data-ep-index="3" data-ep-cat="basics" onclick="playPlaylistEpisode(3)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/cuTH6KHVkoQ/mqdefault.jpg" alt="حصر المتأخرات والمشاريع الخاصة" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">04</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag">أساسيات التشغيل</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">متابعة المتأخرات والمشاريع والطوارئ ⚠️</h4>
+                  <p class="episode-desc">حصر متأخرات السكان، إرسال رسائل التذكير بالواتساب، وإدارة المشاريع الكبرى.</p>
+                </div>
               </button>
-              <button type="button" class="chapter-btn" onclick="seekAppVideo(340)">
-                <span class="chapter-time">05:40</span>
-                <span class="chapter-text">إدارة عهدة البواب ومشتريات الصيانة اليومية</span>
+
+              <!-- Episode 5 -->
+              <button type="button" class="episode-card" data-ep-index="4" data-ep-cat="basics" onclick="playPlaylistEpisode(4)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/Nd0tkdWNaTE/mqdefault.jpg" alt="المساعد الذكي عم أمين والنسخ الاحتياطي" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">05</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag">أساسيات التشغيل</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">المساعد الذكي «عم أمين» والنسخ الاحتياطي 🤖☁️</h4>
+                  <p class="episode-desc">نظرة شاملة على منظومة التقارير، استشارة عم أمين، والحفظ السحابي الآمن.</p>
+                </div>
               </button>
-              <button type="button" class="chapter-btn" onclick="seekAppVideo(440)">
-                <span class="chapter-time">07:20</span>
-                <span class="chapter-text">المشاريع المستقلة وحسابات صندوق المسجد</span>
+
+              <!-- Episode 6 -->
+              <button type="button" class="episode-card" data-ep-index="5" data-ep-cat="reports" onclick="playPlaylistEpisode(5)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/zs3a-KSyjRM/mqdefault.jpg" alt="التقرير الشهري" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">06</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag reports">التقارير الـ 8</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">التقرير الشهري 📅 وكشف تقفيل الشقق</h4>
+                  <p class="episode-desc">استخراج ملخص الشهر المالي وكشف موقف سداد الشقق ومشاركته على جروب الواتساب.</p>
+                </div>
               </button>
-              <button type="button" class="chapter-btn" onclick="seekAppVideo(550)">
-                <span class="chapter-time">09:10</span>
-                <span class="chapter-text">استخراج كشوف المتأخرات وتقارير PDF الشاملة</span>
+
+              <!-- Episode 7 -->
+              <button type="button" class="episode-card" data-ep-index="6" data-ep-cat="reports" onclick="playPlaylistEpisode(6)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/KdW14cxKlnA/mqdefault.jpg" alt="التقرير التفصيلي" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">07</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag reports">التقارير الـ 8</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">التقرير التفصيلي 🔍 وكشف الشفافية الكامل</h4>
+                  <p class="episode-desc">عرض كل حركة إيراد ومصروف بالمليم والتاريخ أمام جميع السكان.</p>
+                </div>
+              </button>
+
+              <!-- Episode 8 -->
+              <button type="button" class="episode-card" data-ep-index="7" data-ep-cat="reports" onclick="playPlaylistEpisode(7)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/eQUOfVfqDBc/mqdefault.jpg" alt="التقرير السنوي ومصفوفة الشقق" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">08</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag reports">التقارير الـ 8</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">التقرير السنوي 📆 وجدول مصفوفة الشقق</h4>
+                  <p class="episode-desc">متابعة التزام جميع وحدات العقار طوال 12 شهراً في جدول سنوي موحد.</p>
+                </div>
+              </button>
+
+              <!-- Episode 9 -->
+              <button type="button" class="episode-card" data-ep-index="8" data-ep-cat="reports" onclick="playPlaylistEpisode(8)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/DyYj_BpvO3c/mqdefault.jpg" alt="تقرير وجرد المصروفات" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">09</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag reports">التقارير الـ 8</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">تقرير وجرد المصروفات 💸 وتحليل البنود</h4>
+                  <p class="episode-desc">تحليل بنود الصرف (كهرباء، مياه، أسانسير، نظافة) ومعرفة أين تذهب أموال الصندوق.</p>
+                </div>
+              </button>
+
+              <!-- Episode 10 -->
+              <button type="button" class="episode-card" data-ep-index="9" data-ep-cat="reports" onclick="playPlaylistEpisode(9)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/3eewR72yJmk/mqdefault.jpg" alt="كشف المتأخرات وميزة الخصوصية" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">10</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag reports">التقارير الـ 8</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">كشف المتأخرات وأوضاع الخصوصية 🛡️</h4>
+                  <p class="episode-desc">حصر المديونيات مع ميزة إخفاء الأسماء وأرقام الموبايل لمنع الإحراج بين الجيران.</p>
+                </div>
+              </button>
+
+              <!-- Episode 11 -->
+              <button type="button" class="episode-card" data-ep-index="10" data-ep-cat="reports" onclick="playPlaylistEpisode(10)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/zDVLUntcDAY/mqdefault.jpg" alt="التقرير الورقي الكلاسيكي" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">11</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag reports">التقارير الـ 8</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">التقرير الورقي 📜 (الدفتر المحاسبي للطباعة)</h4>
+                  <p class="episode-desc">كشف محاسبي كلاسيكي معتمد جاهز للطباعة الفورية وتعليقه في مدخل العمارة.</p>
+                </div>
+              </button>
+
+              <!-- Episode 12 -->
+              <button type="button" class="episode-card" data-ep-index="11" data-ep-cat="reports" onclick="playPlaylistEpisode(11)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/6rV6Mtc0K-4/mqdefault.jpg" alt="التقرير المخصص" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">12</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag reports">التقارير الـ 8</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">التقرير المخصص ⚙️ حسب الطلب والفترة</h4>
+                  <p class="episode-desc">تفصيل كشف حساب مخصص باختيار الفترة الزمنية والأقسام التي ترغب في إظهارها.</p>
+                </div>
+              </button>
+
+              <!-- Episode 13 -->
+              <button type="button" class="episode-card" data-ep-index="12" data-ep-cat="reports" onclick="playPlaylistEpisode(12)">
+                <div class="episode-thumb-box">
+                  <img src="https://i.ytimg.com/vi/ZS6qM0RFPYA/mqdefault.jpg" alt="الإحصائيات والرسوم البيانية" loading="lazy" />
+                  <div class="episode-play-overlay">▶</div>
+                  <span class="episode-num-badge">13</span>
+                </div>
+                <div class="episode-content">
+                  <div class="episode-cat-row">
+                    <span class="episode-cat-tag reports">التقارير الـ 8</span>
+                    <span class="episode-status-label">يعمل الآن ▶</span>
+                  </div>
+                  <h4 class="episode-title">الإحصائيات والرسوم البيانية 📈 لتحليل الأداء</h4>
+                  <p class="episode-desc">لوحة رسوم بيانية تفاعلية لتحليل أداء الصندوق ونسب التحصيل والسيولة.</p>
+                </div>
               </button>
             </div>
 
             <div class="video-cta-footer">
-              <span class="video-cta-text">مستعد لتنظيم عمارة وسكانك ووقف الإحراج والمشاكل؟</span>
+              <span class="video-cta-text">مستعد لتنظيم عمارتك وسكانك بأعلى درجات الشفافية والراحة؟</span>
               <a href="download.html" class="button primary" style="padding: 10px 22px;">
                 <span>تحميل التطبيق وتجربته مجاناً</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
