@@ -149,6 +149,22 @@ function initMainApp() {
     });
   }
 
+  function wrapStandaloneAppScreenshots() {
+    document.querySelectorAll('img[src*="showcase-"]').forEach(img => {
+      if (img.closest(".phone-mockup") || img.closest(".gallery-card")) return;
+      const mockup = document.createElement("div");
+      mockup.className = "phone-mockup";
+      const screen = document.createElement("div");
+      screen.className = "phone-screen";
+      img.removeAttribute("style");
+      img.parentNode.insertBefore(mockup, img);
+      screen.appendChild(img);
+      mockup.appendChild(screen);
+    });
+  }
+
+  wrapStandaloneAppScreenshots();
+
   if (currentTheme === "light") {
     document.body.classList.add("light-theme");
     applyThemeScreenshots(true);
