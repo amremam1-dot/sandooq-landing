@@ -2629,4 +2629,25 @@ body.light-theme .moon-icon { display: none; }
   }
 }
 
+/* ==========================================================================
+   Modern Core Web Vitals Optimization (content-visibility for fast initial paint)
+   ========================================================================== */
+@supports (content-visibility: auto) {
+  .comparison-section,
+  .interactive-showcase,
+  .video-section,
+  .gallery-section,
+  .pricing-section,
+  .testimonials-section,
+  .reviews-section,
+  .tools-hub-section,
+  .ecosystem-section,
+  .download-section,
+  .faq-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 750px;
+  }
+}
+
+
 

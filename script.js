@@ -530,6 +530,14 @@ function initMainApp() {
     });
   }
 
+  // 9. Register Progressive Service Worker for Instant Asset Caching
+  if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch((err) => {
+        console.debug('ServiceWorker registration note:', err);
+      });
+    });
+  }
 }
 
 if (document.readyState === "loading") {
@@ -537,5 +545,6 @@ if (document.readyState === "loading") {
 } else {
   initMainApp();
 }
+
 
 
