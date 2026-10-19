@@ -230,17 +230,31 @@ button {
   color: var(--primary-light);
 }
 
+.header-cta-btn {
+  height: 38px;
+  padding: 0 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
 .theme-toggle-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: var(--radius-full);
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   color: var(--text-main);
   transition: var(--transition);
+  flex-shrink: 0;
 }
 
 .theme-toggle-btn:hover {
@@ -2664,16 +2678,19 @@ body.light-theme .moon-icon { display: none; }
 .search-trigger-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
+  height: 38px;
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   color: var(--text-muted);
-  padding: 6px 14px;
+  padding: 0 12px;
   border-radius: var(--radius-full);
   font-family: inherit;
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: var(--transition);
   outline: none;
 }
@@ -2685,22 +2702,48 @@ body.light-theme .moon-icon { display: none; }
   transform: translateY(-1px);
 }
 
-.search-trigger-btn .search-kbd {
-  display: inline-block;
-  padding: 1px 6px;
-  font-size: 0.72rem;
+.search-trigger-btn .search-kbd,
+.search-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  line-height: 1.2;
   font-family: inherit;
   font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
   color: var(--text-light);
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--border-color);
   border-radius: 4px;
 }
 
-body.light-theme .search-trigger-btn .search-kbd {
+body.light-theme .search-trigger-btn .search-kbd,
+body.light-theme .search-kbd {
   background: #e2e8f0;
   border-color: #cbd5e1;
   color: #475569;
+}
+
+@media (max-width: 1240px) {
+  .header-container {
+    padding: 10px 18px;
+  }
+  .nav {
+    gap: 10px;
+  }
+  .nav a {
+    font-size: 0.84rem;
+  }
+  .search-trigger-btn {
+    padding: 0 10px;
+    font-size: 0.82rem;
+  }
+  .search-trigger-btn .search-kbd {
+    display: none; /* Hide shortcut badge on medium screens to keep navbar spacious and prevent wrapping */
+  }
 }
 
 @media (max-width: 1024px) {
@@ -2746,7 +2789,7 @@ body.light-theme .search-trigger-btn .search-kbd {
 /* Floating Live Simulator Badge */
 .sim-live-badge {
   position: absolute;
-  top: -38px;
+  top: -26px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--card-bg, rgba(15, 23, 42, 0.94));
@@ -4005,22 +4048,7 @@ body.light-theme .sim-amount-input:focus-visible {
    R2: Instant Live Search Hub & Command Palette Modal Styles
    ========================================================================== */
 
-/* Search Trigger Button in Header */
-.search-trigger-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--card-bg-subtle, rgba(255, 255, 255, 0.05));
-  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
-  color: var(--text-muted, #94a3b8);
-  padding: 6px 14px;
-  border-radius: 9999px;
-  font-size: 0.88rem;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
+/* Search Trigger Button Focus & Hover States */
 .search-trigger-btn:hover {
   background: var(--card-bg, rgba(255, 255, 255, 0.1));
   border-color: var(--primary-color, #3b82f6);
@@ -4030,21 +4058,6 @@ body.light-theme .sim-amount-input:focus-visible {
 .search-trigger-btn:focus-visible {
   outline: 2px solid var(--primary-color, #3b82f6);
   outline-offset: 2px;
-}
-
-.search-kbd {
-  font-size: 0.72rem;
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
-  border-radius: 4px;
-  padding: 1px 6px;
-  color: var(--text-muted, #94a3b8);
-  font-family: monospace;
-}
-
-body.light-theme .search-kbd {
-  background: #e2e8f0;
-  color: #475569;
 }
 
 /* Global Search Modal Backdrop & Dialog (Highest Z-Index Layer) */
