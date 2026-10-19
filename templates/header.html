@@ -1,0 +1,41 @@
+<header class="site-header">
+  <div class="header-container">
+    <a class="brand" href="{{BASE_PATH}}/">
+      <picture>
+        <source srcset="{{BASE_PATH}}/assets/sandooq-logo.webp" type="image/webp" />
+        <img src="{{BASE_PATH}}/assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+      </picture>
+      <span>صندوق العمارة</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <nav class="nav">
+      <a href="{{BASE_PATH}}/#features">المميزات</a>
+      <a href="{{BASE_PATH}}/#video-tour">فيديو الشرح</a>
+      <a href="{{BASE_PATH}}/#reviews">آراء المستخدمين ⭐</a>
+      <a href="{{BASE_PATH}}/tools/" class="{{ACTIVE_TOOLS}}">الأدوات المجانية</a>
+      <a href="{{BASE_PATH}}/guides/" class="{{ACTIVE_GUIDES}}">أدلة الإدارة</a>
+      <a href="{{BASE_PATH}}/billing.html" class="{{ACTIVE_BILLING}}" style="color: var(--secondary-color); font-weight: 800; white-space: nowrap;">الاشتراكات ⚡</a>
+      <a href="{{BASE_PATH}}/about.html" class="{{ACTIVE_ABOUT}}">عن التطبيق</a>
+      <a href="{{BASE_PATH}}/contact.html" class="{{ACTIVE_CONTACT}}">تواصل معنا</a>
+      <a href="{{BASE_PATH}}/download.html" class="button primary {{ACTIVE_DOWNLOAD}}" style="padding: 8px 16px; font-size: 0.88rem; white-space: nowrap;">تحميل التطبيق</a>
+
+      <!-- Instant Live Search Trigger Button (M3 Hook) -->
+      <button id="search-trigger-btn" class="search-trigger-btn" aria-label="بحث سريع في الموقع (Ctrl+K)" title="بحث سريع (Ctrl+K)">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="search-trigger-text">بحث...</span>
+        <kbd class="search-kbd">Ctrl K</kbd>
+      </button>
+
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="تبديل المظهر الليلي/النهاري">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </nav>
+  </div>
+  <!-- COMPONENT: SEARCH_MODAL -->
+</header>

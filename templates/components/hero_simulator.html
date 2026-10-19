@@ -1,0 +1,275 @@
+<div id="app-simulator" class="app-simulator phone-screen-inner" role="region" aria-label="محاكي تطبيق صندوق العمارة التفاعلي">
+
+  <!-- 2. Clean Fallback for No-JS & Pre-Hydration LCP Paint -->
+  <div class="sim-fallback-preview" id="sim-fallback-preview">
+    <picture>
+      <source type="image/webp"
+        srcset="{{BASE_PATH}}/assets/hero-main-360.webp 360w, {{BASE_PATH}}/assets/hero-main-720.webp 720w, {{BASE_PATH}}/assets/hero-main.webp 1080w"
+        sizes="(max-width: 640px) 280px, 320px" />
+      <img src="{{BASE_PATH}}/assets/hero-main-720.png"
+        srcset="{{BASE_PATH}}/assets/hero-main-360.png 360w, {{BASE_PATH}}/assets/hero-main-720.png 720w, {{BASE_PATH}}/assets/hero-main.png 1080w"
+        sizes="(max-width: 640px) 280px, 320px"
+        alt="شاشة تطبيق صندوق العمارة الرئيسية" width="320" height="711" loading="eager" fetchpriority="high" decoding="async" />
+    </picture>
+    <noscript>
+      <div class="sim-no-js-caption">
+        <span>معاينة التطبيق الحية — شغّل JavaScript لتجربة السداد التفاعلي</span>
+      </div>
+    </noscript>
+  </div>
+
+  <!-- 3. Interactive Web Simulator View Hierarchy (Enhanced via js/simulator.js) -->
+  <div class="sim-interactive-wrap" id="sim-interactive-wrap">
+
+    <!-- Universal Android Top Status Bar (Accommodates Center Camera Punch-Hole) -->
+    <header class="sim-status-bar" aria-label="شريط حالة الهاتف">
+      <div class="sim-status-time" id="sim-clock">09:41</div>
+      <div class="sim-camera-spacer sim-status-camera-spacer" aria-hidden="true"></div>
+      <div class="sim-status-icons" aria-hidden="true">
+        <span class="sim-icon-signal" title="شبكة ممتازة">📶</span>
+        <span class="sim-icon-wifi" title="واي فاي متصل">⚡</span>
+        <span class="sim-icon-battery" title="بطارية 98%">🔋 98%</span>
+      </div>
+    </header>
+
+    <!-- SCREEN 1: Units List & Fund Balance Overview (STATE_UNITS_LIST) -->
+    <section class="sim-screen sim-screen-units is-active" id="sim-screen-units" aria-label="قائمة شقق العقار ورصيد الصندوق">
+      <!-- App Header Bar -->
+      <div class="sim-app-bar sim-app-header">
+        <div class="sim-app-title-box sim-building-info">
+          <div class="sim-building-badge sim-building-name">🏢 عمارة النور - شيراتون</div>
+          <div class="sim-period-badge">اشتراكات شهر أكتوبر 2026</div>
+        </div>
+        <button type="button" class="sim-btn-reset sim-btn-replay-header" id="sim-top-reset-btn" data-action="reset" title="إعادة ضبط المحاكي" aria-label="إعادة ضبط المحاكي">
+          ↺
+        </button>
+      </div>
+
+      <!-- Fund Summary KPIs -->
+      <div class="sim-fund-ribbon sim-metrics-grid">
+        <div class="sim-kpi-card sim-metric-card sim-kpi-balance">
+          <div class="sim-kpi-label sim-metric-label">رصيد الصندوق</div>
+          <div class="sim-kpi-val sim-metric-val highlight-green"><span id="sim-fund-balance">18,450</span> <small>ج.م</small></div>
+        </div>
+        <div class="sim-kpi-card sim-metric-card sim-kpi-rate">
+          <div class="sim-kpi-label sim-metric-label">نسبة التحصيل</div>
+          <div class="sim-kpi-val sim-metric-val highlight-blue"><span id="sim-collection-rate">75%</span> <span class="sim-rate-pill" id="sim-rate-badge">3 / 4</span></div>
+        </div>
+      </div>
+
+      <!-- Toast Feedback -->
+      <div class="sim-toast" id="sim-toast" role="status" style="display: none;"></div>
+
+      <!-- Units Section & List -->
+      <div class="sim-units-section">
+        <div class="sim-section-label">
+          <span>الوحدات والاشتراكات</span>
+          <span style="font-size: 8.5px; opacity: 0.8;">4 وحدات</span>
+        </div>
+        <div class="sim-units-list" role="list">
+          <!-- Apt 101: Paid Unit -->
+          <div class="sim-unit-card is-paid" data-unit-id="101" role="listitem">
+            <div class="sim-unit-info sim-unit-details">
+              <div class="sim-unit-num sim-unit-id">شقة 101</div>
+              <div class="sim-resident-name sim-unit-resident">أ. أحمد إبراهيم</div>
+              <div class="sim-fee-meta sim-unit-amount">500 ج.م • تحويل بنكي</div>
+            </div>
+            <div class="sim-unit-actions">
+              <span class="sim-badge sim-badge-paid">مسدد ✅</span>
+              <button type="button" class="sim-btn-receipt sim-btn-view-receipt" data-action="view-receipt" data-unit="101" data-unit-id="101" aria-label="عرض إيصال شقة 101">إيصال 🧾</button>
+            </div>
+          </div>
+
+          <!-- Apt 102: Unpaid Target Unit (Pulsing Action Hook) -->
+          <div class="sim-unit-card is-unpaid active-target" id="sim-unit-card-102" data-unit-id="102" role="listitem">
+            <div class="sim-unit-info sim-unit-details">
+              <div class="sim-unit-num sim-unit-id">شقة 102</div>
+              <div class="sim-resident-name sim-unit-resident">م. محمد سمير</div>
+              <div class="sim-fee-meta sim-unit-amount">500 ج.م • مستحق الآن</div>
+            </div>
+            <div class="sim-unit-actions">
+              <span class="sim-badge sim-badge-unpaid" id="sim-status-badge-102">غير مسدد ⏳</span>
+              <button type="button" class="sim-btn-collect sim-pulse-btn pulse-attention" id="sim-collect-btn-102" data-action="open-payment" data-unit="102" data-unit-id="102" aria-label="تحصيل اشتراك شقة 102">
+                <span>تحصيل 💵</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Apt 201: Paid Unit -->
+          <div class="sim-unit-card is-paid" data-unit-id="201" role="listitem">
+            <div class="sim-unit-info sim-unit-details">
+              <div class="sim-unit-num sim-unit-id">شقة 201</div>
+              <div class="sim-resident-name sim-unit-resident">د. خالد عبد الرحمن</div>
+              <div class="sim-fee-meta sim-unit-amount">500 ج.م • خزينة كاش</div>
+            </div>
+            <div class="sim-unit-actions">
+              <span class="sim-badge sim-badge-paid">مسدد ✅</span>
+              <button type="button" class="sim-btn-receipt sim-btn-view-receipt" data-action="view-receipt" data-unit="201" data-unit-id="201" aria-label="عرض إيصال شقة 201">إيصال 🧾</button>
+            </div>
+          </div>
+
+          <!-- Apt 202: Paid Unit -->
+          <div class="sim-unit-card is-paid" data-unit-id="202" role="listitem">
+            <div class="sim-unit-info sim-unit-details">
+              <div class="sim-unit-num sim-unit-id">شقة 202</div>
+              <div class="sim-resident-name sim-unit-resident">م. طارق العوضي</div>
+              <div class="sim-fee-meta sim-unit-amount">500 ج.م • خزينة كاش</div>
+            </div>
+            <div class="sim-unit-actions">
+              <span class="sim-badge sim-badge-paid">مسدد ✅</span>
+              <button type="button" class="sim-btn-receipt sim-btn-view-receipt" data-action="view-receipt" data-unit="202" data-unit-id="202" aria-label="عرض إيصال شقة 202">إيصال 🧾</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Prompt Banner -->
+        <div class="sim-prompt-banner sim-bottom-hint">
+          <span>👆 اضغط على <strong>"تحصيل 💵"</strong> لشقة 102 لتجربة السداد الفوري</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: Interactive Payment Modal (STATE_PAYMENT_MODAL) -->
+    <div class="sim-modal-backdrop sim-modal-overlay" id="sim-payment-modal" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sim-modal-heading">
+      <div class="sim-modal-sheet">
+        <div class="sim-modal-handle" aria-hidden="true"></div>
+        <div class="sim-modal-header">
+          <h3 id="sim-modal-heading" class="sim-modal-title">تسجيل تحصيل اشتراك</h3>
+          <button type="button" class="sim-btn-close sim-modal-close" id="sim-modal-close-btn" data-action="close-modal" aria-label="إلغاء وإغلاق">&times;</button>
+        </div>
+
+        <div class="sim-modal-body">
+          <!-- Selected Target Unit -->
+          <div class="sim-target-chip sim-target-unit-pill">
+            <span class="sim-target-icon">🚪</span>
+            <span class="sim-target-text" id="sim-target-unit-label">شقة 102 — م. محمد سمير</span>
+          </div>
+
+          <!-- Amount Input & Quick Preset Chips -->
+          <div class="sim-field-group">
+            <label for="sim-input-amount" class="sim-field-label">المبلغ المطلوب تحصيله (ج.م)</label>
+            <div class="sim-input-box sim-amount-input-box">
+              <input type="number" id="sim-input-amount" class="sim-amount-input" value="500" min="50" step="50" autocomplete="off" />
+              <span class="sim-input-currency sim-currency-tag">ج.م</span>
+            </div>
+            <div class="sim-preset-chips sim-chips-row" role="group" aria-label="مبالغ شائعة">
+              <button type="button" class="sim-chip is-selected active" data-amount="500">500 ج.م (شهر)</button>
+              <button type="button" class="sim-chip" data-amount="1000">1,000 ج.م (شهران)</button>
+              <button type="button" class="sim-chip" data-amount="1500">1,500 ج.م</button>
+            </div>
+          </div>
+
+          <!-- Treasury Selector (Segmented Toggle) -->
+          <div class="sim-field-group">
+            <label class="sim-field-label">خزينة الإيداع / طريقة الدفع</label>
+            <div class="sim-treasury-toggle sim-segmented-control" role="radiogroup" aria-label="طريقة الدفع">
+              <button type="button" class="sim-treasury-option sim-treasury-btn sim-segment-btn is-active active" id="sim-treasury-cash" data-treasury="cash" role="radio" aria-checked="true">
+                <span>💵 كاش (خزينة نقدية)</span>
+              </button>
+              <button type="button" class="sim-treasury-option sim-treasury-btn sim-segment-btn" id="sim-treasury-bank" data-treasury="bank" role="radio" aria-checked="false">
+                <span>📱 بنك / إنستاباي</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Statement Notice -->
+          <div class="sim-statement-note">
+            <span>البيان: اشتراك صيانة شهر أكتوبر 2026</span>
+          </div>
+
+          <!-- Confirmation CTA -->
+          <button type="button" class="sim-btn-confirm" id="sim-submit-payment-btn" data-action="confirm-payment">
+            <span>تأكيد واستخراج إيصال واتساب ✨</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: Certified WhatsApp Payment Receipt (STATE_RECEIPT) -->
+    <section class="sim-screen sim-screen-receipt sim-receipt-wrapper" id="sim-screen-receipt" style="display: none;" aria-label="إيصال السداد المعتمد على واتساب">
+      <!-- WhatsApp Brand Header -->
+      <div class="sim-wa-header">
+        <div class="sim-wa-avatar sim-wa-brand">
+          <svg class="sim-wa-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+          </svg>
+          <div class="sim-wa-title">
+            <div class="sim-wa-name">صندوق العمارة • إيصال سداد</div>
+            <div class="sim-wa-sub sim-wa-status">موثق ومعتمد رسمياً <span class="sim-wa-checks">✓✓</span></div>
+          </div>
+        </div>
+        <button type="button" class="sim-wa-close-btn" data-action="replay" aria-label="العودة للقائمة">&times;</button>
+      </div>
+
+      <!-- Receipt Paper Body -->
+      <div class="sim-receipt-container">
+        <div class="sim-receipt-paper">
+          <div class="sim-receipt-top-teeth" aria-hidden="true"></div>
+
+          <div class="sim-receipt-header sim-receipt-meta-header">
+            <div class="sim-receipt-badge sim-receipt-title">إيصال سداد إلكتروني معتمد</div>
+            <div class="sim-receipt-number sim-receipt-sub">رقم الإيصال: <strong id="sim-out-receipt-id">#SN-8821</strong></div>
+          </div>
+
+          <div class="sim-receipt-rows">
+            <div class="sim-receipt-row">
+              <span class="sim-r-label label">العقار:</span>
+              <span class="sim-r-val value">عمارة النور - شيراتون</span>
+            </div>
+            <div class="sim-receipt-row">
+              <span class="sim-r-label label">الوحدة:</span>
+              <span class="sim-r-val value" id="sim-out-unit">شقة 102 (الدور الأول)</span>
+            </div>
+            <div class="sim-receipt-row">
+              <span class="sim-r-label label">الساكن:</span>
+              <span class="sim-r-val value" id="sim-out-resident">م. محمد سمير</span>
+            </div>
+            <div class="sim-receipt-row">
+              <span class="sim-r-label label">التاريخ والوقت:</span>
+              <span class="sim-r-val value" id="sim-out-date">18 أكتوبر 2026 — 09:41 م</span>
+            </div>
+            <div class="sim-receipt-row">
+              <span class="sim-r-label label">الخزينة المستلمة:</span>
+              <span class="sim-r-val value" id="sim-out-treasury">خزينة نقدية (كاش 💵)</span>
+            </div>
+            <div class="sim-receipt-row">
+              <span class="sim-r-label label">البيان:</span>
+              <span class="sim-r-val value">اشتراك صيانة شهر أكتوبر 2026</span>
+            </div>
+          </div>
+
+          <!-- Total Amount Ribbon -->
+          <div class="sim-receipt-amount-box sim-receipt-amount-badge">
+            <div class="sim-r-amount-label sim-receipt-amount-title">المبلغ المسدد بالكامل:</div>
+            <div class="sim-r-amount-val sim-receipt-amount-num"><span id="sim-out-amount">500</span> ج.م</div>
+          </div>
+
+          <!-- Official Stamp -->
+          <div class="sim-receipt-stamp-box sim-receipt-stamp">
+            <div class="sim-stamp-seal sim-stamp-badge">
+              <span>معتمد إلكترونياً</span> • <small>#SN-8821</small>
+            </div>
+            <div class="sim-stamp-sig sim-stamp-sign">أمين الصندوق الرقمي ✍️</div>
+          </div>
+
+          <div class="sim-receipt-bottom-teeth" aria-hidden="true"></div>
+        </div>
+
+        <!-- Conversion Action Funnel -->
+        <div class="sim-conversion-actions sim-receipt-actions">
+          <a href="{{BASE_PATH}}/download.html?utm_source=web_simulator&utm_medium=whatsapp_receipt" class="sim-btn-download sim-btn-cta sim-btn-cta-download" id="sim-receipt-download-cta">
+            <span>جرّب هذا على عمارتك — حمّل التطبيق مجاناً 🚀</span>
+          </a>
+          <button type="button" class="sim-btn-replay sim-btn-cta-replay" id="sim-replay-loop-btn" data-action="replay">
+            <span>تسجيل معاملة جديدة 🔄</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Native Android Bottom Navigation Indicator -->
+    <div class="sim-nav-bar" aria-hidden="true">
+      <div class="sim-nav-pill"></div>
+    </div>
+  </div>
+</div>

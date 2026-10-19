@@ -1,0 +1,51 @@
+<section id="hero-search-hub" class="hero-search-section reveal" aria-label="محرك البحث الفوري لحلول العمارات">
+  <div class="search-hub-container">
+    <div class="search-hub-card">
+      <div class="search-hub-badge">
+        <span class="search-pulse-icon">⚡</span>
+        <span>محرك البحث الفوري الذكي</span>
+      </div>
+      <h2 class="search-hub-title">ابحث في أكثر من 39 دليلاً و 20 حاسبة متخصصة</h2>
+      <p class="search-hub-subtitle">اكتب أي كلمة تخص مشكلات العمارة، المصعد، الحارس، الفواتير، أو الإجراءات القانونية</p>
+
+      <!-- Category Filter Tabs -->
+      <div class="hero-search-tabs" role="tablist" aria-label="تصنيفات البحث">
+        <button type="button" class="hero-search-tab active" data-filter="all" role="tab" aria-selected="true">الكل</button>
+        <button type="button" class="hero-search-tab" data-filter="guides" role="tab" aria-selected="false">أدلة إرشادية</button>
+        <button type="button" class="hero-search-tab" data-filter="tools" role="tab" aria-selected="false">حاسبات وأدوات</button>
+        <button type="button" class="hero-search-tab" data-filter="solutions" role="tab" aria-selected="false">حلول وميزات</button>
+      </div>
+
+      <!-- Search Input Box -->
+      <div class="hero-search-box">
+        <span class="hero-search-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+        <input type="search" class="hero-search-input" placeholder="ابحث مثلاً: أسانسير، فاتورة مياه، عهدة بواب، شيت إكسيل..." aria-label="ابحث في أدلة وحاسبات صندوق العمارة" autocomplete="off" />
+        <button type="button" class="hero-search-btn search-trigger-btn" aria-label="فتح نافذة البحث السريع">
+          <span>بحث</span>
+        </button>
+      </div>
+
+      <!-- Quick Search Popular Tags -->
+      <div class="hero-search-tags-row">
+        <span class="tags-label">أكثر الكلمات بحثاً:</span>
+        <div class="tags-list">
+          <button type="button" class="hero-search-tag" data-query="أسانسير">أسانسير</button>
+          <button type="button" class="hero-search-tag" data-query="فاتورة مياه">فاتورة مياه</button>
+          <button type="button" class="hero-search-tag" data-query="إنستاباي">إنستاباي</button>
+          <button type="button" class="hero-search-tag" data-query="عهدة بواب">عهدة بواب</button>
+          <button type="button" class="hero-search-tag" data-query="شيت إكسيل">شيت إكسيل</button>
+          <button type="button" class="hero-search-tag" data-query="عزل سطح">عزل سطح</button>
+        </div>
+      </div>
+
+      <!-- Live Results Container -->
+      <div class="hero-search-results" style="display: none;" role="region" aria-live="polite">
+        <div class="search-empty-state no-results">
+          <p>لا توجد نتائج مطابقة لبحثك</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

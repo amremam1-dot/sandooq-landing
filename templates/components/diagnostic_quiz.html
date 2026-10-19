@@ -1,0 +1,160 @@
+<!-- Sandooq El-Amara — Building Needs Diagnostic Quiz Component (R3) -->
+<section id="diagnostic-quiz" class="diagnostic-quiz-section reveal" aria-label="أداة تشخيص احتياجات إدارة العقار">
+  <div class="quiz-container">
+    <div class="quiz-card">
+      <div class="quiz-header">
+        <div class="quiz-badge">
+          <span class="quiz-badge-icon">🧭</span>
+          <span>تشخيص ذكي مخصص في 30 ثانية</span>
+        </div>
+        <h2 class="quiz-title">ما هي المنظومة الأنسب لإدارة عمارتك؟</h2>
+        <p class="quiz-subtitle">أجب عن خطوتين بسيطتين لنحدد لك خطة العمل والحلول المخصصة لحجم عقارك وتحدياتك</p>
+
+        <!-- Step Indicator Progress -->
+        <div class="quiz-stepper" role="progressbar" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" aria-label="مراحل التشخيص">
+          <div class="quiz-step-item active" data-step-indicator="1">
+            <span class="step-num">1</span>
+            <span class="step-label">حجم العقار</span>
+          </div>
+          <div class="quiz-step-connector"></div>
+          <div class="quiz-step-item" data-step-indicator="2">
+            <span class="step-num">2</span>
+            <span class="step-label">التحدي الأكبر</span>
+          </div>
+          <div class="quiz-step-connector"></div>
+          <div class="quiz-step-item" data-step-indicator="3">
+            <span class="step-num">3</span>
+            <span class="step-label">تقرير التوصية</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 1: Property Size Selection -->
+      <div class="quiz-step is-active" id="quiz-step-1" role="region" aria-label="الخطوة الأولى: اختر حجم العقار">
+        <h3 class="quiz-question">كم عدد الوحدات والشقق في عقارك؟</h3>
+        <div class="quiz-options-grid" role="radiogroup" aria-label="خيارات حجم العقار">
+          <button type="button" class="quiz-option-card" data-size="under10" role="radio" aria-checked="false" tabindex="0">
+            <div class="quiz-option-icon">🏠</div>
+            <div class="quiz-option-info">
+              <strong class="quiz-option-title">عمارة صغيرة</strong>
+              <span class="quiz-option-desc">أقل من 10 شقق (إدارة بسيطة وعائلية)</span>
+            </div>
+            <span class="quiz-radio-check" aria-hidden="true"></span>
+          </button>
+
+          <button type="button" class="quiz-option-card" data-size="10to25" role="radio" aria-checked="false" tabindex="0">
+            <div class="quiz-option-icon">🏢</div>
+            <div class="quiz-option-info">
+              <strong class="quiz-option-title">عمارة متوسطة</strong>
+              <span class="quiz-option-desc">10 إلى 25 شقة (مصعد ومصاريف دورية)</span>
+            </div>
+            <span class="quiz-radio-check" aria-hidden="true"></span>
+          </button>
+
+          <button type="button" class="quiz-option-card" data-size="over25" role="radio" aria-checked="false" tabindex="0">
+            <div class="quiz-option-icon">🏙️</div>
+            <div class="quiz-option-info">
+              <strong class="quiz-option-title">برج أو عقار كبير</strong>
+              <span class="quiz-option-desc">أكثر من 25 شقة (أبراج، عهد متعددة، خزائن بنكية)</span>
+            </div>
+            <span class="quiz-radio-check" aria-hidden="true"></span>
+          </button>
+
+          <button type="button" class="quiz-option-card" data-size="compound" role="radio" aria-checked="false" tabindex="0">
+            <div class="quiz-option-icon">🏰</div>
+            <div class="quiz-option-info">
+              <strong class="quiz-option-title">مجمع سكني أو كمبوند أو مول</strong>
+              <span class="quiz-option-desc">مشاريع كبرى، بوابات أمن، صيانة شاملة</span>
+            </div>
+            <span class="quiz-radio-check" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Operational Challenge Selection -->
+      <div class="quiz-step" id="quiz-step-2" style="display: none;" role="region" aria-label="الخطوة الثانية: حدد التحدي الأكبر">
+        <div class="quiz-step-topbar">
+          <button type="button" class="quiz-back-btn" data-action="back-to-step-1" aria-label="العودة للخطوة السابقة">
+            ← تغيير حجم العقار
+          </button>
+          <span class="quiz-selected-summary" id="quiz-summary-size"></span>
+        </div>
+        <h3 class="quiz-question">ما هو التحدي الأكثر إرهاقاً بالنسبة لك حالياً؟</h3>
+        <div class="quiz-options-grid" role="radiogroup" aria-label="خيارات التحديات التشغيلية">
+          <button type="button" class="quiz-option-card" data-challenge="arrears" role="radio" aria-checked="false" tabindex="0">
+            <div class="quiz-option-icon">💸</div>
+            <div class="quiz-option-info">
+              <strong class="quiz-option-title">تحصيل المتأخرات والإحراج</strong>
+              <span class="quiz-option-desc">تأخر السكان في السداد، نسيان المبالغ، والجدال في المطالبات</span>
+            </div>
+            <span class="quiz-radio-check" aria-hidden="true"></span>
+          </button>
+
+          <button type="button" class="quiz-option-card" data-challenge="maintenance" role="radio" aria-checked="false" tabindex="0">
+            <div class="quiz-option-icon">🧹</div>
+            <div class="quiz-option-info">
+              <strong class="quiz-option-title">عهدة البواب ومشتريات الصيانة والنثريات</strong>
+              <span class="quiz-option-desc">ضياع فواتير السباكة والنظافة وصعوبة تسوية عهدة الحارس دورياً</span>
+            </div>
+            <span class="quiz-radio-check" aria-hidden="true"></span>
+          </button>
+
+          <button type="button" class="quiz-option-card" data-challenge="bills" role="radio" aria-checked="false" tabindex="0">
+            <div class="quiz-option-icon">⚡</div>
+            <div class="quiz-option-info">
+              <strong class="quiz-option-title">فواتير المصعد والمياه المشتركة</strong>
+              <span class="quiz-option-desc">خلافات تقسيم استهلاك المياه وكارت كهرباء السلم وصيانة الأسانسير</span>
+            </div>
+            <span class="quiz-radio-check" aria-hidden="true"></span>
+          </button>
+
+          <button type="button" class="quiz-option-card" data-challenge="paperwork" role="radio" aria-checked="false" tabindex="0">
+            <div class="quiz-option-icon">📑</div>
+            <div class="quiz-option-info">
+              <strong class="quiz-option-title">ضياع الأوراق والدفاتر والتقارير</strong>
+              <span class="quiz-option-desc">تلف كشاكيل الحسابات، وصعوبة عرض الحساب الختامي أمام الجمعية العمومية</span>
+            </div>
+            <span class="quiz-radio-check" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Dynamic Recommendation Report Card -->
+      <div class="quiz-step" id="quiz-step-3" style="display: none;" role="region" aria-label="الخطوة الثالثة: تقرير التوصية المخصص">
+        <div class="quiz-recommendation-card" id="quiz-recommendation-result">
+          <div class="rec-header">
+            <div class="rec-badge" id="rec-package-badge">تقرير التوصية المخصص لك</div>
+            <h3 class="rec-title" id="rec-title">منظومة التحصيل الحازم وبوابة الساكن الرقمية</h3>
+            <p class="rec-subtitle" id="rec-subtitle">تم إعداد هذه الخطة بناءً على اختيارك لعقارك وتحدياتك الميدانية</p>
+          </div>
+
+          <div class="rec-impact-banner" id="rec-impact">
+            <span class="impact-icon">🚀</span>
+            <span class="impact-text" id="rec-impact-text">يوفر 85% من وقت التحصيل ويقضي على الإحراج تماماً بضغطة زر واحدة.</span>
+          </div>
+
+          <div class="rec-features-section">
+            <h4 class="rec-features-heading">أبرز الميزات الموصى بها في صندوق العمارة لحل مشكلتك:</h4>
+            <ul class="rec-features-list" id="rec-features-list">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+
+          <!-- Dual Conversion CTAs + Reset -->
+          <div class="rec-actions-block">
+            <a href="download.html" class="button primary rec-btn-download" data-action="download-app">
+              <span>🚀 حمّل التطبيق وابدأ مجاناً</span>
+            </a>
+            <a href="#app-simulator" class="button secondary rec-btn-simulator" data-action="try-simulator">
+              <span>📱 جرّب الحل في المحاكي الحي</span>
+            </a>
+            <button type="button" class="rec-btn-reset" data-action="reset-quiz" aria-label="إعادة إجراء التشخيص">
+              <span>🔄 إعادة التشخيص</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

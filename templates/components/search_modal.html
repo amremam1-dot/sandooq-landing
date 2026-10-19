@@ -1,0 +1,41 @@
+<!-- Sandooq El-Amara — Global Command Palette Search Modal (R2) -->
+<div id="search-modal" class="search-modal-backdrop" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="search-modal-label">
+  <div class="search-modal-dialog">
+    <div class="search-modal-header">
+      <div class="search-modal-input-wrapper">
+        <svg class="search-modal-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" id="search-modal-input" class="search-modal-input" placeholder="ابحث في 35 دليلاً و 17 حاسبة وحلول العمارة... (Esc للإغلاق)" aria-label="بحث في أدلة وحاسبات صندوق العمارة" autocomplete="off" />
+      </div>
+      <button type="button" id="search-modal-close" class="search-modal-close" aria-label="إغلاق البحث (Esc)">&times;</button>
+    </div>
+
+    <!-- Category Filter Tabs inside Modal -->
+    <div class="search-modal-tabs" role="tablist" aria-label="تصفية نتائج البحث">
+      <button type="button" class="search-filter-tab active" data-filter="all" role="tab" aria-selected="true">الكل</button>
+      <button type="button" class="search-filter-tab" data-filter="guides" role="tab" aria-selected="false">أدلة إرشادية</button>
+      <button type="button" class="search-filter-tab" data-filter="tools" role="tab" aria-selected="false">حاسبات وأدوات</button>
+      <button type="button" class="search-filter-tab" data-filter="solutions" role="tab" aria-selected="false">حلول وميزات</button>
+    </div>
+
+    <div id="search-modal-results" class="search-modal-results" role="region" aria-live="polite">
+      <!-- Dynamic search results populated by js/search.js -->
+      <div class="search-empty-state no-results" style="display:none;">
+        <p>لا توجد نتائج مطابقة لبحثك</p>
+      </div>
+    </div>
+
+    <div class="search-modal-footer">
+      <div class="search-shortcuts-hints">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> للتنقل</span>
+        <span><kbd>Enter</kbd> لفتح الرابط</span>
+        <span><kbd>Esc</kbd> للإغلاق</span>
+      </div>
+      <div class="search-modal-brand-note">
+        <span>صندوق العمارة • البحث الفوري السحابي والمحلي</span>
+      </div>
+    </div>
+  </div>
+</div>
