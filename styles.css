@@ -4986,3 +4986,245 @@ body.light-theme .rec-features-list li {
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-main, #f8fafc);
 }
+
+/* ==========================================================================
+   Comprehensive Mobile Viewport Optimizations (<=768px and <=480px)
+   Protects layout, simulator frame, search hub, and quiz on all screens
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .hero-art {
+    margin-top: 36px;
+    width: 100%;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow on mobile body & wrappers */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Live Simulator Badge: ensure it doesn't overflow small screens */
+  .sim-live-badge {
+    top: -34px;
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    max-width: 92%;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  /* Phone Mockup Frame scaling down safely on mobile */
+  .phone-mockup {
+    max-width: min(326px, 92vw);
+  }
+
+  /* Simulator touch scrolling: smooth touch momentum and contained scrolling */
+  .sim-screen {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .sim-units-list {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Search Hub Card Padding & Typography */
+  .hero-search-section {
+    padding: 36px 14px;
+  }
+
+  .search-hub-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .search-hub-title {
+    font-size: 1.25rem;
+  }
+
+  .search-hub-subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+  }
+
+  .hero-search-box {
+    padding: 4px 10px;
+    gap: 8px;
+  }
+
+  .hero-search-input {
+    font-size: 0.92rem;
+  }
+
+  .hero-search-btn {
+    padding: 6px 14px;
+    font-size: 0.84rem;
+  }
+
+  .hero-search-tabs {
+    gap: 6px;
+  }
+
+  .hero-search-tab {
+    padding: 5px 12px;
+    font-size: 0.78rem;
+  }
+
+  /* Search Modal Dialog on Mobile Viewports */
+  .search-modal-backdrop {
+    padding: 16px 10px;
+    align-items: flex-start;
+  }
+
+  .search-modal-dialog {
+    max-height: 88vh;
+    border-radius: 14px;
+  }
+
+  .search-modal-header {
+    padding: 10px 14px;
+    gap: 8px;
+  }
+
+  .search-modal-input {
+    font-size: 0.95rem;
+  }
+
+  .search-modal-tabs {
+    padding: 8px 12px;
+  }
+
+  .search-modal-results {
+    padding: 8px 10px;
+  }
+
+  .search-modal-footer {
+    padding: 8px 12px;
+    font-size: 0.72rem;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .search-shortcuts-hints {
+    display: none; /* Hide desktop keyboard hints on mobile touch */
+  }
+
+  /* Diagnostic Quiz Section on Mobile */
+  .diagnostic-quiz-section {
+    padding: 40px 14px;
+  }
+
+  .quiz-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .quiz-title {
+    font-size: 1.28rem;
+  }
+
+  .quiz-subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+  }
+
+  .quiz-stepper {
+    gap: 6px;
+  }
+
+  .quiz-step-item {
+    font-size: 0.76rem;
+    gap: 5px;
+  }
+
+  .step-num {
+    width: 22px;
+    height: 22px;
+    font-size: 0.72rem;
+  }
+
+  .quiz-step-connector {
+    width: 16px;
+  }
+
+  .quiz-question {
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  .quiz-options-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .quiz-option-card {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .quiz-option-icon {
+    font-size: 1.5rem;
+  }
+
+  .quiz-option-title {
+    font-size: 0.9rem;
+  }
+
+  .quiz-option-desc {
+    font-size: 0.76rem;
+  }
+
+  .quiz-recommendation-card {
+    padding: 20px 14px;
+  }
+
+  .rec-header h4 {
+    font-size: 1.1rem;
+  }
+
+  .rec-actions-block {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .rec-btn-download,
+  .rec-btn-simulator,
+  .rec-btn-reset {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .sim-live-badge {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    top: -30px;
+  }
+
+  .phone-mockup {
+    max-width: 270px;
+  }
+
+  .app-simulator {
+    max-width: 258px;
+  }
+
+  .sim-unit-resident {
+    max-width: 70px;
+  }
+}
+
