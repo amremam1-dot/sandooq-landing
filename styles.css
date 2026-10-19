@@ -5298,3 +5298,36 @@ body.light-theme .rec-features-list li {
   }
 }
 
+/* ==========================================================================
+   Shared Light Theme Overrides (Art Boxes, Comparisons, Visual Aids)
+   ========================================================================== */
+body.light-theme .art-illustration-box {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-color: #cbd5e1;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+body.light-theme .art-box-title {
+  color: #1e3a8a;
+}
+body.light-theme .art-card-mini {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+body.light-theme .art-card-mini strong {
+  color: #0f172a;
+}
+body.light-theme .art-card-mini span {
+  color: #475569;
+}
+body.light-theme .compare-box.before {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+body.light-theme .compare-box.after {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #065f46;
+}
+

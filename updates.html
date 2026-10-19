@@ -365,6 +365,10 @@
       align-items: center;
       gap: 8px;
     }
+    .art-box-title svg {
+      color: var(--secondary-color);
+      flex-shrink: 0;
+    }
     .art-interactive-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -445,7 +449,7 @@
       margin-bottom: 14px;
     }
     .cta-banner-card p {
-      color: var(--text-light);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 1.1rem;
       max-width: 650px;
       margin: 0 auto 28px;
@@ -468,6 +472,64 @@
     .breadcrumb-nav a {
       color: var(--primary-light);
       text-decoration: none;
+    }
+
+    /* Light Theme Overrides */
+    body.light-theme .updates-hero {
+      background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.08) 0%, rgba(248, 250, 252, 0.98) 75%);
+    }
+    body.light-theme .stat-ribbon-number.accent { color: #059669; }
+    body.light-theme .stat-ribbon-number.blue { color: #2563eb; }
+    body.light-theme .stat-ribbon-number.gold { color: #d97706; }
+    body.light-theme .version-tag {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
+    }
+    body.light-theme .version-tag.gold {
+      background: #fefce8;
+      border-color: #fef08a;
+      color: #a16207;
+    }
+    body.light-theme .version-tag.green {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+      color: #15803d;
+    }
+    body.light-theme .feature-point-icon {
+      color: #059669;
+    }
+    body.light-theme .art-illustration-box {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-color: #cbd5e1;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+    body.light-theme .art-box-title {
+      color: #1e3a8a;
+    }
+    body.light-theme .art-card-mini {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    body.light-theme .art-card-mini strong {
+      color: #0f172a;
+    }
+    body.light-theme .art-card-mini span {
+      color: #475569;
+    }
+    body.light-theme .compare-box.before {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #991b1b;
+    }
+    body.light-theme .compare-box.after {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      color: #065f46;
+    }
+    body.light-theme .breadcrumb-nav a {
+      color: #2563eb;
     }
   </style>
 
