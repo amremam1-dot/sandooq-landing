@@ -299,8 +299,8 @@ function initMainApp() {
   const reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -40px 0px"
+      threshold: 0,
+      rootMargin: "0px 0px 80px 0px"
     };
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -312,7 +312,13 @@ function initMainApp() {
       });
     }, observerOptions);
 
-    reveals.forEach(el => revealObserver.observe(el));
+    reveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 100) {
+        el.classList.add("active");
+      }
+      revealObserver.observe(el);
+    });
   } else {
     reveals.forEach(el => el.classList.add("active"));
   }

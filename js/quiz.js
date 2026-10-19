@@ -389,10 +389,12 @@
     setStep(1);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initQuiz);
-  } else {
-    initQuiz();
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initQuiz);
+    } else {
+      initQuiz();
+    }
   }
 
   // Export for testing

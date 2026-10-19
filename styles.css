@@ -1854,6 +1854,15 @@ body.light-theme .moon-icon { display: none; }
     transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  /* Full container sections should never hide their full height or create empty voids */
+  html.js-ready section.reveal,
+  html.js-ready .features-section,
+  html.js-ready .diagnostic-quiz-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   html.js-ready .reveal.active {
     opacity: 1;
     transform: translateY(0);
@@ -4596,7 +4605,7 @@ body.light-theme .hero-search-results {
    R3: Building Needs Diagnostic Quiz Styles
    ========================================================================== */
 .diagnostic-quiz-section {
-  padding: 70px 20px;
+  padding: 56px 20px 40px;
   background: linear-gradient(180deg, rgba(30, 58, 138, 0.08) 0%, transparent 100%);
   border-top: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
   border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
@@ -4605,6 +4614,14 @@ body.light-theme .hero-search-results {
 .quiz-container {
   max-width: 860px;
   margin: 0 auto;
+}
+
+.quiz-step {
+  display: none;
+}
+
+.quiz-step.is-active {
+  display: block;
 }
 
 .quiz-card {
@@ -5117,7 +5134,16 @@ body.light-theme .rec-features-list li {
 
   /* Diagnostic Quiz Section on Mobile */
   .diagnostic-quiz-section {
-    padding: 40px 14px;
+    padding: 36px 14px 20px;
+  }
+
+  /* Features section spacing on mobile to eliminate bloated gap */
+  .features-section {
+    padding: 28px 14px 44px;
+  }
+
+  .section-header {
+    margin: 0 auto 24px;
   }
 
   .quiz-card {

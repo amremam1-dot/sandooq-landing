@@ -272,10 +272,14 @@ function compilePage(rawContent, fileInfo, templates, components) {
   if (templates.SCRIPTS) {
     const compiledScripts = interpolate(templates.SCRIPTS, context).trim();
     const scriptsBoundaryRegex = /<!--\s*TEMPLATE:\s*SCRIPTS\s*-->[\s\S]*?<!--\s*\/TEMPLATE:\s*SCRIPTS\s*-->/i;
+    const rawScriptsRegex = /<script\s+src=["'][^"']*script\.js["'][^>]*><\/script>(?:\s*<script\s+src=["'][^"']*js\/(?:simulator|search|quiz)\.js["'][^>]*><\/script>)*/i;
+
+    const replacement = `<!-- TEMPLATE: SCRIPTS -->\n${compiledScripts}\n<!-- /TEMPLATE: SCRIPTS -->`;
 
     if (scriptsBoundaryRegex.test(compiled)) {
-      const replacement = `<!-- TEMPLATE: SCRIPTS -->\n${compiledScripts}\n<!-- /TEMPLATE: SCRIPTS -->`;
       compiled = compiled.replace(scriptsBoundaryRegex, replacement);
+    } else if (rawScriptsRegex.test(compiled)) {
+      compiled = compiled.replace(rawScriptsRegex, replacement);
     }
   }
 
