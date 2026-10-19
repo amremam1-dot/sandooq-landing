@@ -75,30 +75,32 @@
       max-width: 550px;
     }
     .btn-play-large {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      background: #0f172a;
-      color: #ffffff;
-      padding: 14px 32px;
-      border-radius: var(--radius-sm);
-      border: 1px solid #475569;
-      font-weight: 700;
-      font-size: 1.1rem;
+      display: inline-block;
       text-decoration: none;
-      transition: var(--transition);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      transition: transform 0.25s ease, filter 0.25s ease;
+      line-height: 0;
+      border-radius: 12px;
     }
     .btn-play-large:hover {
-      background: #1e293b;
-      border-color: var(--primary-light);
-      transform: translateY(-2px);
+      transform: translateY(-3px) scale(1.02);
+      filter: drop-shadow(0 8px 22px rgba(0, 0, 0, 0.3));
     }
-    .btn-play-large svg {
-      width: 28px;
-      height: 28px;
-      fill: currentColor;
+    .btn-play-large img {
+      height: 64px;
+      width: auto;
+      max-width: 100%;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    .sub-pricing-note {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      font-weight: 700;
+      margin-top: 8px;
+    }
+    body.light-theme .sub-pricing-note {
+      color: #047857;
     }
     .specs-grid {
       display: grid;
@@ -336,17 +338,13 @@
         <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 18px;">
           التطبيق متاح الآن للتحميل المباشر والآمن عبر متجر Google Play الرسمي:
         </p>
-        <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" class="btn-play-large" id="btnMainDownload">
-          <svg viewBox="0 0 24 24"><path d="M3 5.25v13.5a1.5 1.5 0 0 0 2.43 1.16l11-8.25a1.5 1.5 0 0 0 0-2.32l-11-8.25A1.5 1.5 0 0 0 3 5.25z"/></svg>
-          <div style="text-align: right;">
-            <span style="display: block; font-size: 0.75rem; color: #94a3b8; font-weight: normal;">متاح للتحميل من</span>
-            <span>Google Play</span>
-          </div>
+        <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" class="btn-play-large" id="btnMainDownload" title="احصل عليه من Google Play" aria-label="احصل عليه من Google Play">
+          <img src="./assets/google-play-badge-ar.png" alt="احصل عليه من Google Play" width="220" height="64" loading="eager" />
         </a>
         <span style="display: block; font-size: 0.88rem; color: var(--text-muted); margin-top: 14px;">
           ✓ فترة تجربة مجانية شاملة لكافة المميزات | لا تتطلب بطاقة ائتمان مقدماً
         </span>
-        <span style="display: block; font-size: 0.85rem; color: var(--secondary-color); font-weight: 700; margin-top: 8px;">
+        <span class="sub-pricing-note">
           باقات الاشتراك بعد التجربة: 49.99 ج.م شهرياً أو 499.99 ج.م سنوياً (توفير شهرين كاملين)
         </span>
       </div>
