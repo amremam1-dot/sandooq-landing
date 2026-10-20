@@ -16,38 +16,44 @@
     return;
   }
 
+  // Helper to detect page language
+  function isEnglishPage() {
+    return document.documentElement && document.documentElement.lang === 'en';
+  }
+
   // 1. Initial State Factory (Ensures idempotency across replay & reset cycles)
   function createInitialState() {
+    const isEn = isEnglishPage();
     return {
       activeScreen: 1, // 1: Units List, 2: Payment Modal, 3: WhatsApp Receipt
       isProcessing: false, // Concurrency & double-click lock flag (T2.1.2)
-      buildingName: 'عمارة النور - شيراتون',
-      period: 'أكتوبر 2026',
+      buildingName: isEn ? 'Al-Nour Tower - Heliopolis' : 'عمارة النور - شيراتون',
+      period: isEn ? 'October 2026' : 'أكتوبر 2026',
       baseBalance: 18450,
       currentBalance: 18450,
       selectedUnitId: 102,
       paymentAmount: 500, // Default preset fee
-      treasury: 'cash', // 'cash' (كاش / خزينة نقدية) | 'bank' (بنك / انستاباي / InstaPay)
-      statement: 'اشتراك صيانة شهر أكتوبر 2026',
+      treasury: 'cash', // 'cash' | 'bank'
+      statement: isEn ? 'October 2026 Maintenance Dues' : 'اشتراك صيانة شهر أكتوبر 2026',
       receiptNumber: 1042,
       receiptStamp: '#SN-8821', // Official digital authentication seal (T1.1.4)
       units: [
         {
           id: 101,
-          name: 'شقة 101',
-          resident: 'أ. أحمد إبراهيم',
-          floor: 'الدور الأول',
+          name: isEn ? 'Apt 101' : 'شقة 101',
+          resident: isEn ? 'Ahmed Ibrahim' : 'أ. أحمد إبراهيم',
+          floor: isEn ? 'First Floor' : 'الدور الأول',
           amount: 500,
           isPaid: true,
           treasury: 'bank',
           receiptNumber: 1041,
-          date: '02 أكتوبر 2026 — 10:15 ص'
+          date: isEn ? '02 Oct 2026 — 10:15 AM' : '02 أكتوبر 2026 — 10:15 ص'
         },
         {
           id: 102,
-          name: 'شقة 102',
-          resident: 'م. محمد سمير',
-          floor: 'الدور الأول',
+          name: isEn ? 'Apt 102' : 'شقة 102',
+          resident: isEn ? 'Mohamed Samir' : 'م. محمد سمير',
+          floor: isEn ? 'First Floor' : 'الدور الأول',
           amount: 500,
           isPaid: false, // Target unpaid unit for interactive payment
           treasury: 'cash',
@@ -56,25 +62,25 @@
         },
         {
           id: 201,
-          name: 'شقة 201',
-          resident: 'د. خالد عبد الرحمن',
-          floor: 'الدور الثاني',
+          name: isEn ? 'Apt 201' : 'شقة 201',
+          resident: isEn ? 'Dr. Khaled Abdel-Rahman' : 'د. خالد عبد الرحمن',
+          floor: isEn ? 'Second Floor' : 'الدور الثاني',
           amount: 500,
           isPaid: true,
           treasury: 'cash',
           receiptNumber: 1040,
-          date: '01 أكتوبر 2026 — 08:30 م'
+          date: isEn ? '01 Oct 2026 — 08:30 PM' : '01 أكتوبر 2026 — 08:30 م'
         },
         {
           id: 202,
-          name: 'شقة 202',
-          resident: 'م. طارق العوضي',
-          floor: 'الدور الثاني',
+          name: isEn ? 'Apt 202' : 'شقة 202',
+          resident: isEn ? 'Eng. Tarek El-Awady' : 'م. طارق العوضي',
+          floor: isEn ? 'Second Floor' : 'الدور الثاني',
           amount: 500,
           isPaid: true,
           treasury: 'cash',
           receiptNumber: 1039,
-          date: '01 أكتوبر 2026 — 06:12 م'
+          date: isEn ? '01 Oct 2026 — 06:12 PM' : '01 أكتوبر 2026 — 06:12 م'
         }
       ],
       toastMessage: null
@@ -93,7 +99,9 @@
     if (confirmBtn) {
       confirmBtn.disabled = false;
       confirmBtn.classList.remove('loading', 'is-processing');
-      confirmBtn.innerHTML = '<span>تأكيد واستخراج إيصال واتساب ✨</span>';
+      confirmBtn.innerHTML = isEnglishPage()
+        ? '<span>Confirm & Issue WhatsApp Receipt ✨</span>'
+        : '<span>تأكيد واستخراج إيصال واتساب ✨</span>';
     }
   }
 
@@ -124,11 +132,23 @@
   // 3. Helper Formatters
   function formatMoney(amount) {
     const num = Number(amount) || 0;
-    return num.toLocaleString('ar-EG');
+    return isEnglishPage() ? num.toLocaleString('en-US') : num.toLocaleString('ar-EG');
   }
 
   function getFormattedDateTime() {
     const now = new Date();
+    const isEn = isEnglishPage();
+    if (isEn) {
+      const monthsEn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const day = now.getDate();
+      const month = monthsEn[now.getMonth()];
+      const year = now.getFullYear();
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+      return `${day} ${month} ${year} — ${hours}:${minutes} ${ampm}`;
+    }
     const months = [
       'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
       'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
@@ -186,6 +206,7 @@
     const card102 = container.querySelector('#sim-unit-card-102');
     const badge102 = container.querySelector('#sim-status-badge-102');
     const collectBtn102 = container.querySelector('#sim-collect-btn-102');
+    const isEn = isEnglishPage();
 
     if (unit102 && card102 && badge102 && collectBtn102) {
       if (unit102.isPaid) {
@@ -193,27 +214,27 @@
         card102.classList.add('is-paid');
 
         badge102.className = 'sim-badge sim-badge-paid';
-        badge102.textContent = 'مسدد ✅';
+        badge102.textContent = isEn ? 'Paid ✅' : 'مسدد ✅';
 
         collectBtn102.className = 'sim-btn-receipt sim-btn-view-receipt';
         collectBtn102.setAttribute('data-action', 'view-receipt');
         collectBtn102.setAttribute('data-unit', '102');
         collectBtn102.setAttribute('data-unit-id', '102');
-        collectBtn102.setAttribute('aria-label', 'عرض إيصال شقة 102');
-        collectBtn102.innerHTML = 'إيصال 🧾';
+        collectBtn102.setAttribute('aria-label', isEn ? 'View receipt for Apt 102' : 'عرض إيصال شقة 102');
+        collectBtn102.innerHTML = isEn ? 'Receipt 🧾' : 'إيصال 🧾';
       } else {
         card102.classList.remove('is-paid');
         card102.classList.add('is-unpaid', 'active-target');
 
         badge102.className = 'sim-badge sim-badge-unpaid';
-        badge102.textContent = 'غير مسدد ⏳';
+        badge102.textContent = isEn ? 'Due ⏳' : 'غير مسدد ⏳';
 
         collectBtn102.className = 'sim-btn-collect sim-pulse-btn pulse-attention';
         collectBtn102.setAttribute('data-action', 'open-payment');
         collectBtn102.setAttribute('data-unit', '102');
         collectBtn102.setAttribute('data-unit-id', '102');
-        collectBtn102.setAttribute('aria-label', 'تحصيل اشتراك شقة 102');
-        collectBtn102.innerHTML = '<span>تحصيل 💵</span>';
+        collectBtn102.setAttribute('aria-label', isEn ? 'Collect dues for Apt 102' : 'تحصيل اشتراك شقة 102');
+        collectBtn102.innerHTML = isEn ? '<span>Collect 💵</span>' : '<span>تحصيل 💵</span>';
       }
     }
 
@@ -316,7 +337,11 @@
 
     const outTreasury = container.querySelector('#sim-out-treasury');
     if (outTreasury) {
-      outTreasury.textContent = isCash ? 'خزينة نقدية (كاش 💵)' : 'تحويل بنكي / إنستاباي 📱';
+      if (isEn) {
+        outTreasury.textContent = isCash ? 'Cash Box (Cash 💵)' : 'Bank Transfer / InstaPay 📱';
+      } else {
+        outTreasury.textContent = isCash ? 'خزينة نقدية (كاش 💵)' : 'تحويل بنكي / إنستاباي 📱';
+      }
     }
 
     const outAmount = container.querySelector('#sim-out-amount');
@@ -413,7 +438,9 @@
       confirmBtn.disabled = true;
       confirmBtn.classList.add('loading', 'is-processing');
       const originalText = confirmBtn.innerHTML;
-      confirmBtn.innerHTML = '<span>جاري التوثيق وتوليد الختم...</span>';
+      confirmBtn.innerHTML = isEnglishPage()
+        ? '<span>Verifying & generating receipt...</span>'
+        : '<span>جاري التوثيق وتوليد الختم...</span>';
 
       // Simulate digital signing delay (350ms)
       paymentTimer = setTimeout(() => {
@@ -494,7 +521,10 @@
     state.isProcessing = false;
     syncViews();
 
-    showToast('🎉 تم تحصيل شقة 102 وتحديث رصيد الصندوق ونسبة التحصيل إلى 100%!');
+    const isEn = isEnglishPage();
+    showToast(isEn
+      ? '🎉 Collected Apt 102! Fund balance & collection rate updated to 100%!'
+      : '🎉 تم تحصيل شقة 102 وتحديث رصيد الصندوق ونسبة التحصيل إلى 100%!');
   }
 
   function reset() {
@@ -502,7 +532,10 @@
     if (toastTimer) clearTimeout(toastTimer);
     state = createInitialState();
     syncViews();
-    showToast('↺ تم إعادة ضبط المحاكي للحالة التجريبية الأولى.');
+    const isEn = isEnglishPage();
+    showToast(isEn
+      ? '↺ Simulator reset to initial demo state.'
+      : '↺ تم إعادة ضبط المحاكي للحالة التجريبية الأولى.');
   }
 
   function focusAndPulse() {

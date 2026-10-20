@@ -59,7 +59,9 @@ function loadTemplates() {
   // Mandatory / Primary Templates
   const templateFiles = {
     HEADER: ['header.html'],
+    HEADER_EN: ['header_en.html', 'header.html'],
     FOOTER: ['footer.html'],
+    FOOTER_EN: ['footer_en.html', 'footer.html'],
     HEAD_META: ['head_meta.html', 'head-common.html'],
     SCRIPTS: ['scripts.html', 'scripts-common.html']
   };
@@ -135,6 +137,27 @@ function computeContext(fileInfo) {
     basePath = Array(depth).fill('..').join('/');
   }
 
+  const rel = fileInfo.relPath;
+  const isEnglish = rel.startsWith('en/') || rel === 'en';
+  const cleanRelNoLang = isEnglish ? rel.replace(/^en\/?/, '') : rel;
+
+  let langSwitchHref;
+  let hreflangAr;
+  let hreflangEn;
+  const hreflangDefault = 'https://sandoqalemara.com/';
+
+  if (isEnglish) {
+    const cleanAr = (cleanRelNoLang === '' || cleanRelNoLang === 'index.html') ? '' : cleanRelNoLang;
+    langSwitchHref = cleanAr ? `${basePath}/${cleanAr}` : `${basePath}/`;
+    hreflangAr = cleanAr ? `https://sandoqalemara.com/${cleanAr}` : 'https://sandoqalemara.com/';
+    hreflangEn = `https://sandoqalemara.com/${rel.replace(/\/index\.html$/, '/').replace(/^index\.html$/, '')}`;
+  } else {
+    const cleanRel = (rel === 'index.html' || rel === '') ? '' : rel;
+    langSwitchHref = cleanRel ? `${basePath}/en/${cleanRel}` : `${basePath}/en/`;
+    hreflangAr = cleanRel ? `https://sandoqalemara.com/${cleanRel}` : 'https://sandoqalemara.com/';
+    hreflangEn = cleanRel ? `https://sandoqalemara.com/en/${cleanRel}` : 'https://sandoqalemara.com/en/';
+  }
+
   const activeNav = {
     ACTIVE_HOME: '',
     ACTIVE_TOOLS: '',
@@ -146,27 +169,31 @@ function computeContext(fileInfo) {
     ACTIVE_DOWNLOAD: ''
   };
 
-  const rel = fileInfo.relPath;
-  if (rel === 'index.html') {
+  if (cleanRelNoLang === 'index.html' || cleanRelNoLang === '') {
     activeNav.ACTIVE_HOME = 'active';
-  } else if (rel.startsWith('tools/')) {
+  } else if (cleanRelNoLang.startsWith('tools/')) {
     activeNav.ACTIVE_TOOLS = 'active';
-  } else if (rel.startsWith('guides/')) {
+  } else if (cleanRelNoLang.startsWith('guides/')) {
     activeNav.ACTIVE_GUIDES = 'active';
-  } else if (rel.startsWith('solutions/')) {
+  } else if (cleanRelNoLang.startsWith('solutions/')) {
     activeNav.ACTIVE_SOLUTIONS = 'active';
-  } else if (rel === 'billing.html' || rel === 'billing-easy.html') {
+  } else if (cleanRelNoLang === 'billing.html' || cleanRelNoLang === 'billing-easy.html') {
     activeNav.ACTIVE_BILLING = 'active';
-  } else if (rel === 'about.html') {
+  } else if (cleanRelNoLang === 'about.html') {
     activeNav.ACTIVE_ABOUT = 'active';
-  } else if (rel === 'contact.html') {
+  } else if (cleanRelNoLang === 'contact.html') {
     activeNav.ACTIVE_CONTACT = 'active';
-  } else if (rel === 'download.html') {
+  } else if (cleanRelNoLang === 'download.html') {
     activeNav.ACTIVE_DOWNLOAD = 'active';
   }
 
   return {
     BASE_PATH: basePath,
+    LANG_SWITCH_HREF: langSwitchHref,
+    HREFLANG_AR: hreflangAr,
+    HREFLANG_EN: hreflangEn,
+    HREFLANG_DEFAULT: hreflangDefault,
+    APP_NAME: isEnglish ? 'Sandooq El-Amara' : 'صندوق العمارة',
     ...activeNav
   };
 }
@@ -232,10 +259,21 @@ function compilePage(rawContent, fileInfo, templates, components) {
   const context = computeContext(fileInfo);
   let compiled = rawContent;
 
+  const isEnglish = fileInfo.relPath.startsWith('en/') || fileInfo.relPath === 'en';
+  if (isEnglish) {
+    compiled = compiled.replace(/<html(?:\s+[^>]*)?>/i, '<html lang="en" dir="ltr">');
+  } else {
+    compiled = compiled.replace(/<html(?:\s+[^>]*)?>/i, '<html lang="ar" dir="rtl">');
+  }
+
   // Step A: Expand Components in Templates (e.g. SEARCH_MODAL inside header)
-  let headerTpl = templates.HEADER;
+  let headerTpl = isEnglish ? (templates.HEADER_EN || templates.HEADER) : templates.HEADER;
   if (headerTpl) {
-    headerTpl = expandComponents(headerTpl, context, components);
+    const activeComponents = { ...components };
+    if (isEnglish && components.SEARCH_MODAL_EN) {
+      activeComponents.SEARCH_MODAL = components.SEARCH_MODAL_EN;
+    }
+    headerTpl = expandComponents(headerTpl, context, activeComponents);
   }
 
   // Step B: Inject HEADER
@@ -254,8 +292,9 @@ function compilePage(rawContent, fileInfo, templates, components) {
   }
 
   // Step C: Inject FOOTER
-  if (templates.FOOTER) {
-    const compiledFooter = interpolate(templates.FOOTER, context).trim();
+  const footerRawTpl = isEnglish ? (templates.FOOTER_EN || templates.FOOTER) : templates.FOOTER;
+  if (footerRawTpl) {
+    const compiledFooter = interpolate(footerRawTpl, context).trim();
     const footerBoundaryRegex = /<!--\s*TEMPLATE:\s*FOOTER\s*-->[\s\S]*?<!--\s*\/TEMPLATE:\s*FOOTER\s*-->/i;
     const rawFooterRegex = /<footer\s+class=["'][^"']*site-footer[^"']*["'][\s\S]*?(?:<\/footer>|(?=<!-- Declarative WebMCP Tools)|(?=<form id="webmcp)|(?=<script\b))/i;
 

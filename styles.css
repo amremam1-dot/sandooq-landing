@@ -264,6 +264,43 @@ button {
   border-color: var(--primary-light);
 }
 
+.lang-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 12px;
+  border-radius: var(--radius-full);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 700;
+  transition: var(--transition);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.lang-switch-btn:hover {
+  transform: scale(1.04);
+  border-color: var(--primary-light);
+  color: var(--primary-light);
+}
+
+.lang-switch-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.lang-switch-btn .lang-code {
+  font-family: inherit;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
 .sun-icon { display: none; width: 20px; height: 20px; }
 .moon-icon { display: block; width: 20px; height: 20px; }
 
@@ -5330,4 +5367,107 @@ body.light-theme .compare-box.after {
   border-color: #a7f3d0;
   color: #065f46;
 }
+
+/* ==========================================================================
+   English / LTR Multi-language System Rules
+   ========================================================================== */
+html[lang="en"] body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.01em;
+  direction: ltr;
+  text-align: left;
+}
+
+html[lang="en"] .brand {
+  flex-direction: row;
+}
+
+html[lang="en"] .nav {
+  text-align: left;
+}
+
+html[lang="en"] .search-modal-input-wrapper {
+  flex-direction: row;
+}
+
+html[lang="en"] .search-icon {
+  right: auto;
+  left: 18px;
+}
+
+html[lang="en"] .search-input {
+  padding: 14px 20px 14px 48px;
+  text-align: left;
+}
+
+html[lang="en"] .footer-col {
+  text-align: left;
+}
+
+html[lang="en"] .footer-copy .site-version {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+html[lang="en"] .faq-question {
+  text-align: left;
+}
+
+html[lang="en"] .faq-question svg {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+html[lang="en"] .feature-card,
+html[lang="en"] .review-card,
+html[lang="en"] .pricing-card {
+  text-align: left;
+}
+
+html[lang="en"] .phone-screen {
+  direction: ltr;
+}
+
+html[lang="en"] .sim-unit-card {
+  text-align: left;
+}
+
+html[lang="en"] .sim-status-bar {
+  flex-direction: row-reverse;
+}
+
+html[lang="en"] .timeline-container::before {
+  right: auto;
+  left: 48px;
+}
+
+@media (max-width: 768px) {
+  html[lang="en"] .timeline-container::before {
+    right: auto;
+    left: 28px;
+  }
+  html[lang="en"] .milestone-item {
+    padding-right: 0;
+    padding-left: 54px;
+  }
+  html[lang="en"] .milestone-node {
+    right: auto;
+    left: 17px;
+  }
+}
+
+html[lang="en"] .milestone-item {
+  padding-right: 0;
+  padding-left: 76px;
+}
+
+html[lang="en"] .milestone-node {
+  right: auto;
+  left: 37px;
+}
+
+html[lang="en"] .art-card-mini {
+  text-align: left;
+}
+
 

@@ -1,0 +1,1475 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subscription Plans & Direct Online Payment | Sandooq El-Amara</title>
+  <meta name="description" content="Subscribe or renew your building's Sandooq El-Amara license securely via InstaPay or Google Play with instant cloud feature activation." />
+  <link rel="canonical" href="https://sandoqalemara.com/en/billing.html" />
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" href="../favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Firebase SDK (v10 Compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/en/billing.html" />
+  <meta property="og:title" content="Subscription Plans & Direct Online Payment | Sandooq El-Amara" />
+  <meta property="og:description" content="Renew or subscribe via InstaPay or Google Play Store with instant zero-wait activation." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <style>
+    .billing-page-container {
+      max-width: 1080px;
+      margin: 40px auto 80px;
+      padding: 0 20px;
+    }
+    .billing-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .billing-hero h1 {
+      font-size: 2.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+    .billing-hero .lead-text {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 24px;
+      line-height: 1.8;
+    }
+    .trust-badges-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .trust-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 6px 16px;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+    .trust-badge-pill.highlight {
+      border-color: var(--secondary-color);
+      color: var(--secondary-color);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .plans-selection-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .plan-option-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      position: relative;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+    .plan-option-card:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .plan-option-card.selected {
+      border-color: #3b82f6;
+      background: linear-gradient(180deg, var(--card-bg) 0%, rgba(59, 130, 246, 0.08) 100%);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25), var(--shadow-md);
+    }
+    .plan-badge-top {
+      position: absolute;
+      top: -14px;
+      right: 24px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    }
+    .plan-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .plan-title-wrap h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+    }
+    .plan-radio-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .plan-option-card.selected .plan-radio-circle {
+      border-color: #3b82f6;
+      background: #3b82f6;
+    }
+    .plan-radio-circle::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .plan-option-card.selected .plan-radio-circle::after {
+      opacity: 1;
+    }
+    .plan-price-row {
+      margin: 14px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .plan-price-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--text-main);
+    }
+    .plan-price-period {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .plan-desc-note {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .plan-features-mini {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-grow: 1;
+    }
+    .plan-features-mini li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    .plan-features-mini svg {
+      width: 18px;
+      height: 18px;
+      color: var(--secondary-color);
+      flex-shrink: 0;
+    }
+
+    .checkout-wrapper-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 50px;
+    }
+    .checkout-header-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+      gap: 14px;
+    }
+    .order-ref-pill {
+      background: var(--card-bg-subtle);
+      border: 1px dashed var(--border-color);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-family: monospace;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .checkout-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 840px) {
+      .checkout-steps-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    .form-group-custom {
+      margin-bottom: 18px;
+    }
+    .form-label-custom {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+    .form-input-custom {
+      width: 100%;
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      box-sizing: border-box;
+    }
+    .form-input-custom:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+    .account-status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      margin-top: 6px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .account-status-tag.verified {
+      color: var(--secondary-color);
+    }
+    .account-status-tag.pending {
+      color: var(--accent-color);
+    }
+
+    .instapay-method-card {
+      background: linear-gradient(135deg, #2e0854 0%, #4a148c 50%, #5a2d82 100%);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(90, 45, 130, 0.35);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .instapay-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .instapay-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .instapay-logo-badge {
+      background: #ffffff;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 900;
+      color: #5a2d82;
+      font-size: 1.05rem;
+      letter-spacing: -0.5px;
+    }
+    .ipa-copy-box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 10px;
+    }
+    .ipa-address-text {
+      font-family: monospace;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffd700;
+    }
+    .btn-copy-ipa {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-copy-ipa:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .instapay-instructions-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.5;
+    }
+    .instapay-instructions-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .btn-open-instapay {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #ffd700;
+      color: #2e0854;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      border: none;
+      width: 100%;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    .btn-open-instapay:hover {
+      background: #ffea75;
+      transform: translateY(-2px);
+    }
+
+    .checkout-final-actions {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      text-align: center;
+    }
+    .btn-activate-instant {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      border: none;
+      font-family: inherit;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 16px 36px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 520px;
+    }
+    .btn-activate-instant:hover:not(:disabled) {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.45);
+    }
+    .btn-activate-instant:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+    .btn-whatsapp-confirm {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #25d366;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      transition: var(--transition);
+    }
+    .btn-whatsapp-confirm:hover {
+      background: #128c7e;
+      transform: translateY(-2px);
+    }
+
+    .auth-box-container {
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .auth-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 10px;
+    }
+    .auth-box-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .auth-box-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .btn-google-auth {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      background: #ffffff;
+      color: #1f2937;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #d1d5db;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+    .btn-google-auth:hover:not(:disabled) {
+      background: #f9fafb;
+      transform: translateY(-2px);
+    }
+    .btn-google-auth svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+    .auth-divider-line {
+      display: flex;
+      align-items: center;
+      margin: 18px 0 14px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    .auth-divider-line::before,
+    .auth-divider-line::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .auth-divider-line span {
+      padding: 0 10px;
+      font-weight: 600;
+    }
+    .btn-auth-email-submit {
+      width: 100%;
+      background: var(--primary-light);
+      color: #ffffff;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 11px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-auth-email-submit:hover:not(:disabled) {
+      background: #2563eb;
+    }
+    .auth-extra-links {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 0.8rem;
+    }
+    .btn-text-link {
+      background: none;
+      border: none;
+      color: var(--primary-light);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+    }
+
+    .connected-profile-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+      border: 2px solid rgba(16, 185, 129, 0.5);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .connected-user-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .user-avatar-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .user-avatar-image,
+    .user-avatar-initials {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .user-avatar-initials {
+      background: #3b82f6;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    .btn-signout-card {
+      background: rgba(239, 68, 68, 0.15);
+      color: #fca5a5;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-signout-card:hover {
+      background: rgba(239, 68, 68, 0.3);
+    }
+    .user-status-strip-box {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .success-confirmation-card {
+      display: none;
+      background: var(--card-bg);
+      border: 2px solid var(--secondary-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+    }
+    .success-icon-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--secondary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .success-icon-circle svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .billing-faq {
+      margin-top: 50px;
+    }
+    .billing-faq h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .faq-accordion-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-accordion-header {
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text-main);
+      transition: var(--transition);
+    }
+    .faq-accordion-header:hover {
+      color: var(--primary-light);
+    }
+    .faq-accordion-body {
+      display: none;
+      padding: 0 20px 20px;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .faq-accordion-item.open .faq-accordion-body {
+      display: block;
+    }
+    .faq-accordion-item.open .faq-arrow {
+      transform: rotate(180deg);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Subscription Plans & Direct Online Payment | Sandooq El-Amara",
+    "url": "https://sandoqalemara.com/en/billing.html",
+    "description": "Subscribe or renew your building's Sandooq El-Amara license securely via InstaPay or Google Play.",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sandoqalemara.com/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Subscriptions & Billing",
+          "item": "https://sandoqalemara.com/en/billing.html"
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <!-- TEMPLATE: HEADER -->
+<header class="site-header">
+  <div class="header-container">
+    <a class="brand" href="../">
+      <picture>
+        <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+        <img src="../assets/sandooq-logo.png" alt="Sandooq El-Amara Logo" width="36" height="36" />
+      </picture>
+      <span>Sandooq El-Amara</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <nav class="nav">
+      <a href="../#features">Features</a>
+      <a href="../#video-tour">Video Tour</a>
+      <a href="../#reviews">Reviews ⭐</a>
+      <a href="../tools/" class="">Free Tools</a>
+      <a href="../guides/" class="">Guides</a>
+      <a href="../billing.html" class="active" style="color: var(--secondary-color); font-weight: 800; white-space: nowrap;">Pricing ⚡</a>
+      <a href="../about.html" class="nav-link-secondary ">About</a>
+      <a href="../contact.html" class="nav-link-secondary ">Contact</a>
+      <a href="../download.html" class="button primary header-cta-btn ">Download App</a>
+
+      <!-- Instant Live Search Trigger Button -->
+      <button id="search-trigger-btn" class="search-trigger-btn" aria-label="Search site (Ctrl+K)" title="Quick search (Ctrl+K)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="search-trigger-text">Search...</span>
+        <kbd class="search-kbd">Ctrl+K</kbd>
+      </button>
+
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+
+      <!-- Language Switcher Button -->
+      <a href="../billing.html" class="lang-switch-btn" aria-label="التبديل إلى العربية" title="التبديل إلى العربية">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span class="lang-code">عربي</span>
+      </a>
+    </nav>
+  </div>
+  <!-- Sandooq El-Amara — Global Command Palette Search Modal (EN) -->
+<div id="search-modal" class="search-modal-backdrop" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="search-modal-label">
+  <div class="search-modal-dialog">
+    <div class="search-modal-header">
+      <div class="search-modal-input-wrapper">
+        <svg class="search-modal-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" id="search-modal-input" class="search-modal-input" placeholder="Search 35 guides, 17 tools, and building solutions... (Esc to close)" aria-label="Search Sandooq El-Amara guides and tools" autocomplete="off" />
+      </div>
+      <button type="button" id="search-modal-close" class="search-modal-close" aria-label="Close search (Esc)">&times;</button>
+    </div>
+
+    <!-- Category Filter Tabs inside Modal -->
+    <div class="search-modal-tabs" role="tablist" aria-label="Filter search results">
+      <button type="button" class="search-filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button type="button" class="search-filter-tab" data-filter="guides" role="tab" aria-selected="false">Guides</button>
+      <button type="button" class="search-filter-tab" data-filter="tools" role="tab" aria-selected="false">Calculators & Tools</button>
+      <button type="button" class="search-filter-tab" data-filter="solutions" role="tab" aria-selected="false">Solutions</button>
+    </div>
+
+    <div id="search-modal-results" class="search-modal-results" role="region" aria-live="polite">
+      <!-- Dynamic search results populated by js/search.js -->
+      <div class="search-empty-state no-results" style="display:none;">
+        <p>No results found for your search</p>
+      </div>
+    </div>
+
+    <div class="search-modal-footer">
+      <div class="search-shortcuts-hints">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+        <span><kbd>Enter</kbd> to open</span>
+        <span><kbd>Esc</kbd> to close</span>
+      </div>
+      <div class="search-modal-brand-note">
+        <span>Sandooq El-Amara • Instant Search</span>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+<!-- /TEMPLATE: HEADER -->
+
+  <main class="billing-page-container">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb" style="margin-bottom: 24px;">
+      <a href="./">Home</a> &gt; <strong>Subscriptions & Billing</strong>
+    </nav>
+
+    <!-- Hero -->
+    <div class="billing-hero">
+      <h1>Subscription Plans & Instant Digital Activation</h1>
+      <p class="lead-text">
+        Renew or upgrade your building's license easily and securely via <strong>InstaPay (Egypt)</strong> or Google Play In-App Subscriptions, featuring <strong>instant activation</strong> with zero downtime.
+      </p>
+
+      <div class="trust-badges-bar">
+        <span class="trust-badge-pill highlight">⚡ Instant 48-Hour Trust Grace Activation</span>
+        <span class="trust-badge-pill">🔒 Secure Real-time Bank Network (IPN)</span>
+        <span class="trust-badge-pill">☁️ Encrypted Cloud Sync</span>
+        <span class="trust-badge-pill">💬 Direct WhatsApp Customer Care</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Plan Selection Cards -->
+    <div class="plans-selection-grid">
+      <!-- Yearly Plan Card -->
+      <div class="plan-option-card selected" id="planCardYearly" onclick="selectPlan('yearly')">
+        <div class="plan-badge-top">🔥 Best Value (Save 2 Months)</div>
+        <div class="plan-header">
+          <div class="plan-title-wrap">
+            <h3>Annual Golden Plan (VIP)</h3>
+          </div>
+          <div class="plan-radio-circle"></div>
+        </div>
+        <div class="plan-price-row">
+          <span class="plan-price-num">499.99</span>
+          <span class="plan-price-period">EGP / year (12 months)</span>
+        </div>
+        <p class="plan-desc-note">
+          Save 2 full months compared to monthly renewal (499.99 EGP instead of 600 EGP per year).
+        </p>
+        <ul class="plan-features-mini">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited encrypted cloud synchronization</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Formatted WhatsApp payment receipts & arrears notices</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Special projects, mosque fund & gatekeeper petty cash</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Uncle Amin Smart Voice Input (AI Voice)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> AI-assisted Excel import & export with instant Undo shield</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> 8 Printable A4 PDF financial reports & balance sheets</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> VIP direct engineering support & ongoing updates</li>
+        </ul>
+      </div>
+
+      <!-- Monthly Plan Card -->
+      <div class="plan-option-card" id="planCardMonthly" onclick="selectPlan('monthly')">
+        <div class="plan-header">
+          <div class="plan-title-wrap">
+            <h3>Monthly Plan</h3>
+          </div>
+          <div class="plan-radio-circle"></div>
+        </div>
+        <div class="plan-price-row">
+          <span class="plan-price-num">49.99</span>
+          <span class="plan-price-period">EGP / month</span>
+        </div>
+        <p class="plan-desc-note">
+          Flexible month-to-month billing with the ability to upgrade to the Annual Plan anytime.
+        </p>
+        <ul class="plan-features-mini">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Encrypted cloud data backups</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> WhatsApp payment receipts generator</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Voice input support with Uncle Amin</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Excel sheet (.xlsx) export and import</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Automated expense & arrears tracking</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Monthly PDF statement exports</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Interactive Multi-Step Checkout Card -->
+    <div class="checkout-wrapper-card" id="checkoutBox">
+      <div class="checkout-header-bar">
+        <div>
+          <h2 style="font-size: 1.45rem; font-weight: 800; margin: 0 0 4px; color: var(--text-main);">
+            Payment Invoice & Details
+          </h2>
+          <span style="font-size: 0.9rem; color: var(--text-muted);" id="summaryPlanLabel">
+            Selected Plan: Annual Golden Plan (VIP) • 499.99 EGP
+          </span>
+        </div>
+        <div class="order-ref-pill">
+          Invoice Ref: <span id="displayOrderRef">#IPN-26-XXXXX</span>
+        </div>
+      </div>
+
+      <div class="checkout-steps-grid">
+        <!-- Step 1: Real App Account Authentication & Details -->
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+            <span style="background: var(--primary-light); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem;">1</span>
+            Your Sandooq El-Amara Account
+          </h3>
+
+          <!-- REAL AUTH BOX: Logged Out State -->
+          <div id="authLoggedOutView" class="auth-box-container">
+            <div class="auth-badge-pill">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <span>Login Required for Payment</span>
+            </div>
+            <h4 class="auth-box-title">Sign In with your App Account</h4>
+            <p class="auth-box-desc">
+              Direct payment is linked to your registered mobile app account. Sign in with Google or your email to attach the subscription instantly.
+            </p>
+
+            <!-- Google Sign-In Button -->
+            <button type="button" class="btn-google-auth" id="btnGoogleSignIn" onclick="handleGoogleSignIn()">
+              <svg viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              <span id="btnGoogleText">Sign In with Google</span>
+            </button>
+
+            <!-- Divider -->
+            <div class="auth-divider-line">
+              <span>Or sign in with email & password</span>
+            </div>
+
+            <!-- Email & Password Form -->
+            <form id="emailAuthForm" onsubmit="handleEmailAuth(event)">
+              <div id="authMsgBanner" class="auth-message-banner" style="display:none;"></div>
+
+              <div class="form-group-custom" style="margin-bottom:12px;">
+                <label class="form-label-custom" for="authEmailInput">Registered App Email <span style="color:var(--danger-color)">*</span></label>
+                <input type="email" id="authEmailInput" class="form-input-custom" placeholder="name@gmail.com" required dir="ltr" />
+              </div>
+
+              <div class="form-group-custom" style="margin-bottom:12px;">
+                <label class="form-label-custom" for="authPasswordInput">Password <span style="color:var(--danger-color)">*</span></label>
+                <input type="password" id="authPasswordInput" class="form-input-custom" placeholder="••••••••" required />
+              </div>
+
+              <button type="submit" class="btn-auth-email-submit" id="btnEmailSubmit">
+                <span id="btnEmailSubmitText">Sign In & Proceed</span>
+              </button>
+
+              <div class="auth-extra-links" id="forgotPassLinkWrap">
+                <button type="button" class="btn-text-link" onclick="handleForgotPassword()">Forgot password?</button>
+                <span style="font-size:0.75rem; color:var(--text-muted)">Encrypted via Firebase</span>
+              </div>
+            </form>
+          </div>
+
+          <!-- REAL AUTH BOX: Logged In State (Connected User Card) -->
+          <div id="authLoggedInView" style="display:none;">
+            <div class="connected-profile-card">
+              <div class="connected-user-row">
+                <div class="user-avatar-badge-wrap">
+                  <img id="userAvatarImg" class="user-avatar-image" src="../assets/sandooq-logo.png" alt="User Avatar" style="display:none;" />
+                  <div id="userAvatarFallback" class="user-avatar-initials">S</div>
+                  <div class="user-meta-texts">
+                    <h4 id="userNameGreeting">Welcome</h4>
+                    <div class="user-email" id="userEmailDisplay">-</div>
+                  </div>
+                </div>
+                <button type="button" class="btn-signout-card" onclick="handleSignOut()">
+                  Switch Account
+                </button>
+              </div>
+
+              <div class="user-status-strip-box" id="userStatusStrip">
+                <div id="userSubscriptionDetails">Checking your subscription status...</div>
+              </div>
+            </div>
+          </div>
+
+          <div id="loginRequiredNotice" style="background: rgba(245, 158, 11, 0.1); border: 1px dashed var(--accent-color); border-radius: var(--radius-sm); padding: 14px 18px; text-align: center; color: #f59e0b; font-size: 0.88rem; font-weight: 700; margin-bottom: 16px;">
+            🔒 Please sign in above with your Sandooq El-Amara account to verify your details.
+          </div>
+          <div id="manualFieldsWrap" style="display: none;">
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="inputUserEmail">
+                Target Account Email <span style="color:var(--danger-color)">*</span>
+              </label>
+              <input type="email" id="inputUserEmail" class="form-input-custom" placeholder="name@gmail.com" required dir="ltr" />
+              <div id="emailStatusFeedback" class="account-status-tag" style="display:none;"></div>
+            </div>
+
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="inputPayerName">Full Name or Building Name <span style="color:var(--danger-color)">*</span></label>
+              <input type="text" id="inputPayerName" class="form-input-custom" placeholder="e.g. John Doe / Al-Nour Tower" required />
+            </div>
+
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="inputPayerPhone">Phone / WhatsApp Number <span style="color:var(--danger-color)">*</span></label>
+              <input type="tel" id="inputPayerPhone" class="form-input-custom" placeholder="+20 10XXXXXXXX" required dir="ltr" />
+            </div>
+
+            <div class="form-group-custom">
+              <label class="form-label-custom" for="inputReferralCode">Promo / Referral Code (Optional)</label>
+              <input type="text" id="inputReferralCode" class="form-input-custom" placeholder="e.g. REF-1234" dir="ltr" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: InstaPay Payment Details -->
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+            <span style="background: #5a2d82; color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.85rem;">2</span>
+            Transfer via National Instant Payment (InstaPay)
+          </h3>
+
+          <div class="instapay-method-card">
+            <div class="instapay-badge-row">
+              <div class="instapay-logo-wrap">
+                <span class="instapay-logo-badge">InstaPay</span>
+                <span style="font-weight:700; font-size:0.95rem;">Instant Transfer ⚡</span>
+              </div>
+              <span style="background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700;">
+                National IPN Network
+              </span>
+            </div>
+
+            <!-- IPA Row -->
+            <label style="display:block; font-size:0.82rem; color:rgba(255,255,255,0.85); margin-bottom:6px;">
+              Official Instant Payment Address (IPA):
+            </label>
+            <div class="ipa-copy-box">
+              <span class="ipa-address-text" id="ipaValue">amremam@instapay</span>
+              <button type="button" class="btn-copy-ipa" onclick="copyIpaAddress()">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy IPA</span>
+              </button>
+            </div>
+
+            <!-- Beneficiary & Amount -->
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 12px; background: rgba(0,0,0,0.15); padding: 8px 12px; border-radius: 6px;">
+              <span>Beneficiary Name:</span>
+              <strong style="color: #ffd700;">Amr Mohamed</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 16px; background: rgba(0,0,0,0.15); padding: 8px 12px; border-radius: 6px;">
+              <span>Amount Due:</span>
+              <strong style="color: #ffd700; font-size: 1.05rem;" id="instapayRequiredAmount">499.99 EGP</strong>
+            </div>
+
+            <!-- Direct Launch Button -->
+            <a href="ipn://S/amremam/instapay/1kWbWN" class="btn-open-instapay" id="btnLaunchInstaPay">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span>Open InstaPay & Transfer Directly ⚡</span>
+            </a>
+
+            <ul class="instapay-instructions-list">
+              <li>
+                <span>1.</span>
+                <span>Open your InstaPay app or copy the IPA address above.</span>
+              </li>
+              <li>
+                <span>2.</span>
+                <span>Transfer the exact amount to <strong>amremam@instapay</strong>.</span>
+              </li>
+              <li>
+                <span>3.</span>
+                <span>Once transferred, click the instant activation button below.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Activation Action Bar -->
+      <div class="checkout-final-actions">
+        <button type="button" class="btn-activate-instant" id="btnActivateInstant" onclick="handleInstantActivation()">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span id="btnActivateText">Transferred? Click here to activate immediately ⚡</span>
+        </button>
+
+        <span style="font-size: 0.88rem; color: var(--text-muted); max-width: 580px;">
+          ⚡ <strong>Instant Trust Grace Period:</strong> Your account is granted immediate 48-hour access while our team reviews the bank confirmation, so your operations never pause.
+        </span>
+
+        <a href="https://wa.me/201556934345" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-confirm" id="btnWhatsappShare">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <span>Confirm Transfer Receipt on WhatsApp 💬</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Success Confirmation State (Hidden until activated) -->
+    <div class="success-confirmation-card" id="successBox">
+      <div class="success-icon-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
+        🎉 Subscription Activated Successfully!
+      </h2>
+      <p style="font-size: 1.05rem; color: var(--text-light); line-height: 1.8; margin-bottom: 24px;" id="successMsgText">
+        Thank you for choosing Sandooq El-Amara. Your account has been activated immediately under the 48-hour trust system while bank confirmation is completed.
+      </p>
+
+      <div style="background: var(--card-bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 16px 20px; text-align: left; margin-bottom: 28px;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+          <span style="color:var(--text-muted)">Invoice Ref:</span>
+          <strong style="color:var(--accent-color)" id="successRefNum">#IPN-26-XXXXX</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+          <span style="color:var(--text-muted)">Associated Email:</span>
+          <strong style="color:var(--text-main)" id="successEmailVal">-</strong>
+        </div>
+        <div style="display:flex; justify-content:space-between;">
+          <span style="color:var(--text-muted)">Plan Activated:</span>
+          <strong style="color:var(--secondary-color)" id="successPlanVal">Annual Golden Plan</strong>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
+        <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" class="button primary" style="padding: 12px 28px;">
+          Open Sandooq El-Amara App 🚀
+        </a>
+        <a href="https://wa.me/201556934345" target="_blank" rel="noopener noreferrer" class="button secondary" id="btnSuccessWhatsapp" style="padding: 12px 24px;">
+          Share Receipt on WhatsApp 💬
+        </a>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="billing-faq">
+      <h2>Frequently Asked Questions About Subscriptions</h2>
+
+      <div class="faq-accordion-item">
+        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+          <span>How does instant activation work with InstaPay?</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="faq-accordion-body">
+          As soon as you transfer to our registered IPA address (amremam@instapay) and click "Transferred", our server links your verified account and immediately unlocks all features under a 48-hour trust grace period. Once our team reconciles the bank statement, your annual/monthly license is finalized permanently.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+          <span>Can I pay via Google Play In-App Purchases instead?</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="faq-accordion-body">
+          Yes! You can subscribe directly through the Sandooq El-Amara Android app via standard Google Play billing using international credit/debit cards or Google Play balances.
+        </div>
+      </div>
+
+      <div class="faq-accordion-item">
+        <div class="faq-accordion-header" onclick="toggleFaq(this)">
+          <span>What happens to my data if my subscription expires?</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="faq-accordion-body">
+          Your building records are never erased or held hostage. You can always access your historical reports and view stored apartments and expenses locally on your device. Only active cloud sync and automated WhatsApp features require an ongoing subscription.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TEMPLATE: FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- Col 1: Brand & Info -->
+      <div class="footer-col brand-col">
+        <div class="brand" style="justify-content: flex-start; margin-bottom: 8px;">
+          <picture>
+            <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+            <img src="../assets/sandooq-logo.png" alt="Sandooq El-Amara Logo" width="36" height="36" loading="lazy" />
+          </picture>
+          <span>Sandooq El-Amara</span>
+        </div>
+        <p class="footer-brand-p">
+          The premier residential property and HOA fund management platform in Egypt. Track collections, expenses, and maintenance transparently and with zero errors.
+        </p>
+        <div style="margin-top: 14px;">
+          <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
+            <img src="../assets/google-play-badge.svg" alt="Get it on Google Play" width="135" height="40" loading="lazy" />
+          </a>
+        </div>
+        <div class="footer-social-links">
+          <a href="https://www.facebook.com/sandoqalemara/" target="_blank" rel="noopener noreferrer" class="footer-social-btn facebook" title="Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sandooqelamara?stkn=c2h1MGJldjRwY3R4" target="_blank" rel="noopener noreferrer" class="footer-social-btn instagram" title="Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP" target="_blank" rel="noopener noreferrer" class="footer-social-btn youtube" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Solutions -->
+      <div class="footer-col">
+        <h3>Solutions & Features</h3>
+        <ul>
+          <li><a href="../solutions/">All Solutions Guide</a></li>
+          <li><a href="../solutions/building-expenses.html">Expenses & Invoice Tracking</a></li>
+          <li><a href="../solutions/building-subscriptions.html">Monthly Dues Collection</a></li>
+          <li><a href="../solutions/building-arrears.html">Arrears & Debt Management</a></li>
+          <li><a href="../solutions/building-receipts.html">Digital WhatsApp Receipts</a></li>
+          <li><a href="../solutions/building-maintenance.html">Maintenance & Special Projects</a></li>
+          <li><a href="../solutions/building-treasury.html">Multi-Treasury & Custody</a></li>
+          <li><a href="../solutions/building-reports.html">Reports & Building History</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Free Tools & Guides -->
+      <div class="footer-col">
+        <h3>Free Tools & Guides</h3>
+        <ul>
+          <li><a href="../tools/">Interactive Tools Hub</a></li>
+          <li><a href="../tools/building-fee-calculator.html">Apartment Fee Calculator</a></li>
+          <li><a href="../tools/receipt-generator.html">Payment Receipt Generator</a></li>
+          <li><a href="../tools/building-arrears-calculator.html">Building Arrears Calculator</a></li>
+          <li><a href="../tools/maintenance-budget-planner.html">Maintenance Budget Planner</a></li>
+          <li><a href="../guides/">Management Guides Library</a></li>
+          <li><a href="../guides/building-fund-management-guide.html">Beginner Fund Management Guide</a></li>
+          <li><a href="../guides/building-expenses-excel-sheet.html">Building Expenses Excel Sheet</a></li>
+          <li><a href="../guides/building-occupants-union-law-egypt.html">Egyptian HOA & Property Law</a></li>
+          <li><a href="../guides/how-to-deal-with-unpaid-building-fees.html">Handling Unpaid Dues</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: About, Personas & Legal -->
+      <div class="footer-col">
+        <h3>About & Legal</h3>
+        <ul>
+          <li><a href="../billing.html" style="color:var(--secondary-color); font-weight:700;">Pricing & Online Payment ⚡</a></li>
+          <li><a href="../updates.html" style="color:var(--secondary-color); font-weight:700;">Changelog (v1 - v194) ✨</a></li>
+          <li><a href="../thanks.html" style="color:#fbbf24; font-weight:700;">Wall of Gratitude 🎖️</a></li>
+          <li><a href="../#reviews" style="color:#fbbf24; font-weight:700;">User Reviews & Ratings ⭐</a></li>
+          <li><a href="../about.html">About App & Developer</a></li>
+          <li><a href="../contact.html">Contact Us & Support</a></li>
+          <li><a href="../download.html">Download & Specifications</a></li>
+          <li><a href="../for-building-treasurer.html">Building Treasurer Handbook</a></li>
+          <li><a href="../for-property-owner.html">Property Owner Handbook</a></li>
+          <li><a href="../security.html">Security & Data Privacy</a></li>
+          <li><a href="../privacy.html">Privacy Policy</a></li>
+          <li><a href="../terms.html">Terms of Service</a></li>
+          <li><a href="../delete-account.html">Account Deletion Request</a></li>
+          <li><a href="/llms.txt">AI Agents Catalog (llms.txt)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-copy">© 2026 Sandooq El-Amara — All rights reserved. <span class="site-version" style="display: inline-block; margin-left: 8px; opacity: 0.8; font-size: 0.85em;">(App Version: v1.0.194)</span></p>
+  </div>
+</footer>
+<!-- /TEMPLATE: FOOTER -->
+
+  <!-- TEMPLATE: SCRIPTS -->
+<!-- Sandooq El-Amara — Global Scripts Template -->
+<script src="../script.js" defer></script>
+<script src="../js/simulator.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/quiz.js" defer></script>
+<!-- /TEMPLATE: SCRIPTS -->
+  <script>
+    const firebaseConfig = {
+      apiKey: atob("QUl6YVN5Q29UVEZPckM0c2lYRDhSTmlBRXBQQnFFQmRmaUY4QkNV"),
+      authDomain: "sandooq-504815.firebaseapp.com",
+      projectId: "sandooq-504815",
+      storageBucket: "sandooq-504815.firebasestorage.app",
+      messagingSenderId: "432041227068",
+      appId: "1:432041227068:web:b8d53dd321b5681c4c2439"
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    let currentUser = null;
+    let currentPlan = 'yearly';
+    let currentAmount = '499.99';
+    let currentPlanTitle = 'Annual Golden Plan (VIP)';
+    let orderRef = '';
+    const API_ENDPOINT = 'https://sandooq-rust.vercel.app/api/subscriptions/instapay-request';
+
+    function generateOrderRef() {
+      const rnd = Math.floor(10000 + Math.random() * 90000);
+      const yr = new Date().getFullYear() % 100;
+      return `#IPN-${yr}-${rnd}`;
+    }
+
+    function initOrder() {
+      orderRef = generateOrderRef();
+      const refEl = document.getElementById('displayOrderRef');
+      if (refEl) refEl.textContent = orderRef;
+      updateWhatsappLink();
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const p = urlParams.get('plan');
+      if (p === 'monthly') {
+        selectPlan('monthly');
+      } else {
+        selectPlan('yearly');
+      }
+
+      auth.onAuthStateChanged(handleAuthStateChanged);
+    }
+
+    function selectPlan(plan) {
+      currentPlan = plan;
+      const yearlyCard = document.getElementById('planCardYearly');
+      const monthlyCard = document.getElementById('planCardMonthly');
+      const summaryLabel = document.getElementById('summaryPlanLabel');
+      const amountLabel = document.getElementById('instapayRequiredAmount');
+
+      if (plan === 'yearly') {
+        yearlyCard.classList.add('selected');
+        monthlyCard.classList.remove('selected');
+        currentAmount = '499.99';
+        currentPlanTitle = 'Annual Golden Plan (VIP)';
+        summaryLabel.textContent = 'Selected Plan: Annual Golden Plan (VIP) • 499.99 EGP';
+        amountLabel.textContent = '499.99 EGP';
+      } else {
+        monthlyCard.classList.add('selected');
+        yearlyCard.classList.remove('selected');
+        currentAmount = '49.99';
+        currentPlanTitle = 'Monthly Plan';
+        summaryLabel.textContent = 'Selected Plan: Monthly Plan • 49.99 EGP';
+        amountLabel.textContent = '49.99 EGP';
+      }
+      updateWhatsappLink();
+    }
+
+    function handleAuthStateChanged(user) {
+      currentUser = user;
+      const loggedOutView = document.getElementById('authLoggedOutView');
+      const loggedInView = document.getElementById('authLoggedInView');
+      const emailInput = document.getElementById('inputUserEmail');
+      const nameInput = document.getElementById('inputPayerName');
+      const notice = document.getElementById('loginRequiredNotice');
+      const fieldsWrap = document.getElementById('manualFieldsWrap');
+
+      if (user) {
+        loggedOutView.style.display = 'none';
+        loggedInView.style.display = 'block';
+        if (notice) notice.style.display = 'none';
+        if (fieldsWrap) fieldsWrap.style.display = 'block';
+
+        const displayName = user.displayName || user.email.split('@')[0];
+        document.getElementById('userNameGreeting').textContent = `Welcome, ${displayName}`;
+        document.getElementById('userEmailDisplay').textContent = user.email;
+
+        emailInput.value = user.email;
+        emailInput.readOnly = true;
+        if (!nameInput.value) nameInput.value = displayName;
+
+        const detailsEl = document.getElementById('userSubscriptionDetails');
+        detailsEl.textContent = 'Active Account connected to Sandooq El-Amara database.';
+      } else {
+        loggedOutView.style.display = 'block';
+        loggedInView.style.display = 'none';
+        if (notice) notice.style.display = 'block';
+        if (fieldsWrap) fieldsWrap.style.display = 'none';
+      }
+    }
+
+    async function handleGoogleSignIn() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      try {
+        await auth.signInWithPopup(provider);
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    async function handleEmailAuth(e) {
+      e.preventDefault();
+      const email = document.getElementById('authEmailInput').value.trim();
+      const password = document.getElementById('authPasswordInput').value;
+      try {
+        await auth.signInWithEmailAndPassword(email, password);
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    function handleSignOut() {
+      auth.signOut();
+    }
+
+    function handleForgotPassword() {
+      const email = document.getElementById('authEmailInput').value.trim();
+      if (!email) {
+        alert('Please enter your email first.');
+        return;
+      }
+      auth.sendPasswordResetEmail(email)
+        .then(() => alert('Password reset link sent to ' + email))
+        .catch(err => alert(err.message));
+    }
+
+    function copyIpaAddress() {
+      navigator.clipboard.writeText('amremam@instapay').then(() => {
+        alert('InstaPay address copied: amremam@instapay');
+      });
+    }
+
+    function updateWhatsappLink() {
+      const phoneInput = document.getElementById('inputPayerPhone');
+      const phone = phoneInput ? phoneInput.value : '';
+      const text = encodeURIComponent(`Hello Sandooq El-Amara, I completed an InstaPay transfer for order ${orderRef} (${currentPlanTitle} - ${currentAmount} EGP).`);
+      const link = document.getElementById('btnWhatsappShare');
+      if (link) link.href = `https://wa.me/201556934345?text=${text}`;
+    }
+
+    async function handleInstantActivation() {
+      if (!currentUser) {
+        alert('Please sign in first.');
+        return;
+      }
+      const btn = document.getElementById('btnActivateInstant');
+      btn.disabled = true;
+      btn.textContent = 'Activating...';
+
+      const email = currentUser.email;
+      const name = document.getElementById('inputPayerName').value || currentUser.displayName || 'Subscriber';
+      const phone = document.getElementById('inputPayerPhone').value || '';
+
+      try {
+        const res = await fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            name: name,
+            phone: phone,
+            plan: currentPlan,
+            amount: currentAmount,
+            orderRef: orderRef
+          })
+        });
+
+        document.getElementById('checkoutBox').style.display = 'none';
+        const successBox = document.getElementById('successBox');
+        successBox.style.display = 'block';
+        document.getElementById('successRefNum').textContent = orderRef;
+        document.getElementById('successEmailVal').textContent = email;
+        document.getElementById('successPlanVal').textContent = currentPlanTitle;
+      } catch (e) {
+        document.getElementById('checkoutBox').style.display = 'none';
+        const successBox = document.getElementById('successBox');
+        successBox.style.display = 'block';
+        document.getElementById('successRefNum').textContent = orderRef;
+        document.getElementById('successEmailVal').textContent = email;
+        document.getElementById('successPlanVal').textContent = currentPlanTitle;
+      }
+    }
+
+    function toggleFaq(header) {
+      header.parentElement.classList.toggle('open');
+    }
+
+    document.addEventListener('DOMContentLoaded', initOrder);
+  </script>
+</body>
+</html>

@@ -219,6 +219,202 @@
     }
   };
 
+  // 1b. English 4x4 Combinatorial Exhaustion Matrix
+  var matrixEn = {
+    'under10_arrears': {
+      badge: 'Direct Plan: Friendly Collection Without Friction',
+      title: 'Direct WhatsApp Receipt System for Family Buildings',
+      subtitle: 'Tailored for smaller properties to eliminate manual collection awkwardness immediately',
+      impact: 'Completely eliminates awkwardness with neighbors and makes collection professional via WhatsApp.',
+      features: [
+        'Issue official serialized WhatsApp payment receipts with timestamps',
+        'Simple monthly operating statements shared with residents',
+        'Automated arrears registry documenting overdue previous months',
+        '100% free trial with zero upfront subscription obligations'
+      ]
+    },
+    'under10_maintenance': {
+      badge: 'Light Plan: Gatekeeper Supplies Tracking',
+      title: 'Petty Cash & Fast Supplies Management System',
+      subtitle: 'Accurate monthly settlement for stair cleaning, bulbs, and minor plumbing',
+      impact: 'Saves you the hassle of collecting scattered receipts and automatically reconciles gatekeeper cash advances.',
+      features: [
+        'Record cash advances with instant digital disbursement vouchers',
+        'Voice input with Uncle Amin to log daily supplies on the go',
+        'Attach receipt photos directly via mobile camera',
+        'Periodic petty cash closing showing verified cash in hand'
+      ]
+    },
+    'under10_bills': {
+      badge: 'Fair Plan: Simple Utility Allocation',
+      title: 'Fair Shared Water & Staircase Electricity Splitter',
+      subtitle: 'Mathematical precision and complete transparency across all units',
+      impact: 'Prevents heated disputes over water meter bills and shared hallway power cards.',
+      features: [
+        'Master water meter bill splitter with ground-floor exemption toggle',
+        'Hallway electricity card balance tracking and top-up alerts',
+        'Equal water pump maintenance cost distribution',
+        'Export clear, readable PDF balance sheets to share with owners'
+      ]
+    },
+    'under10_paperwork': {
+      badge: 'Digital Plan: Streamlined Archive',
+      title: 'Smart Cloud & Local Archive for Small Buildings',
+      subtitle: 'Say goodbye to scattered paper notebooks and lost ledgers',
+      impact: 'Organizes all building finances directly on your phone, with offline storage that requires no permanent internet.',
+      features: [
+        '8 accounting reports in one tap without prior financial experience',
+        'Instant local backups with safe Google Cloud synchronization',
+        'Import existing Excel spreadsheets in one click',
+        'Passcode protection for treasurer security and privacy'
+      ]
+    },
+    '10to25_arrears': {
+      badge: 'Standard Plan: Firm Collection & Resident Portal',
+      title: 'Firm Collection System & Digital Resident Portal',
+      subtitle: 'The ideal solution for medium buildings to stabilize monthly cash flow',
+      impact: 'Boosts collection rates to 95% within the first month and eliminates delayed subscriptions.',
+      features: [
+        'Smart Resident Portal with unique secret PIN per apartment',
+        'Automated WhatsApp payment reminders 2 days before the due date',
+        'Certified A4 printable arrears sheet for the building entrance board',
+        'Multi-channel payment logging: Cash, InstaPay, and Bank Transfers'
+      ]
+    },
+    '10to25_maintenance': {
+      badge: 'Professional Plan: Preventive Maintenance Engineering',
+      title: 'Elevator Maintenance Contracts & Petty Cash Control',
+      subtitle: 'Integrated management for elevator contracts, cleaning, and contingency funds',
+      impact: 'Saves up to 20% on maintenance costs by documenting contractor warranties and avoiding sudden breakdowns.',
+      features: [
+        'Scheduled preventive maintenance calendar for elevators & water pumps',
+        'Isolated gatekeeper cash advance accounts with monthly closing',
+        'Contractor agreement documentation and spare parts warranty tracking',
+        'Dedicated contingency emergency fund for major repairs'
+      ]
+    },
+    '10to25_bills': {
+      badge: 'Engineering Plan: Precise Utility Allocation',
+      title: 'Engineering Fair Distribution & Utility Calculators',
+      subtitle: 'Certified formulas for consumption differentials and elevator services',
+      impact: 'Permanently ends monthly arguments between different floors over electricity and water bills.',
+      features: [
+        'Fair allocation calculator for shared water meters based on floor and residents',
+        'Fair elevator maintenance distribution excluding non-beneficiary floors',
+        'Color A4 notice posters for hallway announcements and billing rules',
+        'Itemized monthly utility audit report exportable to Excel'
+      ]
+    },
+    '10to25_paperwork': {
+      badge: 'Board Plan: Comprehensive Financial Ledger',
+      title: 'General Ledger System & Certified General Assembly Reports',
+      subtitle: 'Complete institutional transparency before the annual owners association meeting',
+      impact: 'Transforms financial records into audit-proof annual statements ready for official board meetings.',
+      features: [
+        'Automated general ledger (Paper Ledger replica) in A4 printable PDF',
+        'Annual financial report with revenue, expenditures, and opening/closing balances',
+        'AI-assisted Excel import (.xlsx) with column auto-matching and undo',
+        'Official handover protocol generator for outgoing treasurers'
+      ]
+    },
+    'over25_arrears': {
+      badge: 'Executive Plan: High-Rise Arrears Protocol',
+      title: 'High-Volume Collection Protocol & Legal Notice Center',
+      subtitle: 'Engineered for large towers and multi-entrance buildings',
+      impact: 'Maintains tight financial discipline across 25+ apartments without manual bookkeeping overhead.',
+      features: [
+        'Batch generation of digital WhatsApp claim cards with direct payment link',
+        'Official legal payment notice generator compliant with Egyptian HOA laws',
+        'Multi-treasury separation (Cash box, CIB, Banque Misr, InstaPay)',
+        'Real-time collection analytics with floor-by-floor breakdown'
+      ]
+    },
+    'over25_maintenance': {
+      badge: 'Enterprise Plan: Capital Facility Management',
+      title: 'Capital Projects & Independent Maintenance Reserves',
+      subtitle: 'Total financial separation between operating expenses and major structural overhauls',
+      impact: 'Protects reserve funds and manages major renovation tenders with per-square-meter equity.',
+      features: [
+        'Independent project accounts for facade restoration and elevator modernization',
+        'Per-square-meter quota calculator based on apartment surface area',
+        'Vendor quotation comparison matrix and progress milestone disbursements',
+        'Separate mosque and community hall treasury management'
+      ]
+    },
+    'over25_bills': {
+      badge: 'Multi-Rate Plan: Dynamic High-Rise Splitter',
+      title: 'Commercial & Residential Consumption Differential System',
+      subtitle: 'Separating ground-floor commercial shops, clinics, and residential apartments',
+      impact: 'Applies fair commercial load multipliers so residential tenants do not subsidize commercial businesses.',
+      features: [
+        'Commercial shop vs residential unit maintenance fee calculator',
+        'Shared central air-conditioning and water pump sub-meter calculations',
+        'Automatic late payment interest and penalty assessment configuration',
+        'Multi-currency / multi-account bank statement reconciliation'
+      ]
+    },
+    'over25_paperwork': {
+      badge: 'Institutional Plan: Enterprise Audit & Cloud Sync',
+      title: 'Enterprise HOA Cloud Governance & Audit Trail',
+      subtitle: 'Full financial compliance, multi-admin roles, and tamper-proof logging',
+      impact: 'Provides bank-grade accounting transparency for board of directors and legal auditors.',
+      features: [
+        'Role-based access: Chairman, Treasurer, Auditor, and Resident View',
+        'Encrypted cloud synchronization across multiple smartphones and tablets',
+        'Complete audit trail of every receipt, payment, and expense adjustment',
+        'Instant export to executive PDF dashboards and formatted Excel workbooks'
+      ]
+    },
+    'compound_arrears': {
+      badge: 'Compound Plan: Master Collection & Gate Access',
+      title: 'Master HOA Revenue & Resident Gate Coordination',
+      subtitle: 'High-level financial control for gated compounds, villas, and mixed-use malls',
+      impact: 'Automates recurring community fees, arrears enforcement, and resident clearance certificates.',
+      features: [
+        'Comprehensive master billing schedule for maintenance, security, and gardening',
+        'Resident clearance certificate generator for unit sales and tenant move-outs',
+        'Automated bulk WhatsApp billing notifications with direct InstaPay links',
+        'Legal arrears escalation tracking with formal registry documentation'
+      ]
+    },
+    'compound_maintenance': {
+      badge: 'Infrastructure Plan: Large-Scale Facility Assets',
+      title: 'Infrastructure Asset Management & Security Contingency',
+      subtitle: 'Centralized control for generators, gates, landscaping, and CCTV networks',
+      impact: 'Monitors ongoing facility contracts and guarantees vendor SLA delivery across the entire compound.',
+      features: [
+        'Contractor service agreements tracker with automated renewal reminders',
+        'Petty cash advance tracking across multiple site supervisors and security guards',
+        'Emergency infrastructure reserve fund with multi-signature expenditure logs',
+        'Asset depreciation and equipment warranty management'
+      ]
+    },
+    'compound_bills': {
+      badge: 'District Plan: Area-Weighted Utility Matrix',
+      title: 'Area-Weighted Utility Matrix & Central Infrastructure Allocation',
+      subtitle: 'Equitable allocation for street lighting, irrigation pumps, and security gatehouses',
+      impact: 'Calculates precise unit shares based on land area, built-up area, and usage classification.',
+      features: [
+        'Surface area proportioning formula for common grounds maintenance',
+        'Irrigation and landscape water consumption splitting',
+        'Dedicated generator fuel and emergency power cost allocation',
+        'Monthly comparative utility consumption variance analysis'
+      ]
+    },
+    'compound_paperwork': {
+      badge: 'Master Governance: Institutional Compliance',
+      title: 'Institutional HOA Governance & Certified Financial Reporting',
+      subtitle: 'Boardroom-ready financial reporting compliant with regulatory property statutes',
+      impact: 'Prepares institutional balance sheets, budget projections, and audited statements with zero manual error.',
+      features: [
+        'Comprehensive annual budget forecasting with variance analysis',
+        'Board of Directors executive summary with financial KPI graphs',
+        'Full bilingual report export (Arabic / English) for multinational residents',
+        'Complete cloud synchronization with enterprise data retention'
+      ]
+    }
+  };
+
   // 2. Controller Functions
   function initQuiz() {
     var quizSection = document.getElementById('diagnostic-quiz');
@@ -236,11 +432,12 @@
     var simulatorBtn = quizSection.querySelector('[data-action="try-simulator"]');
     var sizeSummary = document.getElementById('quiz-summary-size');
 
+    var isEn = document.documentElement && document.documentElement.lang === 'en';
     var SIZE_LABELS = {
-      'under10': '🏠 عمارة صغيرة (<10 شقق)',
-      '10to25': '🏢 عمارة متوسطة (10-25 شقة)',
-      'over25': '🏙️ برج كبير (>25 شقة)',
-      'compound': '🏰 كمبوند / مجمع سكني'
+      'under10': isEn ? '🏠 Small Building (<10 units)' : '🏠 عمارة صغيرة (<10 شقق)',
+      '10to25': isEn ? '🏢 Medium Building (10-25 units)' : '🏢 عمارة متوسطة (10-25 شقة)',
+      'over25': isEn ? '🏙️ Large Tower (>25 units)' : '🏙️ برج كبير (>25 شقة)',
+      'compound': isEn ? '🏰 Residential Compound / Mall' : '🏰 كمبوند / مجمع سكني'
     };
 
     function setStep(step) {
@@ -291,7 +488,8 @@
 
     function renderRecommendation() {
       var key = quizState.selectedSize + '_' + quizState.selectedChallenge;
-      var outcome = matrix[key] || matrix['10to25_arrears'];
+      var activeMatrix = isEn ? matrixEn : matrix;
+      var outcome = activeMatrix[key] || activeMatrix['10to25_arrears'];
 
       var badgeEl = document.getElementById('rec-package-badge');
       var titleEl = document.getElementById('rec-title');

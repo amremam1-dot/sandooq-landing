@@ -116,7 +116,7 @@
 
     isFetchingIndex = true;
     var basePath = getBasePath();
-    var indexUrl = basePath + '/data/search_index.json';
+    var indexUrl = isEn ? (basePath + '/data/search_index_en.json') : (basePath + '/data/search_index.json');
 
     fetch(indexUrl)
       .then(function (res) {
@@ -151,10 +151,11 @@
   }
 
   // 6. Sub-millisecond Linear Search Matching Algorithm
+  var isEn = typeof document !== 'undefined' && document.documentElement && document.documentElement.lang === 'en';
   var TYPE_MAP = {
-    0: { name: 'أدلة إرشادية', label: 'دليل', badgeClass: 'badge-guide' },
-    1: { name: 'حاسبات وأدوات', label: 'حاسبة', badgeClass: 'badge-tool' },
-    2: { name: 'حلول وميزات', label: 'حل', badgeClass: 'badge-solution' }
+    0: { name: isEn ? 'Guides' : 'أدلة إرشادية', label: isEn ? 'Guide' : 'دليل', badgeClass: 'badge-guide' },
+    1: { name: isEn ? 'Calculators & Tools' : 'حاسبات وأدوات', label: isEn ? 'Tool' : 'حاسبة', badgeClass: 'badge-tool' },
+    2: { name: isEn ? 'Solutions & Features' : 'حلول وميزات', label: isEn ? 'Solution' : 'حل', badgeClass: 'badge-solution' }
   };
 
   function executeSearch(query, categoryFilter) {
@@ -221,8 +222,8 @@
       return (
         '<div class="search-empty-state no-results" role="status">' +
         '  <span class="search-empty-icon">🔍</span>' +
-        '  <h4 class="search-empty-title">لا توجد نتائج مطابقة لبحثك</h4>' +
-        '  <p class="search-empty-desc">لم نعثر على محتوى مطابق. جرّب كلمات أخرى مثل: أسانسير، فواتير، إنستاباي، أو بواب.</p>' +
+        '  <h4 class="search-empty-title">' + (isEn ? 'No matching results found' : 'لا توجد نتائج مطابقة لبحثك') + '</h4>' +
+        '  <p class="search-empty-desc">' + (isEn ? 'Try keywords like: elevator, water bills, InstaPay, or gatekeeper.' : 'لم نعثر على محتوى مطابق. جرّب كلمات أخرى مثل: أسانسير، فواتير، إنستاباي، أو بواب.') + '</p>' +
         '</div>'
       );
     }
@@ -296,18 +297,33 @@
       if (!input || !resultsBox) return;
       var query = input.value.trim();
       if (!query) {
-        resultsBox.innerHTML =
-          '<div class="search-modal-welcome">' +
-          '  <p class="search-welcome-text">اكتب كلمة البحث للوصول الفوري إلى كافة الأدلة والحاسبات وحلول العمارة</p>' +
-          '  <div class="search-popular-tags">' +
-          '    <span>الأكثر بحثاً:</span>' +
-          '    <button type="button" class="search-tag-chip" data-query="أسانسير">أسانسير</button>' +
-          '    <button type="button" class="search-tag-chip" data-query="فاتورة مياه">فاتورة مياه</button>' +
-          '    <button type="button" class="search-tag-chip" data-query="إنستاباي">إنستاباي</button>' +
-          '    <button type="button" class="search-tag-chip" data-query="عهدة بواب">عهدة بواب</button>' +
-          '    <button type="button" class="search-tag-chip" data-query="عزل سطح">عزل سطح</button>' +
-          '  </div>' +
-          '</div>';
+        if (isEn) {
+          resultsBox.innerHTML =
+            '<div class="search-modal-welcome">' +
+            '  <p class="search-welcome-text">Type a keyword for instant access to guides, calculators, and building solutions</p>' +
+            '  <div class="search-popular-tags">' +
+            '    <span>Popular:</span>' +
+            '    <button type="button" class="search-tag-chip" data-query="Elevator">Elevator</button>' +
+            '    <button type="button" class="search-tag-chip" data-query="Water bill">Water bill</button>' +
+            '    <button type="button" class="search-tag-chip" data-query="InstaPay">InstaPay</button>' +
+            '    <button type="button" class="search-tag-chip" data-query="Petty cash">Petty cash</button>' +
+            '    <button type="button" class="search-tag-chip" data-query="Arrears">Arrears</button>' +
+            '  </div>' +
+            '</div>';
+        } else {
+          resultsBox.innerHTML =
+            '<div class="search-modal-welcome">' +
+            '  <p class="search-welcome-text">اكتب كلمة البحث للوصول الفوري إلى كافة الأدلة والحاسبات وحلول العمارة</p>' +
+            '  <div class="search-popular-tags">' +
+            '    <span>الأكثر بحثاً:</span>' +
+            '    <button type="button" class="search-tag-chip" data-query="أسانسير">أسانسير</button>' +
+            '    <button type="button" class="search-tag-chip" data-query="فاتورة مياه">فاتورة مياه</button>' +
+            '    <button type="button" class="search-tag-chip" data-query="إنستاباي">إنستاباي</button>' +
+            '    <button type="button" class="search-tag-chip" data-query="عهدة بواب">عهدة بواب</button>' +
+            '    <button type="button" class="search-tag-chip" data-query="عزل سطح">عزل سطح</button>' +
+            '  </div>' +
+            '</div>';
+        }
         bindWelcomeChips();
         return;
       }
