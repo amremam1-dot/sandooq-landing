@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Founding Pioneers Club & Wall of Honor | Sandooq El-Amara</title>
+  <meta name="description" content="Wall of Honor and Founding Pioneers of Sandooq El-Amara: celebrating the forward-thinking building treasurers and HOA partners who helped build and shape the app with real-world feedback." />
+  <link rel="canonical" href="https://sandoqalemara.com/en/thanks.html" />
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" href="../favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/en/thanks.html" />
+  <meta property="og:title" content="Founding Pioneers & Wall of Gratitude | Sandooq El-Amara" />
+  <meta property="og:description" content="Honoring the pioneering building managers and community leaders across Egypt who contributed real-world field insights." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+
+  <style>
+    .thanks-hero {
+      position: relative;
+      padding: 64px 24px 44px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.28) 0%, rgba(30, 58, 138, 0.45) 45%, rgba(11, 17, 32, 0.98) 75%);
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+    .thanks-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 20px;
+      border-radius: var(--radius-full);
+      background: rgba(245, 158, 11, 0.16);
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fbbf24;
+      font-size: 0.94rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .thanks-hero h1 {
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .thanks-hero p {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      max-width: 780px;
+      margin: 0 auto 30px;
+      line-height: 1.85;
+    }
+    .thanks-stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 880px;
+      margin: 0 auto 10px;
+    }
+    .stat-ribbon-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-ribbon-number {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: var(--text-main);
+      display: block;
+      line-height: 1.2;
+    }
+    .stat-ribbon-number.gold { color: #fbbf24; }
+    .stat-ribbon-number.accent { color: var(--secondary-color); }
+    .stat-ribbon-number.blue { color: var(--primary-light); }
+    .stat-ribbon-label {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .tribute-master-wrapper {
+      max-width: 1040px;
+      margin: 40px auto 28px;
+      padding: 0 20px;
+    }
+    .tribute-master-card {
+      background: radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.45) 0%, rgba(24, 34, 52, 0.95) 70%);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+    .tribute-master-card h2 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+    .tribute-master-card p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.85;
+      margin-bottom: 18px;
+    }
+    .contributors-container {
+      max-width: 1040px;
+      margin: 0 auto 70px;
+      padding: 0 20px;
+    }
+    .contributors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 18px;
+    }
+    .contributor-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .contributor-card:hover {
+      border-color: #fbbf24;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .contributor-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+    .contributor-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+    .contributor-role {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .breadcrumb-nav {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .breadcrumb-nav a { color: var(--primary-light); }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Founding Pioneers Club & Wall of Honor",
+        "url": "https://sandoqalemara.com/en/thanks.html",
+        "description": "Recognition and tribute to the founding building treasurers who shaped Sandooq El-Amara."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sandoqalemara.com/en/" },
+          { "@type": "ListItem", "position": 2, "name": "Wall of Gratitude", "item": "https://sandoqalemara.com/en/thanks.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <!-- TEMPLATE: HEADER -->
+<header class="site-header">
+  <div class="header-container">
+    <a class="brand" href="../en/">
+      <picture>
+        <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+        <img src="../assets/sandooq-logo.png" alt="Sandooq El-Amara Logo" width="36" height="36" />
+      </picture>
+      <span>Sandooq El-Amara</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Open Navigation Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <nav class="nav">
+      <a href="../en/#features">Features</a>
+      <a href="../en/#video-tour">Video Tour</a>
+      <a href="../en/#reviews">Reviews ⭐</a>
+      <a href="../en/tools/" class="">Free Tools</a>
+      <a href="../en/guides/" class="">Guides</a>
+      <a href="../en/billing.html" class="" style="color: var(--secondary-color); font-weight: 800; white-space: nowrap;">Pricing ⚡</a>
+      <a href="../en/about.html" class="nav-link-secondary ">About</a>
+      <a href="../en/contact.html" class="nav-link-secondary ">Contact</a>
+      <a href="../en/download.html" class="button primary header-cta-btn ">Download App</a>
+
+      <!-- Instant Live Search Trigger Button -->
+      <button id="search-trigger-btn" class="search-trigger-btn" aria-label="Search site (Ctrl+K)" title="Quick search (Ctrl+K)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="search-trigger-text">Search...</span>
+        <kbd class="search-kbd">Ctrl+K</kbd>
+      </button>
+
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+
+      <!-- Language Switcher Button -->
+      <a href="../thanks.html" class="lang-switch-btn" aria-label="التبديل إلى العربية" title="التبديل إلى العربية">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span class="lang-code">عربي</span>
+      </a>
+    </nav>
+  </div>
+  <!-- Sandooq El-Amara — Global Command Palette Search Modal (EN) -->
+<div id="search-modal" class="search-modal-backdrop" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="search-modal-label">
+  <div class="search-modal-dialog">
+    <div class="search-modal-header">
+      <div class="search-modal-input-wrapper">
+        <svg class="search-modal-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" id="search-modal-input" class="search-modal-input" placeholder="Search 35 guides, 17 tools, and building solutions... (Esc to close)" aria-label="Search Sandooq El-Amara guides and tools" autocomplete="off" />
+      </div>
+      <button type="button" id="search-modal-close" class="search-modal-close" aria-label="Close search (Esc)">&times;</button>
+    </div>
+
+    <!-- Category Filter Tabs inside Modal -->
+    <div class="search-modal-tabs" role="tablist" aria-label="Filter search results">
+      <button type="button" class="search-filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button type="button" class="search-filter-tab" data-filter="guides" role="tab" aria-selected="false">Guides</button>
+      <button type="button" class="search-filter-tab" data-filter="tools" role="tab" aria-selected="false">Calculators & Tools</button>
+      <button type="button" class="search-filter-tab" data-filter="solutions" role="tab" aria-selected="false">Solutions</button>
+    </div>
+
+    <div id="search-modal-results" class="search-modal-results" role="region" aria-live="polite">
+      <!-- Dynamic search results populated by js/search.js -->
+      <div class="search-empty-state no-results" style="display:none;">
+        <p>No results found for your search</p>
+      </div>
+    </div>
+
+    <div class="search-modal-footer">
+      <div class="search-shortcuts-hints">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> to navigate</span>
+        <span><kbd>Enter</kbd> to open</span>
+        <span><kbd>Esc</kbd> to close</span>
+      </div>
+      <div class="search-modal-brand-note">
+        <span>Sandooq El-Amara • Instant Search</span>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+<!-- /TEMPLATE: HEADER -->
+
+  <section class="thanks-hero">
+    <div class="thanks-hero-badge">
+      <span>🎖️ Wall of Honor</span>
+    </div>
+    <h1>Founding Pioneers Club & Wall of Honor</h1>
+    <p>
+      A heartfelt tribute to the visionary building treasurers, engineers, and community leaders who shared their real-world experiences, feature ideas, and testing feedback to make Sandooq El-Amara Egypt's leading property management solution.
+    </p>
+
+    <div class="thanks-stats-ribbon">
+      <div class="stat-ribbon-card">
+        <span class="stat-ribbon-number gold">100+</span>
+        <span class="stat-ribbon-label">Founding Treasurers</span>
+      </div>
+      <div class="stat-ribbon-card">
+        <span class="stat-ribbon-number accent">27</span>
+        <span class="stat-ribbon-label">Egyptian Governorates</span>
+      </div>
+      <div class="stat-ribbon-card">
+        <span class="stat-ribbon-number blue">1,000+</span>
+        <span class="stat-ribbon-label">Field Ideas Implemented</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="tribute-master-wrapper">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb navigation">
+      <a href="./">Home</a> &gt; <strong>Wall of Gratitude</strong>
+    </nav>
+
+    <div class="tribute-master-card">
+      <span class="feature-badge" style="display:inline-block; font-size:0.85rem; font-weight:700; color:#fbbf24; background:rgba(245,158,11,0.15); padding:4px 12px; border-radius:var(--radius-full); margin-bottom:12px;">🌟 Built by Treasurers for Treasurers</span>
+      <h2>Crafted with Real-World Egyptian Neighborhood Wisdom</h2>
+      <p>
+        Every single accounting control in Sandooq El-Amara—from floor-based elevator cost formulas to doorman petty cash limits and InstaPay collection reminders—originated from thoughtful conversations with volunteer building administrators facing daily challenges on the ground.
+      </p>
+    </div>
+  </div>
+
+  <main class="contributors-container">
+    <div class="contributors-grid">
+      <div class="contributor-card">
+        <div class="contributor-avatar">AH</div>
+        <div>
+          <div class="contributor-name">Eng. Ahmed Hassan</div>
+          <div class="contributor-role">HOA President • New Cairo</div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">MS</div>
+        <div>
+          <div class="contributor-name">Mr. Mohamed Samir</div>
+          <div class="contributor-role">Building Treasurer • Nasr City</div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">TF</div>
+        <div>
+          <div class="contributor-name">Dr. Tarek Fouad</div>
+          <div class="contributor-role">Community Leader • Alexandria</div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">KA</div>
+        <div>
+          <div class="contributor-name">Accountant Khaled Ali</div>
+          <div class="contributor-role">Property Manager • Maadi</div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">EM</div>
+        <div>
+          <div class="contributor-name">Eng. Eslam Mansour</div>
+          <div class="contributor-role">HOA Treasurer • Sheikh Zayed</div>
+        </div>
+      </div>
+      <div class="contributor-card">
+        <div class="contributor-avatar">AY</div>
+        <div>
+          <div class="contributor-name">Mr. Ayman Youssef</div>
+          <div class="contributor-role">Residential Council • Heliopolis</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- TEMPLATE: FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- Col 1: Brand & Info -->
+      <div class="footer-col brand-col">
+        <div class="brand" style="justify-content: flex-start; margin-bottom: 8px;">
+          <picture>
+            <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+            <img src="../assets/sandooq-logo.png" alt="Sandooq El-Amara Logo" width="36" height="36" loading="lazy" />
+          </picture>
+          <span>Sandooq El-Amara</span>
+        </div>
+        <p class="footer-brand-p">
+          The premier residential property and HOA fund management platform in Egypt. Track collections, expenses, and maintenance transparently and with zero errors.
+        </p>
+        <div style="margin-top: 14px;">
+          <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
+            <img src="../assets/google-play-badge.svg" alt="Get it on Google Play" width="135" height="40" loading="lazy" />
+          </a>
+        </div>
+        <div class="footer-social-links">
+          <a href="https://www.facebook.com/sandoqalemara/" target="_blank" rel="noopener noreferrer" class="footer-social-btn facebook" title="Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sandooqelamara?stkn=c2h1MGJldjRwY3R4" target="_blank" rel="noopener noreferrer" class="footer-social-btn instagram" title="Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP" target="_blank" rel="noopener noreferrer" class="footer-social-btn youtube" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Solutions -->
+      <div class="footer-col">
+        <h3>Solutions & Features</h3>
+        <ul>
+          <li><a href="../en/solutions/">All Solutions Guide</a></li>
+          <li><a href="../en/solutions/#expenses">Expenses & Invoice Tracking</a></li>
+          <li><a href="../en/solutions/#subscriptions">Monthly Dues Collection</a></li>
+          <li><a href="../en/solutions/#arrears">Arrears & Debt Management</a></li>
+          <li><a href="../en/solutions/#receipts">Digital WhatsApp Receipts</a></li>
+          <li><a href="../en/solutions/#maintenance">Maintenance & Special Projects</a></li>
+          <li><a href="../en/solutions/#treasury">Multi-Treasury & Custody</a></li>
+          <li><a href="../en/solutions/#reports">Reports & Building History</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Free Tools & Guides -->
+      <div class="footer-col">
+        <h3>Free Tools & Guides</h3>
+        <ul>
+          <li><a href="../en/tools/">Interactive Tools Hub</a></li>
+          <li><a href="../en/tools/#calculators">Apartment Fee Calculator</a></li>
+          <li><a href="../en/tools/#receipts">Payment Receipt Generator</a></li>
+          <li><a href="../en/tools/#arrears">Building Arrears Calculator</a></li>
+          <li><a href="../en/tools/#budget">Maintenance Budget Planner</a></li>
+          <li><a href="../en/guides/">Management Guides Library</a></li>
+          <li><a href="../en/guides/#management">Beginner Fund Management Guide</a></li>
+          <li><a href="../en/guides/#excel">Building Expenses Excel Sheet</a></li>
+          <li><a href="../en/guides/#law">Egyptian HOA & Property Law</a></li>
+          <li><a href="../en/guides/#unpaid">Handling Unpaid Dues</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: About, Personas & Legal -->
+      <div class="footer-col">
+        <h3>About & Legal</h3>
+        <ul>
+          <li><a href="../en/billing.html" style="color:var(--secondary-color); font-weight:700;">Pricing & Online Payment ⚡</a></li>
+          <li><a href="../en/updates.html" style="color:var(--secondary-color); font-weight:700;">Changelog (v1 - v194) ✨</a></li>
+          <li><a href="../en/thanks.html" style="color:#fbbf24; font-weight:700;">Wall of Gratitude 🎖️</a></li>
+          <li><a href="../en/#reviews" style="color:#fbbf24; font-weight:700;">User Reviews & Ratings ⭐</a></li>
+          <li><a href="../en/about.html">About App & Developer</a></li>
+          <li><a href="../en/contact.html">Contact Us & Support</a></li>
+          <li><a href="../en/download.html">Download & Specifications</a></li>
+          <li><a href="../en/for-building-treasurer.html">Building Treasurer Handbook</a></li>
+          <li><a href="../en/for-property-owner.html">Property Owner Handbook</a></li>
+          <li><a href="../en/security.html">Security & Data Privacy</a></li>
+          <li><a href="../en/privacy.html">Privacy Policy</a></li>
+          <li><a href="../en/terms.html">Terms of Service</a></li>
+          <li><a href="../en/delete-account.html">Account Deletion Request</a></li>
+          <li><a href="/llms.txt">AI Agents Catalog (llms.txt)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-copy">© 2026 Sandooq El-Amara — All rights reserved. <span class="site-version" style="display: inline-block; margin-left: 8px; opacity: 0.8; font-size: 0.85em;">(App Version: v1.0.194)</span></p>
+  </div>
+</footer>
+<!-- /TEMPLATE: FOOTER -->
+
+  <!-- TEMPLATE: SCRIPTS -->
+<!-- Sandooq El-Amara — Global Scripts Template -->
+<script src="../script.js" defer></script>
+<script src="../js/simulator.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/quiz.js" defer></script>
+<!-- /TEMPLATE: SCRIPTS -->
+</body>
+</html>

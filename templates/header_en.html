@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="header-container">
-    <a class="brand" href="{{BASE_PATH}}/">
+    <a class="brand" href="{{URL_HOME}}">
       <picture>
         <source srcset="{{BASE_PATH}}/assets/sandooq-logo.webp" type="image/webp" />
         <img src="{{BASE_PATH}}/assets/sandooq-logo.png" alt="Sandooq El-Amara Logo" width="36" height="36" />
@@ -13,15 +13,15 @@
     </button>
 
     <nav class="nav">
-      <a href="{{BASE_PATH}}/#features">Features</a>
-      <a href="{{BASE_PATH}}/#video-tour">Video Tour</a>
-      <a href="{{BASE_PATH}}/#reviews">Reviews ⭐</a>
-      <a href="{{BASE_PATH}}/tools/" class="{{ACTIVE_TOOLS}}">Free Tools</a>
-      <a href="{{BASE_PATH}}/guides/" class="{{ACTIVE_GUIDES}}">Guides</a>
-      <a href="{{BASE_PATH}}/billing.html" class="{{ACTIVE_BILLING}}" style="color: var(--secondary-color); font-weight: 800; white-space: nowrap;">Pricing ⚡</a>
-      <a href="{{BASE_PATH}}/about.html" class="nav-link-secondary {{ACTIVE_ABOUT}}">About</a>
-      <a href="{{BASE_PATH}}/contact.html" class="nav-link-secondary {{ACTIVE_CONTACT}}">Contact</a>
-      <a href="{{BASE_PATH}}/download.html" class="button primary header-cta-btn {{ACTIVE_DOWNLOAD}}">Download App</a>
+      <a href="{{URL_HOME}}#features">Features</a>
+      <a href="{{URL_HOME}}#video-tour">Video Tour</a>
+      <a href="{{URL_HOME}}#reviews">Reviews ⭐</a>
+      <a href="{{URL_TOOLS}}" class="{{ACTIVE_TOOLS}}">Free Tools</a>
+      <a href="{{URL_GUIDES}}" class="{{ACTIVE_GUIDES}}">Guides</a>
+      <a href="{{URL_BILLING}}" class="{{ACTIVE_BILLING}}" style="color: var(--secondary-color); font-weight: 800; white-space: nowrap;">Pricing ⚡</a>
+      <a href="{{URL_ABOUT}}" class="nav-link-secondary {{ACTIVE_ABOUT}}">About</a>
+      <a href="{{URL_CONTACT}}" class="nav-link-secondary {{ACTIVE_CONTACT}}">Contact</a>
+      <a href="{{URL_DOWNLOAD}}" class="button primary header-cta-btn {{ACTIVE_DOWNLOAD}}">Download App</a>
 
       <!-- Instant Live Search Trigger Button -->
       <button id="search-trigger-btn" class="search-trigger-btn" aria-label="Search site (Ctrl+K)" title="Quick search (Ctrl+K)">

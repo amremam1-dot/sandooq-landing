@@ -141,6 +141,25 @@ function computeContext(fileInfo) {
   const isEnglish = rel.startsWith('en/') || rel === 'en';
   const cleanRelNoLang = isEnglish ? rel.replace(/^en\/?/, '') : rel;
 
+  // Language Root & Section URLs
+  const langRoot = isEnglish ? `${basePath}/en` : basePath;
+  const urlHome = isEnglish ? `${basePath}/en/` : `${basePath}/`;
+  const urlTools = isEnglish ? `${basePath}/en/tools/` : `${basePath}/tools/`;
+  const urlGuides = isEnglish ? `${basePath}/en/guides/` : `${basePath}/guides/`;
+  const urlSolutions = isEnglish ? `${basePath}/en/solutions/` : `${basePath}/solutions/`;
+  const urlBilling = `${langRoot}/billing.html`;
+  const urlAbout = `${langRoot}/about.html`;
+  const urlContact = `${langRoot}/contact.html`;
+  const urlDownload = `${langRoot}/download.html`;
+  const urlSecurity = `${langRoot}/security.html`;
+  const urlPrivacy = `${langRoot}/privacy.html`;
+  const urlTerms = `${langRoot}/terms.html`;
+  const urlUpdates = `${langRoot}/updates.html`;
+  const urlThanks = `${langRoot}/thanks.html`;
+  const urlTreasurer = `${langRoot}/for-building-treasurer.html`;
+  const urlOwner = `${langRoot}/for-property-owner.html`;
+  const urlDeleteAccount = `${langRoot}/delete-account.html`;
+
   let langSwitchHref;
   let hreflangAr;
   let hreflangEn;
@@ -148,14 +167,38 @@ function computeContext(fileInfo) {
 
   if (isEnglish) {
     const cleanAr = (cleanRelNoLang === '' || cleanRelNoLang === 'index.html') ? '' : cleanRelNoLang;
-    langSwitchHref = cleanAr ? `${basePath}/${cleanAr}` : `${basePath}/`;
-    hreflangAr = cleanAr ? `https://sandoqalemara.com/${cleanAr}` : 'https://sandoqalemara.com/';
+    const arFileOnDisk = path.join(LANDING_DIR, cleanAr || 'index.html');
+    if (fs.existsSync(arFileOnDisk)) {
+      langSwitchHref = cleanAr ? `${basePath}/${cleanAr}` : `${basePath}/`;
+      hreflangAr = cleanAr ? `https://sandoqalemara.com/${cleanAr}` : 'https://sandoqalemara.com/';
+    } else {
+      langSwitchHref = `${basePath}/`;
+      hreflangAr = 'https://sandoqalemara.com/';
+    }
     hreflangEn = `https://sandoqalemara.com/${rel.replace(/\/index\.html$/, '/').replace(/^index\.html$/, '')}`;
   } else {
     const cleanRel = (rel === 'index.html' || rel === '') ? '' : rel;
-    langSwitchHref = cleanRel ? `${basePath}/en/${cleanRel}` : `${basePath}/en/`;
+    const enFileOnDisk = path.join(LANDING_DIR, 'en', cleanRel || 'index.html');
+    if (fs.existsSync(enFileOnDisk)) {
+      langSwitchHref = cleanRel ? `${basePath}/en/${cleanRel}` : `${basePath}/en/`;
+      hreflangEn = cleanRel ? `https://sandoqalemara.com/en/${cleanRel}` : 'https://sandoqalemara.com/en/';
+    } else {
+      // Smart Section Fallback to prevent 404
+      if (cleanRel.startsWith('tools/')) {
+        langSwitchHref = `${basePath}/en/tools/`;
+        hreflangEn = 'https://sandoqalemara.com/en/tools/';
+      } else if (cleanRel.startsWith('guides/')) {
+        langSwitchHref = `${basePath}/en/guides/`;
+        hreflangEn = 'https://sandoqalemara.com/en/guides/';
+      } else if (cleanRel.startsWith('solutions/')) {
+        langSwitchHref = `${basePath}/en/solutions/`;
+        hreflangEn = 'https://sandoqalemara.com/en/solutions/';
+      } else {
+        langSwitchHref = `${basePath}/en/`;
+        hreflangEn = 'https://sandoqalemara.com/en/';
+      }
+    }
     hreflangAr = cleanRel ? `https://sandoqalemara.com/${cleanRel}` : 'https://sandoqalemara.com/';
-    hreflangEn = cleanRel ? `https://sandoqalemara.com/en/${cleanRel}` : 'https://sandoqalemara.com/en/';
   }
 
   const activeNav = {
@@ -189,6 +232,23 @@ function computeContext(fileInfo) {
 
   return {
     BASE_PATH: basePath,
+    LANG_ROOT: langRoot,
+    URL_HOME: urlHome,
+    URL_TOOLS: urlTools,
+    URL_GUIDES: urlGuides,
+    URL_SOLUTIONS: urlSolutions,
+    URL_BILLING: urlBilling,
+    URL_ABOUT: urlAbout,
+    URL_CONTACT: urlContact,
+    URL_DOWNLOAD: urlDownload,
+    URL_SECURITY: urlSecurity,
+    URL_PRIVACY: urlPrivacy,
+    URL_TERMS: urlTerms,
+    URL_UPDATES: urlUpdates,
+    URL_THANKS: urlThanks,
+    URL_TREASURER: urlTreasurer,
+    URL_OWNER: urlOwner,
+    URL_DELETE_ACCOUNT: urlDeleteAccount,
     LANG_SWITCH_HREF: langSwitchHref,
     HREFLANG_AR: hreflangAr,
     HREFLANG_EN: hreflangEn,
@@ -210,10 +270,24 @@ function interpolate(templateStr, context) {
 }
 
 // 9. Component Expansion Engine
-function expandComponents(htmlContent, context, loadedComponents) {
+function expandComponents(htmlContent, context, loadedComponents, isEnglish = false) {
   let result = htmlContent;
 
-  for (const [compName, rawCompTemplate] of Object.entries(loadedComponents)) {
+  const effectiveComponents = {};
+  for (const [name, tpl] of Object.entries(loadedComponents)) {
+    if (name.endsWith('_EN')) {
+      if (isEnglish) {
+        const baseName = name.replace(/_EN$/, '');
+        effectiveComponents[baseName] = tpl;
+      }
+    } else {
+      if (!effectiveComponents[name]) {
+        effectiveComponents[name] = tpl;
+      }
+    }
+  }
+
+  for (const [compName, rawCompTemplate] of Object.entries(effectiveComponents)) {
     if (!rawCompTemplate) continue;
 
     const compiledComp = interpolate(rawCompTemplate, context).trim();
@@ -269,11 +343,7 @@ function compilePage(rawContent, fileInfo, templates, components) {
   // Step A: Expand Components in Templates (e.g. SEARCH_MODAL inside header)
   let headerTpl = isEnglish ? (templates.HEADER_EN || templates.HEADER) : templates.HEADER;
   if (headerTpl) {
-    const activeComponents = { ...components };
-    if (isEnglish && components.SEARCH_MODAL_EN) {
-      activeComponents.SEARCH_MODAL = components.SEARCH_MODAL_EN;
-    }
-    headerTpl = expandComponents(headerTpl, context, activeComponents);
+    headerTpl = expandComponents(headerTpl, context, components, isEnglish);
   }
 
   // Step B: Inject HEADER
@@ -334,17 +404,18 @@ function compilePage(rawContent, fileInfo, templates, components) {
   }
 
   // Step F: Expand Body Components (HERO_SIMULATOR, SEARCH_HUB, DIAGNOSTIC_QUIZ)
-  compiled = expandComponents(compiled, context, components);
+  compiled = expandComponents(compiled, context, components, isEnglish);
 
   // Step G: Ensure relative links are cleanly resolved in subdirectories (privacy, guides, tools, etc.)
-  if (context.BASE_PATH === '..') {
-    compiled = compiled.replace(/href="styles\.css"/g, 'href="../styles.css"');
-    compiled = compiled.replace(/href="favicon\.ico"/g, 'href="../favicon.ico"');
-    compiled = compiled.replace(/href="assets\//g, 'href="../assets/');
-    compiled = compiled.replace(/src="assets\//g, 'src="../assets/');
-    compiled = compiled.replace(/srcset="assets\//g, 'srcset="../assets/');
-    compiled = compiled.replace(/href="delete-account\.html"/g, 'href="../delete-account.html"');
-    compiled = compiled.replace(/src="script\.js"/g, 'src="../script.js"');
+  if (context.BASE_PATH && context.BASE_PATH !== '.') {
+    const bp = context.BASE_PATH;
+    compiled = compiled.replace(/href="styles\.css"/g, `href="${bp}/styles.css"`);
+    compiled = compiled.replace(/href="favicon\.ico"/g, `href="${bp}/favicon.ico"`);
+    compiled = compiled.replace(/href="assets\//g, `href="${bp}/assets/`);
+    compiled = compiled.replace(/src="assets\//g, `src="${bp}/assets/`);
+    compiled = compiled.replace(/srcset="assets\//g, `srcset="${bp}/assets/`);
+    compiled = compiled.replace(/href="delete-account\.html"/g, `href="${context.URL_DELETE_ACCOUNT}"`);
+    compiled = compiled.replace(/src="script\.js"/g, `src="${bp}/script.js"`);
   }
 
   return compiled;
