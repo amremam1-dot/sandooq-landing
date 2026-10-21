@@ -264,7 +264,9 @@ button {
   border-color: var(--primary-light);
 }
 
-.lang-switch-btn {
+.lang-switch-btn,
+.nav .lang-switch-btn {
+  direction: ltr !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -283,19 +285,22 @@ button {
   cursor: pointer;
 }
 
-.lang-switch-btn:hover {
+.lang-switch-btn:hover,
+.nav .lang-switch-btn:hover {
   transform: scale(1.04);
   border-color: var(--primary-light);
   color: var(--primary-light);
 }
 
-.lang-switch-btn svg {
+.lang-switch-btn svg,
+.nav .lang-switch-btn svg {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
 }
 
-.lang-switch-btn .lang-code {
+.lang-switch-btn .lang-code,
+.nav .lang-switch-btn .lang-code {
   font-family: inherit;
   font-weight: 800;
   letter-spacing: 0.5px;
@@ -2029,6 +2034,11 @@ body.light-theme .moon-icon { display: none; }
   .theme-toggle-btn {
     margin-top: 6px;
   }
+  .nav .lang-switch-btn {
+    width: auto;
+    border-bottom: none;
+    margin-top: 4px;
+  }
   .hero h1 {
     font-size: 2.2rem;
   }
@@ -2805,6 +2815,11 @@ body.light-theme .search-kbd {
   .theme-toggle-btn {
     width: 36px;
     height: 36px;
+  }
+  .lang-switch-btn {
+    height: 36px;
+    padding: 0 10px;
+    font-size: 0.8rem;
   }
 }
 
