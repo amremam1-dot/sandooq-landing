@@ -403,6 +403,30 @@ function compilePage(rawContent, fileInfo, templates, components) {
     }
   }
 
+  // Step E2: Ensure Reciprocal Hreflang & OpenGraph Meta Tags
+  if (!fileInfo.filename.includes('404')) {
+    const hreflangBlock = `  <!-- Alternate Languages (hreflang) -->\n  <link rel="alternate" hreflang="ar" href="${context.HREFLANG_AR}" />\n  <link rel="alternate" hreflang="en" href="${context.HREFLANG_EN}" />\n  <link rel="alternate" hreflang="x-default" href="${context.HREFLANG_DEFAULT}" />`;
+
+    // Strip legacy/duplicate hreflang tags if any
+    compiled = compiled.replace(/\s*<!--\s*Alternate Languages \(hreflang\)\s*-->[\s\S]*?<link\s+rel=["']alternate["']\s+hreflang=["']x-default["'][^>]*>/gi, '');
+    compiled = compiled.replace(/\s*<link\s+rel=["']alternate["']\s+hreflang=["'][^"']*["'][^>]*>/gi, '');
+
+    // Insert after canonical link or before </head>
+    if (/<link\s+rel=["']canonical["'][^>]*>/i.test(compiled)) {
+      compiled = compiled.replace(/(<link\s+rel=["']canonical["'][^>]*>)/i, `$1\n\n${hreflangBlock}`);
+    } else if (/<\/head>/i.test(compiled)) {
+      compiled = compiled.replace(/<\/head>/i, `${hreflangBlock}\n</head>`);
+    }
+  }
+
+  // Ensure OpenGraph image dimensions for rich preview cards (WhatsApp / Facebook)
+  if (/<meta\s+property=["']og:image["'][^>]*>/i.test(compiled) && !/og:image:width/i.test(compiled)) {
+    compiled = compiled.replace(
+      /(<meta\s+property=["']og:image["'][^>]*>)/i,
+      `$1\n  <meta property="og:image:width" content="1200" />\n  <meta property="og:image:height" content="630" />`
+    );
+  }
+
   // Step F: Expand Body Components (HERO_SIMULATOR, SEARCH_HUB, DIAGNOSTIC_QUIZ)
   compiled = expandComponents(compiled, context, components, isEnglish);
 
