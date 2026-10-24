@@ -685,13 +685,18 @@ function updateGuidesHub() {
   if (!fs.existsSync(hubPath)) return;
   let content = fs.readFileSync(hubPath, 'utf8');
 
-  // Update title and counter
-  content = content.replace(/39 دليلاً/g, '120 دليلاً');
-  content = content.replace(/39 دليلاً عملياً/g, '120 دليلاً عملياً');
+  const guideFiles = fs.readdirSync(GUIDES_DIR).filter(f => f.endsWith('.html') && f !== 'index.html');
+  const totalGuides = guideFiles.length;
+
+  // Dynamically update title, meta description, and h1 counter to match exact count
+  content = content.replace(/\(\d+\s*دليلاً\)/g, `(${totalGuides} دليلاً)`);
+  content = content.replace(/\(\d+\s*دليلاً عملياً\)/g, `(${totalGuides} دليلاً عملياً)`);
+  content = content.replace(/\d+\s*دليلاً عملياً/g, `${totalGuides} دليلاً عملياً`);
+  content = content.replace(/\d+\s*دليلاً/g, `${totalGuides} دليلاً`);
 
   // Update Category Filter Buttons
-  const guidesCatBarHtml = `<div class="categories-bar" id="guideCategoryFilter">
-        <button class="cat-btn active" data-filter="all">📚 كافة الأدلة (120)</button>
+  const guidesCatBarHtml = `<div class="categories-bar" id="categoryFilter">
+        <button class="cat-btn active" data-filter="all">📚 كافة الأدلة (${totalGuides})</button>
         <button class="cat-btn" data-filter="law">⚖️ الشق القانوني والنزاعات</button>
         <button class="cat-btn" data-filter="finance">📊 المالية والمحاسبة</button>
         <button class="cat-btn" data-filter="water">💧 السباكة والصرف والمياه</button>
@@ -701,9 +706,7 @@ function updateGuidesHub() {
         <button class="cat-btn" data-filter="garage">🅿️ الجراجات واللاندسكيب</button>
         <button class="cat-btn" data-filter="collection">📱 الجيرة الطيبة والكومباوند</button>
       </div>`;
-  content = content.replace(/<div\s+class=["']categories-bar["']\s+id=["']guideCategoryFilter["']>[\s\S]*?<\/div>/i, guidesCatBarHtml);
-
-  const guideFiles = fs.readdirSync(GUIDES_DIR).filter(f => f.endsWith('.html') && f !== 'index.html');
+  content = content.replace(/<div\s+class=["']categories-bar["']\s+id=["'](?:guideCategoryFilter|categoryFilter)["']>[\s\S]*?<\/div>/i, guidesCatBarHtml);
   let cardsHtml = '';
 
   guideFiles.sort().forEach(file => {
