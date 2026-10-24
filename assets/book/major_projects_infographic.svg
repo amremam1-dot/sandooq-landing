@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="projGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#27272A" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="480" rx="16" fill="url(#projGrad)" />
+
+  <text x="450" y="40" text-anchor="middle" fill="#FBBF24" font-family="Cairo, sans-serif" font-size="20" font-weight="bold">المشاريع الرأسمالية الكبرى.. كيف تُدار بدون تعثر مالي أو نزاعات؟</text>
+  <text x="450" y="65" text-anchor="middle" fill="#A1A1AA" font-family="Cairo, sans-serif" font-size="12">خارطة الطريق لجمع مبالغ تجديد الواجهات، عزل الأسطح، وإحلال المصاعد الكهربائية</text>
+
+  <!-- Step 1 -->
+  <g transform="translate(680, 95)">
+    <rect width="185" height="320" rx="12" fill="#FFFFFF" stroke="#3B82F6" stroke-width="2"/>
+    <rect width="185" height="36" rx="10" fill="#2563EB"/>
+    <text x="92" y="23" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="12.5" font-weight="bold">1. الدراسة الفنية والمقايسة</text>
+    <circle cx="92" cy="72" r="22" fill="#DBEAFE"/>
+    <text x="92" y="79" text-anchor="middle" font-size="18">📐</text>
+    <text x="92" y="118" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">استدعاء مهندس استشاري</text>
+    <text x="92" y="136" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">معاينة السلامة الإنشائية</text>
+    <text x="92" y="165" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">إعداد مقايسة بنود موحدة</text>
+    <text x="92" y="183" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">مواصفات الخامات بدقة</text>
+    <text x="92" y="212" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">طلب 3 عروض أسعار</text>
+    <text x="92" y="230" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">من مقاولين وشركات معتمدة</text>
+    <rect x="15" y="265" width="155" height="32" rx="6" fill="#EFF6FF"/>
+    <text x="92" y="285" text-anchor="middle" fill="#1D4ED8" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">المقارنة على مواصفة واحدة</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g transform="translate(460, 95)">
+    <rect width="185" height="320" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-width="2"/>
+    <rect width="185" height="36" rx="10" fill="#059669"/>
+    <text x="92" y="23" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="12.5" font-weight="bold">2. اعتماد الجمعية والتمويل</text>
+    <circle cx="92" cy="72" r="22" fill="#D1FAE5"/>
+    <text x="92" y="79" text-anchor="middle" font-size="18">🗳️</text>
+    <text x="92" y="118" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">عرض العروض على السكان</text>
+    <text x="92" y="136" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">في جمعية عمومية غير عادية</text>
+    <text x="92" y="165" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">التصويت بالأغلبية</text>
+    <text x="92" y="183" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">موافقة ثلثي الأعضاء</text>
+    <text x="92" y="212" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">توزيع الحصص بالمتر</text>
+    <text x="92" y="230" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">أو بالتساوي للأجزاء المشتركة</text>
+    <rect x="15" y="265" width="155" height="32" rx="6" fill="#ECFDF5"/>
+    <text x="92" y="285" text-anchor="middle" fill="#047857" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">القرار ملزم لجميع الشقق</text>
+  </g>
+
+  <!-- Step 3 -->
+  <g transform="translate(240, 95)">
+    <rect width="185" height="320" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+    <rect width="185" height="36" rx="10" fill="#D97706"/>
+    <text x="92" y="23" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="12.5" font-weight="bold">3. خطة الأقساط الـ 3</text>
+    <circle cx="92" cy="72" r="22" fill="#FEF3C7"/>
+    <text x="92" y="79" text-anchor="middle" font-size="18">💰</text>
+    <text x="92" y="118" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">دفعة التعاقد (40%)</text>
+    <text x="92" y="136" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">تشوين الخامات وبدء السقالات</text>
+    <text x="92" y="165" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">دفعة منتصف العمل (35%)</text>
+    <text x="92" y="183" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">بعد إنجاز نصف الأعمال الميدانية</text>
+    <text x="92" y="212" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">دفعة التسليم النهائي (25%)</text>
+    <text x="92" y="230" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">عقب فحص العيوب والاعتماد</text>
+    <rect x="15" y="265" width="155" height="32" rx="6" fill="#FFFBEB"/>
+    <text x="92" y="285" text-anchor="middle" fill="#B45309" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">لا تُصرف دفعة إلا بإنجاز</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g transform="translate(20, 95)">
+    <rect width="185" height="320" rx="12" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2"/>
+    <rect width="185" height="36" rx="10" fill="#7C3AED"/>
+    <text x="92" y="23" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="12.5" font-weight="bold">4. التعاقد والضمان</text>
+    <circle cx="92" cy="72" r="22" fill="#EDE9FE"/>
+    <text x="92" y="79" text-anchor="middle" font-size="18">📝</text>
+    <text x="92" y="118" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">عقد مقاولة محكم</text>
+    <text x="92" y="136" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">محدد التواريخ والشروط الجزائية</text>
+    <text x="92" y="165" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">تأمين أعمال (10%)</text>
+    <text x="92" y="183" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">يُحجز لمدة 6 شهور ضد العيوب</text>
+    <text x="92" y="212" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">شهادة ضمان معتمدة</text>
+    <text x="92" y="230" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10">ضمان 10 سنوات للعوازل والواجهة</text>
+    <rect x="15" y="265" width="155" height="32" rx="6" fill="#F5F3FF"/>
+    <text x="92" y="285" text-anchor="middle" fill="#6D28D9" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">حماية أموال الشاغلين</text>
+  </g>
+
+  <!-- Bottom Strip -->
+  <rect x="20" y="430" width="860" height="36" rx="8" fill="#111827" stroke="#374151"/>
+  <text x="450" y="453" text-anchor="middle" fill="#FBBF24" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">صيانة الواجهة وعزل السطح ليست رفاهية؛ إنها حماية مباشرة لرأس مال شقتك وتزيد قيمتها السوقية 25% فوراً!</text>
+</svg>

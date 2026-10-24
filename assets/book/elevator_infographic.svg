@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="auto">
+  <defs>
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2D3748"/>
+      <stop offset="100%" stop-color="#1A202C"/>
+    </linearGradient>
+    <linearGradient id="cabinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EDF2F7"/>
+      <stop offset="100%" stop-color="#CBD5E0"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background / Shaft Boundary -->
+  <rect x="10" y="10" width="580" height="360" rx="12" fill="#F8FAFC" stroke="#CBD5E0" stroke-width="2"/>
+  
+  <!-- Title Header -->
+  <rect x="10" y="10" width="580" height="42" rx="12" fill="#1E3A8A"/>
+  <rect x="10" y="32" width="580" height="20" fill="#1E3A8A"/>
+  <text x="300" y="36" text-anchor="middle" font-family="'Cairo', sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">
+    تشريح المصعد الكهربائي: مثلث الأمان والأجزاء الحيوية
+  </text>
+
+  <!-- Machine Room at Top -->
+  <rect x="40" y="62" width="220" height="70" rx="8" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="150" y="82" text-anchor="middle" font-family="'Cairo', sans-serif" font-size="12" font-weight="800" fill="#92400E">غرفة الماكينات (السطح)</text>
+
+  <!-- Traction Machine & Sheave -->
+  <circle cx="150" cy="110" r="18" fill="url(#goldGrad)" stroke="#78350F" stroke-width="2"/>
+  <circle cx="150" cy="110" r="7" fill="#1E293B"/>
+  <text x="150" y="114" text-anchor="middle" font-family="'Cairo', sans-serif" font-size="8" font-weight="900" fill="#FFFFFF">طارة</text>
+
+  <!-- Elevator Shaft (بير الأسانسير) -->
+  <rect x="70" y="136" width="160" height="220" fill="url(#wallGrad)" rx="4"/>
+  <!-- Guide rails -->
+  <line x1="85" y1="136" x2="85" y2="356" stroke="#94A3B8" stroke-width="3" stroke-dasharray="6 4"/>
+  <line x1="215" y1="136" x2="215" y2="356" stroke="#94A3B8" stroke-width="3" stroke-dasharray="6 4"/>
+
+  <!-- Steel Ropes (وايرات الجر) -->
+  <line x1="138" y1="110" x2="138" y2="200" stroke="#E2E8F0" stroke-width="3"/>
+  <line x1="162" y1="110" x2="162" y2="260" stroke="#E2E8F0" stroke-width="3"/>
+
+  <!-- Elevator Cabin (الكابينة) -->
+  <rect x="95" y="200" width="75" height="95" rx="5" fill="url(#cabinGrad)" stroke="#475569" stroke-width="2"/>
+  <rect x="105" y="210" width="25" height="40" rx="2" fill="#93C5FD" stroke="#1E40AF" stroke-width="1.5"/>
+  <circle cx="155" cy="245" r="4" fill="#E11D48"/>
+  <text x="132" y="280" text-anchor="middle" font-family="'Cairo', sans-serif" font-size="10" font-weight="800" fill="#1E293B">كابينة الركاب</text>
+
+  <!-- Safety Gear / Parachute beneath Cabin -->
+  <rect x="95" y="295" width="75" height="10" rx="2" fill="#DC2626"/>
+  <text x="132" y="303" text-anchor="middle" font-family="'Cairo', sans-serif" font-size="7.5" font-weight="900" fill="#FFFFFF">فرامل الباراشوت للطوارئ</text>
+
+  <!-- Counterweight (ثقل الموازنة) -->
+  <rect x="155" y="260" width="22" height="65" rx="3" fill="#64748B" stroke="#334155" stroke-width="1.5"/>
+  <text x="166" y="295" text-anchor="middle" font-family="'Cairo', sans-serif" font-size="8" font-weight="800" fill="#FFFFFF" transform="rotate(-90 166 295)">ثقل الموازنة</text>
+
+  <!-- Pit Buffer (صدادات القاع) -->
+  <rect x="110" y="342" width="20" height="14" fill="#EAB308" rx="2"/>
+  <rect x="170" y="342" width="16" height="14" fill="#EAB308" rx="2"/>
+
+  <!-- Explanatory Legend / Cards on the Right -->
+  <g transform="translate(280, 65)">
+    <!-- Card 1: الوايرات -->
+    <rect x="0" y="0" width="290" height="60" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+    <circle cx="20" cy="20" r="10" fill="#3B82F6"/>
+    <text x="20" y="24" text-anchor="middle" font-family="'Cairo', sans-serif" font-size="10" font-weight="900" fill="#FFFFFF">1</text>
+    <text x="38" y="22" font-family="'Cairo', sans-serif" font-size="12" font-weight="800" fill="#1E3A8A">حبال الجر الفولاذية (الوايرات)</text>
+    <text x="38" y="44" font-family="'Cairo', sans-serif" font-size="10" font-weight="600" fill="#64748B">تغير فوراً عند ظهور أي شعر معدني أو صدأ لتجنب الحوادث.</text>
+
+    <!-- Card 2: الباراشوت -->
+    <rect x="0" y="70" width="290" height="60" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+    <circle cx="20" cy="90" r="10" fill="#DC2626"/>
+    <text x="20" y="94" text-anchor="middle" font-family="'Cairo', sans-serif" font-size="10" font-weight="900" fill="#FFFFFF">2</text>
+    <text x="38" y="92" font-family="'Cairo', sans-serif" font-size="12" font-weight="800" fill="#991B1B">منظم السرعة والباراشوت الميكانيكي</text>
+    <text x="38" y="114" font-family="'Cairo', sans-serif" font-size="10" font-weight="600" fill="#64748B">يقفل الكابينة ذاتياً في سكك الحديد إذا زادت السرعة.</text>
+
+    <!-- Card 3: كوالين الأبواب -->
+    <rect x="0" y="140" width="290" height="60" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+    <circle cx="20" cy="160" r="10" fill="#D97706"/>
+    <text x="20" y="164" text-anchor="middle" font-family="'Cairo', sans-serif" font-size="10" font-weight="900" fill="#FFFFFF">3</text>
+    <text x="38" y="162" font-family="'Cairo', sans-serif" font-size="12" font-weight="800" fill="#92400E">شواكيش وكوالين أقفال الأبواب</text>
+    <text x="38" y="184" font-family="'Cairo', sans-serif" font-size="10" font-weight="600" fill="#64748B">تمنع فتح الباب إذا لم تكن الكابينة متوقفة أمام الدور تماماً.</text>
+
+    <!-- Card 4: جهاز الطوارئ ARD -->
+    <rect x="0" y="210" width="290" height="65" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+    <circle cx="20" cy="230" r="10" fill="#059669"/>
+    <text x="20" y="234" text-anchor="middle" font-family="'Cairo', sans-serif" font-size="10" font-weight="900" fill="#FFFFFF">4</text>
+    <text x="38" y="232" font-family="'Cairo', sans-serif" font-size="12" font-weight="800" fill="#065F46">جهاز النزول الأوتوماتيكي (UPS/ARD)</text>
+    <text x="38" y="254" font-family="'Cairo', sans-serif" font-size="10" font-weight="600" fill="#64748B">يحرك المصعد لأقرب دور ويفتح الباب تلقائياً عند انقطاع النور.</text>
+  </g>
+</svg>

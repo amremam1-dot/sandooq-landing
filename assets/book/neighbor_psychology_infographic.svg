@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="psyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#312E81" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="480" rx="16" fill="url(#psyGrad)" />
+
+  <text x="450" y="40" text-anchor="middle" fill="#C7D2FE" font-family="Cairo, sans-serif" font-size="20" font-weight="bold">كتالوج شخصيات سكان العمارة.. وشفرات التعامل الذكية</text>
+  <text x="450" y="65" text-anchor="middle" fill="#A5B4FC" font-family="Cairo, sans-serif" font-size="12">تحويل النزاعات اليومية إلى تعاون راقٍ عبر الدبلوماسية وعزل الشحنات الانفعالية</text>
+
+  <!-- Person 1 -->
+  <g transform="translate(720, 90)">
+    <rect width="165" height="325" rx="10" fill="#FFFFFF" stroke="#EF4444" stroke-width="2"/>
+    <rect width="165" height="32" rx="8" fill="#DC2626"/>
+    <text x="82" y="21" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">1. الممتنع المزمن</text>
+    <circle cx="82" cy="62" r="20" fill="#FEE2E2"/>
+    <text x="82" y="69" text-anchor="middle" font-size="18">🏃‍♂️</text>
+    <text x="82" y="100" text-anchor="middle" fill="#991B1B" font-family="Cairo, sans-serif" font-size="11" font-weight="bold">الصفات والسلوك:</text>
+    <text x="82" y="120" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">تسويف، أعذار مكررة،</text>
+    <text x="82" y="135" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">وعود مع أول الشهر</text>
+    
+    <text x="82" y="165" text-anchor="middle" fill="#DC2626" font-family="Cairo, sans-serif" font-size="11" font-weight="bold">الخطأ القاتل:</text>
+    <text x="82" y="185" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">الشجار ورفع الصوت</text>
+    <text x="82" y="200" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">أمامه على السلم</text>
+
+    <rect x="10" y="225" width="145" height="85" rx="6" fill="#FEF2F2"/>
+    <text x="82" y="245" text-anchor="middle" fill="#B91C1C" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">شفرة الترويض:</text>
+    <text x="82" y="265" text-anchor="middle" fill="#7F1D1D" font-family="Cairo, sans-serif" font-size="9.5">الإحراج بالشفافية المعلنة،</text>
+    <text x="82" y="280" text-anchor="middle" fill="#7F1D1D" font-family="Cairo, sans-serif" font-size="9.5">مخاطبة خاصة بالأدب،</text>
+    <text x="82" y="295" text-anchor="middle" fill="#7F1D1D" font-family="Cairo, sans-serif" font-size="9.5">ثم الإنذار القضائي الهادئ</text>
+  </g>
+
+  <!-- Person 2 -->
+  <g transform="translate(545, 90)">
+    <rect width="165" height="325" rx="10" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+    <rect width="165" height="32" rx="8" fill="#D97706"/>
+    <text x="82" y="21" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">2. المشكك الدائم</text>
+    <circle cx="82" cy="62" r="20" fill="#FEF3C7"/>
+    <text x="82" y="69" text-anchor="middle" font-size="18">🧐</text>
+    <text x="82" y="100" text-anchor="middle" fill="#92400E" font-family="Cairo, sans-serif" font-size="11" font-weight="bold">الصفات والسلوك:</text>
+    <text x="82" y="120" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">وسواس مالي مستمر،</text>
+    <text x="82" y="135" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">«ده غالي وقريبي عمله بأقل!»</text>
+
+    <text x="82" y="165" text-anchor="middle" fill="#D97706" font-family="Cairo, sans-serif" font-size="11" font-weight="bold">الخطأ القاتل:</text>
+    <text x="82" y="185" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">أخذ التشكيك إهانة شخصية</text>
+    <text x="82" y="200" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">والانفعال الدفاعي</text>
+
+    <rect x="10" y="225" width="145" height="85" rx="6" fill="#FFFBEB"/>
+    <text x="82" y="245" text-anchor="middle" fill="#92400E" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">شفرة الترويض:</text>
+    <text x="82" y="265" text-anchor="middle" fill="#78350F" font-family="Cairo, sans-serif" font-size="9.5">الإغراق بالوثائق والفواتير،</text>
+    <text x="82" y="280" text-anchor="middle" fill="#78350F" font-family="Cairo, sans-serif" font-size="9.5">وتكليفه بالإشراف بنفسه</text>
+    <text x="82" y="295" text-anchor="middle" fill="#78350F" font-family="Cairo, sans-serif" font-size="9.5">(سيتراجع فوراً!)</text>
+  </g>
+
+  <!-- Person 3 -->
+  <g transform="translate(370, 90)">
+    <rect width="165" height="325" rx="10" fill="#FFFFFF" stroke="#3B82F6" stroke-width="2"/>
+    <rect width="165" height="32" rx="8" fill="#2563EB"/>
+    <text x="82" y="21" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">3. المتطوع الهارب</text>
+    <circle cx="82" cy="62" r="20" fill="#DBEAFE"/>
+    <text x="82" y="69" text-anchor="middle" font-size="18">💨</text>
+    <text x="82" y="100" text-anchor="middle" fill="#1E40AF" font-family="Cairo, sans-serif" font-size="11" font-weight="bold">الصفات والسلوك:</text>
+    <text x="82" y="120" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">حماس عاصف في الاجتماع،</text>
+    <text x="82" y="135" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">ثم يختفي صباح اليوم التالي!</text>
+
+    <text x="82" y="165" text-anchor="middle" fill="#2563EB" font-family="Cairo, sans-serif" font-size="11" font-weight="bold">الخطأ القاتل:</text>
+    <text x="82" y="185" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">الاعتماد عليه في مهام مصيرية</text>
+    <text x="82" y="200" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">بدون بديل جاهز</text>
+
+    <rect x="10" y="225" width="145" height="85" rx="6" fill="#EFF6FF"/>
+    <text x="82" y="245" text-anchor="middle" fill="#1D4ED8" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">شفرة الترويض:</text>
+    <text x="82" y="265" text-anchor="middle" fill="#1E3A8A" font-family="Cairo, sans-serif" font-size="9.5">تفريغ حماسه في مهام</text>
+    <text x="82" y="280" text-anchor="middle" fill="#1E3A8A" font-family="Cairo, sans-serif" font-size="9.5">صغيرة محددة بساعة وتاريخ،</text>
+    <text x="82" y="295" text-anchor="middle" fill="#1E3A8A" font-family="Cairo, sans-serif" font-size="9.5">مع وجود بديل احتياطي</text>
+  </g>
+
+  <!-- Person 4 -->
+  <g transform="translate(195, 90)">
+    <rect width="165" height="325" rx="10" fill="#FFFFFF" stroke="#10B981" stroke-width="2"/>
+    <rect width="165" height="32" rx="8" fill="#059669"/>
+    <text x="82" y="21" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">4. الغائب الحاضر</text>
+    <circle cx="82" cy="62" r="20" fill="#D1FAE5"/>
+    <text x="82" y="69" text-anchor="middle" font-size="18">✈️</text>
+    <text x="82" y="100" text-anchor="middle" fill="#065F46" font-family="Cairo, sans-serif" font-size="11" font-weight="bold">الصفات والسلوك:</text>
+    <text x="82" y="120" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">مسافر بالخارج أو شقته مغلقة،</text>
+    <text x="82" y="135" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">لا يحضر الجمعيات العمومية</text>
+
+    <text x="82" y="165" text-anchor="middle" fill="#059669" font-family="Cairo, sans-serif" font-size="11" font-weight="bold">الخطأ القاتل:</text>
+    <text x="82" y="185" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">إهمال التواصل معه حتى</text>
+    <text x="82" y="200" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">تتراكم ديونه لسنوات</text>
+
+    <rect x="10" y="225" width="145" height="85" rx="6" fill="#ECFDF5"/>
+    <text x="82" y="245" text-anchor="middle" fill="#047857" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">شفرة الترويض:</text>
+    <text x="82" y="265" text-anchor="middle" fill="#064E3B" font-family="Cairo, sans-serif" font-size="9.5">توفير روابط دفع دولية،</text>
+    <text x="82" y="280" text-anchor="middle" fill="#064E3B" font-family="Cairo, sans-serif" font-size="9.5">وتقرير سنوي ملخص،</text>
+    <text x="82" y="295" text-anchor="middle" fill="#064E3B" font-family="Cairo, sans-serif" font-size="9.5">وعرض سداد سنة مقدماً</text>
+  </g>
+
+  <!-- Person 5 -->
+  <g transform="translate(20, 90)">
+    <rect width="165" height="325" rx="10" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2"/>
+    <rect width="165" height="32" rx="8" fill="#7C3AED"/>
+    <text x="82" y="21" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">5. صانع النزاعات</text>
+    <circle cx="82" cy="62" r="20" fill="#EDE9FE"/>
+    <text x="82" y="69" text-anchor="middle" font-size="18">⚡</text>
+    <text x="82" y="100" text-anchor="middle" fill="#5B21B6" font-family="Cairo, sans-serif" font-size="11" font-weight="bold">الصفات والسلوك:</text>
+    <text x="82" y="120" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">إزعاج، خلافات الجراج،</text>
+    <text x="82" y="135" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">وتعليقات جارحة على الواتساب</text>
+
+    <text x="82" y="165" text-anchor="middle" fill="#7C3AED" font-family="Cairo, sans-serif" font-size="11" font-weight="bold">الخطأ القاتل:</text>
+    <text x="82" y="185" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">الرد عليه على العام</text>
+    <text x="82" y="200" text-anchor="middle" fill="#4B5563" font-family="Cairo, sans-serif" font-size="10">وتأجيج معركة جماعية</text>
+
+    <rect x="10" y="225" width="145" height="85" rx="6" fill="#F5F3FF"/>
+    <text x="82" y="245" text-anchor="middle" fill="#6D28D9" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">شفرة الترويض:</text>
+    <text x="82" y="265" text-anchor="middle" fill="#4C1D95" font-family="Cairo, sans-serif" font-size="9.5">عزل الخلاف في الخاص فوراً،</text>
+    <text x="82" y="280" text-anchor="middle" fill="#4C1D95" font-family="Cairo, sans-serif" font-size="9.5">تفعيل خاصية «المشرفون فقط»،</text>
+    <text x="82" y="295" text-anchor="middle" fill="#4C1D95" font-family="Cairo, sans-serif" font-size="9.5">وتطبيق بنود اللائحة</text>
+  </g>
+
+  <!-- Bottom Strip -->
+  <rect x="20" y="430" width="860" height="36" rx="8" fill="#1E1B4B" stroke="#4338CA"/>
+  <text x="450" y="453" text-anchor="middle" fill="#FCD34D" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">القاعدة الذهبية: «إذا نزعت الجمهور والكاميرات من أمام الساكن الغاضب.. هدأ ثلثا انفعاله فوراً!»</text>
+</svg>

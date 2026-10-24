@@ -161,6 +161,8 @@ function computeContext(fileInfo) {
   const urlOwner = `${langRoot}/for-property-owner.html`;
   const urlDeleteAccount = `${langRoot}/delete-account.html`;
   const urlManualPage = `${langRoot}/manual.html`;
+  const urlBookPage = `${langRoot}/book.html`;
+  const urlBookPdf = `${basePath}/manuals/Dostor_ElAmara_Luxury_Edition.pdf`;
   const urlManual = isEnglish ? `${basePath}/manuals/Sandooq_ElAmara_User_Manual_EN.pdf` : `${basePath}/manuals/Sandooq_ElAmara_User_Manual_AR.pdf`;
   const urlManualAr = `${basePath}/manuals/Sandooq_ElAmara_User_Manual_AR.pdf`;
   const urlManualEn = `${basePath}/manuals/Sandooq_ElAmara_User_Manual_EN.pdf`;
@@ -214,7 +216,8 @@ function computeContext(fileInfo) {
     ACTIVE_BILLING: '',
     ACTIVE_ABOUT: '',
     ACTIVE_CONTACT: '',
-    ACTIVE_DOWNLOAD: ''
+    ACTIVE_DOWNLOAD: '',
+    ACTIVE_BOOK: ''
   };
 
   if (cleanRelNoLang === 'index.html' || cleanRelNoLang === '') {
@@ -233,6 +236,8 @@ function computeContext(fileInfo) {
     activeNav.ACTIVE_CONTACT = 'active';
   } else if (cleanRelNoLang === 'download.html') {
     activeNav.ACTIVE_DOWNLOAD = 'active';
+  } else if (cleanRelNoLang === 'book.html' || cleanRelNoLang === 'dostor-elamara.html') {
+    activeNav.ACTIVE_BOOK = 'active';
   }
 
   return {
@@ -255,6 +260,9 @@ function computeContext(fileInfo) {
     URL_OWNER: urlOwner,
     URL_DELETE_ACCOUNT: urlDeleteAccount,
     URL_MANUAL_PAGE: urlManualPage,
+    URL_BOOK_PAGE: urlBookPage,
+    URL_BOOK: urlBookPage,
+    URL_BOOK_PDF: urlBookPdf,
     URL_MANUAL: urlManual,
     URL_MANUAL_AR: urlManualAr,
     URL_MANUAL_EN: urlManualEn,

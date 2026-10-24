@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="#B45309" stroke-width="4"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#D97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="100" cy="100" r="76" fill="none" stroke="#B45309" stroke-width="1"/>
+  
+  <!-- Outer Circular Text -->
+  <path id="textCircle" d="M 100,100 m -68,0 a 68,68 0 1,1 136,0 a 68,68 0 1,1 -136,0" fill="none"/>
+  <text fill="#B45309" font-family="Cairo, sans-serif" font-size="11" font-weight="bold" letter-spacing="1.5">
+    <textPath href="#textCircle" startOffset="50%" text-anchor="middle">
+      اتحاد شاغلي العقار • جمهورية مصر العربية • قانون 119
+    </textPath>
+  </text>
+
+  <!-- Center Emblem: Scale of Justice & Building -->
+  <g transform="translate(70, 70) scale(0.6)">
+    <!-- Scale -->
+    <path d="M 50,10 L 50,90 M 10,35 L 90,35 M 10,35 L 5,60 L 25,60 Z M 90,35 L 75,60 L 95,60 Z" fill="none" stroke="#B45309" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="50" cy="12" r="6" fill="#B45309"/>
+    <!-- Star -->
+    <polygon points="50,1 53,8 60,9 55,14 56,21 50,17 44,21 45,14 40,9 47,8" fill="#D97706"/>
+  </g>
+
+  <text x="100" y="148" text-anchor="middle" fill="#92400E" font-family="Cairo, sans-serif" font-size="9" font-weight="bold">معتمد وموثق</text>
+  <text x="100" y="162" text-anchor="middle" fill="#78350F" font-family="Courier New, monospace" font-size="8.5">NO. 2026/119/EG</text>
+</svg>

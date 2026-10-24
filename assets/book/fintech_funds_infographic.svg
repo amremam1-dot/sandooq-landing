@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="finGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064E3B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="480" rx="16" fill="url(#finGrad)" />
+
+  <text x="450" y="42" text-anchor="middle" fill="#34D399" font-family="Cairo, sans-serif" font-size="20" font-weight="bold">هندسة دورة السيولة المالية وأوعية الصندوق الثلاثة</text>
+  <text x="450" y="68" text-anchor="middle" fill="#E2E8F0" font-family="Cairo, sans-serif" font-size="12">فصل أموال الطوارئ عن التشغيل، وتعدد قنوات التحصيل اللحظي، والشفافية الرقابية</text>
+
+  <!-- Inflow Channels -->
+  <g transform="translate(620, 95)">
+    <rect width="250" height="320" rx="12" fill="#FFFFFF" stroke="#10B981" stroke-width="2"/>
+    <rect width="250" height="38" rx="10" fill="#059669"/>
+    <text x="125" y="24" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="13" font-weight="bold">قنوات تحصيل الاشتراكات</text>
+    
+    <!-- Channel 1 -->
+    <rect x="15" y="55" width="220" height="65" rx="8" fill="#F0FDF4" stroke="#BBF7D0"/>
+    <text x="215" y="80" text-anchor="end" fill="#065F46" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">1. التحويل عبر إنستاباي (InstaPay)</text>
+    <text x="215" y="102" text-anchor="end" fill="#047857" font-family="Cairo, sans-serif" font-size="10.5">تحويل لحظي مجاني برقم الشقة واسم الساكن</text>
+
+    <!-- Channel 2 -->
+    <rect x="15" y="130" width="220" height="65" rx="8" fill="#F0FDF4" stroke="#BBF7D0"/>
+    <text x="215" y="155" text-anchor="end" fill="#065F46" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">2. المحافظ الإلكترونية (Vodafone Cash)</text>
+    <text x="215" y="177" text-anchor="end" fill="#047857" font-family="Cairo, sans-serif" font-size="10.5">تيسير الدفع السريع للأرقام المسجلة</text>
+
+    <!-- Channel 3 -->
+    <rect x="15" y="205" width="220" height="65" rx="8" fill="#F0FDF4" stroke="#BBF7D0"/>
+    <text x="215" y="230" text-anchor="end" fill="#065F46" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">3. التحصيل النقدي اليدوي (كاش)</text>
+    <text x="215" y="252" text-anchor="end" fill="#047857" font-family="Cairo, sans-serif" font-size="10.5">سند قبض ورقي فوري مختوم بختم الاتحاد</text>
+
+    <rect x="15" y="280" width="220" height="25" rx="5" fill="#DCFCE7"/>
+    <text x="125" y="297" text-anchor="middle" fill="#166534" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">إشعار فوري على جروب الواتساب بالاستلام</text>
+  </g>
+
+  <!-- Central Funds Box -->
+  <g transform="translate(325, 95)">
+    <rect width="250" height="320" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+    <rect width="250" height="38" rx="10" fill="#D97706"/>
+    <text x="125" y="24" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="13" font-weight="bold">أوعية صندوق العمارة الثلاثة</text>
+
+    <!-- Fund 1 -->
+    <rect x="15" y="55" width="220" height="70" rx="8" fill="#FFFBEB" stroke="#FDE68A"/>
+    <text x="215" y="80" text-anchor="end" fill="#92400E" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">وعاء (1): المصاريف التشغيلية (45%)</text>
+    <text x="215" y="100" text-anchor="end" fill="#78350F" font-family="Cairo, sans-serif" font-size="10.5">أجر الحارس، كهرباء السلم، النظافة</text>
+    <text x="215" y="115" text-anchor="end" fill="#B45309" font-family="Cairo, sans-serif" font-size="9.5">يُصرف بانتظام شهري ثابت</text>
+
+    <!-- Fund 2 -->
+    <rect x="15" y="135" width="220" height="70" rx="8" fill="#FFFBEB" stroke="#FDE68A"/>
+    <text x="215" y="160" text-anchor="end" fill="#92400E" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">وعاء (2): الصيانة الدورية (30%)</text>
+    <text x="215" y="180" text-anchor="end" fill="#78350F" font-family="Cairo, sans-serif" font-size="10.5">صيانة المصعد، الموتور، غسيل الخزان</text>
+    <text x="215" y="195" text-anchor="end" fill="#B45309" font-family="Cairo, sans-serif" font-size="9.5">عقود معتمدة وفواتير ضريبية</text>
+
+    <!-- Fund 3 -->
+    <rect x="15" y="215" width="220" height="70" rx="8" fill="#FEF3C7" stroke="#FCD34D"/>
+    <text x="215" y="240" text-anchor="end" fill="#78350F" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">وعاء (3): احتياطي الطوارئ (25%)</text>
+    <text x="215" y="260" text-anchor="end" fill="#92400E" font-family="Cairo, sans-serif" font-size="10.5">حساب بنكي مجمد للصدمات والمشاريع</text>
+    <text x="215" y="275" text-anchor="end" fill="#B45309" font-family="Cairo, sans-serif" font-size="9.5">ممنوع لمسه إلا بقرار جمعية عمومية</text>
+  </g>
+
+  <!-- Ledger & Transparency Box -->
+  <g transform="translate(30, 95)">
+    <rect width="250" height="320" rx="12" fill="#FFFFFF" stroke="#3B82F6" stroke-width="2"/>
+    <rect width="250" height="38" rx="10" fill="#1D4ED8"/>
+    <text x="125" y="24" text-anchor="middle" fill="#FFFFFF" font-family="Cairo, sans-serif" font-size="13" font-weight="bold">الرقابة والشفافية المحاسبية</text>
+
+    <circle cx="125" cy="80" r="24" fill="#DBEAFE"/>
+    <text x="125" y="88" text-anchor="middle" font-size="20">📊</text>
+
+    <text x="125" y="130" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">دفتر الأستاذ الجاري المزدوج</text>
+    <text x="125" y="150" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10.5">تسجيل فوري (وارد / منصرف / رصيد)</text>
+
+    <text x="125" y="180" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">كشف الحساب الشهري المعلن</text>
+    <text x="125" y="200" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10.5">لوحة المدخل + نسخة رقمية على الواتساب</text>
+
+    <text x="125" y="230" text-anchor="middle" fill="#1E293B" font-family="Cairo, sans-serif" font-size="12" font-weight="bold">أرشيف الفواتير وقطع الغيار</text>
+    <text x="125" y="250" text-anchor="middle" fill="#64748B" font-family="Cairo, sans-serif" font-size="10.5">الاحتفاظ بالقطع التالفة في الصندوق</text>
+
+    <rect x="15" y="270" width="220" height="30" rx="6" fill="#EFF6FF"/>
+    <text x="125" y="290" text-anchor="middle" fill="#1E40AF" font-family="Cairo, sans-serif" font-size="10.5" font-weight="bold">الشفافية المطلقة تقضي على الشكوك</text>
+  </g>
+
+  <!-- Bottom Strip -->
+  <rect x="30" y="430" width="840" height="36" rx="8" fill="#0F172A"/>
+  <text x="450" y="453" text-anchor="middle" fill="#34D399" font-family="Cairo, sans-serif" font-size="11.5" font-weight="bold">قاعدة عم أمين الذهبية: «القرش اللي يدخل بعلم الساكن.. يصرف الصداع عن رأس مدير العقار!»</text>
+</svg>
