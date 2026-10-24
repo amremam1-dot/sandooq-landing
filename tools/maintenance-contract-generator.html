@@ -264,13 +264,7 @@
     .breadcrumb-nav a {
       color: var(--primary-light);
     }
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-      .printable-area, .printable-area * {
-        visibility: visible;
-      }
+    /* Inline @media print replaced by unified master print engine in styles.css */
       .printable-area {
         position: absolute;
         left: 0;
@@ -499,6 +493,26 @@
           </div>
 
           <div id="mcDocPreview" class="printable-area" style="background: #fff; color: #1e293b; padding: 24px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 0.88rem; line-height: 1.7; max-height: 520px; overflow-y: auto;">
+
+            <div class="print-official-header">
+              <div class="print-header-top">
+                <div class="print-logo-box">
+                  <span class="print-logo-icon">🏢</span>
+                  <div>
+                    <h2 class="print-org-title">صندوق العمارة — Sandooq El-Amara</h2>
+                    <span class="print-sub-title">المنصة المعتمدة لإدارة العقارات وحسابات اتحادات الشاغلين</span>
+                  </div>
+                </div>
+                <div class="print-meta-box">
+                  <div class="print-meta-item"><span>تاريخ الاستخراج:</span> <strong class="print-date-display">2026-10-24</strong></div>
+                  <div class="print-meta-item"><span>طبيعة المستند:</span> <strong>وثيقة رسمية معتمدة</strong></div>
+                </div>
+              </div>
+              <div class="print-doc-title-bar">
+                <h1 class="print-doc-title">مولد عقود صيانة الأسانسير والخدمات المحكمة</h1>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

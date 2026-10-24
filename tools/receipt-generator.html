@@ -223,13 +223,7 @@
       background: #1eb956;
     }
     /* Print Only Styles */
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-      .receipt-paper, .receipt-paper * {
-        visibility: visible;
-      }
+    /* Inline @media print replaced by unified master print engine in styles.css */
       .receipt-paper {
         position: absolute;
         left: 0;
@@ -546,6 +540,10 @@
         
         <!-- Printable Receipt Paper -->
         <div class="receipt-paper" id="receiptPaper">
+<div class="print-date-display" style="display:none;"></div>
+
+<div class="print-date-display" style="display:none;"></div>
+
           <div class="receipt-header">
             <div>
               <h3 id="prevBuilding">عمارة 15 - شارع النصر</h3>

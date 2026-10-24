@@ -264,13 +264,7 @@
     .breadcrumb-nav a {
       color: var(--primary-light);
     }
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-      .printable-area, .printable-area * {
-        visibility: visible;
-      }
+    /* Inline @media print replaced by unified master print engine in styles.css */
       .printable-area {
         position: absolute;
         left: 0;
@@ -501,6 +495,26 @@
           <h2 style="font-size: 1.25rem; color: var(--text-main); margin-top: 0; margin-bottom: 20px;">المقايسة التقديرية الشاملة</h2>
           
           <div class="results-box">
+
+            <div class="print-official-header">
+              <div class="print-header-top">
+                <div class="print-logo-box">
+                  <span class="print-logo-icon">🏢</span>
+                  <div>
+                    <h2 class="print-org-title">صندوق العمارة — Sandooq El-Amara</h2>
+                    <span class="print-sub-title">المنصة المعتمدة لإدارة العقارات وحسابات اتحادات الشاغلين</span>
+                  </div>
+                </div>
+                <div class="print-meta-box">
+                  <div class="print-meta-item"><span>تاريخ الاستخراج:</span> <strong class="print-date-display">2026-10-24</strong></div>
+                  <div class="print-meta-item"><span>طبيعة المستند:</span> <strong>وثيقة رسمية معتمدة</strong></div>
+                </div>
+              </div>
+              <div class="print-doc-title-bar">
+                <h1 class="print-doc-title">حاسبة مقايسة كاميرات المراقبة وتأمين العقار</h1>
+              </div>
+            </div>
+
             <div class="result-item">
               <span class="result-label">سعة القرص الصلب (Hard Disk):</span>
               <span class="result-value" id="resHardCapacity">4 تيرابايت</span>
