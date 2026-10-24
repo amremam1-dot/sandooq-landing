@@ -191,13 +191,13 @@ button {
 }
 
 .header-container {
-  max-width: 1240px;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 12px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   min-width: 0;
 }
 
@@ -222,15 +222,16 @@ button {
 .nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
 }
 
 .nav a {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-muted);
   transition: var(--transition);
   white-space: nowrap;
+  padding: 2px 4px;
 }
 
 .nav a:hover {
@@ -2785,6 +2786,22 @@ body.light-theme .search-kbd {
   color: #475569;
 }
 
+@media (max-width: 1380px) {
+  .nav-link-secondary {
+    display: none;
+  }
+  .search-trigger-btn .search-kbd {
+    display: none; /* Hide shortcut badge on laptop screens to keep navbar spacious and prevent wrapping */
+  }
+  .nav {
+    gap: 8px;
+  }
+  .nav a {
+    font-size: 0.84rem;
+    padding: 2px 3px;
+  }
+}
+
 @media (max-width: 1280px) {
   .header-container {
     padding: 10px 16px;
@@ -2798,20 +2815,10 @@ body.light-theme .search-kbd {
     width: 36px;
     height: 36px;
   }
-  .nav {
-    gap: 8px;
-  }
-  .nav a {
-    font-size: 0.82rem;
-    padding: 4px 4px;
-  }
   .search-trigger-btn {
     height: 36px;
     padding: 0 10px;
     font-size: 0.82rem;
-  }
-  .search-trigger-btn .search-kbd {
-    display: none; /* Hide shortcut badge on medium screens to keep navbar spacious and prevent wrapping */
   }
   .header-cta-btn {
     height: 36px;
@@ -2826,12 +2833,6 @@ body.light-theme .search-kbd {
     height: 36px;
     padding: 0 10px;
     font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 1240px) {
-  .nav-link-secondary {
-    display: none;
   }
 }
 
