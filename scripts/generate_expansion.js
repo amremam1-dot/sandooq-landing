@@ -25,7 +25,9 @@ const allNewTools = [...toolsPart1, ...toolsPart2];
 const guidesPart1 = require('./data_guides_expansion_part1.js');
 const guidesPart2 = require('./data_guides_expansion_part2.js');
 const guidesPart3 = require('./data_guides_expansion_part3.js');
-const allNewGuides = [...guidesPart1, ...guidesPart2, ...guidesPart3];
+const autoGuidesPath = path.join(__dirname, 'data_guides_auto.js');
+const autoGuides = fs.existsSync(autoGuidesPath) ? require(autoGuidesPath) : [];
+const allNewGuides = [...guidesPart1, ...guidesPart2, ...guidesPart3, ...autoGuides];
 
 console.log(`Loaded ${allNewTools.length} new tools definitions.`);
 console.log(`Loaded ${allNewGuides.length} new guides definitions.`);
