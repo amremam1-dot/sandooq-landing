@@ -436,6 +436,14 @@ function compilePage(rawContent, fileInfo, templates, components) {
     );
   }
 
+  // Step E3: Ensure Google AdSense Ownership Verification Script in <head>
+  const adSenseScriptTag = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4640495425873996" crossorigin="anonymous"></script>';
+  if (!compiled.includes('ca-pub-4640495425873996')) {
+    if (/<head(?:\s+[^>]*)?>/i.test(compiled)) {
+      compiled = compiled.replace(/(<head(?:\s+[^>]*)?>)/i, `$1\n  <!-- Google AdSense Verification & Loader -->\n  ${adSenseScriptTag}`);
+    }
+  }
+
   // Step F: Expand Body Components (HERO_SIMULATOR, SEARCH_HUB, DIAGNOSTIC_QUIZ)
   compiled = expandComponents(compiled, context, components, isEnglish);
 
