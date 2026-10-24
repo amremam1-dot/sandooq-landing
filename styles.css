@@ -191,7 +191,7 @@ button {
 }
 
 .header-container {
-  max-width: 1380px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 12px 24px;
   display: flex;
@@ -223,6 +223,8 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .nav a {
@@ -2786,12 +2788,12 @@ body.light-theme .search-kbd {
   color: #475569;
 }
 
-@media (max-width: 1380px) {
+@media (max-width: 1440px) {
   .nav-link-secondary {
-    display: none;
+    display: none !important;
   }
   .search-trigger-btn .search-kbd {
-    display: none; /* Hide shortcut badge on laptop screens to keep navbar spacious and prevent wrapping */
+    display: none !important; /* Hide shortcut badge on laptop screens to keep navbar spacious and prevent wrapping */
   }
   .nav {
     gap: 8px;
@@ -2836,12 +2838,26 @@ body.light-theme .search-kbd {
   }
 }
 
+@media (max-width: 1240px) {
+  .search-trigger-btn .search-trigger-text {
+    display: none;
+  }
+  .search-trigger-btn {
+    padding: 0 10px;
+    width: 36px;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 1140px) {
   .nav .search-trigger-btn {
     width: 100%;
     justify-content: space-between;
     padding: 10px 16px;
     margin-top: 4px;
+  }
+  .nav .search-trigger-btn .search-trigger-text {
+    display: inline !important;
   }
 }
 

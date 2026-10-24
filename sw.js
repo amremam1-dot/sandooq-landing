@@ -1,5 +1,5 @@
 // Sandooq El-Amara - Lightweight Service Worker (PWA & Instant Asset Cache)
-const CACHE_NAME = 'sandooq-v1-assets';
+const CACHE_NAME = 'sandooq-v2-assets';
 const STATIC_ASSETS = [
   '/',
   '/styles.css',
@@ -44,11 +44,24 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(req.url);
 
-  // 1. Static resources (fonts, css, icons): Cache First, fallback to Network
+  // 1. Dynamic style and script assets: Network First, fallback to Cache (Prevents stale styles)
+  if (url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
+    event.respondWith(
+      fetch(req).then((response) => {
+        if (response && response.status === 200) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((c) => c.put(req, clone));
+        }
+        return response;
+      }).catch(() => caches.match(req))
+    );
+    return;
+  }
+
+  // 2. Static binary assets (fonts, images, icons): Cache First, fallback to Network
   if (
     url.pathname.startsWith('/assets/') ||
     url.pathname.endsWith('.woff2') ||
-    url.pathname.endsWith('.css') ||
     url.pathname.endsWith('.png') ||
     url.pathname.endsWith('.webp') ||
     url.pathname.endsWith('.ico')
@@ -68,7 +81,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. HTML navigation requests: Network First, fallback to Cache
+  // 3. HTML navigation requests: Network First, fallback to Cache
   if (req.mode === 'navigate') {
     event.respondWith(
       fetch(req).catch(() => {
