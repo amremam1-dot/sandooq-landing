@@ -169,39 +169,49 @@ function generateToolHtml(tool) {
 
       calculate();
 
-      // Action Buttons
+            // Action Buttons
       const btnCopy = document.getElementById('btn-copy-result');
       if (btnCopy) {
         btnCopy.addEventListener('click', function() {
-          const out = window._lastCalcOutput;
-          if (!out) return;
-          const text = ${isGen ? 'out.outputText || ""' : `
-            Object.entries(out).map(([k,v]) => k + ': ' + v).join('\\n')
-          `};
-          navigator.clipboard.writeText(text).then(() => {
-            const old = btnCopy.innerText;
-            btnCopy.innerText = '✅ تم النسخ بنجاح!';
-            setTimeout(() => { btnCopy.innerText = old; }, 2000);
-          });
+          if (window.sandooqFormatWhatsApp) {
+            const text = window.sandooqFormatWhatsApp();
+            navigator.clipboard.writeText(text).then(() => {
+              const old = btnCopy.innerText;
+              btnCopy.innerText = '✅ تم نسخ التقرير المنسق!';
+              setTimeout(() => { btnCopy.innerText = old; }, 2000);
+            });
+          } else {
+            const out = window._lastCalcOutput;
+            if (!out) return;
+            const text = ${isGen ? 'out.outputText || ""' : 'JSON.stringify(out, null, 2)'};
+            navigator.clipboard.writeText(text).then(() => {
+              const old = btnCopy.innerText;
+              btnCopy.innerText = '✅ تم النسخ بنجاح!';
+              setTimeout(() => { btnCopy.innerText = old; }, 2000);
+            });
+          }
         });
       }
 
       const btnWa = document.getElementById('btn-share-whatsapp');
       if (btnWa) {
-        btnWa.addEventListener('click', function() {
-          const out = window._lastCalcOutput;
-          if (!out) return;
-          const text = encodeURIComponent(${isGen ? 'out.outputText || ""' : `
-            'نتائج ${tool.shortTitle}:\\n' + Object.values(out).slice(0,4).join('\\n') + '\\n\\nعبر تطبيق صندوق العمارة: https://sandoqalemara.com/tools/${tool.slug}.html'
-          `});
-          window.open('https://api.whatsapp.com/send?text=' + text, '_blank');
+        btnWa.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (window.sandooqShareWhatsApp) {
+            window.sandooqShareWhatsApp();
+          }
         });
       }
 
       const btnPrint = document.getElementById('btn-print-result');
       if (btnPrint) {
-        btnPrint.addEventListener('click', function() {
-          window.print();
+        btnPrint.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (window.sandooqPrintReport) {
+            window.sandooqPrintReport();
+          } else {
+            window.print();
+          }
         });
       }
     })();
@@ -379,6 +389,8 @@ ${faqsHtml}
   <!-- Footer will be injected by build_landing.js -->
   <footer class="site-footer"></footer>
 
+  <!-- Universal Print & WhatsApp Share Engine -->
+  <script src="../js/tool_print_share.js"></script>
   <script>${scriptContent}</script>
 </body>
 </html>`;

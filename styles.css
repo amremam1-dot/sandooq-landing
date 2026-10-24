@@ -6194,3 +6194,28 @@ html[lang="en"] .ad-mobile-banner-card {
     padding-top: 8px !important;
   }
 }
+
+
+/* ==========================================================================
+   Sandooq El-Amara — Absolute Print Isolation Rules
+   Guarantees 0% website chrome leak during print preview & output.
+   ========================================================================== */
+#sandooq-isolated-print-stage {
+  display: none !important;
+}
+
+@media print {
+  body.sandooq-printing-active > *:not(#sandooq-isolated-print-stage) {
+    display: none !important;
+  }
+  
+  body.sandooq-printing-active #sandooq-isolated-print-stage {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
