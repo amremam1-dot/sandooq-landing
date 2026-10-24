@@ -86,7 +86,7 @@ body.light-theme {
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
 }
 
@@ -97,7 +97,7 @@ body {
   line-height: 1.7;
   direction: rtl;
   text-align: right;
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
   width: 100%;
   position: relative;
@@ -5510,5 +5510,328 @@ html[lang="en"] .milestone-node {
 html[lang="en"] .art-card-mini {
   text-align: left;
 }
+
+/* ==========================================================================
+   Utility Pages Side Ad Rails & Layout (Non-Intrusive Gutters)
+   ========================================================================== */
+
+.page-with-ads-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.page-with-ads-layout .calc-container,
+.page-with-ads-layout .guide-container,
+.page-with-ads-layout .solution-container,
+.page-with-ads-layout .manual-container {
+  margin-top: 30px;
+  margin-bottom: 60px;
+  max-width: 1040px;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+}
+
+.ad-rail {
+  width: 160px;
+  min-width: 160px;
+  flex-shrink: 0;
+  display: block;
+  margin-top: 40px;
+  align-self: stretch;
+}
+
+.ad-rail-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+}
+
+.ad-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  text-align: center;
+  background: var(--card-bg-subtle);
+  padding: 2px 8px;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid var(--border-color);
+}
+
+/* House Ad Vertical Card (Skyscraper) */
+.house-ad-card {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md, 12px);
+  padding: 20px 14px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height: 560px;
+}
+
+.house-ad-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-md);
+  color: var(--text-main);
+}
+
+.house-ad-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--primary-light);
+  background: rgba(59, 130, 246, 0.12);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm, 6px);
+  margin-bottom: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.house-ad-badge-pro {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.house-ad-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.house-ad-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.45;
+  color: var(--text-main);
+  margin: 0 0 10px 0;
+}
+
+.house-ad-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+.house-ad-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-align: right;
+  width: 100%;
+  margin: 0 0 20px 0;
+  padding: 10px 8px;
+  background: var(--card-bg-subtle);
+  border-radius: var(--radius-sm, 6px);
+  border: 1px dashed var(--border-color);
+  box-sizing: border-box;
+}
+
+html[lang="en"] .house-ad-features {
+  text-align: left;
+}
+
+.house-ad-btn {
+  margin-top: auto;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 8px;
+  background: var(--primary-gradient, linear-gradient(135deg, #2563eb, #1d4ed8));
+  color: #ffffff !important;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm, 6px);
+  transition: opacity 0.2s ease;
+  line-height: 1.3;
+}
+
+.house-ad-btn:hover {
+  opacity: 0.92;
+}
+
+.house-ad-btn-pro {
+  background: linear-gradient(135deg, #059669, #10b981);
+}
+
+/* Screens between 1200px and 1360px */
+@media (max-width: 1360px) and (min-width: 1200px) {
+  .page-with-ads-layout {
+    gap: 14px;
+    padding: 0 8px;
+  }
+  .ad-rail {
+    width: 130px;
+    min-width: 130px;
+  }
+  .house-ad-card {
+    padding: 16px 8px;
+  }
+  .house-ad-title {
+    font-size: 0.86rem;
+  }
+  .house-ad-desc {
+    font-size: 0.74rem;
+  }
+  .house-ad-features {
+    font-size: 0.7rem;
+    padding: 6px 4px;
+  }
+  .house-ad-btn {
+    font-size: 0.74rem;
+    padding: 7px 4px;
+  }
+}
+
+/* Hide side rails on screens < 1200px (Tablets, Mobiles, and compact laptops) */
+@media (max-width: 1199px) {
+  .ad-rail {
+    display: none !important;
+  }
+  .page-with-ads-layout {
+    display: block;
+    padding: 0 16px;
+  }
+  .page-with-ads-layout .calc-container,
+  .page-with-ads-layout .guide-container,
+  .page-with-ads-layout .solution-container,
+  .page-with-ads-layout .manual-container {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Mobile & Tablet Bottom Inline Banner */
+.ad-mobile-banner {
+  display: none;
+  width: 100%;
+  margin: 36px 0 20px;
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .ad-mobile-banner {
+    display: block;
+  }
+}
+
+.ad-mobile-banner-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md, 12px);
+  padding: 16px 20px;
+  text-decoration: none;
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+  margin-top: 6px;
+  text-align: right;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+html[lang="en"] .ad-mobile-banner-card {
+  text-align: left;
+}
+
+.ad-mobile-banner-card:hover {
+  border-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.ad-mobile-banner-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.ad-mobile-banner-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ad-mobile-banner-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary-light);
+  background: rgba(59, 130, 246, 0.1);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm, 6px);
+  margin-bottom: 4px;
+}
+
+.ad-mobile-banner-title {
+  font-size: 0.98rem;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+  color: var(--text-main);
+}
+
+.ad-mobile-banner-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.ad-mobile-banner-btn {
+  flex-shrink: 0;
+  background: var(--primary-gradient, linear-gradient(135deg, #2563eb, #1d4ed8));
+  color: #ffffff !important;
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm, 6px);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .ad-mobile-banner-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    padding: 16px 14px;
+  }
+  html[lang="en"] .ad-mobile-banner-card {
+    text-align: center;
+  }
+  .ad-mobile-banner-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
 
 

@@ -451,6 +451,43 @@ function compilePage(rawContent, fileInfo, templates, components) {
     compiled = compiled.replace(/src="script\.js"/g, `src="${bp}/script.js"`);
   }
 
+  // Step H: Utility Content Pages Ad Rails & Mobile Banner Layout (Non-Intrusive Monetization)
+  const cleanRelNoLang = isEnglish ? fileInfo.relPath.replace(/^en\/?/, '') : fileInfo.relPath;
+  const isIndividualTool = cleanRelNoLang.startsWith('tools/') && cleanRelNoLang !== 'tools/' && cleanRelNoLang !== 'tools/index.html';
+  const isIndividualGuide = cleanRelNoLang.startsWith('guides/') && cleanRelNoLang !== 'guides/' && cleanRelNoLang !== 'guides/index.html';
+  const isIndividualSolution = cleanRelNoLang.startsWith('solutions/') && cleanRelNoLang !== 'solutions/' && cleanRelNoLang !== 'solutions/index.html';
+  const isManual = cleanRelNoLang === 'manual.html';
+  const isTargetAdPage = isIndividualTool || isIndividualGuide || isIndividualSolution || isManual;
+
+  // 1. Unwrap existing AD_LAYOUT boundary if previously compiled to guarantee clean idempotency
+  const existingAdLayoutRegex = /<!--\s*TEMPLATE:\s*AD_LAYOUT\s*-->[\s\S]*?(<main\b[\s\S]*?<\/main>)[\s\S]*?<!--\s*\/TEMPLATE:\s*AD_LAYOUT\s*-->/i;
+  if (existingAdLayoutRegex.test(compiled)) {
+    compiled = compiled.replace(existingAdLayoutRegex, '$1');
+  }
+  compiled = compiled.replace(/\s*<!--\s*TEMPLATE:\s*AD_MOBILE_BOTTOM\s*-->[\s\S]*?<!--\s*\/TEMPLATE:\s*AD_MOBILE_BOTTOM\s*-->/gi, '');
+
+  // 2. Wrap if target ad page
+  if (isTargetAdPage) {
+    const rawRailRight = isEnglish ? (components.AD_RAIL_RIGHT_EN || components.AD_RAIL_RIGHT) : components.AD_RAIL_RIGHT;
+    const rawRailLeft = isEnglish ? (components.AD_RAIL_LEFT_EN || components.AD_RAIL_LEFT) : components.AD_RAIL_LEFT;
+    const rawMobileBottom = isEnglish ? (components.AD_MOBILE_BOTTOM_EN || components.AD_MOBILE_BOTTOM) : components.AD_MOBILE_BOTTOM;
+
+    if (rawRailRight && rawRailLeft && rawMobileBottom) {
+      const compiledRailRight = interpolate(rawRailRight, context).trim();
+      const compiledRailLeft = interpolate(rawRailLeft, context).trim();
+      const compiledMobileBottom = interpolate(rawMobileBottom, context).trim();
+
+      const mainRegex = /(<main\b[\s\S]*?)(<\/main>)/i;
+      const match = compiled.match(mainRegex);
+      if (match) {
+        const mainBody = match[1].trimEnd();
+        const mainWithMobileAd = `${mainBody}\n\n  <!-- TEMPLATE: AD_MOBILE_BOTTOM -->\n${compiledMobileBottom}\n  <!-- /TEMPLATE: AD_MOBILE_BOTTOM -->\n${match[2]}`;
+        const wrapped = `<!-- TEMPLATE: AD_LAYOUT -->\n<div class="page-with-ads-layout">\n  <!-- TEMPLATE: AD_RAIL_RIGHT -->\n${compiledRailRight}\n  <!-- /TEMPLATE: AD_RAIL_RIGHT -->\n\n${mainWithMobileAd}\n\n  <!-- TEMPLATE: AD_RAIL_LEFT -->\n${compiledRailLeft}\n  <!-- /TEMPLATE: AD_RAIL_LEFT -->\n</div>\n<!-- /TEMPLATE: AD_LAYOUT -->`;
+        compiled = compiled.replace(mainRegex, wrapped);
+      }
+    }
+  }
+
   return compiled;
 }
 
@@ -469,7 +506,7 @@ function validateCompiledOutput(compiledHtml, relPath) {
   }
 
   // 3. Assert balanced boundary markers
-  const markers = ['HEADER', 'FOOTER', 'SCRIPTS', 'HEAD_META'];
+  const markers = ['HEADER', 'FOOTER', 'SCRIPTS', 'HEAD_META', 'AD_LAYOUT', 'AD_RAIL_RIGHT', 'AD_RAIL_LEFT', 'AD_MOBILE_BOTTOM'];
   for (const m of markers) {
     const openCount = (compiledHtml.match(new RegExp(`<!--\\s*TEMPLATE:\\s*${m}\\s*-->`, 'gi')) || []).length;
     const closeCount = (compiledHtml.match(new RegExp(`<!--\\s*\/TEMPLATE:\\s*${m}\\s*-->`, 'gi')) || []).length;
