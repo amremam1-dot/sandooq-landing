@@ -21,6 +21,7 @@ const IGNORED_DIRS = new Set([
   'templates',
   'scripts',
   'assets',
+  'manuals',
   'data',
   'node_modules',
   '.git',
@@ -159,6 +160,10 @@ function computeContext(fileInfo) {
   const urlTreasurer = `${langRoot}/for-building-treasurer.html`;
   const urlOwner = `${langRoot}/for-property-owner.html`;
   const urlDeleteAccount = `${langRoot}/delete-account.html`;
+  const urlManualPage = `${langRoot}/manual.html`;
+  const urlManual = isEnglish ? `${basePath}/manuals/Sandooq_ElAmara_User_Manual_EN.pdf` : `${basePath}/manuals/Sandooq_ElAmara_User_Manual_AR.pdf`;
+  const urlManualAr = `${basePath}/manuals/Sandooq_ElAmara_User_Manual_AR.pdf`;
+  const urlManualEn = `${basePath}/manuals/Sandooq_ElAmara_User_Manual_EN.pdf`;
 
   let langSwitchHref;
   let hreflangAr;
@@ -249,6 +254,10 @@ function computeContext(fileInfo) {
     URL_TREASURER: urlTreasurer,
     URL_OWNER: urlOwner,
     URL_DELETE_ACCOUNT: urlDeleteAccount,
+    URL_MANUAL_PAGE: urlManualPage,
+    URL_MANUAL: urlManual,
+    URL_MANUAL_AR: urlManualAr,
+    URL_MANUAL_EN: urlManualEn,
     LANG_SWITCH_HREF: langSwitchHref,
     HREFLANG_AR: hreflangAr,
     HREFLANG_EN: hreflangEn,

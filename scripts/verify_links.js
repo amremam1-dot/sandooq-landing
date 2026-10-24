@@ -91,6 +91,7 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon',
   '.woff2': 'font/woff2',
   '.txt': 'text/plain; charset=UTF-8',
+  '.pdf': 'application/pdf',
   '.webmanifest': 'application/manifest+json'
 };
 
