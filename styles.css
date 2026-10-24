@@ -5575,10 +5575,15 @@ html[lang="en"] .art-card-mini {
   border: 1px solid var(--border-color);
 }
 
-/* Collapse empty Google AdSense containers so they don't push fallback ads down while pending approval */
-ins.adsbygoogle:empty,
-ins.adsbygoogle[data-ad-status="unfilled"] {
-  display: none !important;
+/* Google AdSense Slots */
+.ad-rail-sticky ins.adsbygoogle {
+  min-height: 500px;
+  width: 100%;
+}
+
+.ad-mobile-banner ins.adsbygoogle {
+  min-height: 100px;
+  width: 100%;
 }
 
 /* House Ad Vertical Card (Skyscraper) */
