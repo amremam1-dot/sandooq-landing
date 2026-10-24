@@ -5689,37 +5689,37 @@ html[lang="en"] .house-ad-features {
   background: linear-gradient(135deg, #059669, #10b981);
 }
 
-/* Screens between 1200px and 1360px */
-@media (max-width: 1360px) and (min-width: 1200px) {
+/* Screens between 1024px and 1360px */
+@media (max-width: 1360px) and (min-width: 1024px) {
   .page-with-ads-layout {
-    gap: 14px;
+    gap: 12px;
     padding: 0 8px;
   }
   .ad-rail {
-    width: 130px;
-    min-width: 130px;
+    width: 125px;
+    min-width: 125px;
   }
   .house-ad-card {
-    padding: 16px 8px;
+    padding: 14px 6px;
   }
   .house-ad-title {
-    font-size: 0.86rem;
+    font-size: 0.82rem;
   }
   .house-ad-desc {
-    font-size: 0.74rem;
+    font-size: 0.72rem;
   }
   .house-ad-features {
-    font-size: 0.7rem;
-    padding: 6px 4px;
+    font-size: 0.68rem;
+    padding: 6px 3px;
   }
   .house-ad-btn {
-    font-size: 0.74rem;
-    padding: 7px 4px;
+    font-size: 0.72rem;
+    padding: 6px 3px;
   }
 }
 
-/* Hide side rails on screens < 1200px (Tablets, Mobiles, and compact laptops) */
-@media (max-width: 1199px) {
+/* Hide side rails on screens < 1024px (Tablets & Mobiles) */
+@media (max-width: 1023px) {
   .ad-rail {
     display: none !important;
   }
@@ -5737,15 +5737,15 @@ html[lang="en"] .house-ad-features {
   }
 }
 
-/* Mobile & Tablet Bottom Inline Banner */
+/* Mobile & Tablet Inline Banner */
 .ad-mobile-banner {
   display: none;
   width: 100%;
-  margin: 36px 0 20px;
+  margin: 28px 0;
   text-align: center;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1023px) {
   .ad-mobile-banner {
     display: block;
   }

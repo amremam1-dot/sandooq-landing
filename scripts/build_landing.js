@@ -491,11 +491,11 @@ function compilePage(rawContent, fileInfo, templates, components) {
         let mainBody = match[1].trimEnd();
         const mobileAdBlock = `\n\n  <!-- TEMPLATE: AD_MOBILE_BOTTOM -->\n${compiledMobileBottom}\n  <!-- /TEMPLATE: AD_MOBILE_BOTTOM -->\n`;
 
-        // Place mobile ad in high-visibility position: directly after calculator card or guide intro
+        // Place mobile ad in high-visibility position: directly after calculator card or before first section in guides
         if (isIndividualTool && /(<\/div>\s*(?:<!--[^\n]*-->\s*)*)(?=<div\s+class=["'](?:calc-guide-content|quick-guide-card|printable-area|help-section))/i.test(mainBody)) {
           mainBody = mainBody.replace(/(<\/div>\s*(?:<!--[^\n]*-->\s*)*)(?=<div\s+class=["'](?:calc-guide-content|quick-guide-card|printable-area|help-section))/i, `$1${mobileAdBlock}\n`);
-        } else if (isIndividualGuide && /(<\/div>\s*(?:<!--[^\n]*-->\s*)*)(?=<h2\b)/i.test(mainBody)) {
-          mainBody = mainBody.replace(/(<\/div>\s*(?:<!--[^\n]*-->\s*)*)(?=<h2\b)/i, `$1${mobileAdBlock}\n`);
+        } else if ((isIndividualGuide || isIndividualSolution || isManual) && /(?=<h2\b)/i.test(mainBody)) {
+          mainBody = mainBody.replace(/(?=<h2\b)/i, `${mobileAdBlock}\n`);
         } else {
           mainBody = `${mainBody}${mobileAdBlock}`;
         }
