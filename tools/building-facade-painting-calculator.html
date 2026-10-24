@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google AdSense Verification & Loader -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4640495425873996" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>حاسبة تكلفة دهان واجهة العمارة وسقالات العمل وحصة الشقة | صندوق العمارة</title>
+  <meta name="description" content="احسب كمية وخامات دهان الواجهات الخارجية (سافيتو / جرافياتو / بلاستيك مطاطي)، وتكلفة السقالات والعمالة وحصة كل شقة حسب الدور أو المساحة." />
+  <link rel="canonical" href="https://sandoqalemara.com/tools/building-facade-painting-calculator.html" />
+
+  <!-- Alternate Languages (hreflang) -->
+  <link rel="alternate" hreflang="ar" href="https://sandoqalemara.com/tools/building-facade-painting-calculator.html" />
+  <link rel="alternate" hreflang="en" href="https://sandoqalemara.com/en/tools/" />
+  <link rel="alternate" hreflang="x-default" href="https://sandoqalemara.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sandoqalemara.com/tools/building-facade-painting-calculator.html" />
+  <meta property="og:title" content="حاسبة تكلفة دهان واجهة العمارة وسقالات العمل وحصة الشقة" />
+  <meta property="og:description" content="احسب كمية وخامات دهان الواجهات الخارجية (سافيتو / جرافياتو / بلاستيك مطاطي)، وتكلفة السقالات والعمالة وحصة كل شقة حسب الدور أو المساحة." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Favicon & Styles -->
+  <link rel="icon" href="../favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    .calc-container { max-width: 1000px; margin: 40px auto 80px; padding: 0 24px; }
+    .calc-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 36px 32px; box-shadow: var(--shadow-md); margin-top: 24px; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 28px; }
+    @media (max-width: 820px) { .calc-grid { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.95rem; color: var(--text-main); }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; background: var(--card-bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: var(--text-main); font-family: inherit; font-size: 1rem; transition: var(--transition); box-sizing: border-box; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-light); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+    .results-box { background: linear-gradient(145deg, rgba(30, 58, 138, 0.2), rgba(16, 185, 129, 0.15)); border: 1px solid var(--primary-light); border-radius: var(--radius-md); padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+    .result-item { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px dashed var(--border-color); }
+    .result-item.highlight { border-bottom: none; background: var(--card-bg); padding: 18px 20px; border-radius: var(--radius-sm); border: 1px solid var(--secondary-color); }
+    .result-label { font-weight: 700; color: var(--text-muted); font-size: 0.95rem; }
+    .result-item.highlight .result-label { color: var(--text-main); font-size: 1.1rem; }
+    .result-value { font-size: 1.2rem; font-weight: 800; color: var(--text-main); }
+    .result-item.highlight .result-value { font-size: 1.6rem; color: var(--secondary-color); }
+    .preview-textarea { width: 100%; min-height: 220px; padding: 14px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-sm); color: var(--text-main); font-family: monospace; font-size: 0.95rem; line-height: 1.6; resize: vertical; white-space: pre-wrap; }
+    .btn-action-wrap { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .btn-action { flex: 1; min-width: 140px; padding: 12px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.95rem; cursor: pointer; text-align: center; border: none; font-family: inherit; transition: var(--transition); display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
+    .btn-primary-action { background: var(--primary-color); color: #fff; }
+    .btn-primary-action:hover { background: var(--primary-light); }
+    .btn-whatsapp-action { background: #25D366; color: #fff; }
+    .btn-whatsapp-action:hover { background: #1ebc59; }
+    .btn-secondary-action { background: var(--card-bg-subtle); color: var(--text-main); border: 1px solid var(--border-color); }
+    .calc-guide-content { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px; margin-top: 50px; font-size: 1.05rem; line-height: 1.85; color: var(--text-light); }
+    .calc-guide-content h2 { font-size: 1.5rem; color: var(--text-main); margin-top: 32px; margin-bottom: 14px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
+    .calc-guide-content h3 { font-size: 1.25rem; color: var(--primary-light); margin-top: 24px; margin-bottom: 12px; }
+    .breadcrumb-nav { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; }
+    .breadcrumb-nav a { color: var(--primary-light); }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "حاسبة تكلفة دهان واجهة العمارة وسقالات العمل وحصة الشقة",
+    "url": "https://sandoqalemara.com/tools/building-facade-painting-calculator.html",
+    "description": "احسب كمية وخامات دهان الواجهات الخارجية (سافيتو / جرافياتو / بلاستيك مطاطي)، وتكلفة السقالات والعمالة وحصة كل شقة حسب الدور أو المساحة.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EGP"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Header will be injected by build_landing.js -->
+  <!-- TEMPLATE: HEADER -->
+<header class="site-header">
+  <div class="header-container">
+    <a class="brand" href="../">
+      <picture>
+        <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+        <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+      </picture>
+      <span>صندوق العمارة</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <nav class="nav">
+      <a href="../#features">المميزات</a>
+      <a href="../#video-tour">فيديو الشرح</a>
+      <a href="../#reviews">آراء المستخدمين ⭐</a>
+      <a href="../tools/" class="active">الأدوات المجانية</a>
+      <a href="../guides/" class="">أدلة الإدارة</a>
+      <a href="../billing.html" class="" style="color: var(--secondary-color); font-weight: 800; white-space: nowrap;">الاشتراكات ⚡</a>
+      <a href="../about.html" class="nav-link-secondary ">عن التطبيق</a>
+      <a href="../contact.html" class="nav-link-secondary ">تواصل معنا</a>
+
+      <!-- Instant Live Search Trigger Button (M3 Hook) -->
+      <button id="search-trigger-btn" class="search-trigger-btn" aria-label="بحث سريع في الموقع (Ctrl+K)" title="بحث سريع (Ctrl+K)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="search-trigger-text">بحث...</span>
+        <kbd class="search-kbd">Ctrl+K</kbd>
+      </button>
+
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="تبديل المظهر الليلي/النهاري">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+
+      <!-- Language Switcher Button -->
+      <a href="../en/tools/" class="lang-switch-btn" aria-label="Switch to English" title="Switch to English">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span class="lang-code">EN</span>
+      </a>
+
+      <!-- Primary CTA Button (Placed at edge for clean visual anchor) -->
+      <a href="../download.html" class="button primary header-cta-btn ">تحميل التطبيق</a>
+    </nav>
+  </div>
+  <!-- Sandooq El-Amara — Global Command Palette Search Modal (R2) -->
+<div id="search-modal" class="search-modal-backdrop" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="search-modal-label">
+  <div class="search-modal-dialog">
+    <div class="search-modal-header">
+      <div class="search-modal-input-wrapper">
+        <svg class="search-modal-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" id="search-modal-input" class="search-modal-input" placeholder="ابحث في 35 دليلاً و 17 حاسبة وحلول العمارة... (Esc للإغلاق)" aria-label="بحث في أدلة وحاسبات صندوق العمارة" autocomplete="off" />
+      </div>
+      <button type="button" id="search-modal-close" class="search-modal-close" aria-label="إغلاق البحث (Esc)">&times;</button>
+    </div>
+
+    <!-- Category Filter Tabs inside Modal -->
+    <div class="search-modal-tabs" role="tablist" aria-label="تصفية نتائج البحث">
+      <button type="button" class="search-filter-tab active" data-filter="all" role="tab" aria-selected="true">الكل</button>
+      <button type="button" class="search-filter-tab" data-filter="guides" role="tab" aria-selected="false">أدلة إرشادية</button>
+      <button type="button" class="search-filter-tab" data-filter="tools" role="tab" aria-selected="false">حاسبات وأدوات</button>
+      <button type="button" class="search-filter-tab" data-filter="solutions" role="tab" aria-selected="false">حلول وميزات</button>
+    </div>
+
+    <div id="search-modal-results" class="search-modal-results" role="region" aria-live="polite">
+      <!-- Dynamic search results populated by js/search.js -->
+      <div class="search-empty-state no-results" style="display:none;">
+        <p>لا توجد نتائج مطابقة لبحثك</p>
+      </div>
+    </div>
+
+    <div class="search-modal-footer">
+      <div class="search-shortcuts-hints">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> للتنقل</span>
+        <span><kbd>Enter</kbd> لفتح الرابط</span>
+        <span><kbd>Esc</kbd> للإغلاق</span>
+      </div>
+      <div class="search-modal-brand-note">
+        <span>صندوق العمارة • البحث الفوري السحابي والمحلي</span>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+<!-- /TEMPLATE: HEADER -->
+
+  <!-- TEMPLATE: AD_LAYOUT -->
+<div class="page-with-ads-layout">
+  <!-- TEMPLATE: AD_RAIL_RIGHT -->
+<!-- Sandooq El-Amara — Side Rail Right Ad Component (Desktop/Laptop >= 1024px) -->
+<aside class="ad-rail ad-rail-right" aria-label="إعلان Google">
+  <div class="ad-rail-sticky">
+    <span class="ad-label">إعلان</span>
+    <!-- Google AdSense Official Unit (Side Rails Desktop) -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4640495425873996"
+         data-ad-slot="5533922847"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</aside>
+  <!-- /TEMPLATE: AD_RAIL_RIGHT -->
+
+<main>
+    <section class="calc-container">
+      <nav class="breadcrumb-nav">
+        <a href="../index.html">الرئيسية</a> &gt; 
+        <a href="index.html">الأدوات المجانية</a> &gt; 
+        <span>حاسبة دهان وتشطيب واجهة العمارة</span>
+      </nav>
+
+      <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
+        <span style="font-size:2.8rem;">🎨</span>
+        <div>
+          <h1 style="font-size:2rem; font-weight:800; color:var(--text-main); margin:0 0 6px;">حاسبة تكلفة دهان واجهة العمارة وسقالات العمل وحصة الشقة</h1>
+          <p style="color:var(--text-muted); margin:0;">أداة تفاعلية مجانية 100% لحساب وتنظيم شؤون العقار بدقة وسرعة.</p>
+        </div>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-grid">
+          <!-- Inputs Column -->
+          <div class="calc-inputs-col">
+            <h3 style="font-size:1.25rem; color:var(--primary-light); margin-bottom:18px; border-bottom:1px solid var(--border-color); padding-bottom:8px;">
+              ⚙️ البيانات والمدخلات
+            </h3>
+          <div class="form-group">
+            <label for="facadeWidth">عرض واجهة العمارة (متر)</label>
+            <input type="number" id="facadeWidth" value="14" />
+          </div>
+          <div class="form-group">
+            <label for="floorsCount">عدد الأدوار السكنية + الأرضي</label>
+            <input type="number" id="floorsCount" value="6" />
+          </div>
+          <div class="form-group">
+            <label for="paintType">نوع خامة الدهان المعتمدة</label>
+            <select id="paintType">
+              <option value="جرافياتو أكريليك / سافيتو ناعم (مقاوم للشمس)" selected>جرافياتو أكريليك / سافيتو ناعم (مقاوم للشمس)</option>
+              <option value="دهان مطاطي واجهات عازل (Elastomeric)">دهان مطاطي واجهات عازل (Elastomeric)</option>
+              <option value="بياض محارة ملون عادي">بياض محارة ملون عادي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="flatsTotal">إجمالي عدد الشقق في العقار</label>
+            <input type="number" id="flatsTotal" value="12" />
+          </div>
+
+          </div>
+
+          <!-- Output / Preview Column -->
+          <div class="calc-outputs-col">
+            <h3 style="font-size:1.25rem; color:var(--secondary-color); margin-bottom:18px; border-bottom:1px solid var(--border-color); padding-bottom:8px;">
+              📊 النتائج والتقرير الفوري
+            </h3>
+            <div class="results-box">
+            <div class="result-item">
+              <span class="result-label">المساحة الصافية المطلوب دهانها</span>
+              <span class="result-value" id="res-surfaceArea">—</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">تكلفة السقالات وتأمين العمل</span>
+              <span class="result-value" id="res-scaffolding">—</span>
+            </div>
+            <div class="result-item highlight">
+              <span class="result-label">إجمالي مقايسة تجديد الواجهة</span>
+              <span class="result-value" id="res-totalCost">—</span>
+            </div>
+            <div class="result-item highlight">
+              <span class="result-label">حصة كل شقة بالتساوي</span>
+              <span class="result-value" id="res-sharePerFlat">—</span>
+            </div>
+
+              
+
+              <div class="btn-action-wrap">
+                <button type="button" class="btn-action btn-primary-action" id="btn-copy-result">📋 نسخ التقرير</button>
+                <button type="button" class="btn-action btn-whatsapp-action" id="btn-share-whatsapp">💬 مشاركة واتساب</button>
+                <button type="button" class="btn-action btn-secondary-action" id="btn-print-result">🖨️ طباعة</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Educational SEO Guide & FAQs -->
+      <article class="calc-guide-content">
+        <h2>دليل الاستخدام والأساس الهندسي والقانوني للأداة</h2>
+        <p>احسب كمية وخامات دهان الواجهات الخارجية (سافيتو / جرافياتو / بلاستيك مطاطي)، وتكلفة السقالات والعمالة وحصة كل شقة حسب الدور أو المساحة.</p>
+        <p>تعتمد هذه الأداة على القواعد المحاسبية والهندسية المعتمدة في قانون البناء الموحد المصري واللوائح المنظمة لإدارة اتحادات الشاغلين لحفظ حقوق جميع السكان ومنع النزاعات المالية المشتركة.</p>
+
+        <h3>نصائح ذهبية لإدارة أفضل لعقارتكم:</h3>
+        <ul>
+          <li><strong>التوثيق الفوري:</strong> لا تعتمد على الاتفاقات الشفوية بين الجيران؛ احرص دائماً على استخراج نسخ ورقية موقعة ومشاركتها في سجلات العمارة.</li>
+          <li><strong>الشفافية الكاملة:</strong> مشاركة التقارير المالية الدورية بانتظام عبر تطبيق صندوق العمارة يرفع نسبة التزام السكان بالسداد إلى أكثر من 95%.</li>
+          <li><strong>الصندوق الوقائي:</strong> تخصيص نسبة لا تقل عن 10% من الاشتراكات لمواجهة الطوارئ يجنبكم طلب سلفيات مفاجئة من الشقق.</li>
+        </ul>
+
+        <h2>الأسئلة الشائعة حول حاسبة دهان وتشطيب واجهة العمارة</h2>
+        <div class="faq-item" style="margin-bottom:18px; border-bottom:1px solid var(--border-color); padding-bottom:12px;">
+          <h4 style="color:var(--text-main); font-size:1.1rem; margin-bottom:6px;">❓ هل يشارك صاحب الشقة الخلفية في دهان الواجهة الأمامية للعمارة؟</h4>
+          <p style="color:var(--text-light); line-height:1.7;">نعم قانوناً، لأن الواجهة الخارجية جزء مشترك يرفع من القيمة السوقية للعقار ككل، وتلتزم كل الشقق بالمساهمة في تجديدها.</p>
+        </div>
+
+
+        <div style="margin-top:40px; background:linear-gradient(135deg, rgba(30,58,138,0.25), rgba(16,185,129,0.15)); border:1px solid var(--primary-light); border-radius:var(--radius-md); padding:30px; text-align:center;">
+          <h3 style="font-size:1.4rem; color:var(--text-main); margin-bottom:10px;">جرّب تطبيق "صندوق العمارة" الكامل على هاتفك مجاناً</h3>
+          <p style="color:var(--text-light); max-width:700px; margin:0 auto 20px;">أدر حسابات عقارك، عهدة البواب، سندات القبض، ومتابعة متأخرات الشقق بالذكاء الاصطناعي وصوت "عم أمين".</p>
+          <a href="../download.html" class="btn btn-primary" style="display:inline-block; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:700;">تحميل التطبيق الآن للأندرويد</a>
+        </div>
+      </article>
+    </section>
+
+  <!-- TEMPLATE: AD_MOBILE_BOTTOM -->
+<!-- Sandooq El-Amara — Mobile Inline Banner Component (< 1024px) -->
+<div class="ad-mobile-banner" aria-label="إعلان Google">
+  <span class="ad-label">إعلان</span>
+  <!-- Google AdSense Official Unit (Mobile Inline Banner) -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-4640495425873996"
+       data-ad-slot="4157176279"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+  <!-- /TEMPLATE: AD_MOBILE_BOTTOM -->
+
+</main>
+
+  <!-- TEMPLATE: AD_RAIL_LEFT -->
+<!-- Sandooq El-Amara — Side Rail Left Ad Component (Desktop/Laptop >= 1024px) -->
+<aside class="ad-rail ad-rail-left" aria-label="إعلان Google">
+  <div class="ad-rail-sticky">
+    <span class="ad-label">إعلان</span>
+    <!-- Google AdSense Official Unit (Side Rails Desktop) -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4640495425873996"
+         data-ad-slot="5533922847"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</aside>
+  <!-- /TEMPLATE: AD_RAIL_LEFT -->
+</div>
+<!-- /TEMPLATE: AD_LAYOUT -->
+
+  <!-- Footer will be injected by build_landing.js -->
+  <!-- TEMPLATE: FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <!-- Col 1: Brand & Info -->
+      <div class="footer-col brand-col">
+        <div class="brand" style="justify-content: flex-start; margin-bottom: 8px;">
+          <picture>
+            <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+            <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" loading="lazy" />
+          </picture>
+          <span>صندوق العمارة</span>
+        </div>
+        <p class="footer-brand-p">
+          المنصة والتطبيق المتخصص لإدارة حسابات العقارات السكنية واتحادات الملاك في مصر، لمتابعة التحصيلات والمصروفات بكل شفافية وبدون أخطاء.
+        </p>
+        <div style="margin-top: 14px;">
+          <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
+            <img src="../assets/google-play-badge.svg" alt="احصل عليه من Google Play" width="135" height="40" loading="lazy" />
+          </a>
+        </div>
+        <div class="footer-social-links">
+          <a href="https://www.facebook.com/sandoqalemara/" target="_blank" rel="noopener noreferrer" class="footer-social-btn facebook" title="فيسبوك" aria-label="فيسبوك">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sandooqelamara?stkn=c2h1MGJldjRwY3R4" target="_blank" rel="noopener noreferrer" class="footer-social-btn instagram" title="إنستجرام" aria-label="إنستجرام">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP" target="_blank" rel="noopener noreferrer" class="footer-social-btn youtube" title="يوتيوب" aria-label="يوتيوب">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Solutions -->
+      <div class="footer-col">
+        <h3>الحلول والخصائص</h3>
+        <ul>
+          <li><a href="../solutions/">دليل كافة الحلول</a></li>
+          <li><a href="../solutions/building-expenses.html">إدارة المصروفات والفواتير</a></li>
+          <li><a href="../solutions/building-subscriptions.html">تحصيل اشتراكات الشقق</a></li>
+          <li><a href="../solutions/building-arrears.html">متابعة المتأخرات والديون</a></li>
+          <li><a href="../solutions/building-receipts.html">إيصالات واتساب الرقمية</a></li>
+          <li><a href="../solutions/building-maintenance.html">إدارة الصيانة والمشاريع</a></li>
+          <li><a href="../solutions/building-treasury.html">تعدد الخزائن وعهدة البواب</a></li>
+          <li><a href="../solutions/building-reports.html">التقارير وسجل العمارة</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Free Tools & Guides -->
+      <div class="footer-col">
+        <h3>أدوات ودلائل مجانية</h3>
+        <ul>
+          <li><a href="../tools/">مركز الأدوات التفاعلية</a></li>
+          <li><a href="../tools/building-fee-calculator.html">حاسبة اشتراك الشقة</a></li>
+          <li><a href="../tools/receipt-generator.html">مولد إيصالات السداد</a></li>
+          <li><a href="../tools/building-arrears-calculator.html">حاسبة متأخرات العمارة</a></li>
+          <li><a href="../tools/maintenance-budget-planner.html">حاسبة ميزانية الصيانة</a></li>
+          <li><a href="../guides/">مكتبة أدلة الإدارة</a></li>
+          <li><a href="../guides/building-fund-management-guide.html">دليل إدارة الصندوق للمبتدئين</a></li>
+          <li><a href="../guides/building-expenses-excel-sheet.html">شيت إكسيل مصاريف العمارة</a></li>
+          <li><a href="../guides/building-occupants-union-law-egypt.html">قانون اتحاد الشاغلين في مصر</a></li>
+          <li><a href="../guides/how-to-deal-with-unpaid-building-fees.html">كيف تتعامل مع المتأخرات</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: About, Personas & Legal -->
+      <div class="footer-col">
+        <h3>عن التطبيق والخدمة</h3>
+        <ul>
+          <li><a href="../billing.html" style="color:var(--secondary-color); font-weight:700;">الاشتراكات والدفع الإلكتروني ⚡</a></li>
+          <li><a href="../updates.html" style="color:var(--secondary-color); font-weight:700;">سجل التحديثات الشامل (v1 - v194) ✨</a></li>
+          <li><a href="../thanks.html" style="color:#fbbf24; font-weight:700;">لوحة الشرف والامتنان 🎖️</a></li>
+          <li><a href="../#reviews" style="color:#fbbf24; font-weight:700;">آراء وتقييمات المستخدمين ⭐</a></li>
+          <li><a href="../about.html">عن التطبيق والمطور</a></li>
+          <li><a href="../contact.html">تواصل معنا والدعم الفني</a></li>
+          <li><a href="../download.html">تحميل التطبيق ومواصفاته</a></li>
+          <li><a href="../manuals/Sandooq_ElAmara_User_Manual_AR.pdf" download="Sandooq_ElAmara_User_Manual_AR.pdf" style="color:var(--secondary-color); font-weight:700;">دليل الاستخدام والتشغيل الشامل (PDF) 📖</a></li>
+          <li><a href="../for-building-treasurer.html">دليل أمين الصندوق</a></li>
+          <li><a href="../for-property-owner.html">دليل ملاك الوحدات</a></li>
+          <li><a href="../security.html">الأمان وحماية البيانات</a></li>
+          <li><a href="../privacy.html">سياسة الخصوصية</a></li>
+          <li><a href="../terms.html">شروط الاستخدام والاشتراك</a></li>
+          <li><a href="../delete-account.html">طلب حذف الحساب والبيانات</a></li>
+          <li><a href="../llms.txt">فهرس وكلاء الذكاء الاصطناعي (llms.txt)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-copy">© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة. <span class="site-version" style="display: inline-block; margin-right: 8px; opacity: 0.8; font-size: 0.85em;">(إصدار التطبيق الحالي: v1.0.194)</span></p>
+  </div>
+</footer>
+<!-- /TEMPLATE: FOOTER -->
+
+  <script>
+    (function() {
+      const inputsList = ["facadeWidth","floorsCount","paintType","flatsTotal"];
+      function getInputs() {
+        const data = {};
+        inputsList.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) data[id] = el.value;
+        });
+        return data;
+      }
+
+      function calculate() {
+        const inputs = getInputs();
+        try {
+          const calcFn = function(inputs) {
+            
+      const w = parseFloat(inputs.facadeWidth) || 10;
+      const f = parseInt(inputs.floorsCount) || 5;
+      const flats = parseInt(inputs.flatsTotal) || 1;
+
+      const height = f * 3.2;
+      const grossArea = w * height;
+      const netArea = Math.round(grossArea * 0.8); // استبعاد مساحات الشبابيك والبلكونات
+
+      let ratePerMeter = 160;
+      if (inputs.paintType.includes('مطاطي')) ratePerMeter = 210;
+      else if (inputs.paintType.includes('بياض محارة')) ratePerMeter = 110;
+
+      const scaffoldingCost = Math.round(grossArea * 30);
+      const paintAndLabor = Math.round(netArea * ratePerMeter);
+      const repairsAndPutty = Math.round(netArea * 35); // معالجة شروخ وسيلر مائي
+      const total = scaffoldingCost + paintAndLabor + repairsAndPutty;
+      const perFlat = Math.round(total / flats);
+
+      return {
+        surfaceArea: netArea + ' م² (المساحة الصافية للدهان)',
+        scaffolding: scaffoldingCost.toLocaleString() + ' ج (إيجار وتركيب سقالات أمان)',
+        totalCost: total.toLocaleString() + ' ج',
+        sharePerFlat: perFlat.toLocaleString() + ' ج/شقة',
+        recom: 'يجب إلزام المقاول بعمل طبقة أساس (سيلر مائي مقاوم للقلويات) قبل الجرافياتو مع اشتراط توريد براميل معتمدة ذات تواريخ إنتاج حديثة.'
+      };
+    
+          };
+          const res = calcFn(inputs);
+          if (!res) return;
+
+          
+          const el_surfaceArea = document.getElementById('res-surfaceArea');
+          if (el_surfaceArea && res['surfaceArea'] !== undefined) {
+            el_surfaceArea.innerText = res['surfaceArea'];
+          }
+          
+
+          const el_scaffolding = document.getElementById('res-scaffolding');
+          if (el_scaffolding && res['scaffolding'] !== undefined) {
+            el_scaffolding.innerText = res['scaffolding'];
+          }
+          
+
+          const el_totalCost = document.getElementById('res-totalCost');
+          if (el_totalCost && res['totalCost'] !== undefined) {
+            el_totalCost.innerText = res['totalCost'];
+          }
+          
+
+          const el_sharePerFlat = document.getElementById('res-sharePerFlat');
+          if (el_sharePerFlat && res['sharePerFlat'] !== undefined) {
+            el_sharePerFlat.innerText = res['sharePerFlat'];
+          }
+          
+
+          
+
+          window._lastCalcOutput = res;
+        } catch(e) {
+          console.error('Calculation error:', e);
+        }
+      }
+
+      inputsList.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('input', calculate);
+          el.addEventListener('change', calculate);
+        }
+      });
+
+      calculate();
+
+      // Action Buttons
+      const btnCopy = document.getElementById('btn-copy-result');
+      if (btnCopy) {
+        btnCopy.addEventListener('click', function() {
+          const out = window._lastCalcOutput;
+          if (!out) return;
+          const text = 
+            Object.entries(out).map(([k,v]) => k + ': ' + v).join('\n')
+          ;
+          navigator.clipboard.writeText(text).then(() => {
+            const old = btnCopy.innerText;
+            btnCopy.innerText = '✅ تم النسخ بنجاح!';
+            setTimeout(() => { btnCopy.innerText = old; }, 2000);
+          });
+        });
+      }
+
+      const btnWa = document.getElementById('btn-share-whatsapp');
+      if (btnWa) {
+        btnWa.addEventListener('click', function() {
+          const out = window._lastCalcOutput;
+          if (!out) return;
+          const text = encodeURIComponent(
+            'نتائج حاسبة دهان وتشطيب واجهة العمارة:\n' + Object.values(out).slice(0,4).join('\n') + '\n\nعبر تطبيق صندوق العمارة: https://sandoqalemara.com/tools/building-facade-painting-calculator.html'
+          );
+          window.open('https://api.whatsapp.com/send?text=' + text, '_blank');
+        });
+      }
+
+      const btnPrint = document.getElementById('btn-print-result');
+      if (btnPrint) {
+        btnPrint.addEventListener('click', function() {
+          window.print();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

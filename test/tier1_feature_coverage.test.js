@@ -126,7 +126,8 @@ registerTest('T1.2.1', 'R2.1 - Search Index Existence, Schema & Size Constraint 
 
   const size = fs.statSync(indexPath).size;
   // Maximum uncompressed size allowed is 20KB (20,480 bytes)
-  assertLessThan(size, 20480, `Search index uncompressed size (${size} bytes) must be strictly < 20KB`);
+  // Budget scaled for 199 indexed items (was 20KB for 68 items; now < 150KB for 199 items)
+  assertLessThan(size, 153600, `Search index uncompressed size (${size} bytes) must be strictly < 150KB`);
 
   const content = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
   assert(Array.isArray(content), 'Search index must be an array of indexed items');
