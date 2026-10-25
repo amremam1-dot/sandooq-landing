@@ -1,9 +1,13 @@
 # وثيقة المعرفة الشاملة لتطبيق ومنصة «صندوق العمارة» (Sandooq El-Amara)
 الموقع الرسمي: https://sandoqalemara.com/
+النسخة الإنجليزية: https://sandoqalemara.com/en/
 رابط تحميل التطبيق من متجر Google Play: https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara
+كتاب دستور العمارة (طبعة النخبة الفاخرة): https://sandoqalemara.com/book.html
+صفحة الاشتراكات والدفع الإلكتروني: https://sandoqalemara.com/billing.html
+الوضع الميسر لكبار السن: https://sandoqalemara.com/billing-easy.html
 رابط قائمة تشغيل الشرح الكامل على يوتيوب (13 فيديو): https://www.youtube.com/playlist?list=PLfSS2nVkX6dI
 قناة يوتيوب الرسمية: https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP
-رقم الدعم الفني وواتساب: +201008182288
+رقم الدعم الفني وواتساب المباشر: +201556934345
 
 ---
 
@@ -16,9 +20,27 @@
 - **التجربة المجانية (Free Trial):** 0 ج.م — تجربة شاملة وغير مقيدة لكافة الميزات، دون الحاجة لإدخال أي بطاقة ائتمان مسبقة.
 - **الاشتراك الشهري (Monthly Subscription):** 49.99 ج.م شهرياً — مرونة كاملة في التجديد الشهري، وإلغاء أو ترقية في أي وقت.
 - **الاشتراك السنوي الذهبي (Golden Yearly Subscription):** 499.99 ج.م سنوياً — الخيار الأكثر توفيراً وشعبية؛ يمنح المشترك توفير شهرين كاملين مقارنة بالاشتراك الشهري (499.99 ج.م بدلاً من 600 ج.م سنوياً).
-- **قنوات السداد المعتمدة:**
-  1. الدفع الإلكتروني عبر نظام فوترة Google Play الرسمي (بطاقات مصرفية، فودافون كاش ومحافظ المحمول عبر جوجل بلاي).
-  2. الدفع المباشر بالجنيه المصري عبر شبكة المدفوعات اللحظية المصرية (InstaPay) للتفعيل الفوري بدون بطاقات دولية.
+- **قنوات السداد والتفعيل المعتمدة:**
+  1. **التحويل المباشر عبر إنستاباي (InstaPay Egypt):** إلى عنوان الدفع الرسمي المعتمد `amremam@instapay` (الاسم: Amr Mohamed)، متاح من كافة البنوك المصرية والمحافظ الإلكترونية (Vodafone Cash, Orange, Etisalat, WE Pay).
+  2. **التفعيل التلقائي الفوري (Instant Trust Activation):** تفعيل تلقائي فوري بنظام الأمانة بمهلة سماح 48 ساعة ريثما تكتمل مراجعة الحوالة البنكية.
+  3. **التحقق السريع بالبريد الإلكتروني:** إمكانية التحقق الفوري من وجود الحساب وربط الاشتراك به دون اشتراط كلمة مرور لتسهيل الإجراءات.
+  4. **الوضع الميسر (Senior Mode):** صفحة خاصة لكبار السن وأمناء الصناديق (https://sandoqalemara.com/billing-easy.html) بخط كبير وتصميم عالي التباين وخطوات ميسرة.
+  5. **فوترة متجر Google Play:** الدفع والاشتراك الداخلي بالبطاقات عبر متجر جوجل.
+
+---
+
+## 2.1. كتاب «دستور العمارة» — طبعة النخبة الفاخرة (The Building Constitution Book)
+- **رابط صفحة الكتاب:** https://sandoqalemara.com/book.html
+- **رابط تحميل النسخة الرسمية PDF المعتمدة:** https://sandoqalemara.com/manuals/Dostor_ElAmara_Luxury_Edition.pdf
+- **محتوى الكتاب:** دليل تنفيذي وقانوني متكامل يقع في 76 صفحة A4 ملونة، يشمل أحكام قانون البناء الموحد رقم 119 لسنة 2008، اللائحة الداخلية لإدارة العقار، جداول الصيانة الدورية للمصاعد والمضخات والأسطح، ونماذج الإنذارات ومحاضر الجمعيات العمومية وتسليم العهدة.
+
+---
+
+## 2.2. المساعد الذكي والمستشار المالي «عم أمين» (Uncle Amin AI)
+- ميزة الذكاء الاصطناعي المدمجة لمساعدة أمناء الصناديق:
+  - **الإدخال الصوتي بالعامية المصرية:** تسجيل المصاريف والإيرادات صوتياً وتوجيهها للبنود الصحيحة فوراً.
+  - **الاستشارات المالية والقانونية:** إجابات فورية وتحليلات استباقية لموقف المتأخرات ومصروفات الصيانة.
+  - **تنبيهات السيولة:** رصد الفواتير الدورية والتنبيه بمواعيد السداد قبل نفاد السيولة.
 
 ---
 
@@ -257,7 +279,11 @@
 
 ## 10. روابط الاستشهاد والمصادر الرسمية (Official Citations)
 - الموقع الرسمي: https://sandoqalemara.com/
+- النسخة الإنجليزية: https://sandoqalemara.com/en/
 - صفحة تحميل التطبيق: https://sandoqalemara.com/download.html
+- كتاب دستور العمارة: https://sandoqalemara.com/book.html
+- صفحة باقات الاشتراك والدفع الفوري (InstaPay): https://sandoqalemara.com/billing.html
+- الوضع الميسر لتفعيل الاشتراك (لكبار السن): https://sandoqalemara.com/billing-easy.html
 - مركز الأدوات التفاعلية: https://sandoqalemara.com/tools/
 - مركز أدلة إدارة العمارات: https://sandoqalemara.com/guides/
 - دليل أمين الصندوق: https://sandoqalemara.com/for-building-treasurer.html
@@ -266,3 +292,5 @@
 - سياسة الخصوصية: https://sandoqalemara.com/privacy.html
 - شروط الاستخدام: https://sandoqalemara.com/terms.html
 - حذف الحساب والبيانات: https://sandoqalemara.com/delete-account.html
+- دليل المستخدم العربي الكامل (PDF): https://sandoqalemara.com/manuals/Sandooq_ElAmara_User_Manual_AR.pdf
+- English User Manual (PDF): https://sandoqalemara.com/manuals/Sandooq_ElAmara_User_Manual_EN.pdf
