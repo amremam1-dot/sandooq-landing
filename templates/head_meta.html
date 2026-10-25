@@ -4,6 +4,25 @@
 <meta name="apple-mobile-web-app-title" content="صندوق العمارة" />
 <meta name="theme-color" content="#1e3a8a" />
 
+<!-- Immediate Theme Synchronizer (Zero-Flash Light/Dark Mode) -->
+<script>
+  (function() {
+    try {
+      var theme = localStorage.getItem('sandooq_theme') || 'dark';
+      if (theme === 'light') {
+        document.documentElement.classList.add('light-theme');
+        if (document.body) {
+          document.body.classList.add('light-theme');
+        } else {
+          document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('light-theme');
+          });
+        }
+      }
+    } catch(e) {}
+  })();
+</script>
+
 <!-- Google AdSense Verification & Loader -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4640495425873996" crossorigin="anonymous"></script>
 

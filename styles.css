@@ -53,6 +53,7 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html.light-theme,
 body.light-theme {
   --bg-color: #f8fafc;
   --card-bg: #ffffff;
@@ -6200,6 +6201,98 @@ html[lang="en"] .ad-mobile-banner-card {
   }
 }
 
+/* ==========================================================================
+   Tool Action Buttons & In-Page App Download CTA Banner
+   ========================================================================== */
+.btn-action-wrap {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.btn-action {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: var(--transition);
+  border: none;
+}
+
+.btn-whatsapp-action {
+  background: #25d366;
+  color: #ffffff !important;
+}
+.btn-whatsapp-action:hover {
+  background: #20bd5a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn-secondary-action {
+  background: var(--card-bg-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--text-main) !important;
+}
+.btn-secondary-action:hover {
+  border-color: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.btn-download-action {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+}
+.btn-download-action:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45) !important;
+}
+
+.tool-app-cta-banner {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(16, 185, 129, 0.12));
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-btn-apk {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: var(--card-bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 700;
+  height: 40px;
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+.footer-btn-apk:hover {
+  border-color: var(--primary-light);
+  color: var(--primary-light);
+}
 
 /* ==========================================================================
    Sandooq El-Amara — Universal Professional Print Stylesheet (@media print)
@@ -6295,6 +6388,7 @@ html[lang="en"] .ad-mobile-banner-card {
   .faq-item,
   .cta-banner,
   .app-promo,
+  .tool-app-cta-banner,
   .btn-action-wrap,
   .btn-action,
   .btn,

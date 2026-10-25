@@ -79,6 +79,19 @@
   </style>
   <!-- Thunderbolt AI Chat Widget -->
   <script defer src="https://www.thunderbolt.com/gateway/api/v1/thunderbolt-ui/embed.js"></script>
+  <!-- Immediate Theme Synchronizer (Zero-Flash Light/Dark Mode) -->
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('sandooq_theme') || 'dark';
+        if (theme === 'light') {
+          document.documentElement.classList.add('light-theme');
+          if (document.body) document.body.classList.add('light-theme');
+          else document.addEventListener('DOMContentLoaded', function() { document.body.classList.add('light-theme'); });
+        }
+      } catch(e) {}
+    })();
+  </script>
 </head>
 <body>
   <!-- Header -->
@@ -127,7 +140,10 @@
       </a>
 
       <!-- Primary CTA Button (Placed at edge for clean visual anchor) -->
-      <a href="./download.html" class="button primary header-cta-btn ">تحميل التطبيق</a>
+      <a href="./download.html" class="button primary header-cta-btn " title="تحميل تطبيق صندوق العمارة مجاناً">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left: 4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>تحميل التطبيق</span>
+      </a>
     </nav>
   </div>
   <!-- Sandooq El-Amara — Global Command Palette Search Modal (R2) -->
@@ -225,7 +241,7 @@
             المنصة والتطبيق المتخصص الأول في مصر لإدارة حسابات العقارات السكنية واتحادات الملاك، لمتابعة التحصيلات والمصروفات بكل شفافية ودون أخطاء.
           </p>
           <div class="footer-card-actions">
-            <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
+            <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;" aria-label="تحميل من Google Play">
               <img src="./assets/google-play-badge.svg" alt="احصل عليه من Google Play" width="135" height="40" loading="lazy" />
             </a>
             <span class="footer-badge-offline">عمل كامل بدون إنترنت</span>
@@ -310,6 +326,7 @@
       <div class="footer-nav-col">
         <h3>المنصة والخدمة</h3>
         <ul>
+          <li><a href="./download.html" style="color: var(--primary-light); font-weight: 800;">تحميل التطبيق (Google Play) 📲</a></li>
           <li><a href="./billing.html">الاشتراكات والدفع الإلكتروني</a></li>
           <li><a href="./updates.html">سجل التحديثات الشامل</a></li>
           <li><a href="./#reviews">آراء وتقييمات المستخدمين</a></li>
@@ -325,7 +342,7 @@
     <div class="sub-footer-bar">
       <div class="sub-footer-copy">
         <span>© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة.</span>
-        <span class="site-version-pill">v1.0.194</span>
+        <span class="site-version-pill">v1.0.221</span>
       </div>
 
       <div class="sub-footer-legal">

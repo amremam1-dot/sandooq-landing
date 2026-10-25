@@ -226,6 +226,19 @@
   </script>
   <!-- Thunderbolt AI Chat Widget -->
   <script defer src="https://www.thunderbolt.com/gateway/api/v1/thunderbolt-ui/embed.js"></script>
+  <!-- Immediate Theme Synchronizer (Zero-Flash Light/Dark Mode) -->
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('sandooq_theme') || 'dark';
+        if (theme === 'light') {
+          document.documentElement.classList.add('light-theme');
+          if (document.body) document.body.classList.add('light-theme');
+          else document.addEventListener('DOMContentLoaded', function() { document.body.classList.add('light-theme'); });
+        }
+      } catch(e) {}
+    })();
+  </script>
 </head>
 <body>
   <!-- Header -->
@@ -274,7 +287,10 @@
       </a>
 
       <!-- Primary CTA Button (Placed at edge for clean visual anchor) -->
-      <a href="../download.html" class="button primary header-cta-btn ">تحميل التطبيق</a>
+      <a href="../download.html" class="button primary header-cta-btn " title="تحميل تطبيق صندوق العمارة مجاناً">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left: 4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>تحميل التطبيق</span>
+      </a>
     </nav>
   </div>
   <!-- Sandooq El-Amara — Global Command Palette Search Modal (R2) -->
@@ -336,7 +352,13 @@
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
+      (function(){
+        try {
+          if (window.innerWidth >= 1024) {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          }
+        } catch(e) {}
+      })();
     </script>
   </div>
 </aside>
@@ -360,6 +382,27 @@
         يظل برنامج مايكروسوفت إكسيل (Microsoft Excel) أو جداول بيانات جوجل (Google Sheets) الخيار الأول للكثير من أمناء الصناديق لتسجيل إيرادات ومصروفات العقار. في هذا الدليل، نوضح لك الهيكل المحاسبي السليم لتصميم جدول إكسيل عملي، متى يكون كافياً، وكيف تتغلب على عيوبه الميدانية.
       </p>
 
+      <!-- Direct Excel Template Download Card -->
+      <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(30, 58, 138, 0.08) 100%); border: 2px solid #10b981; border-radius: 12px; padding: 22px 24px; margin: 26px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+        <div style="max-width: 580px;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #10b981; color: #fff; font-size: 0.78rem; font-weight: 800; padding: 3px 10px; border-radius: 12px;">تحميل مجاني مباشر</span>
+            <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">صيغة Microsoft Excel (.xlsx) معتمدة</span>
+          </div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin: 0 0 6px;">شيت إكسيل مصاريف واشتراكات العمارة الجاهز</h3>
+          <p style="font-size: 0.92rem; color: var(--text-light); margin: 0; line-height: 1.6;">
+            نموذج محاسبي متكامل جاهز للاستخدام فوراً (جداول الاشتراكات الشهرية، سجل المصروفات، ومعادلات الجمع التلقائي للرصيد).
+          </p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; align-items: center;">
+          <a href="../manuals/Sandooq_ElAmara_Building_Expenses_Template.xlsx" download class="button primary" style="background: #10b981; border-color: #10b981; font-weight: 800; padding: 12px 22px; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
+            <span>تحميل ملف الإكسيل مجاناً</span>
+            <span style="font-size: 1.2rem;">📥</span>
+          </a>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">حجم الملف: 12 كيلوبايت • جاهز للطباعة</span>
+        </div>
+      </div>
+
 
 
   <!-- TEMPLATE: AD_MOBILE_BOTTOM -->
@@ -374,7 +417,13 @@
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
   <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
+    (function(){
+      try {
+        if (window.innerWidth < 1024) {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        }
+      } catch(e) {}
+    })();
   </script>
 </div>
   <!-- /TEMPLATE: AD_MOBILE_BOTTOM -->
@@ -531,7 +580,13 @@
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
+      (function(){
+        try {
+          if (window.innerWidth >= 1024) {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          }
+        } catch(e) {}
+      })();
     </script>
   </div>
 </aside>
@@ -562,7 +617,7 @@
             المنصة والتطبيق المتخصص الأول في مصر لإدارة حسابات العقارات السكنية واتحادات الملاك، لمتابعة التحصيلات والمصروفات بكل شفافية ودون أخطاء.
           </p>
           <div class="footer-card-actions">
-            <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
+            <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;" aria-label="تحميل من Google Play">
               <img src="../assets/google-play-badge.svg" alt="احصل عليه من Google Play" width="135" height="40" loading="lazy" />
             </a>
             <span class="footer-badge-offline">عمل كامل بدون إنترنت</span>
@@ -647,6 +702,7 @@
       <div class="footer-nav-col">
         <h3>المنصة والخدمة</h3>
         <ul>
+          <li><a href="../download.html" style="color: var(--primary-light); font-weight: 800;">تحميل التطبيق (Google Play) 📲</a></li>
           <li><a href="../billing.html">الاشتراكات والدفع الإلكتروني</a></li>
           <li><a href="../updates.html">سجل التحديثات الشامل</a></li>
           <li><a href="../#reviews">آراء وتقييمات المستخدمين</a></li>
@@ -662,7 +718,7 @@
     <div class="sub-footer-bar">
       <div class="sub-footer-copy">
         <span>© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة.</span>
-        <span class="site-version-pill">v1.0.194</span>
+        <span class="site-version-pill">v1.0.221</span>
       </div>
 
       <div class="sub-footer-legal">

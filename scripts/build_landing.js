@@ -367,7 +367,7 @@ function compilePage(rawContent, fileInfo, templates, components) {
   // Step B: Inject HEADER
   if (headerTpl) {
     const compiledHeader = interpolate(headerTpl, context).trim();
-    const headerBoundaryRegex = /<!--\s*TEMPLATE:\s*HEADER\s*-->[\s\S]*?<!--\s*\/TEMPLATE:\s*HEADER\s*-->/i;
+    const headerBoundaryRegex = /<!--\s*TEMPLATE:\s*HEADER(?:_EN)?\s*-->[\s\S]*?<!--\s*\/TEMPLATE:\s*HEADER(?:_EN)?\s*-->/i;
     const rawHeaderRegex = /<header\s+class=["'][^"']*site-header[^"']*["'][\s\S]*?<\/header>/i;
 
     const replacement = `<!-- TEMPLATE: HEADER -->\n${compiledHeader}\n<!-- /TEMPLATE: HEADER -->`;
@@ -383,7 +383,7 @@ function compilePage(rawContent, fileInfo, templates, components) {
   const footerRawTpl = isEnglish ? (templates.FOOTER_EN || templates.FOOTER) : templates.FOOTER;
   if (footerRawTpl) {
     const compiledFooter = interpolate(footerRawTpl, context).trim();
-    const footerBoundaryRegex = /<!--\s*TEMPLATE:\s*FOOTER\s*-->[\s\S]*?<!--\s*\/TEMPLATE:\s*FOOTER\s*-->/i;
+    const footerBoundaryRegex = /<!--\s*TEMPLATE:\s*FOOTER(?:_EN)?\s*-->[\s\S]*?<!--\s*\/TEMPLATE:\s*FOOTER(?:_EN)?\s*-->/i;
     const rawFooterRegex = /<footer\s+class=["'][^"']*site-footer[^"']*["'][\s\S]*?(?:<\/footer>|(?=<!-- Declarative WebMCP Tools)|(?=<form id="webmcp)|(?=<script\b))/i;
 
     const replacement = `<!-- TEMPLATE: FOOTER -->\n${compiledFooter}\n<!-- /TEMPLATE: FOOTER -->`;
@@ -407,6 +407,8 @@ function compilePage(rawContent, fileInfo, templates, components) {
       compiled = compiled.replace(scriptsBoundaryRegex, replacement);
     } else if (rawScriptsRegex.test(compiled)) {
       compiled = compiled.replace(rawScriptsRegex, replacement);
+    } else if (compiled.includes('</body>')) {
+      compiled = compiled.replace('</body>', `${replacement}\n</body>`);
     }
   }
 
@@ -435,6 +437,13 @@ function compilePage(rawContent, fileInfo, templates, components) {
     } else if (/<\/head>/i.test(compiled)) {
       compiled = compiled.replace(/<\/head>/i, `${hreflangBlock}\n</head>`);
     }
+  }
+
+  // Step E3: Ensure Instant Theme Synchronizer in <head>
+  const themeSyncScript = `  <!-- Immediate Theme Synchronizer (Zero-Flash Light/Dark Mode) -->\n  <script>\n    (function() {\n      try {\n        var theme = localStorage.getItem('sandooq_theme') || 'dark';\n        if (theme === 'light') {\n          document.documentElement.classList.add('light-theme');\n          if (document.body) document.body.classList.add('light-theme');\n          else document.addEventListener('DOMContentLoaded', function() { document.body.classList.add('light-theme'); });\n        }\n      } catch(e) {}\n    })();\n  </script>`;
+
+  if (!compiled.includes('sandooq_theme') && /<\/head>/i.test(compiled)) {
+    compiled = compiled.replace(/<\/head>/i, `${themeSyncScript}\n</head>`);
   }
 
   // Ensure OpenGraph image dimensions for rich preview cards (WhatsApp / Facebook)

@@ -10,7 +10,13 @@
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
     <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
+      (function(){
+        try {
+          if (window.innerWidth >= 1024) {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          }
+        } catch(e) {}
+      })();
     </script>
   </div>
 </aside>

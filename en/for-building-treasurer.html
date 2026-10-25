@@ -72,6 +72,19 @@
     ]
   }
   </script>
+  <!-- Immediate Theme Synchronizer (Zero-Flash Light/Dark Mode) -->
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('sandooq_theme') || 'dark';
+        if (theme === 'light') {
+          document.documentElement.classList.add('light-theme');
+          if (document.body) document.body.classList.add('light-theme');
+          else document.addEventListener('DOMContentLoaded', function() { document.body.classList.add('light-theme'); });
+        }
+      } catch(e) {}
+    })();
+  </script>
 </head>
 <body>
   <!-- Header -->
@@ -120,7 +133,10 @@
       </a>
 
       <!-- Primary CTA Button (Placed at edge for clean visual anchor) -->
-      <a href="../en/download.html" class="button primary header-cta-btn ">Download App</a>
+      <a href="../en/download.html" class="button primary header-cta-btn " title="Download Sandooq El-Amara Free">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>Download App</span>
+      </a>
     </nav>
   </div>
   <!-- Sandooq El-Amara — Global Command Palette Search Modal (EN) -->
@@ -247,7 +263,7 @@
             The premier residential property and HOA fund management platform in Egypt. Track collections, expenses, and maintenance transparently and with zero errors.
           </p>
           <div class="footer-card-actions">
-            <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;">
+            <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;" aria-label="Get it on Google Play">
               <img src="../assets/google-play-badge.svg" alt="Get it on Google Play" width="135" height="40" loading="lazy" />
             </a>
             <span class="footer-badge-offline">Offline-First Guaranteed</span>
@@ -332,6 +348,7 @@
       <div class="footer-nav-col">
         <h3>Platform & About</h3>
         <ul>
+          <li><a href="../en/download.html" style="color: var(--primary-light); font-weight: 800;">Download on Google Play 📲</a></li>
           <li><a href="../en/billing.html">Pricing & License Plans</a></li>
           <li><a href="../en/updates.html">Changelog & Releases</a></li>
           <li><a href="../en/#reviews">User Reviews & Feedback</a></li>
@@ -347,7 +364,7 @@
     <div class="sub-footer-bar">
       <div class="sub-footer-copy">
         <span>© 2026 Sandooq El-Amara — All rights reserved.</span>
-        <span class="site-version-pill">v1.0.194</span>
+        <span class="site-version-pill">v1.0.221</span>
       </div>
 
       <div class="sub-footer-legal">

@@ -5,6 +5,10 @@
 /privacy-policy.html /privacy.html 301
 /privacy/ /privacy.html 301
 /delete.html /delete-account.html 301
+/dostor-elamara.html /book.html 301
+/dostor-elamara /book.html 301
+/book /book.html 200
+/download /download.html 200
 /billing /billing.html 200
 /subscribe /billing.html 301
 /billing-easy /billing-easy.html 200
