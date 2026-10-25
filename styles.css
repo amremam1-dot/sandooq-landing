@@ -374,10 +374,10 @@ body.light-theme .moon-icon { display: none; }
 
 /* Hero Section */
 .hero {
-  padding: 70px 0 90px;
+  padding: 30px 0 40px;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 48px;
+  gap: 36px;
   align-items: center;
   max-width: 1240px;
   margin: 0 auto;
@@ -387,22 +387,22 @@ body.light-theme .moon-icon { display: none; }
 
 .eyebrow {
   display: inline-block;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: var(--radius-full);
   background: rgba(37, 99, 235, 0.12);
   color: var(--primary-light);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.5px;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   border: 1px solid rgba(37, 99, 235, 0.3);
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2.35rem;
   font-weight: 900;
   line-height: 1.25;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   color: var(--text-main);
 }
 
@@ -414,30 +414,30 @@ body.light-theme .moon-icon { display: none; }
 }
 
 .hero .lead {
-  font-size: 1.18rem;
+  font-size: 1.05rem;
   color: var(--text-light);
-  margin-bottom: 16px;
-  line-height: 1.8;
+  margin-bottom: 12px;
+  line-height: 1.68;
 }
 
 .hero .sub-lead {
-  font-size: 0.98rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  margin-bottom: 30px;
+  margin-bottom: 22px;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 36px;
+  gap: 14px;
+  margin-bottom: 24px;
 }
 
 .trust {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  padding-top: 24px;
+  gap: 18px;
+  padding-top: 18px;
   border-top: 1px solid var(--border-color);
 }
 
@@ -467,10 +467,10 @@ body.light-theme .moon-icon { display: none; }
 .phone-mockup {
   position: relative;
   width: 100%;
-  max-width: 326px;
+  max-width: 282px;
   margin: 0 auto;
-  border-radius: 22px;
-  padding: 8px 6px 9px 6px;
+  border-radius: 20px;
+  padding: 7px 5px 8px 5px;
   background:
     radial-gradient(ellipse 24px 1.5px at 50% 4px, #030508 75%, rgba(255, 255, 255, 0.2) 100%),
     linear-gradient(145deg, #272c37 0%, #0e121a 42%, #070a10 78%, #1e232d 100%);
@@ -490,10 +490,10 @@ body.light-theme .moon-icon { display: none; }
 .phone-mockup::before {
   content: "";
   position: absolute;
-  right: -5.5px;
-  top: 102px;
+  right: -5px;
+  top: 90px;
   width: 3px;
-  height: 58px;
+  height: 48px;
   background: linear-gradient(180deg, #525d6f 0%, #1f2937 46%, #0f172a 54%, #374151 100%);
   border-radius: 0 3px 3px 0;
   box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.38), 1px 2px 4px rgba(0, 0, 0, 0.5);
@@ -504,10 +504,10 @@ body.light-theme .moon-icon { display: none; }
 .phone-mockup::after {
   content: "";
   position: absolute;
-  right: -5.5px;
-  top: 178px;
+  right: -5px;
+  top: 152px;
   width: 3px;
-  height: 32px;
+  height: 28px;
   background: linear-gradient(180deg, #525d6f 0%, #1e293b 50%, #374151 100%);
   border-radius: 0 3px 3px 0;
   box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.38), 1px 2px 4px rgba(0, 0, 0, 0.5);
@@ -3226,8 +3226,8 @@ body.light-theme .search-kbd {
 .app-simulator {
   position: relative;
   width: 100%;
-  aspect-ratio: 9 / 20;
-  max-width: 314px;
+  aspect-ratio: 9 / 19.5;
+  max-width: 270px;
   margin: 0 auto;
   border-radius: 15px;
   overflow: hidden;
@@ -3252,15 +3252,15 @@ body.light-theme .search-kbd {
 /* Floating Live Simulator Badge */
 .sim-live-badge {
   position: absolute;
-  top: -26px;
+  top: -24px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--card-bg, rgba(15, 23, 42, 0.94));
   border: 1px solid var(--border-color, rgba(59, 130, 246, 0.45));
   color: var(--primary-light, #38bdf8);
-  font-size: 0.74rem;
+  font-size: 0.70rem;
   font-weight: 700;
-  padding: 4px 14px;
+  padding: 3px 12px;
   border-radius: var(--radius-full, 9999px);
   display: inline-flex;
   align-items: center;
@@ -3338,13 +3338,13 @@ body.light-theme .search-kbd {
 
 /* Android Hardware Status Bar */
 .sim-status-bar {
-  height: 26px;
-  min-height: 26px;
-  padding: 3px 14px 0;
+  height: 22px;
+  min-height: 22px;
+  padding: 2px 10px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
   color: #94a3b8;
   flex-shrink: 0;
@@ -3366,8 +3366,8 @@ body.light-theme .search-kbd {
 .sim-status-icons {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.64rem;
+  gap: 4px;
+  font-size: 0.58rem;
 }
 
 /* Screens Common Styling */
@@ -3406,9 +3406,9 @@ body.light-theme .search-kbd {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 0 8px;
+  padding: 3px 0 6px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   gap: 6px;
 }
 
@@ -3421,7 +3421,7 @@ body.light-theme .search-kbd {
 
 .sim-building-badge,
 .sim-building-name {
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   font-weight: 800;
   color: #f8fafc;
   white-space: nowrap;
@@ -3430,7 +3430,7 @@ body.light-theme .search-kbd {
 }
 
 .sim-period-badge {
-  font-size: 0.66rem;
+  font-size: 0.58rem;
   color: #94a3b8;
 }
 
@@ -3439,16 +3439,16 @@ body.light-theme .search-kbd {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #94a3b8;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s;
   flex-shrink: 0;
-  font-size: 0.85rem;
+  font-size: 0.76rem;
   font-family: inherit;
 }
 
@@ -3464,22 +3464,22 @@ body.light-theme .search-kbd {
 .sim-metrics-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 6px;
+  margin-bottom: 6px;
 }
 
 .sim-kpi-card,
 .sim-metric-card {
   background: #1e293b;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 7px 9px;
+  border-radius: 8px;
+  padding: 5px 7px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .sim-kpi-label,
 .sim-metric-label {
-  font-size: 0.64rem;
+  font-size: 0.58rem;
   font-weight: 700;
   color: #94a3b8;
   margin-bottom: 2px;
@@ -3487,7 +3487,7 @@ body.light-theme .search-kbd {
 
 .sim-kpi-val,
 .sim-metric-val {
-  font-size: 1.02rem;
+  font-size: 0.88rem;
   font-weight: 900;
   color: #10b981;
   display: flex;
@@ -3498,16 +3498,16 @@ body.light-theme .search-kbd {
 
 .sim-kpi-val small,
 .sim-metric-val small {
-  font-size: 0.65rem;
+  font-size: 0.58rem;
   color: #94a3b8;
   font-weight: 600;
 }
 
 .sim-rate-pill {
-  font-size: 0.62rem;
+  font-size: 0.56rem;
   background: rgba(16, 185, 129, 0.15);
   color: #10b981;
-  padding: 1px 6px;
+  padding: 1px 4px;
   border-radius: 4px;
   font-weight: 700;
 }
@@ -3516,12 +3516,12 @@ body.light-theme .search-kbd {
 .sim-toast {
   background: rgba(16, 185, 129, 0.95);
   color: #ffffff;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.68rem;
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-size: 0.62rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
   animation: simToastIn 0.3s ease-out;
 }
@@ -3540,10 +3540,10 @@ body.light-theme .search-kbd {
 }
 
 .sim-section-label {
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 800;
   color: #94a3b8;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -3552,7 +3552,7 @@ body.light-theme .search-kbd {
 .sim-units-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
@@ -3562,13 +3562,13 @@ body.light-theme .search-kbd {
 .sim-unit-card {
   background: #182234;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 10px;
-  padding: 7px 9px;
+  border-radius: 8px;
+  padding: 5px 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: all 0.25s ease;
-  min-height: 48px;
+  min-height: 42px;
 }
 
 .sim-unit-card.is-unpaid,
@@ -3587,24 +3587,24 @@ body.light-theme .search-kbd {
 
 .sim-unit-num,
 .sim-unit-id {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 800;
   color: #f8fafc;
 }
 
 .sim-resident-name,
 .sim-unit-resident {
-  font-size: 0.7rem;
+  font-size: 0.64rem;
   color: #cbd5e1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 110px;
+  max-width: 95px;
 }
 
 .sim-fee-meta,
 .sim-unit-amount {
-  font-size: 0.64rem;
+  font-size: 0.58rem;
   color: #94a3b8;
 }
 
@@ -3617,9 +3617,9 @@ body.light-theme .search-kbd {
 }
 
 .sim-badge {
-  font-size: 0.64rem;
+  font-size: 0.58rem;
   font-weight: 700;
-  padding: 2px 6px;
+  padding: 2px 5px;
   border-radius: 4px;
   white-space: nowrap;
 }
@@ -3638,10 +3638,10 @@ body.light-theme .search-kbd {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: #ffffff;
   border: none;
-  font-size: 0.7rem;
+  font-size: 0.64rem;
   font-weight: 800;
-  padding: 4px 9px;
-  border-radius: 6px;
+  padding: 3px 8px;
+  border-radius: 5px;
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
   font-family: inherit;
@@ -3664,8 +3664,8 @@ body.light-theme .search-kbd {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #94a3b8;
-  font-size: 0.64rem;
-  padding: 2px 6px;
+  font-size: 0.58rem;
+  padding: 2px 5px;
   border-radius: 4px;
   cursor: pointer;
   font-family: inherit;
@@ -3680,12 +3680,15 @@ body.light-theme .search-kbd {
 
 .sim-prompt-banner,
 .sim-bottom-hint {
-  margin-top: 8px;
+  margin-top: 6px;
   background: rgba(37, 99, 235, 0.12);
   border: 1px dashed rgba(59, 130, 246, 0.35);
-  border-radius: 8px;
-  padding: 6px 8px;
-  font-size: 0.67rem;
+  border-radius: 7px;
+  padding: 4px 6px;
+  font-size: 0.60rem;
+  color: #93c5fd;
+  text-align: center;
+  line-height: 1.35;
   color: #93c5fd;
   text-align: center;
   line-height: 1.4;
@@ -3708,8 +3711,8 @@ body.light-theme .search-kbd {
 .sim-modal-sheet {
   background: #1e293b;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px 16px 0 0;
-  padding: 12px 14px 16px;
+  border-radius: 14px 14px 0 0;
+  padding: 10px 12px 14px;
   max-height: 90%;
   overflow-y: auto;
   box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5);
@@ -3737,7 +3740,7 @@ body.light-theme .search-kbd {
 }
 
 .sim-modal-title {
-  font-size: 0.88rem;
+  font-size: 0.80rem;
   font-weight: 800;
   margin: 0;
   color: #f8fafc;
@@ -3759,11 +3762,11 @@ body.light-theme .search-kbd {
 .sim-target-unit-pill {
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.74rem;
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-size: 0.68rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -3778,7 +3781,7 @@ body.light-theme .search-kbd {
 .sim-field-label,
 .sim-form-label {
   display: block;
-  font-size: 0.67rem;
+  font-size: 0.62rem;
   color: #94a3b8;
   margin-bottom: 4px;
   font-weight: 700;
@@ -3794,9 +3797,9 @@ body.light-theme .search-kbd {
   width: 100%;
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  padding: 7px 32px 7px 10px;
-  font-size: 0.95rem;
+  border-radius: 7px;
+  padding: 5px 28px 5px 8px;
+  font-size: 0.86rem;
   font-weight: 800;
   color: #f8fafc;
   outline: none;
@@ -3833,9 +3836,9 @@ body.light-theme .search-kbd {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #cbd5e1;
-  font-size: 0.64rem;
+  font-size: 0.60rem;
   font-weight: 700;
-  padding: 5px 2px;
+  padding: 4px 2px;
   border-radius: 6px;
   cursor: pointer;
   font-family: inherit;
@@ -3869,9 +3872,9 @@ body.light-theme .search-kbd {
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #94a3b8;
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  padding: 6px 4px;
+  padding: 5px 3px;
   border-radius: 8px;
   cursor: pointer;
   text-align: center;
@@ -3894,9 +3897,9 @@ body.light-theme .search-kbd {
 }
 
 .sim-statement-note {
-  font-size: 0.64rem;
+  font-size: 0.58rem;
   color: #94a3b8;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .sim-btn-confirm {
@@ -3904,9 +3907,9 @@ body.light-theme .search-kbd {
   background: linear-gradient(135deg, #10b981, #059669);
   color: #ffffff;
   border: none;
-  padding: 10px 12px;
-  border-radius: 8px;
-  font-size: 0.8rem;
+  padding: 8px 10px;
+  border-radius: 7px;
+  font-size: 0.74rem;
   font-weight: 800;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
@@ -3936,7 +3939,7 @@ body.light-theme .search-kbd {
 
 .sim-wa-header {
   background: #075e54;
-  padding: 8px 12px;
+  padding: 6px 10px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -3963,7 +3966,7 @@ body.light-theme .search-kbd {
 }
 
 .sim-wa-name {
-  font-size: 0.76rem;
+  font-size: 0.70rem;
   font-weight: 800;
   white-space: nowrap;
   overflow: hidden;
@@ -3972,7 +3975,7 @@ body.light-theme .search-kbd {
 
 .sim-wa-sub,
 .sim-wa-status {
-  font-size: 0.6rem;
+  font-size: 0.56rem;
   opacity: 0.9;
   display: flex;
   align-items: center;
@@ -3995,7 +3998,7 @@ body.light-theme .search-kbd {
 }
 
 .sim-receipt-container {
-  padding: 8px 10px 10px;
+  padding: 6px 8px 8px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -4006,8 +4009,8 @@ body.light-theme .search-kbd {
 .sim-receipt-paper {
   background: #ffffff;
   color: #0f172a;
-  border-radius: 8px;
-  padding: 10px 12px;
+  border-radius: 7px;
+  padding: 8px 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   position: relative;
 }
@@ -4022,14 +4025,14 @@ body.light-theme .search-kbd {
 
 .sim-receipt-badge,
 .sim-receipt-title {
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   font-weight: 800;
   color: #047857;
 }
 
 .sim-receipt-number,
 .sim-receipt-sub {
-  font-size: 0.63rem;
+  font-size: 0.58rem;
   color: #64748b;
   margin-top: 1px;
 }
@@ -4037,8 +4040,8 @@ body.light-theme .search-kbd {
 .sim-receipt-rows {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  font-size: 0.66rem;
+  gap: 2px;
+  font-size: 0.60rem;
   margin-bottom: 6px;
 }
 
@@ -4066,7 +4069,7 @@ body.light-theme .search-kbd {
   background: #ecfdf5;
   border: 1px solid #a7f3d0;
   border-radius: 6px;
-  padding: 5px 8px;
+  padding: 4px 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -4082,7 +4085,7 @@ body.light-theme .search-kbd {
 
 .sim-r-amount-val,
 .sim-receipt-amount-num {
-  font-size: 0.95rem;
+  font-size: 0.84rem;
   font-weight: 900;
   color: #047857;
   font-variant-numeric: tabular-nums;
@@ -4099,12 +4102,12 @@ body.light-theme .search-kbd {
 
 .sim-stamp-seal,
 .sim-stamp-badge {
-  font-size: 0.58rem;
+  font-size: 0.52rem;
   font-weight: 800;
   color: #0284c7;
   background: #e0f2fe;
   border: 1px solid #93c5fd;
-  padding: 2px 6px;
+  padding: 1px 4px;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -4114,7 +4117,7 @@ body.light-theme .search-kbd {
 
 .sim-stamp-sig,
 .sim-stamp-sign {
-  font-size: 0.62rem;
+  font-size: 0.56rem;
   color: #475569;
   font-weight: 700;
 }
@@ -4123,8 +4126,8 @@ body.light-theme .search-kbd {
 .sim-receipt-actions {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin-top: 8px;
+  gap: 4px;
+  margin-top: 6px;
 }
 
 .sim-btn-download,
@@ -4132,9 +4135,9 @@ body.light-theme .search-kbd {
 .sim-btn-cta-download {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: #ffffff;
-  padding: 8px 10px;
-  border-radius: 8px;
-  font-size: 0.72rem;
+  padding: 6px 8px;
+  border-radius: 7px;
+  font-size: 0.66rem;
   font-weight: 800;
   text-align: center;
   text-decoration: none;
@@ -4154,9 +4157,9 @@ body.light-theme .search-kbd {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #cbd5e1;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.66rem;
+  padding: 5px 8px;
+  border-radius: 7px;
+  font-size: 0.62rem;
   font-weight: 700;
   cursor: pointer;
   font-family: inherit;
@@ -5515,7 +5518,7 @@ body.light-theme .rec-features-list li {
 
   /* Phone Mockup Frame scaling down safely on mobile */
   .phone-mockup {
-    max-width: min(326px, 92vw);
+    max-width: min(282px, 92vw);
   }
 
   /* Simulator touch scrolling: smooth touch momentum and contained scrolling */
