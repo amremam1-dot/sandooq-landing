@@ -1007,11 +1007,15 @@ body.light-theme .moon-icon { display: none; }
   line-height: 1.75;
 }
 
-/* Footer */
+/* ==========================================================================
+   Modern 3-Tier Enterprise Footer (Stripe / Vercel Standard)
+   ========================================================================== */
 .site-footer {
   background: var(--card-bg-subtle);
   border-top: 1px solid var(--border-color);
-  padding: 60px 24px 30px;
+  padding: 56px 24px 28px;
+  position: relative;
+  overflow: hidden;
 }
 
 .footer-container {
@@ -1019,11 +1023,299 @@ body.light-theme .moon-icon { display: none; }
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  text-align: center;
+  gap: 36px;
 }
 
+/* Tier 1: Showcase Cards (App & Book) */
+.footer-showcase-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.footer-showcase-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.footer-showcase-card:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-md);
+}
+
+.footer-showcase-card.card-book {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-book-thumb-wrap {
+  flex-shrink: 0;
+  perspective: 600px;
+}
+
+.footer-book-thumb {
+  width: 75px;
+  height: 106px;
+  border-radius: 6px;
+  box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: rotateY(-8deg);
+  transition: var(--transition);
+  display: block;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-showcase-card.card-book:hover .footer-book-thumb {
+  transform: rotateY(0deg) scale(1.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.footer-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  text-align: right;
+}
+
+html[lang="en"] .footer-card-body {
+  text-align: left;
+}
+
+.footer-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.footer-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.footer-card-pill {
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--primary-light);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  letter-spacing: 0.02em;
+}
+
+.footer-card-pill.book-pill {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--accent-color);
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.footer-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.footer-badge-offline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--card-bg-subtle);
+  border: 1px solid var(--border-light);
+  font-weight: 500;
+}
+
+.footer-badge-offline::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  box-shadow: 0 0 6px var(--secondary-color);
+}
+
+.footer-book-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--primary-light);
+  color: #ffffff;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-book-btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.footer-book-btn-secondary {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.footer-book-btn-secondary:hover {
+  color: var(--primary-light);
+}
+
+/* Tier 2: Balanced 4-Column Navigation */
+.footer-nav-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: right;
+  padding: 8px 0 28px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+html[lang="en"] .footer-nav-grid {
+  text-align: left;
+}
+
+.footer-nav-col h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-nav-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer-nav-col a {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.footer-nav-col a:hover {
+  color: var(--primary-light);
+  transform: translateX(-2px);
+}
+
+html[lang="en"] .footer-nav-col a:hover {
+  transform: translateX(2px);
+}
+
+/* Tier 3: Sub-Footer Bar */
+.sub-footer-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.sub-footer-copy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.site-version-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: var(--text-muted);
+}
+
+.sub-footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sub-footer-legal a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 0.84rem;
+}
+
+.sub-footer-legal a:hover {
+  color: var(--text-main);
+}
+
+.sub-footer-legal .divider-dot {
+  color: var(--border-color);
+  user-select: none;
+}
+
+.sub-footer-social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sub-footer-social .footer-social-btn {
+  width: 34px;
+  height: 34px;
+}
+
+/* Legacy & Fallback Helpers for compatibility */
 .footer-links {
   display: flex;
   flex-wrap: wrap;
@@ -1087,6 +1379,17 @@ body.light-theme .moon-icon { display: none; }
   max-width: 320px;
 }
 
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .footer-showcase-row {
+    grid-template-columns: 1fr;
+  }
+  .footer-nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+}
+
 @media (max-width: 768px) {
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1095,6 +1398,59 @@ body.light-theme .moon-icon { display: none; }
   }
   .footer-brand-p {
     max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 40px 16px 24px;
+  }
+  .footer-showcase-card.card-book {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-showcase-card.card-book .footer-card-body {
+    text-align: center;
+  }
+  .footer-showcase-card.card-book .footer-card-actions {
+    justify-content: center;
+  }
+  .footer-showcase-card.card-app {
+    text-align: center;
+  }
+  .footer-showcase-card.card-app .footer-card-body {
+    text-align: center;
+  }
+  .footer-showcase-card.card-app .footer-card-header {
+    justify-content: center;
+  }
+  .footer-showcase-card.card-app .footer-card-actions {
+    justify-content: center;
+  }
+  .footer-nav-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 28px;
+  }
+  .footer-nav-col h3 {
+    justify-content: center;
+  }
+  html[lang="en"] .footer-nav-col h3 {
+    justify-content: center;
+  }
+  .sub-footer-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  .sub-footer-copy {
+    justify-content: center;
+  }
+  .sub-footer-legal {
+    justify-content: center;
+  }
+  .sub-footer-social {
+    justify-content: center;
   }
 }
 
@@ -5897,6 +6253,9 @@ html[lang="en"] .ad-mobile-banner-card {
   aside,
   .site-header,
   .site-footer,
+  .footer-showcase-row,
+  .footer-nav-grid,
+  .sub-footer-bar,
   .footer-col,
   .footer-copy,
   .breadcrumb-nav,

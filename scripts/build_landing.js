@@ -161,7 +161,8 @@ function computeContext(fileInfo) {
   const urlOwner = `${langRoot}/for-property-owner.html`;
   const urlDeleteAccount = `${langRoot}/delete-account.html`;
   const urlManualPage = `${langRoot}/manual.html`;
-  const urlBookPage = `${langRoot}/book.html`;
+  const enBookOnDisk = path.join(LANDING_DIR, 'en', 'book.html');
+  const urlBookPage = (isEnglish && !fs.existsSync(enBookOnDisk)) ? `${basePath}/book.html` : `${langRoot}/book.html`;
   const urlBookPdf = `${basePath}/manuals/Dostor_ElAmara_Luxury_Edition.pdf`;
   const urlManual = isEnglish ? `${basePath}/manuals/Sandooq_ElAmara_User_Manual_EN.pdf` : `${basePath}/manuals/Sandooq_ElAmara_User_Manual_AR.pdf`;
   const urlManualAr = `${basePath}/manuals/Sandooq_ElAmara_User_Manual_AR.pdf`;
