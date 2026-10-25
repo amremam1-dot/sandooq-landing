@@ -291,6 +291,75 @@
       color: #86efac;
     }
 
+    /* Quick Email Verification Box */
+    .quick-email-verify-box {
+      max-width: 440px;
+      margin: 14px auto 0;
+      background: var(--card-bg);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+    }
+    .quick-email-input-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .quick-email-input-row .form-input-clean {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    .btn-quick-verify {
+      background: var(--primary-light);
+      color: #ffffff;
+      border: none;
+      padding: 11px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .btn-quick-verify:hover {
+      background: var(--primary-color);
+      transform: translateY(-1px);
+    }
+    .btn-quick-verify:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .quick-email-result-banner {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      text-align: right;
+    }
+    .quick-email-result-banner.success {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--secondary-color);
+      color: #86efac;
+    }
+    .quick-email-result-banner.error {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid var(--danger-color);
+      color: #fca5a5;
+    }
+    @media (max-width: 540px) {
+      .quick-email-input-row {
+        flex-direction: column;
+      }
+      .btn-quick-verify {
+        width: 100%;
+      }
+    }
+
     /* Connected Profile Badge */
     .connected-profile-badge {
       display: none;
@@ -943,6 +1012,28 @@
             </button>
           </div>
         </div>
+
+        <div class="auth-or-divider" style="margin-top: 22px;">
+          <span>أو التحقق بالبريد فقط بدون تسجيل دخول</span>
+        </div>
+
+        <!-- Option: Quick Email Verification without Password -->
+        <div class="quick-email-verify-box" id="quickEmailVerifyBox">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 6px;">
+            <span style="font-size: 1.15rem;">✉️</span>
+            <strong style="font-size: 0.95rem; color: var(--text-main);">التحقق السريع بالبريد الإلكتروني فقط</strong>
+          </div>
+          <p style="font-size: 0.86rem; color: var(--text-muted); margin: 0 0 10px;">
+            إذا لم تتمكن من تسجيل الدخول الآن، اكتب فقط البريد المسجل به على الهاتف وسنتأكد فوراً من وجود حسابك:
+          </p>
+          <div class="quick-email-input-row">
+            <input type="email" id="quickCheckEmailInput" class="form-input-clean" placeholder="name@gmail.com" dir="ltr" />
+            <button type="button" class="btn-quick-verify" id="btnQuickVerifyEmail" onclick="handleQuickEmailCheck()">
+              <span id="btnQuickVerifyText">التحقق من البريد 🔍</span>
+            </button>
+          </div>
+          <div id="quickEmailResultBanner" class="quick-email-result-banner" style="display: none;"></div>
+        </div>
       </div>
 
       <!-- State B: Connected User Profile (Revealed upon login) -->
@@ -1495,11 +1586,132 @@
       }
     }
 
-    // Sign Out
+    // Quick Email Verification (Without Login)
+    async function handleQuickEmailCheck() {
+      const emailInput = document.getElementById('quickCheckEmailInput');
+      const email = (emailInput?.value || '').trim();
+      const banner = document.getElementById('quickEmailResultBanner');
+      const btn = document.getElementById('btnQuickVerifyEmail');
+      const btnText = document.getElementById('btnQuickVerifyText');
+
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        showQuickEmailResult('يرجى كتابة عنوان بريد إلكتروني صحيح (مثال: name@gmail.com).', 'error');
+        emailInput?.focus();
+        return;
+      }
+
+      if (btn) btn.disabled = true;
+      if (btnText) btnText.textContent = 'جارٍ التحقق... ⏳';
+      if (banner) banner.style.display = 'none';
+
+      try {
+        let exists = false;
+        let userData = null;
+
+        // 1. Check via API endpoint
+        try {
+          const res = await fetch(`${API_ENDPOINT}?email=${encodeURIComponent(email)}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.exists) {
+              exists = true;
+              userData = data;
+            }
+          }
+        } catch (apiErr) {
+          console.warn('API lookup error, trying auth fallback:', apiErr);
+        }
+
+        // 2. Fallback: Firebase Auth check
+        if (!exists && typeof firebase !== 'undefined' && firebase.auth) {
+          try {
+            const methods = await firebase.auth().fetchSignInMethodsForEmail(email);
+            if (methods && methods.length > 0) {
+              exists = true;
+            }
+          } catch (authErr) {
+            console.warn('Firebase fetchSignInMethods error:', authErr);
+          }
+        }
+
+        if (exists) {
+          showQuickEmailResult('✅ تم التأكيد بنجاح: هذا البريد الإلكتروني مسجل بالفعل في تطبيق صندوق العمارة! تم ربط حسابك، يمكنك الآن اختيار الباقة وإتمام التفعيل مباشرة.', 'success');
+
+          const displayName = (userData && userData.displayName) ? userData.displayName : email.split('@')[0];
+          currentUser = {
+            email: email,
+            uid: (userData && userData.uid) ? userData.uid : '',
+            displayName: displayName,
+            isEmailVerifiedOnly: true
+          };
+
+          const nameInput = document.getElementById('inputPayerName');
+          if (nameInput && !nameInput.value) {
+            nameInput.value = displayName;
+          }
+
+          setTimeout(() => {
+            const loggedOutBox = document.getElementById('authLoggedOutBox');
+            const loggedInBox = document.getElementById('authLoggedInBox');
+            const step1Circle = document.getElementById('step1Circle');
+
+            if (loggedOutBox) loggedOutBox.style.display = 'none';
+            if (loggedInBox) loggedInBox.style.display = 'block';
+            if (step1Circle) {
+              step1Circle.textContent = '✓';
+              step1Circle.classList.add('completed');
+            }
+
+            document.getElementById('userNameDisplay').textContent = `مرحباً يا ${displayName}`;
+            document.getElementById('userEmailDisplay').textContent = email;
+
+            const avatarContainer = document.getElementById('userAvatarContainer');
+            if (avatarContainer) {
+              avatarContainer.innerHTML = `<span>${displayName.charAt(0).toUpperCase()}</span>`;
+            }
+
+            updateWhatsappLink();
+          }, 1200);
+
+        } else {
+          showQuickEmailResult('❌ هذا البريد الإلكتروني غير مسجل في تطبيق صندوق العمارة. يرجى التأكد من كتابة نفس البريد الذي استخدمته عند تسجيل الدخول في التطبيق، أو تثبيت التطبيق وتسجيل حساب جديد.', 'error');
+        }
+      } catch (err) {
+        console.error('Check error:', err);
+        showQuickEmailResult('تعذر التحقق من الخادم حالياً. يرجى التأكد من اتصال الإنترنت أو استخدام تسجيل الدخول بحساب Google.', 'error');
+      } finally {
+        if (btn) btn.disabled = false;
+        if (btnText) btnText.textContent = 'التحقق من البريد 🔍';
+      }
+    }
+
+    function showQuickEmailResult(msg, type) {
+      const banner = document.getElementById('quickEmailResultBanner');
+      if (banner) {
+        banner.className = `quick-email-result-banner ${type}`;
+        banner.textContent = msg;
+        banner.style.display = 'block';
+      }
+    }
+
+    // Sign Out / Switch Account
     async function handleSignOut() {
       if (confirm('هل تريد تسجيل الخروج والتبديل إلى حساب آخر؟')) {
-        await firebase.auth().signOut();
+        if (typeof firebase !== 'undefined' && firebase.auth && firebase.auth().currentUser) {
+          await firebase.auth().signOut();
+        }
         currentUser = null;
+        const loggedOutBox = document.getElementById('authLoggedOutBox');
+        const loggedInBox = document.getElementById('authLoggedInBox');
+        const step1Circle = document.getElementById('step1Circle');
+        if (loggedOutBox) loggedOutBox.style.display = 'block';
+        if (loggedInBox) loggedInBox.style.display = 'none';
+        if (step1Circle) {
+          step1Circle.textContent = '١';
+          step1Circle.classList.remove('completed');
+        }
+        const banner = document.getElementById('quickEmailResultBanner');
+        if (banner) banner.style.display = 'none';
         updateWhatsappLink();
       }
     }
