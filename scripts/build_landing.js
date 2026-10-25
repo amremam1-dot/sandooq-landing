@@ -331,6 +331,11 @@ function expandComponents(htmlContent, context, loadedComponents, isEnglish = fa
       if (existingSimulatorRegex.test(result)) {
         result = result.replace(existingSimulatorRegex, `\n            <!-- Sandooq El-Amara — Interactive Android Web Simulator Component (R1) -->\n${compiledComp}`);
       }
+    } else if (compName === 'SEARCH_HUB') {
+      const existingSearchHubRegex = /<section\s+id=["']hero-search-hub["'][\s\S]*?<\/section>/i;
+      if (existingSearchHubRegex.test(result)) {
+        result = result.replace(existingSearchHubRegex, compiledComp);
+      }
     }
   }
 
