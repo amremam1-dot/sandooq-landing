@@ -14,8 +14,8 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="تعرف على معايير الأمان وحماية البيانات المالية في تطبيق صندوق العمارة: التخزين المحلي المشفر، المزامنة السحابية عبر Google Firebase، وسياسة الخصوصية الصارمة." />
-  <title>الأمان وحماية البيانات | تطبيق صندوق العمارة</title>
+  <meta name="description" content="الدليل الرسمي لمعايير الأمان وحماية البيانات المالية في تطبيق صندوق العمارة: التخزين المحلي المشفر AES-256، بروتوكول TLS 1.3، مصادقة Google OAuth، مصفوفة الصلاحيات RBAC، وسجل التدقيق المالي." />
+  <title>الأمان وحماية البيانات المالية المشفرة | تطبيق صندوق العمارة</title>
   <!-- Favicon & Touch Icons for Google Search & Browsers -->
   <link rel="icon" href="favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png" />
@@ -33,24 +33,421 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://sandoqalemara.com/security.html" />
-  <meta property="og:title" content="الأمان وحماية البيانات المالية | تطبيق صندوق العمارة" />
-  <meta property="og:description" content="كيف يحمي صندوق العمارة سجلات عقارك وحساباتك: تخزين محلي معزول، تشفير أثناء النقل، ومزامنة سحابية آمنة." />
+  <meta property="og:title" content="الأمان وحماية البيانات المالية المشفرة | تطبيق صندوق العمارة" />
+  <meta property="og:description" content="تعرف على بنية الأمان الشاملة لحسابات عقارك: تخزين محلي معزول، تشفير عسكري، بنية Google Cloud، وامتثال كامل لقوانين حماية البيانات." />
   <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <style>
-    .security-container { max-width: 920px; margin: 40px auto 80px; padding: 0 24px; }
-    .security-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 44px 36px; box-shadow: var(--shadow-sm); }
-    .security-card h1 { font-size: 2.2rem; font-weight: 800; color: var(--text-main); margin-bottom: 16px; }
-    .security-card h2 { font-size: 1.45rem; font-weight: 700; color: var(--primary-light); margin: 32px 0 14px; }
-    .security-card p, .security-card li { font-size: 1.05rem; color: var(--text-light); line-height: 1.85; margin-bottom: 14px; }
-    .security-card ul { padding-right: 24px; margin-bottom: 24px; }
-    .sec-badge-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 28px 0; }
-    .sec-badge-item { background: var(--card-bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 20px; }
-    .sec-badge-item h3 { font-size: 1.15rem; color: var(--text-main); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .sec-badge-item p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
-    .callout-box { background: rgba(59, 130, 246, 0.08); border-right: 4px solid var(--primary-light); padding: 20px; border-radius: var(--radius-sm); margin: 28px 0; }
+    .security-container { max-width: 1040px; margin: 36px auto 80px; padding: 0 20px; }
+    .security-hero-card {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.25) 0%, rgba(16, 185, 129, 0.15) 100%), var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 44px 36px 36px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .security-hero-card::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sec-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: var(--primary-light);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .security-hero-card h1 {
+      font-size: 2.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .security-hero-card p.lead {
+      font-size: 1.15rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+    .sec-trust-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .sec-trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Metric Grid */
+    .sec-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .sec-metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 22px 18px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .sec-metric-card:hover {
+      border-color: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .sec-metric-num {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--secondary-color);
+      display: block;
+      margin-bottom: 4px;
+      font-family: monospace;
+    }
+    .sec-metric-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .sec-metric-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* Content Cards */
+    .sec-section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .sec-section-card h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sec-section-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      margin: 24px 0 10px;
+    }
+    .sec-section-card p, .sec-section-card li {
+      font-size: 1.02rem;
+      color: var(--text-light);
+      line-height: 1.85;
+      margin-bottom: 12px;
+    }
+    .sec-section-card ul {
+      padding-right: 22px;
+      margin-bottom: 18px;
+    }
+
+    /* Pillars Visual Box */
+    .sec-pillars-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 24px 0;
+    }
+    .sec-pillar-box {
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border-right: 4px solid var(--primary-light);
+      transition: var(--transition);
+    }
+    .sec-pillar-box:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-sm);
+    }
+    .sec-pillar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .sec-pillar-title {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+    }
+    .sec-pillar-tag {
+      font-size: 0.76rem;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--secondary-color);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-weight: 600;
+    }
+
+    /* Role-based Table */
+    .sec-table-wrap {
+      overflow-x: auto;
+      margin: 24px 0 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+    }
+    .sec-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 0.95rem;
+    }
+    .sec-table th {
+      background: var(--card-bg-subtle);
+      color: var(--text-main);
+      padding: 14px 18px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+    .sec-table td {
+      padding: 14px 18px;
+      color: var(--text-light);
+      border-bottom: 1px solid var(--border-light);
+      line-height: 1.6;
+    }
+    .sec-table tr:last-child td {
+      border-bottom: none;
+    }
+    .sec-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .role-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .role-admin { background: rgba(59, 130, 246, 0.15); color: var(--primary-light); }
+    .role-treasurer { background: rgba(16, 185, 129, 0.15); color: var(--secondary-color); }
+    .role-collector { background: rgba(245, 158, 11, 0.15); color: var(--accent-color); }
+    .role-resident { background: rgba(148, 163, 184, 0.15); color: var(--text-muted); }
+
+    /* Comparison Table Responsive */
+    .sec-comp-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+      gap: 1px;
+      background: var(--border-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 24px 0;
+      font-size: 0.92rem;
+    }
+    .sec-comp-cell {
+      background: var(--card-bg);
+      padding: 14px 16px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      line-height: 1.5;
+    }
+    .sec-comp-header {
+      background: var(--card-bg-subtle);
+      font-weight: 800;
+      color: var(--text-main);
+      text-align: center;
+      justify-content: center;
+    }
+    .sec-comp-header.highlight {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--secondary-color);
+    }
+    .sec-comp-cell.highlight {
+      background: rgba(16, 185, 129, 0.04);
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Law Compliance Cards */
+    .sec-compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin: 24px 0;
+    }
+    .sec-compliance-item {
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 22px;
+    }
+    .sec-compliance-item h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sec-compliance-item p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* FAQ accordion adjustments */
+    .sec-faq-item {
+      background: var(--card-bg-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .sec-faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      text-align: right;
+      color: var(--text-main);
+      font-size: 1.02rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: inherit;
+    }
+    .sec-faq-question:hover {
+      color: var(--primary-light);
+    }
+    .sec-faq-plus {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .sec-faq-item.active .sec-faq-plus {
+      transform: rotate(45deg);
+      color: var(--secondary-color);
+    }
+    .sec-faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease-in-out, padding 0.35s ease;
+      padding: 0 20px;
+      color: var(--text-light);
+      font-size: 0.98rem;
+      line-height: 1.8;
+    }
+    .sec-faq-item.active .sec-faq-answer {
+      max-height: 500px;
+      padding: 0 20px 20px;
+    }
+
+    /* Security Contact Box */
+    .sec-contact-banner {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(30, 58, 138, 0.18) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .sec-contact-info h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .sec-contact-info p {
+      font-size: 0.94rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+    .sec-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-light);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.92rem;
+    }
+    .sec-contact-btn:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    }
+
+    @media (max-width: 900px) {
+      .sec-metric-grid { grid-template-columns: repeat(2, 1fr); }
+      .sec-comp-grid { grid-template-columns: 1fr; }
+      .sec-comp-header { display: none; }
+      .sec-comp-cell { padding: 10px 14px; }
+      .sec-comp-cell.feature-name { background: var(--card-bg-subtle); font-weight: 800; color: var(--text-main); }
+    }
+
+    @media (max-width: 640px) {
+      .security-hero-card { padding: 28px 20px; }
+      .security-hero-card h1 { font-size: 1.75rem; }
+      .sec-section-card { padding: 24px 18px; }
+      .sec-metric-grid { grid-template-columns: 1fr; }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -59,15 +456,68 @@
     "@graph": [
       {
         "@type": "WebPage",
-        "name": "الأمان وحماية البيانات - صندوق العمارة",
+        "name": "الأمان وحماية البيانات المالية المشفرة - صندوق العمارة",
         "url": "https://sandoqalemara.com/security.html",
-        "description": "معايير الأمان وحماية البيانات والخصوصية المتبعة في تطبيق صندوق العمارة."
+        "description": "معايير الأمان والتشفير وحماية البيانات المالية في تطبيق صندوق العمارة: التخزين المعزول محلياً، بروتوكول TLS 1.3، ومصادقة Google OAuth."
       },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://sandoqalemara.com/" },
           { "@type": "ListItem", "position": 2, "name": "الأمان وحماية البيانات", "item": "https://sandoqalemara.com/security.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "هل يستطيع فريق عمل التطبيق أو المطور الاطلاع على رصيد صندوق عمارتنا أو تفاصيل المصروفات؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "لا على الإطلاق. تتبع المنظومة بنية معمارية مشفرة ومنعزلة، حيث تُخزن البيانات محلياً على جهاز أمين الصندوق في قاعدة بيانات SQLite معزولة داخل Android Sandbox. عند تفعيل المزامنة السحابية الاحتياطية، ترتبط البيانات بمعرف حساب Google الخاص بك فقط وتخضع لقواعد أمان Firestore الصارمة التي تمنع أي اطلاع خارجي."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "ماذا يحدث لبيانات العقار إذا ضاع هاتف أمين الصندوق أو تعرض للتلف؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "لن تفقد أي بيانات مالية نهائياً. بمجرد تسجيل دخول أمين الصندوق من أي هاتف جديد باستخدام نفس حساب Google، يتم تنزيل واستعادة كافة السجلات والوحدات والإيصالات السابقة فوراً وبكامل تاريخها المحاسبي."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "هل يطلب التطبيق أرقام البطاقات الائتمانية أو الحسابات البنكية الخاصة بالسكان؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "كلا، تطبيق صندوق العمارة لا يطلب ولا يخزن أي أرقام بطاقات ائتمانية (Visa أو Mastercard) أو أرقام سرية بنكية. التحصيل يتم نقدياً أو عبر المحافظ الإلكترونية المباشرة (مثل إنستاباي وفودافون كاش)، ويسجل التطبيق القيود المحاسبية فقط دون الوصول للأموال أو الحسابات المصرفية."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "كيف يمنع التطبيق التلاعب بالتواريخ أو تغيير قيم الإيصالات بعد سدادها؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "تعتمد المنظومة سجلاً مالياً غير قابل للتلاعب (Immutable Audit Trail). كل إيصال سداد يصدر بكود تحقق رقمي فريد ومختوم بالوقت والتاريخ الحقيقي، ولا يمكن تعديل أو حذف أي قيد تاريخي دون تسجيل حركة تدقيقية عكسية تظهر في التقارير المالية للجمعية العمومية."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "هل يستطيع أي ساكن الاطلاع على المبالغ التي دفعها جيرانه في العمارة؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "لا. تطبق المنظومة سياسة صارمة لتدرج الصلاحيات (Role-Based Access Control). يرى الساكن كشف حسابه الشخصي ومدفوعاته وإيصالاته الخاصة فقط، إلى جانب التقرير الإجمالي المعتمد لمصروفات العمارة العامة دون كشف أي أرقام أو خصوصيات مالية للشقق الأخرى."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "كيف يمكننا حذف كافة بيانات عماراتنا وسجلاتنا نهائياً عند الرغبة؟",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "حق حذف البيانات مكفول بالكامل وبنقرة زر واحدة. يمكنك في أي وقت مسح قاعدة البيانات المحلية من إعدادات التطبيق، وحذف السجلات السحابية المرتبطة بحسابك بشكل فوري ودائم، أو تقديم طلب عبر صفحة حذف الحساب المخصصة."
+            }
+          }
         ]
       }
     ]
@@ -172,66 +622,400 @@
 
   <main class="security-container">
     <nav class="breadcrumb-nav" aria-label="مسار التنقل">
-      <a href="/">الرئيسية</a> &gt; <strong>الأمان وحماية البيانات</strong>
+      <a href="./">الرئيسية</a> &gt; <strong>الأمان وحماية البيانات</strong>
     </nav>
 
-    <article class="security-card">
-      <h1>الأمان وحماية البيانات في صندوق العمارة</h1>
-      <p class="lead" style="font-size: 1.15rem; color: var(--text-main); font-weight: 600; line-height: 1.8;">
-        نحن ندرك أن البيانات المالية للعقارات وحسابات اشتراكات السكان تتطلب سرية وموثوقية عالية. توضح هذه الصفحة التدابير التقنية والسياسات المتبعة لحماية معلوماتك.
+    <!-- Top Hero Section -->
+    <section class="security-hero-card">
+      <div class="sec-hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>الأمان المؤسسي والخصوصية المالية المشددة</span>
+      </div>
+      <h1>الأمان وحماية البيانات في منظومة صندوق العمارة</h1>
+      <p class="lead">
+        تعتبر إدارة ماليات العقارات السكنية واتحادات الشاغلين أمانة ومسؤولية كبرى. صُممت بنية تطبيق <strong>صندوق العمارة</strong> وفق مبدأ <em>"الأمان بالتصميم والخصوصية أولاً" (Privacy-First & Security by Design)</em>، لضمان حماية سجلات العمارة وأموال الصندوق وخصوصية الملاك والسكان بأعلى معايير التشفير والعزل المعمول بها عالمياً.
       </p>
 
-      <div class="sec-badge-box">
-        <div class="sec-badge-item">
-          <h3>📱 تخزين محلي معزول</h3>
-          <p>تُحفظ قاعدة البيانات داخل مساحة التخزين الداخلية المحمية لنظام أندرويد (App Sandbox)، ولا يمكن للتطبيقات الأخرى الوصول إليها.</p>
-        </div>
-        <div class="sec-badge-item">
-          <h3>🔒 تشفير أثناء النقل</h3>
-          <p>تتم جميع عمليات المزامنة والتواصل مع الخوادم السحابية عبر بروتوكول HTTPS المشفر بأحدث شهادات TLS.</p>
-        </div>
-        <div class="sec-badge-item">
-          <h3>☁️ بنية Google Cloud السحابية</h3>
-          <p>تعتمد المزامنة السحابية الاحتياطية على منصة Google Firebase المعتمدة عالمياً بأعلى معايير حماية مراكز البيانات.</p>
-        </div>
+      <div class="sec-trust-pills">
+        <span class="sec-trust-pill">🛡️ عزل تام لقاعدة البيانات محلياً (Android Sandbox)</span>
+        <span class="sec-trust-pill">🔐 تشفير عسكري أثناء النقل (TLS 1.3)</span>
+        <span class="sec-trust-pill">☁️ بنية Google Cloud & Firebase العالمية</span>
+        <span class="sec-trust-pill">🚫 خلو تام 100% من الإعلانات والتتبع</span>
+        <span class="sec-trust-pill">⚖️ امتثال لقانون حماية البيانات وقانون 119</span>
+      </div>
+    </section>
+
+    <!-- 4 Quick Key Metrics -->
+    <div class="sec-metric-grid">
+      <div class="sec-metric-card">
+        <span class="sec-metric-num">AES-256</span>
+        <div class="sec-metric-title">تشفير التخزين</div>
+        <p class="sec-metric-desc">تشفير الملفات والعتاد المدمج بنظام أندرويد المعزول.</p>
       </div>
 
-      <h2>1. نموذج العمل بدون إنترنت (Offline-First Isolation)</h2>
+      <div class="sec-metric-card">
+        <span class="sec-metric-num">TLS 1.3</span>
+        <div class="sec-metric-title">تشفير النقل السحابي</div>
+        <p class="sec-metric-desc">حماية القنوات والمزامنة من أي تنصت أو هجمات اعتراض.</p>
+      </div>
+
+      <div class="sec-metric-card">
+        <span class="sec-metric-num">0% Trackers</span>
+        <div class="sec-metric-title">صفر برمجيات تتبع</div>
+        <p class="sec-metric-desc">لا إعلانات، لا بيع بيانات، ولا مشاركة مع أي طرف خارجي.</p>
+      </div>
+
+      <div class="sec-metric-card">
+        <span class="sec-metric-num">100% Owner</span>
+        <div class="sec-metric-title">ملكية كاملة ومطلقة</div>
+        <p class="sec-metric-desc">حقك الكامل في تصدير البيانات أو حذفها نهائياً بضغطة زر.</p>
+      </div>
+    </div>
+
+    <!-- Section 1: Core Architecture & The 5 Pillars -->
+    <section class="sec-section-card">
+      <h2>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <span>المحاور الأمنية الخمسة لحماية المنظومة (The 5 Security Pillars)</span>
+      </h2>
       <p>
-        تم تصميم التطبيق ليعمل محلياً بالكامل على هاتفك دون إلزامية الاتصال المستمر بالإنترنت. هذا يعني أن كافة حساباتك وسجلات الدفع والمصروفات محفوظة على جهازك، ويمكنك استخدام التطبيق في أي وقت حتى في الأماكن التي تفتقر لتغطية الشبكة.
+        تعتمد منظومة صندوق العمارة استراتيجية الدفاع في العمق (Defense in Depth) لضمان حماية بياناتك المحاسبية على جميع المستويات، بدءاً من رقاقة المعالج في هاتفك وحتى خوادم المزامنة السحابية:
       </p>
 
-      <h2>2. المزامنة السحابية والمصادقة الآمنة</h2>
+      <div class="sec-pillars-list">
+        <!-- Pillar 1 -->
+        <div class="sec-pillar-box">
+          <div class="sec-pillar-header">
+            <h3 class="sec-pillar-title">
+              <span>1. أمان الجهاز والتخزين المعزول (Hardware-Backed Local Isolation)</span>
+            </h3>
+            <span class="sec-pillar-tag">حماية الجهاز</span>
+          </div>
+          <p>
+            تُحفظ قاعدة البيانات المحلية المبنية بمكتبة Room/SQLite في المجلد الخاص المحمي لنظام أندرويد (App Sandbox)، بحيث يستحيل على أي تطبيق مثبت على هاتفك الوصول إلى ملفات العقار أو قراءتها.
+          </p>
+          <ul>
+            <li><strong>تشفير الملفات القائم على العتاد (File-Based Encryption FBE):</strong> تستفيد المنظومة من تشفير AES-256 المدعوم بمعالجات الهواتف الحديثة، وتشفير المفاتيح داخل Android Keystore المعزول.</li>
+            <li><strong>قفل التطبيق البيومتري (Biometric Authentication):</strong> يمكنك تفعيل التحقق ببصمة الإصبع أو بصمة الوجه ورمز PIN للدخول إلى التطبيق، لحماية السجلات المالية في حال وقع الهاتف في يد شخص غريب.</li>
+            <li><strong>العمل الكامل بدون إنترنت (Offline-First Isolation):</strong> جميع العمليات والتقارير تُحسب وتُسجل محلياً، ولا يتطلب تشغيل الحسابات الاتصال الدائم بالإنترنت.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="sec-pillar-box">
+          <div class="sec-pillar-header">
+            <h3 class="sec-pillar-title">
+              <span>2. أمان الشبكة ونقل البيانات المشفر (Data-in-Transit & Network Defense)</span>
+            </h3>
+            <span class="sec-pillar-tag">تشفير القنوات</span>
+          </div>
+          <p>
+            عند اتصال التطبيق بالإنترنت لإجراء المزامنة السحابية أو تصدير التقارير، يتم تأمين كافة الاتصالات وفق أحدث المعايير الشبكية المعتمدة دولياً:
+          </p>
+          <ul>
+            <li><strong>بروتوكول TLS 1.3 حصرياً:</strong> يتم تشفير تدفق البيانات بشهادات SSL مشددة من Google Trust Services تمنع هجمات التنصت واعتراض الحزم (Man-in-the-Middle).</li>
+            <li><strong>تثبيت نطاقات الأمان (Network Security Configuration):</strong> يرفض التطبيق الاتصال بأي خادم وسيط غير موثوق به ويمنع قبول شهادات التشفير غير المعتمدة من نظام أندرويد.</li>
+            <li><strong>توليد الإيصالات محلياً:</strong> عند مشاركة إيصالات واتساب، يتم إنشاء نص الإيصال والصورة داخل هاتفك وتمريرها مباشرة لتطبيق واتساب المشفر طرفاً لطرف دون المرور على خوادم وسيطة طرف ثالث.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="sec-pillar-box">
+          <div class="sec-pillar-header">
+            <h3 class="sec-pillar-title">
+              <span>3. البنية السحابية وإدارة الهويات (Cloud Architecture & Identity)</span>
+            </h3>
+            <span class="sec-pillar-tag">بنية Google السحابية</span>
+          </div>
+          <p>
+            تستند خدمة المزامنة السحابية الاحتياطية إلى مراكز بيانات Google Firebase و Google Cloud Platform الأكثر أماناً وموثوقية في العالم:
+          </p>
+          <ul>
+            <li><strong>المصادقة الآمنة عبر Google OAuth 2.0:</strong> تسجيل الدخول لا يتطلب كلمة مرور إضافية؛ بل يتم التحقق عبر حساب Google الرسمي مع تشفير رموز الجلسات (JWT Tokens)، دون أن نصل أبداً لكلمة سر بريدك الإلكتروني.</li>
+            <li><strong>العزل السحابي التام بين العقارات (Multi-Tenant Isolation):</strong> تفرض قواعد الأمان السحابية (Firestore Security Rules) فحصاً لحظياً لهوية المستخدم ومطابقتها مع معرف العمارة (Building ID)، مما يجعل اطلاع أي عمارة على بيانات عمارة أخرى أمراً مستحيلاً برمجياً.</li>
+            <li><strong>شهادات الامتثال العالمية لمراكز البيانات:</strong> مراكز بيانات Google السحابية حاصلة على شهادات ISO/IEC 27001، و SOC 1/2/3، و FedRAMP، و PCI-DSS.</li>
+          </ul>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="sec-pillar-box">
+          <div class="sec-pillar-header">
+            <h3 class="sec-pillar-title">
+              <span>4. الصلاحيات وتدرج الأدوار (Role-Based Access Control - RBAC)</span>
+            </h3>
+            <span class="sec-pillar-tag">التحكم بالصلاحيات</span>
+          </div>
+          <p>
+            تمنع المنظومة إعطاء صلاحيات كاملة ومطلقة لكل شخص يتعامل مع الصندوق، بل تقسم الصلاحيات بدقة بما يضمن الحوكمة المحاسبية:
+          </p>
+
+          <div class="sec-table-wrap">
+            <table class="sec-table">
+              <thead>
+                <tr>
+                  <th>الدور الوظيفي</th>
+                  <th>صلاحيات التحصيل</th>
+                  <th>صلاحيات تسجيل المصروفات</th>
+                  <th>إدارة الصناديق والخزائن</th>
+                  <th>تعديل وحذف السجلات</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="role-badge role-admin">رئيس مجلس الإدارة</span></td>
+                  <td>✅ كاملة</td>
+                  <td>✅ كاملة</td>
+                  <td>✅ إنشاء وترحيل</td>
+                  <td>✅ مع التوثيق في السجل</td>
+                </tr>
+                <tr>
+                  <td><span class="role-badge role-treasurer">أمين الصندوق المعتمد</span></td>
+                  <td>✅ كاملة</td>
+                  <td>✅ كاملة</td>
+                  <td>✅ ترحيل عهد ومصروفات</td>
+                  <td>⚠️ صلاحيات مقيدة ومراقبة</td>
+                </tr>
+                <tr>
+                  <td><span class="role-badge role-collector">المحصل / الحارس (البواب)</span></td>
+                  <td>✅ تسجيل سداد واستخراج إيصال</td>
+                  <td>❌ غير متاح</td>
+                  <td>❌ عهدة نقدية محددة فقط</td>
+                  <td>❌ ممنوع تماماً</td>
+                </tr>
+                <tr>
+                  <td><span class="role-badge role-resident">الساكن / المالك</span></td>
+                  <td>❌ اطلاع على حسابه الشخصي فقط</td>
+                  <td>❌ اطلاع على التقرير الإجمالي العام</td>
+                  <td>❌ غير متاح</td>
+                  <td>❌ ممنوع تماماً</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: 8px;">
+            * ملاحظة: بوابة الملاك تمكن الساكن من متابعة رصيده وسجل مدفوعاته الخاصة فقط، مع حجب أرصدة وأرقام شقق الجيران احتراماً للخصوصية وحماية للسلام الاجتماعي.
+          </p>
+        </div>
+
+        <!-- Pillar 5 -->
+        <div class="sec-pillar-box">
+          <div class="sec-pillar-header">
+            <h3 class="sec-pillar-title">
+              <span>5. سجل التدقيق المالي ومكافحة فقد البيانات (Audit Trail & Disaster Recovery)</span>
+            </h3>
+            <span class="sec-pillar-tag">الحماية من الفقد والتلاعب</span>
+          </div>
+          <p>
+            تعتمد المنظومة آليات محاسبية ذكية تمنع التلاعب بأثر رجعي وتحمي بيانات الصندوق لعشرات السنين:
+          </p>
+          <ul>
+            <li><strong>سجل العمليات المالي التراكمي (Immutable Audit Trail):</strong> كل عملية سداد أو إيصال يصدر بختم زمني وتاريخ ورقم تسلسلي رقمي فريد؛ ولا يمكن حذف أي قيد سداد محاسبي دون إنشاء قيد تدقيقي تسووي معاكس يظهر في تقرير الميزانية السنوية.</li>
+            <li><strong>استراتيجية النسخ الاحتياطي الثلاثية:</strong>
+              1) قاعدة بيانات محلية داخل الهاتف بصيغة `.db`،
+              2) مزامنة سحابية مؤمنة على Google Cloud،
+              3) تصدير حر بضغطة زر لملفات Excel و PDF لحفظها على فلاش ميموري أو كمبيوتر خارجي.
+            </li>
+            <li><strong>استعادة فورية عند تغيير الجهاز:</strong> في حال سرقة الهاتف أو تلفه، يستعيد أمين الصندوق جميع العمارات والوحدات وسجل الدفع فور تسجيل دخوله على الهاتف الجديد دون ضياع مليم واحد.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Security Comparison Matrix -->
+    <section class="sec-section-card">
+      <h2>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+        <span>مقارنة الأمان: الدفاتر الورقية vs الإكسيل vs تطبيق صندوق العمارة</span>
+      </h2>
       <p>
-        عند اختيارك تفعيل المزامنة السحابية لحماية سجلاتك من الضياع، يتم التحقق من هويتك حصرياً عبر Google Sign-In المعتمد من شركة Google، دون الحاجة لإنشاء كلمات مرور إضافية قابلة للاختراق.
+        يوضح الجدول التالي الفارق الجوهري بين الوسائل التقليدية القديمة لإدارة العمارة والمنظومة الرقمية المشفرة:
+      </p>
+
+      <div class="sec-comp-grid">
+        <div class="sec-comp-cell sec-comp-header">معيار الأمان والحماية</div>
+        <div class="sec-comp-cell sec-comp-header">دفاتر الوصولات الورقية</div>
+        <div class="sec-comp-cell sec-comp-header">شيتات Excel المشتركة</div>
+        <div class="sec-comp-cell sec-comp-header highlight">تطبيق صندوق العمارة 🛡️</div>
+
+        <div class="sec-comp-cell feature-name">الحماية من التلف أو الضياع أو الحريق</div>
+        <div class="sec-comp-cell">❌ ضياع كامل ولا يمكن استرجاعها</div>
+        <div class="sec-comp-cell">⚠️ عرضة لمسح الملف أو عطل الهارد</div>
+        <div class="sec-comp-cell highlight">✅ حماية ثلاثية سحابية ومحلية دائمة</div>
+
+        <div class="sec-comp-cell feature-name">منع التلاعب وتعديل المبالغ بأثر رجعي</div>
+        <div class="sec-comp-cell">❌ يمكن قطع الورقة أو التعديل بالقلم</div>
+        <div class="sec-comp-cell">❌ أي شخص يملك الملف يستطيع تعديل الخانات</div>
+        <div class="sec-comp-cell highlight">✅ سجل تدقيق محاسبي غير قابل للتلاعب</div>
+
+        <div class="sec-comp-cell feature-name">سرية بيانات الجيران والمبالغ الخاصة</div>
+        <div class="sec-comp-cell">❌ الدفتر مكشوف لكل من يمسكه</div>
+        <div class="sec-comp-cell">❌ الشيت المشترك يكشف حسابات كل الشقق</div>
+        <div class="sec-comp-cell highlight">✅ بوابة خاصة للساكن تعرض حسابه الشخصي فقط</div>
+
+        <div class="sec-comp-cell feature-name">قفل الدخول والتحقق البيومتري بالبصمة</div>
+        <div class="sec-comp-cell">❌ غير متاح</div>
+        <div class="sec-comp-cell">❌ غير متاح في معظم الأجهزة</div>
+        <div class="sec-comp-cell highlight">✅ مدعوم عبر بصمة الإصبع والوجه ورمز PIN</div>
+
+        <div class="sec-comp-cell feature-name">التوافق مع قانون البناء 119 ولائحة الصندوق</div>
+        <div class="sec-comp-cell">⚠️ صعوبة استخراج كشوفات الجمعية العمومية</div>
+        <div class="sec-comp-cell">⚠️ أخطاء يدوية متكررة في المعادلات</div>
+        <div class="sec-comp-cell highlight">✅ تقارير محاسبية معتمدة جاهزة للطباعة</div>
+      </div>
+    </section>
+
+    <!-- Section 3: Compliance & Legal Alignment -->
+    <section class="sec-section-card">
+      <h2>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+        <span>الامتثال القانوني وحوكمة البيانات (Legal & Regulatory Compliance)</span>
+      </h2>
+      <p>
+        تخضع منظومة صندوق العمارة لأطر تشريعية وقانونية صارمة تضمن حماية خصوصية الأفراد وسلامة القيود المالية:
+      </p>
+
+      <div class="sec-compliance-grid">
+        <div class="sec-compliance-item">
+          <h4>⚖️ قانون حماية البيانات الشخصية المصري (رقم 151 لسنة 2020)</h4>
+          <p>
+            نلتزم بكافة بنود قانون حماية البيانات الشخصية؛ حيث لا يتم جمع أي بيانات دون موافقة مسبقة، وتُعالج البيانات فقط لغرض إدارة ماليات العقار، مع حق المستخدم في طلب نسخة من بياناته أو محوها بالكامل.
+          </p>
+        </div>
+
+        <div class="sec-compliance-item">
+          <h4>🏢 قانون البناء الموحد المصري (رقم 119 لسنة 2008 ولائحته)</h4>
+          <p>
+            تتوافق تقارير التطبيق مع متطلبات الجهاز التنفيذي والجمعيات العمومية لاتحادات الشاغلين في حفظ السجلات المحاسبية وقوائم الإيرادات والمصروفات لمدة لا تقل عن 5 سنوات قابلة للمراجعة والتدقيق القانوني.
+          </p>
+        </div>
+
+        <div class="sec-compliance-item">
+          <h4>🌍 مبادئ اللائحة الأوروبية لحماية البيانات (GDPR Principles)</h4>
+          <p>
+            نطبق مبدأ <em>تقليل البيانات (Data Minimization)</em>؛ فلا نطلب أرقام بطاقات الرقم القومي أو أرقام بطاقات الائتمان أو بيانات حساسة لا يحتاجها حساب الاشتراكات، مع تكريس <em>حق النسيان الكامل (Right to be Forgotten)</em>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Responsible Disclosure Policy -->
+    <section class="sec-section-card">
+      <h2>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        <span>سياسة الإفصاح المسؤول عن الثغرات (Responsible Disclosure Policy)</span>
+      </h2>
+      <p>
+        نرحب دائماً بالتعاون مع الباحثين الأمنيين ومجتمع المطورين المستقلين لحماية المنظومة ومستخدميها. إذا اكتشفت أي ثغرة أمنية أو سلوك تقني غير متوقع، نرجو منك اتباع الخطوات التالية:
       </p>
       <ul>
-        <li>يتم ربط قاعدة بيانات العقار بمعرف حسابك السحابي فقط، ولا يتمكن أي مستخدم آخر من الوصول إليها.</li>
-        <li>لا نصل أبداً إلى كلمات مرور بريدك الإلكتروني، حيث تتم المصادقة عبر بروتوكول OAuth 2.0 المعتمد.</li>
+        <li>مراسلتنا مباشرة على بريد فريق الأمان: <strong style="color: var(--primary-light);">security@sandoqalemara.com</strong> أو <strong style="color: var(--primary-light);">amr@sandoqalemara.com</strong> مع شرح تفصيلي وخطوات إعادة إنتاج الثغرة (PoC).</li>
+        <li>الالتزام بعدم استغلال الثغرة في الإضرار بالمستخدمين أو كشف بيانات عقارات حقيقية.</li>
+        <li>منح فريق التطوير مهلة معقولة لمعالجة المشكلة قبل أي إعلان عام.</li>
       </ul>
-
-      <h2>3. سياسة عدم بيع البيانات أو مشاركتها</h2>
       <p>
-        نلتزم التزاماً كاملاً بعدم بيع، أو تأجير، أو مشاركة أي بيانات شخصية، أرقام شقق، أو سجلات مالية خاصة بك أو بالسكان مع أي جهات خارجية أو شبكات إعلانية. بياناتك تستخدم فقط لأداء المهام التي تطلبها داخل التطبيق.
+        <strong>تعهد الاستجابة (SLA):</strong> يتعهد فريق الأمان بالرد الأولي على أي بلاغ أمني خلال <strong>24 ساعة عمل كحد أقصى</strong>، والعمل فوراً على سد الثغرة وإطلاق تحديث وقائي لكافة المستخدمين، مع إدراج اسم الباحث في لوحة الشكر والتقدير.
       </p>
+    </section>
 
-      <h2>4. النسخ الاحتياطي اليدوي والتحكم الكامل</h2>
-      <p>
-        يتيح لك التطبيق إنشاء نسخة احتياطية محلية متكاملة لبيانات العقار في أي وقت، وحفظها أو مشاركتها مع Google Drive الخاص بك أو تصديرها كملف Excel، مما يمنحك استقلالية تامة واحتفاظاً شخصياً بسجلاتك.
-      </p>
+    <!-- Section 5: Security FAQ -->
+    <section class="sec-section-card">
+      <h2>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        <span>الأسئلة الشائعة حول الأمان والخصوصية (Security FAQ)</span>
+      </h2>
 
-      <h2>5. حق حذف الحساب والبيانات نهائياً</h2>
-      <p>
-        نحترم حقك المطلق في التحكم ببياناتك. يمكنك في أي وقت مسح كافة بيانات العقار من هاتفك ومن السحابة بنقرة زر واحدة من داخل التطبيق، أو عبر زيارة صفحة <a href="delete-account.html" style="color: var(--primary-light); text-decoration: underline;">طلب حذف الحساب والبيانات</a>.
-      </p>
+      <div class="sec-faq-wrap">
+        <!-- Q1 -->
+        <div class="sec-faq-item">
+          <button type="button" class="sec-faq-question faq-trigger">
+            <span>هل يستطيع فريق عمل التطبيق أو المطور الاطلاع على رصيد صندوق عمارتنا أو تفاصيل المصروفات؟</span>
+            <span class="sec-faq-plus">+</span>
+          </button>
+          <div class="sec-faq-answer faq-panel">
+            <p>
+              لا على الإطلاق. تتبع المنظومة بنية معمارية مشفرة ومنعزلة، حيث تُخزن البيانات محلياً على جهاز أمين الصندوق في قاعدة بيانات SQLite معزولة داخل بيئة Android Sandbox المحمية. عند تفعيل المزامنة السحابية الاحتياطية، ترتبط البيانات بمعرف حساب Google الخاص بك فقط وتخضع لقواعد أمان Firestore الصارمة التي تمنع أي اطلاع خارجي حتى من قِبل موظفي الدعم الفني، إلا إذا طلبت بنفسك فحص مشكلة تقنية محددة وبإذن صريح منك.
+            </p>
+          </div>
+        </div>
 
-      <div class="callout-box">
-        <h3 style="font-size: 1.15rem; margin-bottom: 8px; color: var(--text-main);">تواصل مع مسؤول الأمان والدعم الفني</h3>
-        <p style="margin: 0; font-size: 0.98rem; color: var(--text-light);">
-          إذا كان لديك أي استفسار أمني أو ملاحظة تقنية، يمكنك مراسلتنا مباشرة على البريد الرسمي: <strong>amr@sandoqalemara.com</strong>
-        </p>
+        <!-- Q2 -->
+        <div class="sec-faq-item">
+          <button type="button" class="sec-faq-question faq-trigger">
+            <span>ماذا يحدث لبيانات العقار إذا ضاع هاتف أمين الصندوق أو تعرض للتلف؟</span>
+            <span class="sec-faq-plus">+</span>
+          </button>
+          <div class="sec-faq-answer faq-panel">
+            <p>
+              لن تفقد أي بيانات مالية نهائياً. بمجرد تسجيل دخول أمين الصندوق من أي هاتف أندرويد جديد باستخدام نفس حساب Google المشترك به، يتم تنزيل واستعادة كافة السجلات والوحدات وسجل الإيصالات السابقة فوراً وبكامل تاريخها المحاسبي، كما يمكنك في أي وقت استعادة نسخة احتياطية محلية كنت قد حفظتها مسبقاً على Google Drive أو جهاز الكمبيوتر.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="sec-faq-item">
+          <button type="button" class="sec-faq-question faq-trigger">
+            <span>هل يطلب التطبيق أرقام البطاقات الائتمانية أو الحسابات البنكية الخاصة بالسكان؟</span>
+            <span class="sec-faq-plus">+</span>
+          </button>
+          <div class="sec-faq-answer faq-panel">
+            <p>
+              كلا، تطبيق صندوق العمارة لا يطلب ولا يخزن أي أرقام بطاقات ائتمانية (Visa أو Mastercard) أو أرقام سرية بنكية (CVV/PIN). التحصيل يتم نقدياً أو عبر المحافظ الإلكترونية المباشرة بين السكان وأمين الصندوق (مثل تطبيق إنستاباي، فودافون كاش، والتحويل البنكي المباشر)، ويسجل التطبيق القيود المحاسبية وإيصالات السداد فقط دون الوصول إلى أموال السكان أو سحب مليم واحد من حساباتهم.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="sec-faq-item">
+          <button type="button" class="sec-faq-question faq-trigger">
+            <span>كيف يمنع التطبيق التلاعب بالتواريخ أو تغيير قيم الإيصالات بعد سدادها؟</span>
+            <span class="sec-faq-plus">+</span>
+          </button>
+          <div class="sec-faq-answer faq-panel">
+            <p>
+              تعتمد المنظومة سجلاً مالياً غير قابل للتلاعب (Immutable Audit Trail). كل إيصال سداد يصدر بكود تحقق رقمي فريد ومختوم بالوقت والتاريخ الحقيقي، ولا يمكن تعديل أو حذف أي قيد تاريخي دون تسجيل حركة تدقيقية عكسية تظهر في التقارير المالية للجمعية العمومية، مما يوفر حماية كاملة لأمين الصندوق من أي تشكيك ويوفر الشفافية المطلقة للسكان.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="sec-faq-item">
+          <button type="button" class="sec-faq-question faq-trigger">
+            <span>هل يستطيع أي ساكن الاطلاع على المبالغ التي دفعها جيرانه في العمارة؟</span>
+            <span class="sec-faq-plus">+</span>
+          </button>
+          <div class="sec-faq-answer faq-panel">
+            <p>
+              لا. تطبق المنظومة سياسة صارمة لتدرج الصلاحيات (Role-Based Access Control). يرى الساكن كشف حسابه الشخصي ومدفوعاته وإيصالاته الخاصة فقط، إلى جانب التقرير الإجمالي المعتمد لمصروفات العمارة العامة دون كشف أي أرقام أو خصوصيات مالية للشقق الأخرى، وذلك حفظاً للسلام المجتمعي وحسن الجوار.
+            </p>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="sec-faq-item">
+          <button type="button" class="sec-faq-question faq-trigger">
+            <span>كيف يمكننا حذف كافة بيانات عماراتنا وسجلاتنا نهائياً عند الرغبة؟</span>
+            <span class="sec-faq-plus">+</span>
+          </button>
+          <div class="sec-faq-answer faq-panel">
+            <p>
+              حق حذف البيانات مكفول بالكامل وبنقرة زر واحدة. يمكنك في أي وقت مسح قاعدة البيانات المحلية من إعدادات التطبيق، وحذف السجلات السحابية المرتبطة بحسابك بشكل فوري ودائم، أو التوجه مباشرة لصفحة <a href="./delete-account.html" style="color: var(--primary-light); text-decoration: underline;">طلب حذف الحساب والبيانات</a> ليتم محو كافة السجلات المرتبطة بالبريد الإلكتروني من قواعد البيانات السحابية نهائياً.
+            </p>
+          </div>
+        </div>
       </div>
-    </article>
+    </section>
+
+    <!-- Security Contact & Direct Officer -->
+    <div class="sec-contact-banner">
+      <div class="sec-contact-info">
+        <h4>هل لديك استفسار أمني محدد أو طلب تدقيق خاص؟</h4>
+        <p>فريق الأمان والدعم الهندسي المباشر متاح للإجابة على كافة التساؤلات الفنية لضمان راحة بالك وراحة بال ملاك عقارك.</p>
+      </div>
+      <a href="mailto:security@sandoqalemara.com?subject=Security%20Inquiry%20-%20Sandooq%20El-Amara" class="sec-contact-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        <span>تواصل مع مسؤول الأمان</span>
+      </a>
+    </div>
   </main>
 
   <!-- TEMPLATE: FOOTER -->
@@ -394,5 +1178,25 @@
 <script src="./js/search.js" defer></script>
 <script src="./js/quiz.js" defer></script>
 <!-- /TEMPLATE: SCRIPTS -->
+
+  <script>
+    // Progressive Enhancement for Accordion in Security page
+    document.addEventListener("DOMContentLoaded", function () {
+      const questions = document.querySelectorAll(".sec-faq-question");
+      questions.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const item = this.closest(".sec-faq-item");
+          const isActive = item.classList.contains("active");
+          // Close all other items
+          document.querySelectorAll(".sec-faq-item").forEach(function (other) {
+            other.classList.remove("active");
+          });
+          if (!isActive) {
+            item.classList.add("active");
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
