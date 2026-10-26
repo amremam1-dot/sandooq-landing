@@ -730,14 +730,14 @@ function updateGuidesHub() {
       cat = 'finance';
       catBadge = '📊 المالية والمحاسبة';
       icon = '💵';
+    } else if (slug.includes('elevator') || slug.includes('electric') || slug.includes('solar') || slug.includes('power') || slug.includes('ev-') || slug.includes('generator') || slug.includes('surge') || slug.includes('inverter') || slug.includes('satellite') || slug.includes('energy-audit') || slug.includes('gas')) {
+      cat = 'elevator';
+      catBadge = '⚡ المصاعد والطاقة والكهرباء';
+      icon = '⚡';
     } else if (slug.includes('water') || slug.includes('pump') || slug.includes('drain') || slug.includes('leak') || slug.includes('sewage') || slug.includes('tank') || slug.includes('filtration') || slug.includes('riser') || slug.includes('harvesting')) {
       cat = 'water';
       catBadge = '💧 السباكة والصرف والمياه';
       icon = '💧';
-    } else if (slug.includes('elevator') || slug.includes('electric') || slug.includes('solar') || slug.includes('power') || slug.includes('ev-') || slug.includes('generator') || slug.includes('surge') || slug.includes('inverter') || slug.includes('satellite') || slug.includes('energy-audit')) {
-      cat = 'elevator';
-      catBadge = '⚡ المصاعد والطاقة والكهرباء';
-      icon = '🛗';
     } else if (slug.includes('cctv') || slug.includes('guard') || slug.includes('fire') || slug.includes('security') || slug.includes('access') || slug.includes('burglary') || slug.includes('emergency') || slug.includes('insurance') || slug.includes('pest')) {
       cat = 'security';
       catBadge = '🛡️ الأمن والسلامة والحراسة';
