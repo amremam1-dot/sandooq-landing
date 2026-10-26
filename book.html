@@ -1023,274 +1023,42 @@
       line-height: 1.75;
     }
 
-    /* ==========================================================================
-       Distinctive Luxury Download Counter Card
-       ========================================================================== */
-    .book-counter-card {
-      margin: 20px 0 24px;
-      padding: 16px 20px;
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.09) 0%, rgba(15, 23, 42, 0.85) 60%, rgba(30, 41, 59, 0.9) 100%);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      border-radius: 18px;
-      box-shadow: 
-        0 10px 30px -5px rgba(0, 0, 0, 0.4),
-        0 0 25px rgba(245, 158, 11, 0.12),
-        inset 0 1px 1px rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .book-counter-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 140px;
-      height: 100%;
-      background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.18), transparent 70%);
-      pointer-events: none;
-    }
-    body.light-theme .book-counter-card {
-      background: linear-gradient(135deg, #fffbeb 0%, #ffffff 70%, #fef3c7 100%);
-      border-color: rgba(245, 158, 11, 0.4);
-      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.15), 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-    .book-counter-card.celebrate-pulse {
-      animation: counterPulse 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    @keyframes counterPulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
-      50% { transform: scale(1.02); box-shadow: 0 0 35px 8px rgba(245, 158, 11, 0.45); }
-      100% { transform: scale(1); box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4); }
-    }
-
-    .counter-top-bar {
+        /* Clean Minimal Download Counter */
+    .book-counter-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 12px;
-      margin-bottom: 10px;
+      margin-top: 14px;
       flex-wrap: wrap;
     }
-    .counter-live-badge {
+    .counter-badge {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: rgba(16, 185, 129, 0.14);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      color: #34d399;
-      font-size: 0.76rem;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 999px;
-    }
-    body.light-theme .counter-live-badge {
-      background: #ecfdf5;
-      color: #047857;
-      border-color: #a7f3d0;
-    }
-    .counter-pulse-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-      animation: livePulse 1.8s infinite;
-    }
-    @keyframes livePulse {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-    }
-    .counter-trend-tag {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--gold-light);
-    }
-    body.light-theme .counter-trend-tag {
-      color: var(--gold-dark);
-    }
-
-    .counter-main-stat {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-    .counter-val-wrapper {
-      display: inline-flex;
-      align-items: baseline;
-      font-feature-settings: "tnum";
-      font-variant-numeric: tabular-nums;
-    }
-    .counter-number {
-      font-size: clamp(2.2rem, 3.8vw, 3rem);
-      font-weight: 900;
-      line-height: 1;
-      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.5px;
-    }
-    .counter-plus {
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--gold-light);
-      margin-right: 2px;
-    }
-    .counter-label-group {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .counter-primary-label {
-      font-size: 1.02rem;
-      font-weight: 800;
-      color: var(--text-main);
-    }
-    .counter-sub-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .counter-social-proof {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      flex-wrap: wrap;
-    }
-    body.light-theme .counter-social-proof {
-      border-top-color: rgba(0, 0, 0, 0.06);
-    }
-    .counter-avatars-group {
-      display: flex;
-      align-items: center;
-      direction: ltr;
-    }
-    .counter-avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #1e293b;
-      border: 2px solid #0f172a;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      margin-left: -7px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-    body.light-theme .counter-avatar {
-      background: #f1f5f9;
-      border-color: #ffffff;
-    }
-    .counter-avatar.more-avatar {
-      background: linear-gradient(135deg, #f59e0b, #d97706);
-      color: #1a1a1a;
-      font-size: 0.62rem;
-      font-weight: 900;
-      width: 34px;
-      border-radius: 999px;
-    }
-    .counter-rating-badge {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.78rem;
-    }
-    .counter-stars {
-      color: #fbbf24;
-      letter-spacing: 1.5px;
-      font-size: 0.88rem;
-    }
-    .counter-rating-score {
-      font-weight: 900;
-      color: var(--text-main);
-    }
-    .counter-rating-text {
-      color: var(--text-muted);
-    }
-
-    /* Floating Toast Notification */
-    .book-download-toast {
-      position: fixed;
-      bottom: 84px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: #0f172a;
-      color: #f8fafc;
-      border: 1px solid rgba(245, 158, 11, 0.5);
-      border-radius: 999px;
-      padding: 10px 22px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.5), 0 0 20px rgba(245, 158, 11, 0.25);
-      font-size: 0.88rem;
-      font-weight: 700;
-      z-index: 1000;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      white-space: nowrap;
-    }
-    body.light-theme .book-download-toast {
-      background: #ffffff;
-      color: #0f172a;
-      border-color: #f59e0b;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.15), 0 0 20px rgba(245, 158, 11, 0.2);
-    }
-    .book-download-toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Grand Banner Counter Chip */
-    .grand-counter-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
       background: rgba(245, 158, 11, 0.12);
       border: 1px solid rgba(245, 158, 11, 0.35);
-      padding: 6px 16px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      color: #fef08a;
-      margin-bottom: 22px;
-    }
-    .grand-counter-pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #f59e0b;
-      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
-      animation: livePulse 1.8s infinite;
-    }
-
-    /* Sticky Bar Subtext */
-    .sticky-bar-sub {
-      font-size: 0.72rem;
       color: var(--gold-light);
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full, 9999px);
+      font-size: 0.92rem;
+      font-weight: 700;
     }
-    body.light-theme .sticky-bar-sub {
-      color: var(--gold-dark);
+    .counter-badge strong {
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
-    .sticky-pulse {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #10b981;
-      display: inline-block;
+    body.light-theme .counter-badge {
+      background: #fef3c7;
+      border-color: #fcd34d;
+      color: #b45309;
+    }
+    body.light-theme .counter-badge strong {
+      color: #92400e;
+    }
+    .counter-meta-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
   </style>
   <!-- Immediate Theme Synchronizer (Zero-Flash Light/Dark Mode) -->
@@ -1434,44 +1202,7 @@
             <li><span class="bullet-icon">✓</span> <span>حقيبة المحررات والعقود الرسمية المعتمدة</span></li>
           </ul>
 
-                    <!-- Distinctive Luxury Live Book Downloads Counter Card -->
-          <div class="book-counter-card" id="book-counter-card" aria-label="إحصائيات تحميل وقراءة كتاب دستور العمارة">
-            <div class="counter-top-bar">
-              <span class="counter-live-badge">
-                <span class="counter-pulse-dot"></span>
-                <span>إقبال قياسي مباشر</span>
-              </span>
-              <span class="counter-trend-tag">🔥 الأكثر تحميلاً لعام 2026</span>
-            </div>
-            
-            <div class="counter-main-stat">
-              <div class="counter-val-wrapper">
-                <span class="counter-number" id="live-book-counter">500</span>
-                <span class="counter-plus">+</span>
-              </div>
-              <div class="counter-label-group">
-                <div class="counter-primary-label">نسخة تم تحميلها وقراءتها حتى الآن</div>
-                <div class="counter-sub-label">من قِبل رؤساء اتحادات شاغلين وأمناء صناديق وملاك عقارات في مصر</div>
-              </div>
-            </div>
-
-            <div class="counter-social-proof">
-              <div class="counter-avatars-group" aria-hidden="true">
-                <span class="counter-avatar" title="م. محمد سمير - رئيس اتحاد شاغلين">👨‍💼</span>
-                <span class="counter-avatar" title="د. خالد عبد الرحمن - أمين صندوق">👨‍⚕️</span>
-                <span class="counter-avatar" title="أ. أحمد إبراهيم - مالك عقار">👨‍🏫</span>
-                <span class="counter-avatar" title="م. طارق العوضي - مهندس استشاري">👷</span>
-                <span class="counter-avatar more-avatar">+500</span>
-              </div>
-              <div class="counter-rating-badge">
-                <span class="counter-stars">★★★★★</span>
-                <span class="counter-rating-score">4.9/5</span>
-                <span class="counter-rating-text">(تقييم القراء وأمناء الصناديق)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="book-hero-actions">
+                    <div class="book-hero-actions">
             <a href="manuals/Dostor_ElAmara_Luxury_Edition.pdf" download="Dostor_ElAmara_Luxury_Edition.pdf" class="btn-download-gold" id="hero-download-btn">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
               <span>تحميل الكتاب كاملاً (PDF مجاناً - 6.5 MB)</span>
@@ -1484,9 +1215,14 @@
             </a>
           </div>
 
-          <p style="margin-top: 14px; font-size: 0.85rem; color: var(--text-muted);">
-            🔒 تحميل مباشر مجاني 100% بدون أي رسوم أو تسجيل، متاح بصيغة PDF قابلة للطباعة والبحث.
-          </p>
+          <div class="book-counter-row">
+            <span class="counter-badge">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>التحميلات:</span>
+              <strong id="live-book-counter">522+</strong>
+            </span>
+            <span class="counter-meta-note">تحميل مباشر مجاني بصيغة PDF</span>
+          </div>
         </div>
 
         <!-- Left Side: 3D Mockup -->
@@ -2104,12 +1840,6 @@
       <p>
         انضم لآلاف الملاك وأمناء الصناديق الذين استعادوا هدوء بالهم وحموا أموال عقاراتهم. 76 صفحة A4 ملونة فاخرة مع النماذج والعقود الرسمية جاهزة للتحميل المباشر.
       </p>
-
-            <div class="grand-counter-chip">
-        <span class="grand-counter-pulse"></span>
-        <span>انضم إلى أكثر من <strong id="grand-book-counter">522+</strong> رئيس اتحاد شاغلين وأمين صندوق حملوا نسختهم مجاناً</span>
-      </div>
-
       <div class="grand-cta-actions">
         <a href="manuals/Dostor_ElAmara_Luxury_Edition.pdf" download="Dostor_ElAmara_Luxury_Edition.pdf" class="btn-download-gold" id="footer-download-btn">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -2133,7 +1863,7 @@
       <img src="assets/book/cover_official.webp" alt="غلاف دستور العمارة" width="32" height="42" />
       <div>
         <div class="sticky-bar-text">دستور العمارة (PDF مجاناً)</div>
-        <div class="sticky-bar-sub"><span class="sticky-pulse"></span> <strong id="sticky-book-counter">522+</strong> قارئ حتى الآن</div>
+        
       </div>
     </div>
     <a href="manuals/Dostor_ElAmara_Luxury_Edition.pdf" download="Dostor_ElAmara_Luxury_Edition.pdf" class="sticky-bar-btn">
@@ -2327,125 +2057,39 @@
   </script>
 
   <script>
-    // Live Luxury Book Download Counter Engine
+    // Clean Book Download Counter (Base 500 + Real Visits)
     (function() {
       const BASE_START = 500;
       const INITIAL_REAL_VISITS = 22; // Verified Google Analytics baseline visits
-      const STORAGE_KEY_VISITS = 'sandooq_book_page_visits_v1';
-      const STORAGE_KEY_DOWNLOADS = 'sandooq_book_user_downloads_v1';
+      const STORAGE_KEY_VISITS = 'sandooq_book_visits_v2';
+      const STORAGE_KEY_DOWNLOADS = 'sandooq_book_downloads_v2';
 
-      // 1. Calculate dynamic visits increment
       let sessionVisits = parseInt(localStorage.getItem(STORAGE_KEY_VISITS) || '0', 10);
-      const hasVisitedThisSession = sessionStorage.getItem('sandooq_book_session_counted');
-      
-      if (!hasVisitedThisSession) {
+      if (!sessionStorage.getItem('sandooq_book_session_active')) {
         sessionVisits += 1;
         localStorage.setItem(STORAGE_KEY_VISITS, sessionVisits.toString());
-        sessionStorage.setItem('sandooq_book_session_counted', 'true');
+        sessionStorage.setItem('sandooq_book_session_active', '1');
       }
 
-      // 2. Extra local user downloads (if user clicked download in previous or current session)
       let localDownloads = parseInt(localStorage.getItem(STORAGE_KEY_DOWNLOADS) || '0', 10);
+      const total = BASE_START + INITIAL_REAL_VISITS + (sessionVisits - 1) + localDownloads;
 
-      // 3. Current Total: 500 Base + 22 GA4 Baseline Visits + Unique Sessions + User Downloads
-      const currentTarget = BASE_START + INITIAL_REAL_VISITS + (sessionVisits - 1) + localDownloads;
-
-      // 4. Update all counter elements
       const counterEl = document.getElementById('live-book-counter');
-      const stickyEl = document.getElementById('sticky-book-counter');
-      const grandEl = document.getElementById('grand-book-counter');
-
-      function updateCounterDisplays(val) {
-        if (counterEl) counterEl.textContent = val;
-        if (stickyEl) stickyEl.textContent = val + '+';
-        if (grandEl) grandEl.textContent = val + '+';
+      if (counterEl) {
+        counterEl.textContent = total + '+';
       }
 
-      // 5. Smooth CountUp Animation using IntersectionObserver
-      let animated = false;
-      function animateCountUp(targetVal) {
-        if (animated || !counterEl) return;
-        animated = true;
-
-        const startVal = BASE_START;
-        const duration = 1600; // 1.6s smooth easing
-        const startTime = performance.now();
-
-        function step(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          // Easing: easeOutExpo
-          const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-          const currentVal = Math.round(startVal + (targetVal - startVal) * easeProgress);
-
-          updateCounterDisplays(currentVal);
-
-          if (progress < 1) {
-            requestAnimationFrame(step);
-          } else {
-            updateCounterDisplays(targetVal);
-          }
-        }
-
-        requestAnimationFrame(step);
-      }
-
-      // Trigger CountUp when counter card enters viewport
-      const counterCard = document.getElementById('book-counter-card');
-      if (counterCard && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function(entries) {
-          if (entries[0] && entries[0].isIntersecting) {
-            animateCountUp(currentTarget);
-            observer.disconnect();
-          }
-        }, { threshold: 0.15 });
-        observer.observe(counterCard);
-      } else {
-        animateCountUp(currentTarget);
-      }
-
-      // 6. Interactive Increment on Download Clicks
-      const downloadButtons = document.querySelectorAll(
+      const downloadBtns = document.querySelectorAll(
         '#hero-download-btn, #footer-download-btn, .sticky-bar-btn, .footer-book-btn-primary'
       );
-
-      downloadButtons.forEach(function(btn) {
+      downloadBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
           localDownloads += 1;
           localStorage.setItem(STORAGE_KEY_DOWNLOADS, localDownloads.toString());
-          const newTotal = BASE_START + INITIAL_REAL_VISITS + (sessionVisits - 1) + localDownloads;
-          
-          // Immediate visual bump
-          updateCounterDisplays(newTotal);
-
-          // Visual celebration burst on counter card
-          if (counterCard) {
-            counterCard.classList.add('celebrate-pulse');
-            setTimeout(function() {
-              counterCard.classList.remove('celebrate-pulse');
-            }, 1200);
-          }
-
-          // Show floating celebratory toast
-          showDownloadToast(newTotal);
+          const updated = BASE_START + INITIAL_REAL_VISITS + (sessionVisits - 1) + localDownloads;
+          if (counterEl) counterEl.textContent = updated + '+';
         });
       });
-
-      // Mini Toast Notification
-      function showDownloadToast(total) {
-        let toast = document.getElementById('book-download-toast');
-        if (!toast) {
-          toast = document.createElement('div');
-          toast.id = 'book-download-toast';
-          toast.className = 'book-download-toast';
-          document.body.appendChild(toast);
-        }
-        toast.innerHTML = '<span>🎉</span> <span>مبروك! أصبحت النسخة رقم <strong>' + total + '</strong> بين يديك الآن. قراءة مفيدة وممتعة!</span>';
-        toast.classList.add('show');
-        setTimeout(function() {
-          toast.classList.remove('show');
-        }, 4500);
-      }
     })();
   </script>
 </body>
