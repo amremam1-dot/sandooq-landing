@@ -1,6 +1,16 @@
 User-agent: *
 Allow: /
 
+# Google AdSense & Advertising Crawlers
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Google-Display-Ads-Bot
+Allow: /
+
 # AI Content Signals (RFC / AI Preferences)
 Content-Signal: ai-train=no, search=yes, ai-input=yes
 
