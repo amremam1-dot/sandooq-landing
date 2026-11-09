@@ -205,6 +205,35 @@
       margin-bottom: 20px;
     }
     .breadcrumb-nav a { color: var(--primary-light); }
+
+    .cta-banner-card {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1e293b 100%);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 44px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      margin: 60px auto 40px;
+      max-width: 900px;
+    }
+    .cta-banner-card h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+    .cta-banner-card p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 28px;
+    }
+    .cta-banner-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
   </style>
 
   <script type="application/ld+json">
@@ -353,11 +382,15 @@
         <span class="stat-ribbon-label">Production Releases</span>
       </div>
       <div class="stat-ribbon-card">
-        <span class="stat-ribbon-number blue">450+</span>
+        <span class="stat-ribbon-number blue">36</span>
+        <span class="stat-ribbon-label">Major Development Phases</span>
+      </div>
+      <div class="stat-ribbon-card">
+        <span class="stat-ribbon-number gold">450+</span>
         <span class="stat-ribbon-label">Features & Upgrades</span>
       </div>
       <div class="stat-ribbon-card">
-        <span class="stat-ribbon-number gold">100%</span>
+        <span class="stat-ribbon-number accent">100%</span>
         <span class="stat-ribbon-label">Offline Architecture</span>
       </div>
     </div>
@@ -826,6 +859,22 @@
     </div>
   </main>
 
+
+  <!-- Bottom CTA Banner -->
+  <section class="cta-banner-card">
+    <h2>Start Managing Your Building with the Latest Stable Release (v244)</h2>
+    <p>
+      Join thousands of building treasurers, owners, and residents across Egypt. Enjoy a full 30-day free trial with zero obligations.
+    </p>
+    <div class="cta-banner-actions">
+      <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" class="button primary" style="background: var(--secondary-color); color: #064e3b; font-weight: 800; border: none; padding: 14px 28px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>Download Latest Release on Google Play</span>
+      </a>
+      <a href="../en/#features" class="button secondary" style="padding: 14px 24px;">Explore App Features</a>
+    </div>
+  </section>
+
   <!-- TEMPLATE: FOOTER -->
 <footer class="site-footer">
   <div class="footer-container">
@@ -842,7 +891,7 @@
               </picture>
               <span>Sandooq El-Amara</span>
             </div>
-            <span class="footer-card-pill">Official SaaS</span>
+            <span class="footer-card-pill">Verified Platform</span>
           </div>
           <p class="footer-card-desc">
             The premier residential property and HOA fund management platform in Egypt. Track collections, expenses, and maintenance transparently and with zero errors.
