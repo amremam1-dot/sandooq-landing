@@ -459,13 +459,9 @@ function compilePage(rawContent, fileInfo, templates, components) {
     );
   }
 
-  // Step E3: Ensure Google AdSense Ownership Verification Script in <head>
-  const adSenseScriptTag = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4640495425873996" crossorigin="anonymous"></script>';
-  if (!compiled.includes('ca-pub-4640495425873996')) {
-    if (/<head(?:\s+[^>]*)?>/i.test(compiled)) {
-      compiled = compiled.replace(/(<head(?:\s+[^>]*)?>)/i, `$1\n  <!-- Google AdSense Verification & Loader -->\n  ${adSenseScriptTag}`);
-    }
-  }
+  // Step E3: Strip any Google AdSense Script from <head>
+  compiled = compiled.replace(/\s*<!--\s*Google AdSense Verification & Loader\s*-->\s*<script[^>]*adsbygoogle\.js[^>]*><\/script>/gi, '');
+  compiled = compiled.replace(/\s*<script[^>]*pagead2\.googlesyndication\.com[^>]*><\/script>/gi, '');
 
   // Step F: Expand Body Components (HERO_SIMULATOR, SEARCH_HUB, DIAGNOSTIC_QUIZ)
   compiled = expandComponents(compiled, context, components, isEnglish);
@@ -482,53 +478,12 @@ function compilePage(rawContent, fileInfo, templates, components) {
     compiled = compiled.replace(/src="script\.js"/g, `src="${bp}/script.js"`);
   }
 
-  // Step H: Utility Content Pages Ad Rails & Mobile Banner Layout (Non-Intrusive Monetization)
-  const cleanRelNoLang = isEnglish ? fileInfo.relPath.replace(/^en\/?/, '') : fileInfo.relPath;
-  const isIndividualTool = cleanRelNoLang.startsWith('tools/') && cleanRelNoLang !== 'tools/' && cleanRelNoLang !== 'tools/index.html';
-  const isIndividualGuide = cleanRelNoLang.startsWith('guides/') && cleanRelNoLang !== 'guides/' && cleanRelNoLang !== 'guides/index.html';
-  const isIndividualSolution = cleanRelNoLang.startsWith('solutions/') && cleanRelNoLang !== 'solutions/' && cleanRelNoLang !== 'solutions/index.html';
-  const isManual = cleanRelNoLang === 'manual.html';
-  const isTargetAdPage = isIndividualTool || isIndividualGuide || isIndividualSolution || isManual;
-
-  // 1. Unwrap existing AD_LAYOUT boundary if previously compiled to guarantee clean idempotency
+  // Step H: Ensure AD_LAYOUT and mobile ads are cleanly unwrapped / removed
   const existingAdLayoutRegex = /<!--\s*TEMPLATE:\s*AD_LAYOUT\s*-->[\s\S]*?(<main\b[\s\S]*?<\/main>)[\s\S]*?<!--\s*\/TEMPLATE:\s*AD_LAYOUT\s*-->/i;
   if (existingAdLayoutRegex.test(compiled)) {
     compiled = compiled.replace(existingAdLayoutRegex, '$1');
   }
   compiled = compiled.replace(/\s*<!--\s*TEMPLATE:\s*AD_MOBILE_BOTTOM\s*-->[\s\S]*?<!--\s*\/TEMPLATE:\s*AD_MOBILE_BOTTOM\s*-->/gi, '');
-
-  // 2. Wrap if target ad page
-  if (isTargetAdPage) {
-    const rawRailRight = isEnglish ? (components.AD_RAIL_RIGHT_EN || components.AD_RAIL_RIGHT) : components.AD_RAIL_RIGHT;
-    const rawRailLeft = isEnglish ? (components.AD_RAIL_LEFT_EN || components.AD_RAIL_LEFT) : components.AD_RAIL_LEFT;
-    const rawMobileBottom = isEnglish ? (components.AD_MOBILE_BOTTOM_EN || components.AD_MOBILE_BOTTOM) : components.AD_MOBILE_BOTTOM;
-
-    if (rawRailRight && rawRailLeft && rawMobileBottom) {
-      const compiledRailRight = interpolate(rawRailRight, context).trim();
-      const compiledRailLeft = interpolate(rawRailLeft, context).trim();
-      const compiledMobileBottom = interpolate(rawMobileBottom, context).trim();
-
-      const mainRegex = /(<main\b[\s\S]*?)(<\/main>)/i;
-      const match = compiled.match(mainRegex);
-      if (match) {
-        let mainBody = match[1].trimEnd();
-        const mobileAdBlock = `\n\n  <!-- TEMPLATE: AD_MOBILE_BOTTOM -->\n${compiledMobileBottom}\n  <!-- /TEMPLATE: AD_MOBILE_BOTTOM -->\n`;
-
-        // Place mobile ad in high-visibility position: directly after calculator card or before first section in guides
-        if (isIndividualTool && /(<\/div>\s*(?:<!--[^\n]*-->\s*)*)(?=<div\s+class=["'](?:calc-guide-content|quick-guide-card|printable-area|help-section))/i.test(mainBody)) {
-          mainBody = mainBody.replace(/(<\/div>\s*(?:<!--[^\n]*-->\s*)*)(?=<div\s+class=["'](?:calc-guide-content|quick-guide-card|printable-area|help-section))/i, `$1${mobileAdBlock}\n`);
-        } else if ((isIndividualGuide || isIndividualSolution || isManual) && /(?=<h2\b)/i.test(mainBody)) {
-          mainBody = mainBody.replace(/(?=<h2\b)/i, `${mobileAdBlock}\n`);
-        } else {
-          mainBody = `${mainBody}${mobileAdBlock}`;
-        }
-
-        const mainWithMobileAd = `${mainBody}\n${match[2]}`;
-        const wrapped = `<!-- TEMPLATE: AD_LAYOUT -->\n<div class="page-with-ads-layout">\n  <!-- TEMPLATE: AD_RAIL_RIGHT -->\n${compiledRailRight}\n  <!-- /TEMPLATE: AD_RAIL_RIGHT -->\n\n${mainWithMobileAd}\n\n  <!-- TEMPLATE: AD_RAIL_LEFT -->\n${compiledRailLeft}\n  <!-- /TEMPLATE: AD_RAIL_LEFT -->\n</div>\n<!-- /TEMPLATE: AD_LAYOUT -->`;
-        compiled = compiled.replace(mainRegex, wrapped);
-      }
-    }
-  }
 
   return compiled;
 }
