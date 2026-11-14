@@ -736,7 +736,7 @@ function updateGuidesHub() {
       cat = 'water';
       catBadge = '💧 السباكة والصرف والمياه';
       icon = '💧';
-    } else if (slug.includes('cctv') || slug.includes('guard') || slug.includes('fire') || slug.includes('security') || slug.includes('access') || slug.includes('burglary') || slug.includes('emergency') || slug.includes('insurance') || slug.includes('pest')) {
+    } else if (slug.includes('cctv') || slug.includes('guard') || slug.includes('gatekeeper') || slug.includes('doorman') || slug.includes('fire') || slug.includes('security') || slug.includes('access') || slug.includes('burglary') || slug.includes('emergency') || slug.includes('insurance') || slug.includes('pest')) {
       cat = 'security';
       catBadge = '🛡️ الأمن والسلامة والحراسة';
       icon = '🛡️';
