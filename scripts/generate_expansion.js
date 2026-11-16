@@ -744,6 +744,10 @@ function updateGuidesHub() {
       cat = 'garage';
       catBadge = '🅿️ الجراجات واللاندسكيب';
       icon = '🅿️';
+    } else if (slug.includes('facade') || slug.includes('paint') || slug.includes('restoration') || slug.includes('repair') || slug.includes('crack') || slug.includes('balcony') || slug.includes('structural') || slug.includes('earthquake') || slug.includes('chute') || slug.includes('accessibility')) {
+      cat = 'maintenance';
+      catBadge = '🛠️ الهندسة والسلامة والترميم';
+      icon = '🏗️';
     } else {
       cat = 'collection';
       catBadge = '📱 الجيرة الطيبة والكومباوند';
