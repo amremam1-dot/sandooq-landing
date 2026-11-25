@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R8XXF32BFW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R8XXF32BFW');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>توصيل وتنظيم شبكات الألياف الضوئية (الفايبر FTTH) وبوكسات الإنترنت في العمارة السكنية: الكود الهندسي، مسارات الصواعد، ومنع تشويه الواجهة | صندوق العمارة</title>
+  <meta name="description" content="الدليل الهندسي والإداري الشامل لتنظيم توصيل كابلات الألياف الضوئية (الفايبر FTTH) وبوكسات الإنترنت في العمارات السكنية في مصر والعالم العربي: اشتراطات الكود المصري للاتصالات وهيئة الاتصالات السعودية (FDB/FAB)، منع تعليق الأسلاك العشوائية على الواجهات، مسارات الصواعد والمواسير في المناور، التعامل مع الموافقة الجماعية وبروتوكول الفنيين، وتنظيم المشروع عبر موقع وتطبيق صندوق العمارة." />
+  <link rel="canonical" href="https://sandoqalemara.com/guides/residential-building-fiber-optic-ftth-cables-and-facade-protection-guide.html" />
+
+  <!-- Alternate Languages (hreflang) -->
+  <link rel="alternate" hreflang="ar" href="https://sandoqalemara.com/guides/residential-building-fiber-optic-ftth-cables-and-facade-protection-guide.html" />
+  <link rel="alternate" hreflang="en" href="https://sandoqalemara.com/en/guides/" />
+  <link rel="alternate" hreflang="x-default" href="https://sandoqalemara.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://sandoqalemara.com/guides/residential-building-fiber-optic-ftth-cables-and-facade-protection-guide.html" />
+  <meta property="og:title" content="توصيل وتنظيم شبكات الألياف الضوئية (الفايبر FTTH) وبوكسات الإنترنت في العمارة السكنية: الكود الهندسي، مسارات الصواعد، ومنع تشويه الواجهة" />
+  <meta property="og:description" content="الدليل الهندسي والإداري الشامل لتنظيم توصيل كابلات الألياف الضوئية (الفايبر FTTH) وبوكسات الإنترنت في العمارات السكنية في مصر والعالم العربي: اشتراطات الكود المصري للاتصالات وهيئة الاتصالات السعودية (FDB/FAB)، منع تعليق الأسلاك العشوائية على الواجهات، مسارات الصواعد والمواسير في المناور، التعامل مع الموافقة الجماعية وبروتوكول الفنيين، وتنظيم المشروع عبر موقع وتطبيق صندوق العمارة." />
+  <meta property="og:image" content="https://sandoqalemara.com/assets/sandooq-logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Favicon & Styles -->
+  <link rel="icon" href="../favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/sandooq-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    .guide-container { max-width: 900px; margin: 40px auto 80px; padding: 0 24px; }
+    .guide-article { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 44px 36px; box-shadow: var(--shadow-md); }
+    .guide-article h1 { font-size: 2.2rem; font-weight: 800; color: var(--text-main); line-height: 1.35; margin-bottom: 16px; }
+    .guide-meta { display: flex; gap: 16px; font-size: 0.88rem; color: var(--text-muted); margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color); flex-wrap: wrap; }
+    .guide-article h2 { font-size: 1.5rem; color: var(--primary-light); margin: 36px 0 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(59, 130, 246, 0.2); }
+    .guide-article h3 { font-size: 1.22rem; color: var(--text-main); margin: 24px 0 10px; }
+    .guide-article p, .guide-article li { font-size: 1.02rem; color: var(--text-light); line-height: 1.85; margin-bottom: 14px; }
+    .guide-article ul, .guide-article ol { padding-right: 24px; margin-bottom: 20px; }
+    .callout-box { background: var(--card-bg-subtle); border-right: 4px solid var(--primary-light); padding: 20px 24px; border-radius: var(--radius-md); margin: 28px 0; }
+    .breadcrumb-nav { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px; }
+    .breadcrumb-nav a { color: var(--primary-light); }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "توصيل وتنظيم شبكات الألياف الضوئية (الفايبر FTTH) وبوكسات الإنترنت في العمارة السكنية: الكود الهندسي، مسارات الصواعد، ومنع تشويه الواجهة",
+        "description": "الدليل الهندسي والإداري الشامل لتنظيم توصيل كابلات الألياف الضوئية (الفايبر FTTH) وبوكسات الإنترنت في العمارات السكنية في مصر والعالم العربي: اشتراطات الكود المصري للاتصالات وهيئة الاتصالات السعودية (FDB/FAB)، منع تعليق الأسلاك العشوائية على الواجهات، مسارات الصواعد والمواسير في المناور، التعامل مع الموافقة الجماعية وبروتوكول الفنيين، وتنظيم المشروع عبر موقع وتطبيق صندوق العمارة.",
+        "image": "https://sandoqalemara.com/assets/sandooq-logo.png",
+        "author": { "@type": "Organization", "name": "صندوق العمارة" },
+        "publisher": { "@type": "Organization", "name": "صندوق العمارة", "logo": { "@type": "ImageObject", "url": "https://sandoqalemara.com/assets/sandooq-logo.png" } },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sandoqalemara.com/guides/residential-building-fiber-optic-ftth-cables-and-facade-protection-guide.html" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [{"@type":"Question","name":"هل يحق لساكن الدور الأرضي أو أحد الجيران رفض تركيب بوكس الفايبر الرئيسي في مدخل العمارة أو المنور؟","acceptedAnswer":{"@type":"Answer","text":"لا، إذا صدر قرار من الجمعية العمومية لاتحاد الشاغلين أو تم اختيار موضع في الأجزاء المشتركة (المدخل أو البدروم أو المنور) بما لا يضر بسلامة المبنى ولا يقتطع من ملكية شقة خاصة، فلا يحق لساكن منفرد منع إدخال مرفق اتصالات حيوي يخدم جميع سكان العمارة."}},{"@type":"Question","name":"هل يتحمل السكان تكلفة تركيب بوكس الفايبر الرئيسي أم توفره شركة الاتصالات مجاناً؟","acceptedAnswer":{"@type":"Answer","text":"في مناطق التغطية المعتمدة في مصر والسعودية، تتولى شركة الاتصالات أو مشغل البنية التحتية تركيب الكابل العمومي وبوكس التوزيع الرئيسي (FAB/FDB) دون تحميل اتحاد الشاغلين تكلفة البوكس، بينما يتحمل السكان فقط تكلفة أي أعمال تحسينية إضافية يقررها الاتحاد مثل تركيب مواسير PVC أو ترانكات حماية داخلية في المنور وبئر السلم لتوحيد مسارات الشقق ومنع تشويه الواجهة."}},{"@type":"Question","name":"علّق أحد الجيران سلك إنترنت أو دش عشوائياً على واجهة العمارة وشوّه المظهر، ما الإجراء الصحيح؟","acceptedAnswer":{"@type":"Answer","text":"يُوجّه مأمور الاتحاد أو مجلس الإدارة إخطاراً ودياً ثم إنذاراً مكتوباً يمهل الساكن مدة محددة (مثل 7 أيام) لنقل السلك إلى مسار المنور أو الترانك المعتمد بالعمارة. وإذا أصر على المخالفة رغم وجود المسار الموحد، يحق للاتحاد تطبيق الغرامة المنصوص عليها باللائحة الداخلية أو إزالة التعدي على الواجهة المشتركة وإلزامه بالتكلفة."}},{"@type":"Question","name":"لماذا ينقطع الإنترنت فجأة لدى شقة بعد تركيب خط فايبر جديد لجار آخر في نفس العمارة؟","acceptedAnswer":{"@type":"Answer","text":"يحدث ذلك غالباً بسبب عدم ترقيم الأسلاك داخل بوكس الفايبر أو ضغط الترانكات المزدحمة مما يؤدي إلى ثني شعيرة زجاجية بزاوية حادة أو فصل كابل بالخطأ أثناء عمل الفني. الحل الجذري هو تركيب ترانكات واسعة ومستقلة بالمنور، ومنع دخول الفني بدون مرافقة الحارس، وإلزامه بوضع علامة برقم الشقة على كل كابل."}},{"@type":"Question","name":"كيف ننظم تمويل تركيب مواسير وترانكات الفايبر وإبلاغ السكان داخل تطبيق صندوق العمارة؟","acceptedAnswer":{"@type":"Answer","text":"يمكنك فتح مشروع مستقل في تبويب «المشاريع الخاصة 🏗️» لجمع التكلفة وتوثيق فواتير المواسير والفني بالصور دون خلطها بمصاريف النظافة والحراسة، وإصدار إعلان رسمي لجميع السكان بمواعيد التنفيذ عبر «العمليات 📋» ⬅️ «أدوات 🛠️» ⬅️ «مولد الإعلانات والإخطارات الرسمية 📢📑»، مع استشارة «عم أمين 🤖» لصياغة بنود اللائحة أو خطاب شركة الاتصالات."}}]
+      }
+    ]
+  }
+  </script>
+  <!-- Immediate Theme Synchronizer (Zero-Flash Light/Dark Mode) -->
+  <script>
+    (function() {
+      try {
+        var theme = localStorage.getItem('sandooq_theme') || 'dark';
+        if (theme === 'light') {
+          document.documentElement.classList.add('light-theme');
+          if (document.body) document.body.classList.add('light-theme');
+          else document.addEventListener('DOMContentLoaded', function() { document.body.classList.add('light-theme'); });
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+  <!-- Header will be injected by build_landing.js -->
+  <!-- TEMPLATE: HEADER -->
+<header class="site-header">
+  <div class="header-container">
+    <a class="brand" href="../">
+      <picture>
+        <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+        <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="36" height="36" />
+      </picture>
+      <span>صندوق العمارة</span>
+    </a>
+
+    <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <nav class="nav">
+      <a href="../#features">المميزات</a>
+      <a href="../#video-tour">فيديو الشرح</a>
+      <a href="../#reviews">آراء المستخدمين ⭐</a>
+      <a href="../tools/" class="">الأدوات المجانية</a>
+      <a href="../guides/" class="active">أدلة الإدارة</a>
+      <a href="../billing.html" class="" style="color: var(--secondary-color); font-weight: 800; white-space: nowrap;">الاشتراكات ⚡</a>
+      <a href="../about.html" class="nav-link-secondary ">عن التطبيق</a>
+      <a href="../contact.html" class="nav-link-secondary ">تواصل معنا</a>
+
+      <!-- Instant Live Search Trigger Button (M3 Hook) -->
+      <button id="search-trigger-btn" class="search-trigger-btn" aria-label="بحث سريع في الموقع (Ctrl+K)" title="بحث سريع (Ctrl+K)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span class="search-trigger-text">بحث...</span>
+        <kbd class="search-kbd">Ctrl+K</kbd>
+      </button>
+
+      <!-- Theme Toggle Button -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="تبديل المظهر الليلي/النهاري">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+
+      <!-- Language Switcher Button -->
+      <a href="../en/guides/" class="lang-switch-btn" aria-label="Switch to English" title="Switch to English">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span class="lang-code">EN</span>
+      </a>
+
+      <!-- Primary CTA Button (Placed at edge for clean visual anchor) -->
+      <a href="../download.html" class="button primary header-cta-btn " title="تحميل تطبيق صندوق العمارة مجاناً">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-left: 4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>تحميل التطبيق</span>
+      </a>
+    </nav>
+  </div>
+  <!-- Sandooq El-Amara — Global Command Palette Search Modal (R2) -->
+<div id="search-modal" class="search-modal-backdrop" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="search-modal-label">
+  <div class="search-modal-dialog">
+    <div class="search-modal-header">
+      <div class="search-modal-input-wrapper">
+        <svg class="search-modal-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" id="search-modal-input" class="search-modal-input" placeholder="ابحث في أكثر من 120 دليلاً و 70 حاسبة وحلول العمارة... (Esc للإغلاق)" aria-label="بحث في أدلة وحاسبات صندوق العمارة" autocomplete="off" />
+      </div>
+      <button type="button" id="search-modal-close" class="search-modal-close" aria-label="إغلاق البحث (Esc)">&times;</button>
+    </div>
+
+    <!-- Category Filter Tabs inside Modal -->
+    <div class="search-modal-tabs" role="tablist" aria-label="تصفية نتائج البحث">
+      <button type="button" class="search-filter-tab active" data-filter="all" role="tab" aria-selected="true">الكل</button>
+      <button type="button" class="search-filter-tab" data-filter="guides" role="tab" aria-selected="false">أدلة إرشادية</button>
+      <button type="button" class="search-filter-tab" data-filter="tools" role="tab" aria-selected="false">حاسبات وأدوات</button>
+      <button type="button" class="search-filter-tab" data-filter="solutions" role="tab" aria-selected="false">حلول وميزات</button>
+    </div>
+
+    <div id="search-modal-results" class="search-modal-results" role="region" aria-live="polite">
+      <!-- Dynamic search results populated by js/search.js -->
+      <div class="search-empty-state no-results" style="display:none;">
+        <p>لا توجد نتائج مطابقة لبحثك</p>
+      </div>
+    </div>
+
+    <div class="search-modal-footer">
+      <div class="search-shortcuts-hints">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> للتنقل</span>
+        <span><kbd>Enter</kbd> لفتح الرابط</span>
+        <span><kbd>Esc</kbd> للإغلاق</span>
+      </div>
+      <div class="search-modal-brand-note">
+        <span>صندوق العمارة • البحث الفوري السحابي والمحلي</span>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+<!-- /TEMPLATE: HEADER -->
+
+  <main>
+    <div class="guide-container">
+      <nav class="breadcrumb-nav">
+        <a href="../index.html">الرئيسية</a> &gt; 
+        <a href="index.html">أدلة الإدارة</a> &gt; 
+        <span>دليل توصيل وتنظيم شبكات الفايبر وبوكسات الإنترنت بالعمارة</span>
+      </nav>
+
+      <article class="guide-article">
+        <h1>توصيل وتنظيم شبكات الألياف الضوئية (الفايبر FTTH) وبوكسات الإنترنت في العمارة السكنية: الكود الهندسي، مسارات الصواعد، ومنع تشويه الواجهة</h1>
+        <div class="guide-meta">
+          <span>📅 تم التحديث: أكتوبر 2026</span>
+          <span>⏱️ 12 دقيقة قراءة</span>
+          <span>🏷️ الهندسة والسلامة والترميم</span>
+        </div>
+
+        <div class="callout-box">
+          <p style="margin:0; font-weight:700; color:var(--text-main);">💡 خلاصة الدليل السريعة:</p>
+          <p style="margin:6px 0 0; color:var(--text-light); font-size:0.95rem;">الدليل الهندسي والإداري الشامل لتنظيم توصيل كابلات الألياف الضوئية (الفايبر FTTH) وبوكسات الإنترنت في العمارات السكنية في مصر والعالم العربي: اشتراطات الكود المصري للاتصالات وهيئة الاتصالات السعودية (FDB/FAB)، منع تعليق الأسلاك العشوائية على الواجهات، مسارات الصواعد والمواسير في المناور، التعامل مع الموافقة الجماعية وبروتوكول الفنيين، وتنظيم المشروع عبر موقع وتطبيق صندوق العمارة.</p>
+        </div>
+
+      <h2>1. فوضى كابلات الإنترنت على الواجهات مقابل البنية التحتية المنظمة (FTTH)</h2>
+      <p>مع التحول الرقمي واعتماد الأسر والطلاب والعمل عن بُعد على الإنترنت عالي السرعة، أصبحت شبكات الألياف الضوئية (FTTH - Fiber to the Home) مرفقاً أساسياً لا يقل أهمية عن الكهرباء والمياه والغاز. غير أن غياب التنظيم المسبق من اتحاد الشاغلين أو مجلس الإدارة يحوّل وصول خدمة الفايبر إلى كابوس بصري وهندسي؛ حيث يلجأ بعض الفنيين إلى مد أسلاك متدلية عبر الواجهة الأمامية أو البلكونات، أو ثقب الرخام وحوائط السلم عشوائياً لتوصيل كل شقة على حدة.</p>
+      <p>هذه العشوائية لا تشوّه واجهة العمارة وتخفض قيمتها السوقية فحسب، بل تتسبب في أعطال متكررة ومخاطر خفية تشمل: تسرب مياه الأمطار عبر ثقوب الاختراق العشوائية، وتلف وانقطاع الكابلات الحساسة أثناء أعمال غسيل الواجهة أو نقل الأثاث بالونش، فضلاً عن الخلافات اليومية بين الجيران بسبب مرور الأسلاك أمام نوافذ وشرفات الآخرين.</p>
+      <p>ولإدارة الملف باحترافية، يجب أن يفرّق أمين الصندوق ومجلس الإدارة بين مكونات الشبكة الأربعة:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">الكابل العمومي الخارجي (Feeder Cable): القادم من كابينة الاتصالات بالشارع إلى داخل حدود العقار.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">بوكس أو لوحة التوزيع الرئيسية (FAB / ODF / FDB): صندوق التجميع الرئيسي المثبت عادةً في الدور الأرضي أو البدروم لاستقبال الخط الرئيسي وتفريعه.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">صاعد الألياف الرأسي (Vertical Riser) وعلب الأدوار: المسار المشترك الممتد رأسياً في المنور أو دكت الاتصالات لتغذية الطوابق.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">كابلات الربط النهائية للشقق (Drop Cables): الخيوط الواصلة من البوكس الرئيسي أو صندوق الدور إلى مخرج الفايبر داخل كل شقة وجهاز الراوتر البصري (ONT).</li></ul>
+      <h2>2. الاشتراطات الهندسية والقانونية في مصر والسعودية: الكود الإلزامي ومكان بوكس الفايبر</h2>
+      <p>لم يعد إدخال شبكات الألياف الضوئية مسألة اجتهاد شخصي، بل أصبح منظماً بأكواد هندسية وتشريعية ملزمة في مصر ودول الخليج:</p>
+      <p>أولاً: الإطار المصري (الكود المصري للألياف الضوئية واشتراطات المصرية للاتصالات WE):</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">أصدرت وزارة الإسكان بالتنسيق مع الجهاز القومي لتنظيم الاتصالات (NTRA) والمركز القومي لبحوث الإسكان والبناء (HBRC) «الكود المصري لأسس تصميم واشتراطات تنفيذ شبكات الألياف الضوئية للاتصالات في المباني والمنشآت» (القرار الوزاري رقم 818 لسنة 2020 ولائحته التنفيذية ومجلد اشتراطات التنفيذ رقم 61 لسنة 2022)، ليصبح تجهيز المباني الجديدة ببنية تحتية للفايبر شرطاً أساسياً في تراخيص البناء.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">في العمارات القائمة والقديمة، تشترط الشركة المصرية للاتصالات توفير موقع آمن وجاف بالمدخل أو البدروم لتثبيت بوكس الفايبر الرئيسي (FAB)، مع سهولة وصول فرق الصيانة إليه دون تعريضه للرطوبة أو الصدمات.</li></ul>
+      <p>ثانياً: الإطار السعودي والخليجي (هيئة الاتصالات والفضاء والتقنية CST ومنصة بلدي):</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">تُلزم هيئة الاتصالات والفضاء والتقنية وكود البناء السعودي المطورين والملاك بالتمديد المخفي لشبكات الاتصالات وتثبيت لوحة التوزيع الرئيسية (FDB - Fiber Distribution Box) داخل غرفة اتصالات أو نقطة مؤمنة بالدور الأرضي أو القبو.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">وبفضل اتفاقيات «فتح النطاق العريض» (Open Access)، تُتيح لوحة التوزيع المعتمدة واللوحة المعدنية للمبنى لأكثر من مشغل اتصالات تقديم الخدمة للسكان عبر نفس البنية التحتية دون الحاجة لحفر جديد أو مد أسلاك مكررة على الواجهة.</li></ul>
+      <p>ثالثاً: القواعد الهندسية الأربع التي يجب ألا يتنازل عنها مجلس العمارة:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">1. فصل مسارات الاتصالات عن الكهرباء تماماً: يجب تمديد مواسير الفايبر (PVC أو HDPE) بعيداً عن كابلات ومواسير الجهد الكهربائي لمنع أي مخاطر صعق للفنيين أو تداخل وتلف ميكانيكي أثناء سحب الأسلاك.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">2. احترام نصف قطر الانحناء (Bend Radius): كابل الفايبر يحتوي على شعيرات زجاجية دقيقة جداً؛ ثني الكابل بزاوية حادة قائمة (90 درجة) أو شده بعنف يكسر الشعيرة داخلياً أو يضعف الإشارة، لذا يلزم استخدام أكواع دائرية واسعة (Long Sweep Bends) في المنعطفات.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">3. حماية البوكس الرئيسي من المياه والرطوبة: يُمنع تركيب بوكس الفايبر أسفل مواسير الصرف أو بجوار طلمبات المياه في البدروم، ويجب تثبيته على ارتفاع مناسب بعيداً عن مياه غسيل المدخل.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">4. تأمين أبواب البوكسات وعلب التوزيع: إغلاق الصندوق الرئيسي بقفل أو مفتاح مخصص يمنع العبث العشوائي أو فصل أسلاك الجيران.</li></ul>
+      <h2>3. مسارات الصواعد بالمنور والسلم: كيف نمنع تشويه الواجهة الأمامية والخلفية؟</h2>
+      <p>في العمارات التي لم تُؤسس فيها مواسير اتصالات مدفونة وقت البناء، يمكن لاتحاد الشاغلين تحويل المشهد الفوضوي إلى شبكة منظمة وآمنة بتكلفة محدودة عبر تطبيق أربع خطوات هندسية بسيطة:</p>
+      <p>1. تأسيس «صاعد ترانكات ومواسير PVC موحد» في المنور أو زاوية بئر السلم:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">بدلاً من أن يمد كل ساكن سلكه من الشارع أو يتدلى السلك أمام شبابيك الجيران، يتفق الاتحاد على تركيب ماسورة PVC صلبة (قطر بوصة ونصف أو بوصتين) أو ترانك بلاستيكي عريض مغلق (Cable Trunking) يمتد رأسياً من بوكس الفايبر الرئيسي في الدور الأرضي صعوداً عبر المنور أو ركن غير ظاهر ببئر السلم.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">يتم تثبيت علبة تجميع أو فرع تغذية عند كل دور لخروج سلك الشقة مباشرة نحو بابها أو شباك المنور في مسار أفقي قصير ومخفي.</li></ul>
+      <p>2. حظر اختراق الواجهة الأمامية والرخام:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">يُمنع منعاً باتاً مد أي سلك على الواجهة المطلة على الشارع أو تخريم رخام المدخل أو حجر الواجهة. وفي الحالات النادرة التي يتعذر فيها الوصول إلا من واجهة خلفية، يُلزم الساكن باستخدام مواسير بلون مطابق للدهان مثبتة بأفيزات مخصصة ومغلقة تماماً.</li></ul>
+      <p>3. سد فتحات الاختراق ومعالجة تسرب الأمطار (Drip Loop):</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">أي ثقب يخترق جدار الشقة من المنور أو الخارج يجب سده فوراً بالسيليكون العازل للماء، مع عمل لفة سفلية صغيرة للسلك قبل دخوله الثقب (على شكل حرف U) حتى تتساقط قطرات المطر لأسفل بدلاً من التسلل عبر السلك إلى حائط الشقة.</li></ul>
+      <p>4. ترقيم الأسلاك بالبطاقات التعريفية (Cable Tagging):</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">إلزام كل فني بوضع علامة بلاستيكية أو لاصق مقاوم للماء يحمل «رقم الشقة» على طرف السلك داخل بوكس الدور والبوكس الرئيسي. هذه الخطوة البسيطة تمنع الكارثة الأشهر في العمارات، وهي قيام فني بقص أو فصل سلك جار بالخطأ أثناء صيانة عطل جار آخر.</li></ul>
+      <h2>4. الحوكمة القانونية وموافقة السكان: هل يملك جار رفض تركيب البوكس أو مرور الكابل؟</h2>
+      <p>تتكرر أحياناً اعتراضات فردية تعرقل دخول الفايبر للعقار؛ كأن يرفض ساكن الدور الأرضي تثبيت البوكس على حائط المدخل الخارجي، أو يعترض جار على مرور ماسورة الترانك في المنور المشترك. وهنا يحسم القانون اللبس بوضوح:</p>
+      <p>أولاً: سلطة الجمعية العمومية وفق قانون البناء الموحد (119 لسنة 2008) ولوائح اتحاد الملاك:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">المداخل والمناور وبئر السلم والبدروم هي أجزاء مشتركة مخصصة لخدمة جميع الوحدات، وإدخال أو تطوير مرافق الاتصالات الأساسية يقع ضمن اختصاصات الجمعية العمومية لاتحاد الشاغلين بالأغلبية المطلقة للحاضرين في اجتماع صحيح النصاب.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">لا يحق لأي مالك أو مستأجر بمفرده تعطيل منفعة عامة للعمارة أو منع فنيي شركة الاتصالات المرخصة من تركيب البوكس الرئيسي أو مد الصاعد في المنور، ما دام المسار لا يمس خصوصية شقته ولا يقتطع من مساحتها الخاصة.</li></ul>
+      <p>ثانياً: التعامل مع المخالفات الفردية وتشويه الواجهة:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">إذا أصر ساكن على مد سلك إنترنت عشوائي عبر الواجهة أو بلكونة جار بالمخالفة للائحة العمارة رغم توفر مسار الصاعد الموحد، يحق لمجلس الاتحاد توجيه إخطار رسمي محدد المدة لنقل السلك إلى مسار المنور أو إزالته على نفقته الخاصة.</li></ul>
+      <p>ثالثاً: توزيع تكاليف التأسيس والتنظيم المالي:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">في معظم الحالات، تتحمل شركة الاتصالات تكلفة إدخال الكابل العمومي وتركيب البوكس الرئيسي ضمن خطة التغطية دون رسوم على الاتحاد. أما إذا قرر السكان تركيب شبكة مواسير وترانكات حماية داخلية وعلب تجميع أنيقة بالمنور أو بئر السلم عبر مقاول خاص لتوحيد المسارات وحماية الواجهة، فتُدرج التكلفة كمصروف تحسين وصيانة مشتركة يُوزع بين الوحدات بالتساوي أو وفق نصيبها المعتمد بلائحة العمارة (مع توثيق عدم إعفاء الشقق المغلقة من حصة تجهيز البنية المشتركة أو تحصيلها عند التوصيل اللاحق).</li></ul>
+      <h2>5. بروتوكول دخول فنيي شركات الاتصالات وحارس العمارة (5 خطوات لمنع الفوضى)</h2>
+      <p>تبدأ فوضى الأسلاك والأعطال المتكررة عادةً عندما يصعد فني شركة الاتصالات أو مقاول الباطن للعمل في العمارة دون إشراف أو توجيه. ولضبط العمل ميدانياً، يُعتمد هذا البروتوكول التنفيذي لحارس العقار وأعضاء المجلس:</p>
+      <p>1. الإخطار المسبق والتحقق من هوية الفني:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">يبلغ الساكن الطالب للخدمة حارس العقار وأمين الصندوق بموعد زيارة الفني قبلها بـ 24 ساعة، ويُمنع صعود أي شخص مجهول لسطح العمارة أو المناور دون إثبات هويته وتدوين اسمه وتابعيته في سجل الزيارات.</li></ul>
+      <p>2. الالتزام بالمسار المعتمد فقط:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">يوجّه الحارس أو عضو مجلس الإدارة الفني إلى موقع البوكس الرئيسي وإلى مسار الترانك أو ماسورة المنور المعتمدة، مع التنبيه الصارم بأن رمي الأسلاك من الواجهة أو ربطها بمواسير الغاز الطبيعي أو كابلات الكهرباء ممنوع تماماً.</li></ul>
+      <p>3. تسليم واستلام مفتاح خزانة البوكس أو غرفة الاتصالات:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">لا يُترك باب بوكس الفايبر مكسوراً أو مفتوحاً بعد انتهاء التركيب؛ يفتح الحارس القفل للفني ثم يتسلم المفتاح ويغلق الصندوق بإحكام فور انتهاء العمل.</li></ul>
+      <p>4. المراقبة أثناء التوصيل ومنع مخلفات الفايبر الخطيرة:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">يتأكد الحارس من عدم فصل أي سلك يخص جيراناً آخرين، ومن قيام الفني بوضع علامة رقم الشقة على السلك الجديد. والأهم: إلزام الفني بكنس وجمع أي قصاصات أو فضلات من كابلات الفايبر فوراً؛ لأن الشعيرات الزجاجية الدقيقة المتبقية من لحام أو قص الفايبر قد تنغرس في الجلد أو العيون وتسبب خطراً حقيقياً على الأطفال والعمال!</li></ul>
+      <p>5. المعاينة الختامية بعد التشغيل:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">مراجعة غلق أغطية ترانكات السلم أو المنور وسد أي فتحة حفر في الحائط قبل مغادرة الفني للمبنى.</li></ul>
+      <h2>6. إدارة مشروع تنظيم كابلات الفايبر واللوائح التنظيمية عبر موقع وتطبيق «صندوق العمارة»</h2>
+      <p>لتوحيد قرارات السكان، وتنظيم تمويل مسارات الحماية، وحماية واجهة العمارة من الفوضى بصورة موثقة وعادلة، يتيح لك موقع وتطبيق «صندوق العمارة» أدوات عملية متكاملة:</p>
+      <p>1. تثبيت ضوابط الواجهة والاتصالات في ميثاق العمارة مجاناً عبر الموقع:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">ادخل إلى أداة «مولد اللائحة الداخلية وميثاق الجيرة للعمارة» على موقعنا (sandoqalemara.com/tools/building-bylaws-generator.html) وأضف بنداً صريحاً يحظر تعليق أي أسلاك دش أو إنترنت أو فايبر على الواجهة الخارجية ويلزم السكان بالمسار الموحد بالمنور.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">وفي حال تسبب فني أو مقاول في كسر رخام أو إتلاف كابل جار أو تشويه الواجهة، وثّق الواقعة فوراً عبر «مولد تقرير واقعة أو تلف في ممتلكات العمارة مع إثبات الحالة والشهود» (sandoqalemara.com/tools/contractor-incident-report-generator.html)، أو أصدر إنذاراً منظماً عبر «مولد الإخطارات والإنذارات القانونية» (sandoqalemara.com/tools/legal-notice-generator.html).</li></ul>
+      <p>2. إدارة ميزانية تأسيس ترانكات ومواسير الصاعد داخل التطبيق:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">افتح تبويب «المشاريع الخاصة 🏗️» داخل تطبيق «صندوق العمارة» وأنشئ مشروعاً مستقلاً بعنوان «تنظيم صواعد الفايبر وحماية الواجهة» لتسجيل مساهمات الشقق بدقة وفصلها عن صندوق الصيانة الشهري الجاري.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">وعند شراء مواسير PVC أو ترانكات التجميع وسداد أجر الفني، سجّل المصروف وأرفق صور الفواتير وصور المسار المنظم بعد التركيب (حتى 5 صور)، كما يمكنك حفظ بيانات فنيي الشبكات والكهرباء المعتمدين في «دليل الفنيين 👨‍🔧» وإصدار سند صرف موثق بضغطة زر.</li></ul>
+      <p>3. إشعار السكان وتنفيذ حملة إزالة الأسلاك العشوائية:</p>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">قبل بدء حملة إزالة الكابلات القديمة المقطوعة من الواجهة ونقل الأسلاك الفعالة للترانك الموحد، افتح «العمليات 📋» ⬅️ تبويب «أدوات 🛠️» ⬅️ «مولد الإعلانات والإخطارات الرسمية 📢📑» وأصدر إعلاناً واضحاً بموعد العمل حتى يتأكد كل ساكن من تعريف سلك شقته قبل التنظيم.</li></ul>
+      <ul style="padding-right:24px; margin-bottom:14px;"><li style="margin-bottom:6px;">كما يمكنك سؤال المستشار الذكي «عم أمين 🤖» داخل التطبيق لصياغة خطاب رسمي باسم اتحاد الشاغلين لتقديمه لشركة الاتصالات بطلب تركيب أو نقل بوكس الفايبر الرئيسي لمكان آمن ومناسب داخل العقار.</li></ul>
+
+
+        <h2 style="margin-top:40px;">الأسئلة الشائعة حول الموضوع</h2>
+      <div class="faq-item" style="margin-bottom:20px; border-bottom:1px solid var(--border-color); padding-bottom:14px;">
+        <h4 style="color:var(--text-main); font-size:1.15rem; margin-bottom:8px;">❓ هل يحق لساكن الدور الأرضي أو أحد الجيران رفض تركيب بوكس الفايبر الرئيسي في مدخل العمارة أو المنور؟</h4>
+        <p style="color:var(--text-light); line-height:1.8;">لا، إذا صدر قرار من الجمعية العمومية لاتحاد الشاغلين أو تم اختيار موضع في الأجزاء المشتركة (المدخل أو البدروم أو المنور) بما لا يضر بسلامة المبنى ولا يقتطع من ملكية شقة خاصة، فلا يحق لساكن منفرد منع إدخال مرفق اتصالات حيوي يخدم جميع سكان العمارة.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom:20px; border-bottom:1px solid var(--border-color); padding-bottom:14px;">
+        <h4 style="color:var(--text-main); font-size:1.15rem; margin-bottom:8px;">❓ هل يتحمل السكان تكلفة تركيب بوكس الفايبر الرئيسي أم توفره شركة الاتصالات مجاناً؟</h4>
+        <p style="color:var(--text-light); line-height:1.8;">في مناطق التغطية المعتمدة في مصر والسعودية، تتولى شركة الاتصالات أو مشغل البنية التحتية تركيب الكابل العمومي وبوكس التوزيع الرئيسي (FAB/FDB) دون تحميل اتحاد الشاغلين تكلفة البوكس، بينما يتحمل السكان فقط تكلفة أي أعمال تحسينية إضافية يقررها الاتحاد مثل تركيب مواسير PVC أو ترانكات حماية داخلية في المنور وبئر السلم لتوحيد مسارات الشقق ومنع تشويه الواجهة.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom:20px; border-bottom:1px solid var(--border-color); padding-bottom:14px;">
+        <h4 style="color:var(--text-main); font-size:1.15rem; margin-bottom:8px;">❓ علّق أحد الجيران سلك إنترنت أو دش عشوائياً على واجهة العمارة وشوّه المظهر، ما الإجراء الصحيح؟</h4>
+        <p style="color:var(--text-light); line-height:1.8;">يُوجّه مأمور الاتحاد أو مجلس الإدارة إخطاراً ودياً ثم إنذاراً مكتوباً يمهل الساكن مدة محددة (مثل 7 أيام) لنقل السلك إلى مسار المنور أو الترانك المعتمد بالعمارة. وإذا أصر على المخالفة رغم وجود المسار الموحد، يحق للاتحاد تطبيق الغرامة المنصوص عليها باللائحة الداخلية أو إزالة التعدي على الواجهة المشتركة وإلزامه بالتكلفة.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom:20px; border-bottom:1px solid var(--border-color); padding-bottom:14px;">
+        <h4 style="color:var(--text-main); font-size:1.15rem; margin-bottom:8px;">❓ لماذا ينقطع الإنترنت فجأة لدى شقة بعد تركيب خط فايبر جديد لجار آخر في نفس العمارة؟</h4>
+        <p style="color:var(--text-light); line-height:1.8;">يحدث ذلك غالباً بسبب عدم ترقيم الأسلاك داخل بوكس الفايبر أو ضغط الترانكات المزدحمة مما يؤدي إلى ثني شعيرة زجاجية بزاوية حادة أو فصل كابل بالخطأ أثناء عمل الفني. الحل الجذري هو تركيب ترانكات واسعة ومستقلة بالمنور، ومنع دخول الفني بدون مرافقة الحارس، وإلزامه بوضع علامة برقم الشقة على كل كابل.</p>
+      </div>
+      <div class="faq-item" style="margin-bottom:20px; border-bottom:1px solid var(--border-color); padding-bottom:14px;">
+        <h4 style="color:var(--text-main); font-size:1.15rem; margin-bottom:8px;">❓ كيف ننظم تمويل تركيب مواسير وترانكات الفايبر وإبلاغ السكان داخل تطبيق صندوق العمارة؟</h4>
+        <p style="color:var(--text-light); line-height:1.8;">يمكنك فتح مشروع مستقل في تبويب «المشاريع الخاصة 🏗️» لجمع التكلفة وتوثيق فواتير المواسير والفني بالصور دون خلطها بمصاريف النظافة والحراسة، وإصدار إعلان رسمي لجميع السكان بمواعيد التنفيذ عبر «العمليات 📋» ⬅️ «أدوات 🛠️» ⬅️ «مولد الإعلانات والإخطارات الرسمية 📢📑»، مع استشارة «عم أمين 🤖» لصياغة بنود اللائحة أو خطاب شركة الاتصالات.</p>
+      </div>
+
+
+        <div style="margin-top:40px; background:linear-gradient(135deg, rgba(30,58,138,0.25), rgba(16,185,129,0.15)); border:1px solid var(--primary-light); border-radius:var(--radius-md); padding:32px; text-align:center;">
+          <h3 style="font-size:1.35rem; color:var(--text-main); margin-bottom:10px;">إدارة عمارة ذكية وسهلة مع "صندوق العمارة"</h3>
+          <p style="color:var(--text-light); max-width:650px; margin:0 auto 20px;">وداعاً لحسابات الورقة والقلم ومشاكل تحصيل المتأخرات.. نظّم مصاريف عمارتك بضغطة زر من موبايلك.</p>
+          <a href="../download.html" class="btn btn-primary" style="display:inline-block; padding:12px 28px; border-radius:30px; text-decoration:none; font-weight:700;">حمّل تطبيق صندوق العمارة مجاناً</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer will be injected by build_landing.js -->
+  <!-- TEMPLATE: FOOTER -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Tier 1: Showcase Cards (App & Book) -->
+    <div class="footer-showcase-row">
+      <!-- App Showcase Card -->
+      <div class="footer-showcase-card card-app">
+        <div class="footer-card-body">
+          <div class="footer-card-header">
+            <div class="footer-card-title">
+              <picture>
+                <source srcset="../assets/sandooq-logo.webp" type="image/webp" />
+                <img src="../assets/sandooq-logo.png" alt="شعار تطبيق صندوق العمارة" width="32" height="32" loading="lazy" />
+              </picture>
+              <span>صندوق العمارة</span>
+            </div>
+            <span class="footer-card-pill">منظومة معتمدة</span>
+          </div>
+          <p class="footer-card-desc">
+            المنصة والتطبيق المتخصص الأول في مصر لإدارة حسابات العقارات السكنية واتحادات الملاك، لمتابعة التحصيلات والمصروفات بكل شفافية ودون أخطاء.
+          </p>
+          <div class="footer-card-actions">
+            <a href="https://play.google.com/store/apps/details?id=com.amrem.sandooqelamara" target="_blank" rel="noopener" style="display:inline-block;" aria-label="تحميل من Google Play">
+              <img src="../assets/google-play-badge.svg" alt="احصل عليه من Google Play" width="135" height="40" loading="lazy" />
+            </a>
+            <span class="footer-badge-offline">عمل كامل بدون إنترنت</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book Showcase Card -->
+      <div class="footer-showcase-card card-book">
+        <div class="footer-book-thumb-wrap">
+          <a href="../book.html">
+            <picture>
+              <source srcset="../assets/book/cover_official.webp" type="image/webp" />
+              <img src="../assets/book/cover_official.jpg" alt="غلاف كتاب دستور العمارة" width="75" height="106" class="footer-book-thumb" loading="lazy" />
+            </picture>
+          </a>
+        </div>
+        <div class="footer-card-body">
+          <div class="footer-card-header">
+            <h4 class="footer-card-title" style="font-size: 1.05rem;">كتاب دستور العمارة</h4>
+            <span class="footer-card-pill book-pill">طبعة النخبة (76 صفحة A4)</span>
+          </div>
+          <p class="footer-card-desc">
+            المرجع العملي الشامل لإدارة الجمعيات العمومية، حل نزاعات الشاغلين، واللائحة المالية طبقاً للقانون 119.
+          </p>
+          <div class="footer-card-actions">
+            <a href="../manuals/Dostor_ElAmara_Luxury_Edition.pdf" download="Dostor_ElAmara_Luxury_Edition.pdf" class="footer-book-btn-primary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>تحميل الكتاب (PDF)</span>
+            </a>
+            <a href="../book.html" class="footer-book-btn-secondary">تصفح الفهرس والمحتوى ←</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier 2: Balanced 4-Column Navigation -->
+    <div class="footer-nav-grid">
+      <!-- Col 1: Solutions -->
+      <div class="footer-nav-col">
+        <h3>المنظومة والحلول</h3>
+        <ul>
+          <li><a href="../solutions/">دليل كافة الحلول</a></li>
+          <li><a href="../solutions/owners-association.html">إدارة اتحاد الملاك والشاغلين</a></li>
+          <li><a href="../solutions/building-expenses.html">إدارة المصروفات والفواتير</a></li>
+          <li><a href="../solutions/building-subscriptions.html">تحصيل اشتراكات الشقق</a></li>
+          <li><a href="../solutions/building-arrears.html">متابعة المتأخرات والديون</a></li>
+          <li><a href="../solutions/building-receipts.html">إيصالات واتساب الرقمية</a></li>
+          <li><a href="../solutions/building-treasury.html">تعدد الخزائن وعهدة البواب</a></li>
+          <li><a href="../solutions/building-reports.html">التقارير وسجل العمارة</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 2: Interactive Tools -->
+      <div class="footer-nav-col">
+        <h3>الأدوات التفاعلية</h3>
+        <ul>
+          <li><a href="../tools/">مركز الأدوات التفاعلية</a></li>
+          <li><a href="../tools/building-fee-calculator.html">حاسبة اشتراك الشقة العادلة</a></li>
+          <li><a href="../tools/building-arrears-calculator.html">حاسبة متأخرات وتراكم الديون</a></li>
+          <li><a href="../tools/elevator-cost-calculator.html">حاسبة صيانة وفواتير الأسانسير</a></li>
+          <li><a href="../tools/receipt-generator.html">مولد إيصالات السداد الفورية</a></li>
+          <li><a href="../tools/maintenance-budget-planner.html">حاسبة ميزانية الصيانة السنوية</a></li>
+          <li><a href="../tools/petty-cash-tracker.html">حاسبة عهدة البواب والنثريات</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Guides & Knowledge -->
+      <div class="footer-nav-col">
+        <h3>الأدلة والمعرفة</h3>
+        <ul>
+          <li><a href="../guides/">مكتبة أدلة الإدارة</a></li>
+          <li><a href="../book.html">صفحة كتاب دستور العمارة</a></li>
+          <li><a href="../guides/building-fund-management-guide.html">دليل إدارة الصندوق للمبتدئين</a></li>
+          <li><a href="../guides/building-occupants-union-law-egypt.html">قانون اتحاد الشاغلين رقم 119</a></li>
+          <li><a href="../for-building-treasurer.html">الدليل التشغيلي لأمين الصندوق</a></li>
+          <li><a href="../guides/building-expenses-excel-sheet.html">نموذج إكسيل مصاريف العمارة</a></li>
+          <li><a href="../guides/how-to-deal-with-unpaid-building-fees.html">بروتوكول التعامل مع المتأخرات</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Platform & About -->
+      <div class="footer-nav-col">
+        <h3>المنصة والخدمة</h3>
+        <ul>
+          <li><a href="../download.html" style="color: var(--primary-light); font-weight: 800;">تحميل التطبيق (Google Play) 📲</a></li>
+          <li><a href="../billing.html">الاشتراكات والدفع الإلكتروني</a></li>
+          <li><a href="../updates.html">سجل التحديثات الشامل</a></li>
+          <li><a href="../#reviews">آراء وتقييمات المستخدمين</a></li>
+          <li><a href="../thanks.html">لوحة الشرف والامتنان</a></li>
+          <li><a href="../manuals/Sandooq_ElAmara_User_Manual_AR.pdf" download="Sandooq_ElAmara_User_Manual_AR.pdf">دليل الاستخدام والتشغيل (PDF)</a></li>
+          <li><a href="../about.html">عن التطبيق والمطور</a></li>
+          <li><a href="../contact.html">تواصل معنا والدعم الفني</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tier 3: Sub-Footer Bar -->
+    <div class="sub-footer-bar">
+      <div class="sub-footer-copy">
+        <span>© 2026 تطبيق صندوق العمارة (Sandooq El-Amara) — جميع الحقوق محفوظة.</span>
+        <span class="site-version-pill">v1.0.221</span>
+      </div>
+
+      <div class="sub-footer-legal">
+        <a href="../security.html">الأمان وحماية البيانات</a>
+        <span class="divider-dot">•</span>
+        <a href="../privacy.html">سياسة الخصوصية</a>
+        <span class="divider-dot">•</span>
+        <a href="../terms.html">شروط الاستخدام</a>
+        <span class="divider-dot">•</span>
+        <a href="../delete-account.html">حذف الحساب</a>
+        <span class="divider-dot">•</span>
+        <a href="../llms.txt">فهرس AI (llms.txt)</a>
+      </div>
+
+      <div class="sub-footer-social">
+        <a href="https://www.facebook.com/sandoqalemara/" target="_blank" rel="noopener noreferrer" class="footer-social-btn facebook" title="فيسبوك" aria-label="فيسبوك">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/sandooqelamara?stkn=c2h1MGJldjRwY3R4" target="_blank" rel="noopener noreferrer" class="footer-social-btn instagram" title="إنستجرام" aria-label="إنستجرام">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://youtube.com/@sandoqalemara?si=2bC295BPZ7OkrRTP" target="_blank" rel="noopener noreferrer" class="footer-social-btn youtube" title="يوتيوب" aria-label="يوتيوب">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /TEMPLATE: FOOTER -->
+<!-- TEMPLATE: SCRIPTS -->
+<!-- Sandooq El-Amara — Global Scripts Template -->
+<script src="../script.js" defer></script>
+<script src="../js/simulator.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/quiz.js" defer></script>
+<!-- /TEMPLATE: SCRIPTS -->
+</body>
+</html>
